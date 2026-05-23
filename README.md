@@ -28,6 +28,24 @@ ODP is experiencing **stagnant growth (currently +1.50% YoY)**. Analysis of the 
 
 ---
 
+## 🖼️ Visual Dashboard Previews (Power BI Interface)
+
+Here are the visual representations of the reports included in this project, designed to match the ODP Business Solutions branding:
+
+### 1. Executive Performance Overview
+Shows high-level metrics, growth progress against the 7% gauge target, and the sales volume distribution between Hunters and Farmers.
+<img src="./assets/dashboard_exec_summary.png" alt="Executive Performance Overview" width="100%">
+
+### 2. Funnel Conversion & Leakage Analysis
+A side-by-side funnel breakdown detailing the differences in win rates and pipeline stages for Inside Sales (Hunters) versus Account Management (Farmers).
+<img src="./assets/dashboard_funnel_leakage.png" alt="Funnel Conversion & Leakage Analysis" width="100%">
+
+### 3. What-If Growth Simulator
+An interactive scenario modeling tool. Use the sliders to adjust sales levers and recalculate projected revenue growth dynamically to meet the 7% threshold.
+<img src="./assets/dashboard_simulator.png" alt="What-If Growth Simulator" width="100%">
+
+---
+
 ## 🏗️ The Data Architecture
 
 To simulate a production Power BI ecosystem, we design a modern data warehouse stack centered around Salesforce objects:
@@ -56,7 +74,7 @@ graph TD
 *   **`database/schema.sql`:** DDL script setting up the dimensional model.
 *   **`database/etl_queries.sql`:** SQL transformations converting staging tables into clean dimensions.
 *   **`power_bi/dax_measures.md`:** The exact DAX expressions to copy-paste into Power BI Desktop.
-*   **`presentation/presentation_guide.md`:** Slide-by-slide structure and speaker script for the 20-minute presentation.
+*   **`presentation/presentation_guide.md`:** Slide outlines and speaker script for the 20-minute presentation.
 *   **`data/generate_salesforce_data.py`:** Python script generating ODP's stagnant sales dataset.
 
 ---
@@ -73,6 +91,20 @@ Together, these changes increase revenue from **$7.24M** to **$7.64M**, achievin
 
 ---
 
+## 🌐 How to Host the Interactive Dashboard Live (GitHub Pages)
+
+You can host this interactive dashboard for free directly on your GitHub repository! This allows recruiters to interact with your dashboard live in their browser without installing anything.
+
+1. Go to your repository on **GitHub.com**.
+2. Click on the **Settings** tab.
+3. In the left-hand sidebar, under "Code and automation", click on **Pages**.
+4. Under "Build and deployment", set the Source to **Deploy from a branch**.
+5. Set the Branch to **main** and the folder to **/ (root)**. Click **Save**.
+6. Wait 1–2 minutes, then refresh the page. GitHub will show a link at the top: `Your site is live at: https://<your-username>.github.io/sales-performance-dashboard/`
+7. Click the link and navigate to `/prototype/` (i.e. `https://<your-username>.github.io/sales-performance-dashboard/prototype/index.html`) to view the fully interactive dashboard!
+
+---
+
 ## 🧠 Business Analyst Glossary
 
 ### Sales Terminologies
@@ -86,16 +118,6 @@ Together, these changes increase revenue from **$7.24M** to **$7.64M**, achievin
 *   **Star Schema:** A dimensional modeling method separating business transactions (Facts) from descriptive attributes (Dimensions). It is the gold standard for Power BI performance.
 *   **DAX (Data Analysis Expressions):** The formula language used to create custom calculations in Microsoft Power BI.
 *   **ETL (Extract, Transform, Load):** The data integration pipeline that pulls raw CRM data, cleans it, and loads it into a reportable database.
-
----
-
-## 🚀 How to Run the Interactive Power BI Mockup
-
-The dashboard prototype is written in standard HTML5, CSS3, and JavaScript, meaning **it requires no installation or local server to run**.
-
-1. Double-click the file `prototype/index.html` or open it in Google Chrome, Safari, or Edge.
-2. Navigate the tabs in the left sidebar to explore the Executive Summary, Funnel Leakage, and Rep Productivity pages.
-3. Go to the **7% Growth Simulator** and adjust the sliders to see the projected YoY growth update dynamically!
 
 ---
 <div align="center">
