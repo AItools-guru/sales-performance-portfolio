@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ODP Sales Performance - Power BI Prototype</title>
+    <!-- Google Fonts for premium typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@300;400;600;700&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --pbi-yellow: #F2C811;
+            --pbi-blue: #118DFF;
+            --pbi-dark-blue: #12239E;
+            --pbi-grey-bg: #EAEAEA;
+            --pbi-card-bg: #FFFFFF;
+            --pbi-border: #D2D2D2;
+            --text-dark: #252423;
+            --text-muted: #666666;
+            --success-green: #107C41;
+            --danger-red: #A80000;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+            background-color: var(--pbi-grey-bg);
+            color: var(--text-dark);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Top Navigation Header mimicking Power BI Service/Desktop UI */
+        header {
+            background-color: #1f1f1f;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 3px solid var(--pbi-yellow);
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .header-title h1 {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .pbi-logo {
+            width: 24px;
+            height: 24px;
+            background-color: var(--pbi-yellow);
+            border-radius: 4px;
+            display: flex;
+            align-items: flex-end;
+            padding: 3px;
+            gap: 2px;
+        }
+
+        .pbi-logo span {
+            display: inline-block;
+            width: 5px;
+            background-color: black;
+            border-radius: 1px;
+        }
+
+        .pbi-logo span:nth-child(1) { height: 40%; }
+        .pbi-logo span:nth-child(2) { height: 70%; }
+        .pbi-logo span:nth-child(3) { height: 100%; }
+
+        .workspace-badge {
+            background-color: #3b3b3b;
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Layout Grid */
+        .app-container {
+            display: flex;
+            flex: 1;
+            overflow: hidden;
+        }
+
+        /* Left Navigation Tabs mimicking Power BI Pages pane */
+        .pages-pane {
+            width: 220px;
+            background-color: #f3f2f1;
+            border-right: 1px solid var(--pbi-border);
+            display: flex;
+            flex-direction: column;
+            padding: 15px 0;
+            gap: 5px;
+        }
+
+        .pages-header {
+            padding: 0 15px 10px 15px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .page-tab {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 15px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            color: #323130;
+            border-left: 4px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .page-tab:hover {
+            background-color: #edebe9;
+        }
+
+        .page-tab.active {
+            background-color: #ffffff;
+            border-left-color: var(--pbi-yellow);
+            color: var(--pbi-dark-blue);
+        }
+
+        .page-tab-icon {
+            font-size: 1.1rem;
+        }
+
+        /* Main Workspace Canvas */
+        .report-canvas {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        /* Filter Ribbon mimicking Power BI filter bar */
+        .filter-ribbon {
+            background-color: white;
+            border: 1px solid var(--pbi-border);
+            border-radius: 4px;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 0.9rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .filter-group label {
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .filter-group select {
+            padding: 6px 12px;
+            border: 1px solid var(--pbi-border);
+            border-radius: 4px;
+            background-color: white;
+            font-size: 0.85rem;
+            outline: none;
+            cursor: pointer;
+        }
+
+        /* Report Pages Wrapper */
+        .report-page {
+            display: none;
+            flex-direction: column;
+            gap: 20px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .report-page.active {
+            display: flex;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* KPI Cards Grid */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 15px;
+        }
+
+        .kpi-card {
+            background-color: white;
+            border: 1px solid var(--pbi-border);
+            border-radius: 4px;
+            padding: 15px 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            border-top: 4px solid var(--pbi-blue);
+        }
+
+        .kpi-card.yellow { border-top-color: var(--pbi-yellow); }
+        .kpi-card.green { border-top-color: var(--success-green); }
+        .kpi-card.red { border-top-color: var(--danger-red); }
+
+        .kpi-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .kpi-value {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .kpi-subtext {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .kpi-trend-up { color: var(--success-green); font-weight: bold; }
+        .kpi-trend-down { color: var(--danger-red); font-weight: bold; }
+
+        /* Dashboard Visual Visualizations Layout */
+        .visuals-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 20px;
+        }
+
+        .visuals-row.three-col {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+
+        .visual-container {
+            background-color: white;
+            border: 1px solid var(--pbi-border);
+            border-radius: 4px;
+            padding: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .visual-title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            border-bottom: 1px solid #F0F0F0;
+            padding-bottom: 8px;
+        }
+
+        /* SVG Chart Designs */
+        .chart-box {
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        /* Custom Gauge Design for Hitting the target */
+        .gauge-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .gauge-svg {
+            width: 200px;
+            height: 110px;
+        }
+
+        .gauge-bg {
+            fill: none;
+            stroke: #e6e6e6;
+            stroke-width: 20;
+            stroke-linecap: round;
+        }
+
+        .gauge-fill {
+            fill: none;
+            stroke: var(--pbi-blue);
+            stroke-width: 20;
+            stroke-linecap: round;
+            stroke-dasharray: 283; /* Semi-circle circumference = pi * r (pi * 90) */
+            stroke-dashoffset: 283; /* Hidden by default */
+            transition: stroke-dashoffset 0.5s ease, stroke 0.3s ease;
+        }
+
+        .gauge-target-marker {
+            stroke: var(--danger-red);
+            stroke-width: 4;
+            stroke-linecap: round;
+        }
+
+        .gauge-label {
+            font-size: 1.5rem;
+            font-weight: bold;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        /* Simple CSS Bar Charts */
+        .bar-chart-vertical {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 100%;
+            width: 100%;
+            padding-top: 20px;
+        }
+
+        .chart-bar-group {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex: 1;
+            gap: 8px;
+        }
+
+        .chart-bar-container {
+            height: 180px;
+            width: 35px;
+            background-color: #F5F5F5;
+            border-radius: 4px;
+            display: flex;
+            align-items: flex-end;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .chart-bar {
+            width: 100%;
+            background-color: var(--pbi-blue);
+            border-radius: 0 0 4px 4px;
+            transition: height 0.5s ease-out;
+            position: relative;
+        }
+
+        .chart-bar.farmer { background-color: var(--pbi-dark-blue); }
+        .chart-bar.hunter { background-color: var(--pbi-yellow); }
+
+        .chart-bar-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .chart-bar-tooltip {
+            position: absolute;
+            top: -20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Funnel Leakage Custom Visual */
+        .funnel-container {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            width: 100%;
+        }
+
+        .funnel-stage {
+            display: flex;
+            align-items: center;
+            height: 35px;
+            position: relative;
+        }
+
+        .funnel-label-col {
+            width: 120px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .funnel-bar-col {
+            flex: 1;
+            background-color: #F5F5F5;
+            height: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .funnel-fill {
+            background-color: var(--pbi-blue);
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding-left: 10px;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 600;
+            transition: width 0.5s ease;
+        }
+
+        .funnel-fill.farmer { background-color: var(--pbi-dark-blue); }
+        .funnel-fill.hunter { background-color: var(--pbi-yellow); color: var(--text-dark); }
+
+        .funnel-conversion-rate {
+            position: absolute;
+            right: 10px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        /* Simulator Interactive Control Styling */
+        .simulator-grid {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 25px;
+        }
+
+        .simulator-controls {
+            background-color: #Fcfcfc;
+            border: 1px dashed var(--pbi-border);
+            border-radius: 4px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .control-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .control-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .control-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #D2D2D2;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .control-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            background: var(--pbi-dark-blue);
+            cursor: pointer;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .simulator-results {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            border: 1px solid var(--pbi-border);
+            border-radius: 4px;
+            padding: 30px;
+        }
+
+        .simulator-success-banner {
+            width: 100%;
+            padding: 15px;
+            border-radius: 4px;
+            background-color: #E2F2E4;
+            border: 1.5px solid #A8DCA9;
+            color: var(--success-green);
+            text-align: center;
+            font-weight: bold;
+            font-size: 0.95rem;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* Scatter Plot for Rep Activities vs Wins */
+        .scatter-container {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            border-bottom: 2px solid var(--text-dark);
+            border-left: 2px solid var(--text-dark);
+            padding: 10px;
+            margin-top: 10px;
+        }
+
+        .scatter-point {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            cursor: pointer;
+            transform: translate(-50%, 50%);
+            transition: transform 0.2s ease;
+        }
+
+        .scatter-point:hover {
+            transform: translate(-50%, 50__) scale(1.5);
+            z-index: 10;
+        }
+
+        .scatter-point.hunter { background-color: var(--pbi-yellow); border: 1.5px solid #997800; }
+        .scatter-point.farmer { background-color: var(--pbi-dark-blue); border: 1.5px solid #000c66; }
+
+        .scatter-axis-label-x {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-top: 5px;
+            color: var(--text-muted);
+        }
+
+        .scatter-axis-label-y {
+            position: absolute;
+            left: -50px;
+            top: 50%;
+            transform: rotate(-90deg) translateY(-50%);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header UI representing Power BI Workspace -->
+    <header>
+        <div class="header-title">
+            <div class="pbi-logo">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <h1>ODP Sales Organization (ISO) - Performance Review</h1>
+            <span class="workspace-badge">Prod Workspace</span>
+        </div>
+        <div>
+            <span style="font-size: 0.85rem; font-weight: 600; color: #a1a1a1;">Reporting Year: 2025</span>
+        </div>
+    </header>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation (Power BI Page Tabs) -->
+        <nav class="pages-pane">
+            <div class="pages-header">Report Pages</div>
+            <div class="page-tab active" onclick="switchPage('exec-summary', this)">
+                <span class="page-tab-icon">📊</span>
+                <span>Executive Summary</span>
+            </div>
+            <div class="page-tab" onclick="switchPage('funnel-leakage', this)">
+                <span class="page-tab-icon">⏳</span>
+                <span>Funnel Leakage</span>
+            </div>
+            <div class="page-tab" onclick="switchPage('productivity', this)">
+                <span class="page-tab-icon">⚡</span>
+                <span>Rep Productivity</span>
+            </div>
+            <div class="page-tab" onclick="switchPage('simulator', this)">
+                <span class="page-tab-icon">🎛️</span>
+                <span>7% Growth Simulator</span>
+            </div>
+        </nav>
+
+        <!-- Main Dashboard Canvas Area -->
+        <main class="report-canvas">
+            
+            <!-- Global filters -->
+            <section class="filter-ribbon">
+                <div style="font-weight: 600; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted);">Slicers:</div>
+                <div class="filter-group">
+                    <label for="industry-filter">Industry Vertical:</label>
+                    <select id="industry-filter" onchange="updateFilters()">
+                        <option value="all">All Industries</option>
+                        <option value="Healthcare">Healthcare</option>
+                        <option value="Financial Services">Financial Services</option>
+                        <option value="Technology">Technology</option>
+                        <option value="Manufacturing">Manufacturing</option>
+                        <option value="Retail">Retail</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="lead-filter">Lead Source:</label>
+                    <select id="lead-filter" onchange="updateFilters()">
+                        <option value="all">All Sources</option>
+                        <option value="Outbound Cold Call">Outbound Cold Call</option>
+                        <option value="Inbound Web">Inbound Web</option>
+                        <option value="Event/Conference">Event/Conference</option>
+                        <option value="Partner Referral">Partner Referral</option>
+                    </select>
+                </div>
+            </section>
+
+            <!-- PAGE 1: EXECUTIVE SUMMARY -->
+            <div id="exec-summary" class="report-page active">
+                <div class="kpi-grid">
+                    <div class="kpi-card">
+                        <span class="kpi-label">Closed Won Revenue</span>
+                        <span class="kpi-value" id="kpi-revenue">$7.24M</span>
+                        <span class="kpi-subtext">Total generated bookings</span>
+                    </div>
+                    <div class="kpi-card yellow">
+                        <span class="kpi-label">YoY Growth %</span>
+                        <span class="kpi-value kpi-trend-up" id="kpi-growth">+1.50%</span>
+                        <span class="kpi-subtext">Target: <span class="kpi-trend-up">+7.00%</span></span>
+                    </div>
+                    <div class="kpi-card green">
+                        <span class="kpi-label">Overall Win Rate</span>
+                        <span class="kpi-value" id="kpi-winrate">32.6%</span>
+                        <span class="kpi-subtext">Won opportunities ratio</span>
+                    </div>
+                    <div class="kpi-card red">
+                        <span class="kpi-label">Revenue Gap</span>
+                        <span class="kpi-value kpi-trend-down" id="kpi-gap">$392K</span>
+                        <span class="kpi-subtext">Shortfall to hit target</span>
+                    </div>
+                </div>
+
+                <div class="visuals-row">
+                    <!-- Gauge Visualization -->
+                    <div class="visual-container">
+                        <div class="visual-title">Growth Target Achievement Gauge (7% Growth Target)</div>
+                        <div class="chart-box">
+                            <div class="gauge-container">
+                                <svg class="gauge-svg" viewBox="0 0 200 110">
+                                    <path class="gauge-bg" d="M 10 100 A 90 90 0 0 1 190 100" />
+                                    <!-- 7% Target sits at 70% along the 100% path limit -->
+                                    <path id="gauge-fill" class="gauge-fill" d="M 10 100 A 90 90 0 0 1 190 100" />
+                                    <line class="gauge-target-marker" x1="135" y1="18" x2="148" y2="30" />
+                                </svg>
+                                <div class="gauge-label" id="gauge-percent">1.50%</div>
+                                <div style="font-size: 0.8rem; font-weight: 600; color: var(--text-muted)">Current Growth vs 7% Target Marker (Red Line)</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Revenue Mix Bar Chart -->
+                    <div class="visual-container">
+                        <div class="visual-title">Revenue Mix: Hunter (New Logo) vs. Farmer (Expansion)</div>
+                        <div class="chart-box">
+                            <div class="bar-chart-vertical">
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar-container">
+                                        <div class="chart-bar farmer" id="bar-farmer" style="height: 80%;">
+                                            <span class="chart-bar-tooltip" id="val-farmer">$5.79M</span>
+                                        </div>
+                                    </div>
+                                    <div class="chart-bar-label">Farmers (Account Managers)</div>
+                                </div>
+                                <div class="chart-bar-group">
+                                    <div class="chart-bar-container">
+                                        <div class="chart-bar hunter" id="bar-hunter" style="height: 20%;">
+                                            <span class="chart-bar-tooltip" id="val-hunter">$1.45M</span>
+                                        </div>
+                                    </div>
+                                    <div class="chart-bar-label">Hunters (Inside Sales)</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 2: FUNNEL LEAKAGE -->
+            <div id="funnel-leakage" class="report-page">
+                <div class="visuals-row">
+                    <!-- Hunter Funnel -->
+                    <div class="visual-container">
+                        <div class="visual-title">Hunters Funnel Conversion (New Logo Pipeline)</div>
+                        <div class="funnel-container" id="hunter-funnel">
+                            <div class="funnel-stage">
+                                <div class="funnel-label-col">Prospecting</div>
+                                <div class="funnel-bar-col"><div class="funnel-fill hunter" style="width: 100%">100%</div></div>
+                            </div>
+                            <div class="funnel-stage">
+                                <div class="funnel-label-col">Qualification</div>
+                                <div class="funnel-bar-col"><div class="funnel-fill hunter" style="width: 75%">75%</div></div>
+                            </div>
+                            <div class="funnel-stage">
+                                <div class="funnel-label-col">Proposal</div>
+                                <div class="funnel-bar-col"><div class="funnel-fill hunter" style="width: 45%">45%</div></div>
+                            </div>
+                            <div class="funnel-stage">
+                                <div class="funnel-label-col">Negotiation</div>
+                                <div class="funnel-bar-col"><div class="funnel-fill hunter" style="width: 20%">20%</div></div>
+                            </div>
+                            <div class="funnel-stage">
+                                <div class="funnel-label-col">Closed Won</div>
+                                <div class="funnel-bar-col"><div class="funnel-fill hunter" style="width: 11.5%">11.5%</div></div>
+                                <div class="funnel-conversion-rate">11.5% Win Rate</div>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.8rem; color: var(--danger-red); font-weight: 600;">⚠️ Critical Funnel Leakage detected at the "Proposal" stage (30% drop-off).</p>
+                    </div>
+
+                    <!-- Farmer Funnel -->
+                    <div class="visual-container">
+                        <div class="visual-title">Farmers Funnel Conversion (Account Expansion Pipeline)</div>
+                        <div class="funnel-container" id="farmer-funnel">
+                            <div class="funnel-stage">
+                                <div class="funnel-label-col">Prospecting</div>
+                                <div class="funnel-bar-col"><div class="funnel-fill farmer" style="width: 100%">100%</div></div>
+                            </div>
+                            <div class="funnel-stage">
+                                <div class="funnel-label-col">Qualification</div>
+                                <div class="funnel-bar-col"><div class="funnel-fill farmer" style="width: 90%">90%</div></div>
+                            </div>
+                            <div class="funnel-stage">
+                                <div class="funnel-label-col">Proposal</div>
+                                <div class="funnel-bar-col"><div class="funnel-fill farmer" style="width: 82%">82%</div></div>
+                            </div>
+                            <div class="funnel-stage">
+                                <div class="funnel-label-col">Negotiation</div>
+                                <div class="funnel-bar-col"><div class="funnel-fill farmer" style="width: 72%">72%</div></div>
+                            </div>
+                            <div class="funnel-stage">
+                                <div class="funnel-label-col">Closed Won</div>
+                                <div class="funnel-bar-col"><div class="funnel-fill farmer" style="width: 55.4%">55.4%</div></div>
+                                <div class="funnel-conversion-rate">55.4% Win Rate</div>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.8rem; color: var(--success-green); font-weight: 600;">✅ Stable conversion pipeline with strong historic relationship wins.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 3: PRODUCTIVITY -->
+            <div id="productivity" class="report-page">
+                <div class="visuals-row">
+                    <!-- Scatter Chart -->
+                    <div class="visual-container">
+                        <div class="visual-title">Sales Productivity: Total Logged Activities vs Deals Won</div>
+                        <div style="height: 240px; padding-left: 50px; position: relative;">
+                            <div class="scatter-axis-label-y">Deals Won Count</div>
+                            <div class="scatter-container">
+                                <!-- Hunters (Yellow) -->
+                                <div class="scatter-point hunter" style="left: 30%; bottom: 20%;" title="Alice Smith (Hunter): 45 activities, 8 wins"></div>
+                                <div class="scatter-point hunter" style="left: 45%; bottom: 28%;" title="Bob Jones (Hunter): 65 activities, 11 wins"></div>
+                                <div class="scatter-point hunter" style="left: 35%; bottom: 22%;" title="Charlie Brown (Hunter): 50 activities, 9 wins"></div>
+                                <div class="scatter-point hunter" style="left: 20%; bottom: 15%;" title="Diana Prince (Hunter): 30 activities, 6 wins"></div>
+                                
+                                <!-- Farmers (Blue) -->
+                                <div class="scatter-point farmer" style="left: 70%; bottom: 65%;" title="Evan Wright (Farmer): 98 activities, 28 wins"></div>
+                                <div class="scatter-point farmer" style="left: 80%; bottom: 75%;" title="Fiona Gallagher (Farmer): 112 activities, 32 wins"></div>
+                                <div class="scatter-point farmer" style="left: 65%; bottom: 58%;" title="George Costanza (Farmer): 90 activities, 25 wins"></div>
+                                <div class="scatter-point farmer" style="left: 85%; bottom: 82%;" title="Helen Mirren (Farmer): 120 activities, 35 wins"></div>
+                            </div>
+                            <div class="scatter-axis-label-x">Weekly Activities Logged (Calls + Meetings + Emails)</div>
+                        </div>
+                        <div style="display: flex; justify-content: center; gap: 20px; font-size: 0.8rem; font-weight: 600;">
+                            <div style="display: flex; align-items: center; gap: 5px;"><span style="display:inline-block; width:12px; height:12px; border-radius:50%; background:var(--pbi-yellow)"></span> Hunters</div>
+                            <div style="display: flex; align-items: center; gap: 5px;"><span style="display:inline-block; width:12px; height:12px; border-radius:50%; background:var(--pbi-dark-blue)"></span> Farmers</div>
+                        </div>
+                    </div>
+
+                    <!-- Pipeline Velocity Analysis -->
+                    <div class="visual-container">
+                        <div class="visual-title">Pipeline Velocity: Average Days Spent by Sales Stage</div>
+                        <div class="funnel-container">
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;">Hunters (Net-New Logo Velocity: Avg 124 Days to Close)</div>
+                            <div style="display:flex; height:20px; background:#ddd; border-radius:4px; overflow:hidden; margin-bottom:15px;">
+                                <div style="width: 15%; background-color: #8dd3c7; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;" title="Prospecting: 18 days">18d</div>
+                                <div style="width: 25%; background-color: #ffffb3; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;" title="Qualification: 31 days">31d</div>
+                                <div style="width: 40%; background-color: #bebada; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;" title="Proposal: 50 days">50d</div>
+                                <div style="width: 20%; background-color: #fb8072; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;" title="Negotiation: 25 days">25d</div>
+                            </div>
+                            
+                            <div style="font-size: 0.85rem; font-weight: 600; margin-bottom: 5px;">Farmers (Account Expansion Velocity: Avg 68 Days to Close)</div>
+                            <div style="display:flex; height:20px; background:#ddd; border-radius:4px; overflow:hidden;">
+                                <div style="width: 10%; background-color: #8dd3c7; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;" title="Prospecting: 7 days">7d</div>
+                                <div style="width: 15%; background-color: #ffffb3; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;" title="Qualification: 10 days">10d</div>
+                                <div style="width: 30%; background-color: #bebada; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;" title="Proposal: 21 days">21d</div>
+                                <div style="width: 45%; background-color: #fb8072; display: flex; align-items: center; justify-content: center; font-size: 0.75rem;" title="Negotiation: 30 days">30d</div>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.8rem; color: var(--text-muted);"><span style="color:var(--danger-red); font-weight:bold;">Insight:</span> Hunters spend 50 days (40% of cycle time) waiting on standard pricing & approval templates in the Proposal stage.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PAGE 4: SIMULATOR (WHAT-IF ANALYSIS) -->
+            <div id="simulator" class="report-page">
+                <div class="simulator-grid">
+                    <!-- Sliders panel -->
+                    <div class="simulator-controls">
+                        <div style="font-weight: bold; border-bottom: 1.5px solid var(--pbi-border); padding-bottom: 10px;">Adjust Growth Levers</div>
+                        
+                        <!-- Slider 1 -->
+                        <div class="control-group">
+                            <div class="control-header">
+                                <span>1. Hunter Activity Increase</span>
+                                <span id="val-slider-activity">0%</span>
+                            </div>
+                            <input type="range" class="control-slider" id="slider-activity" min="0" max="50" value="0" oninput="calculateSimulation()">
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">Increase number of outbound prospecting calls</span>
+                        </div>
+
+                        <!-- Slider 2 -->
+                        <div class="control-group">
+                            <div class="control-header">
+                                <span>2. Proposal Conversion Improvement</span>
+                                <span id="val-slider-proposal">0%</span>
+                            </div>
+                            <input type="range" class="control-slider" id="slider-proposal" min="0" max="15" value="0" oninput="calculateSimulation()">
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">Optimize RFP response times to plug funnel leakage</span>
+                        </div>
+
+                        <!-- Slider 3 -->
+                        <div class="control-group">
+                            <div class="control-header">
+                                <span>3. Farmer Deal Size Upsell</span>
+                                <span id="val-slider-dealsize">0%</span>
+                            </div>
+                            <input type="range" class="control-slider" id="slider-dealsize" min="0" max="10" value="0" oninput="calculateSimulation()">
+                            <span style="font-size: 0.75rem; color: var(--text-muted);">Increase revenue expansion within existing accounts</span>
+                        </div>
+
+                        <button onclick="resetSliders()" style="padding: 10px; background-color: var(--pbi-dark-blue); color: white; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">Reset Sliders</button>
+                    </div>
+
+                    <!-- Live Results Panel -->
+                    <div class="simulator-results bg-white">
+                        <div class="simulator-success-banner" id="success-banner">🎉 Target Met! 7.00%+ Sales Growth Strategy Achieved.</div>
+                        
+                        <div class="visuals-row" style="width: 100%;">
+                            <div class="gauge-container">
+                                <span style="font-weight: 600; font-size: 0.95rem; color: var(--text-muted)">Projected YoY Growth</span>
+                                <svg class="gauge-svg" viewBox="0 0 200 110">
+                                    <path class="gauge-bg" d="M 10 100 A 90 90 0 0 1 190 100" />
+                                    <path id="sim-gauge-fill" class="gauge-fill" d="M 10 100 A 90 90 0 0 1 190 100" style="stroke-dashoffset: 283;" />
+                                    <!-- Red target line at 7% -->
+                                    <line class="gauge-target-marker" x1="135" y1="18" x2="148" y2="30" />
+                                </svg>
+                                <div class="gauge-label" id="sim-gauge-percent">1.50%</div>
+                            </div>
+
+                            <div style="display: flex; flex-direction: column; justify-content: center; gap: 15px;">
+                                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+                                    <span style="font-weight: 600;">Baseline Growth:</span>
+                                    <span>1.50% ($7.24M)</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+                                    <span style="font-weight: 600;">Projected Growth:</span>
+                                    <span id="sim-proj-growth" style="font-weight: bold; color: var(--pbi-blue);">1.50%</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+                                    <span style="font-weight: 600;">Additional Revenue:</span>
+                                    <span id="sim-add-rev" style="color: var(--success-green); font-weight: bold;">+$0</span>
+                                </div>
+                                <div style="display: flex; justify-content: space-between; border-bottom: 1px solid #ddd; padding-bottom: 5px;">
+                                    <span style="font-weight: 600;">Remaining Gap:</span>
+                                    <span id="sim-gap-value" style="color: var(--danger-red); font-weight: bold;">$392,000</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 20px; font-size: 0.85rem; line-height: 1.5; color: var(--text-muted); border-top: 1px solid #eee; padding-top: 15px; width: 100%;">
+                            <strong>Analytical Strategy Note:</strong> Achieving the 7% growth mandate cannot rely on Account Expansion alone, as Farmers are already saturated (55% win rate). Solving ODP's stagnation requires shifting Hunters to top-of-funnel activity and improving turnaround times at the Proposal stage to capture net-new logo acquisition.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <script>
+        // Page switching mechanism
+        function switchPage(pageId, tabElement) {
+            // Remove active classes
+            document.querySelectorAll('.report-page').forEach(page => page.classList.remove('active'));
+            document.querySelectorAll('.page-tab').forEach(tab => tab.classList.remove('active'));
+            
+            // Set active
+            document.getElementById(pageId).classList.add('active');
+            tabElement.classList.add('active');
+        }
+
+        // Global dataset definitions (mocked sums for filter reactions)
+        const dataMaster = {
+            revenue: 7240000,
+            growth: 1.5,
+            winrate: 32.6,
+            farmerRev: 5792000,
+            hunterRev: 1448000,
+            gap: 392000,
+            targetRev: 7632000
+        };
+
+        // Update indicators on filters (visual demonstration only)
+        function updateFilters() {
+            const industry = document.getElementById('industry-filter').value;
+            const source = document.getElementById('lead-filter').value;
+            
+            let scale = 1.0;
+            if (industry !== 'all') scale *= 0.25;
+            if (source !== 'all') scale *= 0.35;
+
+            // Apply filters to UI components
+            const filteredRevenue = dataMaster.revenue * scale;
+            const filteredFarmer = dataMaster.farmerRev * scale;
+            const filteredHunter = dataMaster.hunterRev * scale;
+            const filteredGap = dataMaster.gap * scale;
+
+            document.getElementById('kpi-revenue').innerText = `$${(filteredRevenue / 1000000).toFixed(2)}M`;
+            document.getElementById('kpi-gap').innerText = `$${Math.round(filteredGap / 1000)}K`;
+            
+            // Adjust bar elements
+            document.getElementById('bar-farmer').style.height = `${scale * 80}%`;
+            document.getElementById('bar-hunter').style.height = `${scale * 20}%`;
+            document.getElementById('val-farmer').innerText = `$${(filteredFarmer / 1000000).toFixed(2)}M`;
+            document.getElementById('val-hunter').innerText = `$${(filteredHunter / 1000000).toFixed(2)}M`;
+        }
+
+        // What-If Simulation Calculator
+        function calculateSimulation() {
+            const hunterActivity = parseFloat(document.getElementById('slider-activity').value);
+            const proposalImp = parseFloat(document.getElementById('slider-proposal').value);
+            const farmerUpsell = parseFloat(document.getElementById('slider-dealsize').value);
+            
+            // Update slider labels in UI
+            document.getElementById('val-slider-activity').innerText = `+${hunterActivity}%`;
+            document.getElementById('val-slider-proposal').innerText = `+${proposalImp}%`;
+            document.getElementById('val-slider-dealsize').innerText = `+${farmerUpsell}%`;
+
+            // Calculate revenue gains based on levers
+            // Lever 1: Hunter activity increase feeds top of funnel.
+            // Baseline Hunter revenue is $1.448M. Activity increases pipeline size.
+            const hunterGain = (dataMaster.hunterRev * (hunterActivity / 100)) * 1.1; 
+
+            // Lever 2: Proposal stage win rate improvement. 
+            // Boosting proposal stage efficiency increases win rate.
+            const winRateGain = dataMaster.revenue * (proposalImp / 100) * 0.8;
+
+            // Lever 3: Farmer deal upsell. 
+            // Adding up-sell value to Farmers base revenue.
+            const farmerGain = dataMaster.farmerRev * (farmerUpsell / 100);
+
+            const totalGains = hunterGain + winRateGain + farmerGain;
+            const newRevenue = dataMaster.revenue + totalGains;
+            
+            // Calculate YoY Growth based on baseline 2024 (assumed $7.13M baseline)
+            const base2024Rev = 7130000;
+            const newGrowth = ((newRevenue - base2024Rev) / base2024Rev) * 100;
+            
+            const remainingGap = Math.max(0, dataMaster.targetRev - newRevenue);
+
+            // Update UI elements
+            document.getElementById('sim-proj-growth').innerText = `${newGrowth.toFixed(2)}%`;
+            document.getElementById('sim-add-rev').innerText = `+$${Math.round(totalGains / 1000).toLocaleString()}K`;
+            document.getElementById('sim-gap-value').innerText = remainingGap > 0 ? `$${Math.round(remainingGap).toLocaleString()}` : '$0 (Target Met)';
+            document.getElementById('sim-gauge-percent').innerText = `${newGrowth.toFixed(2)}%`;
+
+            // Adjust gauge graphic
+            // 7% is represented by a stroke-dashoffset of 85 (on scale of 283 to 0)
+            // Stroke formula: dashoffset = 283 - (percent / maxPercent) * 283
+            // Let max percent scale equal 10%
+            const maxPercent = 10;
+            const strokeOffset = Math.max(0, 283 - (newGrowth / maxPercent) * 283);
+            document.getElementById('sim-gauge-fill').style.strokeDashoffset = strokeOffset;
+
+            // Handle success state
+            const banner = document.getElementById('success-banner');
+            if (newGrowth >= 7.0) {
+                banner.style.display = 'block';
+                document.getElementById('sim-gauge-fill').style.stroke = 'var(--success-green)';
+            } else {
+                banner.style.display = 'none';
+                document.getElementById('sim-gauge-fill').style.stroke = 'var(--pbi-blue)';
+            }
+        }
+
+        // Reset Sliders
+        function resetSliders() {
+            document.getElementById('slider-activity').value = 0;
+            document.getElementById('slider-proposal').value = 0;
+            document.getElementById('slider-dealsize').value = 0;
+            calculateSimulation();
+        }
+
+        // Initial gauge configurations
+        window.onload = function() {
+            // Set baseline executive gauge (1.5%)
+            const maxPercent = 10;
+            const basePercent = 1.5;
+            const strokeOffset = 283 - (basePercent / maxPercent) * 283;
+            document.getElementById('gauge-fill').style.strokeDashoffset = strokeOffset;
+
+            // Trigger simulator calculations
+            calculateSimulation();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,801 @@
+Opportunity_ID,Opportunity_Name,Account_Name,Owner_Name,Rep_Segment,Stage,Amount_USD,Created_Date,Close_Date,Vertical,Calls_Logged,Meetings_Logged,Emails_Logged,Lead_Source
+006634895718,Retail - Farmer Opp 0,Retail Corp 472,George Costanza,Farmer,Proposal,64227.16,2023-12-21,2024-04-16,Retail,4,4,25,Inbound Web
+006993664919,Financial Services - Farmer Opp 1,Financial Services Corp 121,Evan Wright,Farmer,Proposal,74491.11,2024-09-13,2024-12-09,Financial Services,6,2,26,Outbound Cold Call
+006199052376,Manufacturing - Hunter Opp 2,Manufacturing Corp 975,Charlie Brown,Hunter,Closed Lost,7109.76,2025-03-06,2025-05-25,Manufacturing,19,2,39,Inbound Web
+006496917567,Financial Services - Farmer Opp 3,Financial Services Corp 664,Evan Wright,Farmer,Closed Lost,14728.71,2025-06-11,2025-10-08,Financial Services,5,7,23,Outbound Cold Call
+006916698734,Technology - Farmer Opp 4,Technology Corp 101,Helen Mirren,Farmer,Closed Lost,75779.75,2024-12-13,2025-05-23,Technology,5,3,54,Inbound Web
+006993102645,Financial Services - Farmer Opp 5,Financial Services Corp 962,Fiona Gallagher,Farmer,Closed Won,140557.47,2025-03-09,2025-04-21,Financial Services,3,7,50,Partner Referral
+006480072391,Retail - Farmer Opp 6,Retail Corp 592,Helen Mirren,Farmer,Negotiation,22591.32,2025-07-02,2025-12-02,Retail,6,3,39,Outbound Cold Call
+006324184334,Manufacturing - Hunter Opp 7,Manufacturing Corp 491,Alice Smith,Hunter,Qualification,34093.52,2025-02-14,2025-06-04,Manufacturing,19,3,28,Event/Conference
+006191355424,Manufacturing - Farmer Opp 8,Manufacturing Corp 147,Fiona Gallagher,Farmer,Closed Lost,46983.9,2024-06-17,2024-08-18,Manufacturing,9,5,48,Outbound Cold Call
+006825167677,Technology - Hunter Opp 9,Technology Corp 868,Charlie Brown,Hunter,Proposal,24662.25,2025-06-07,2025-11-14,Technology,7,1,24,Event/Conference
+006190053374,Financial Services - Hunter Opp 10,Financial Services Corp 195,Charlie Brown,Hunter,Prospecting,29235.3,2024-11-07,2025-01-27,Financial Services,17,3,16,Inbound Web
+006698424036,Manufacturing - Hunter Opp 11,Manufacturing Corp 895,Alice Smith,Hunter,Closed Lost,32657.61,2025-06-23,2025-10-16,Manufacturing,11,3,28,Partner Referral
+006349625132,Manufacturing - Hunter Opp 12,Manufacturing Corp 605,Alice Smith,Hunter,Qualification,16438.72,2025-05-03,2025-10-07,Manufacturing,18,2,20,Outbound Cold Call
+006556545752,Healthcare - Hunter Opp 13,Healthcare Corp 417,Alice Smith,Hunter,Closed Won,9311.34,2024-08-06,2025-01-19,Healthcare,13,3,16,Outbound Cold Call
+006614817842,Healthcare - Hunter Opp 14,Healthcare Corp 367,Diana Prince,Hunter,Proposal,9071.63,2024-10-19,2025-01-08,Healthcare,18,1,35,Outbound Cold Call
+006318520688,Financial Services - Hunter Opp 15,Financial Services Corp 502,Diana Prince,Hunter,Proposal,10206.22,2023-10-15,2024-03-21,Financial Services,10,3,14,Inbound Web
+006232863028,Manufacturing - Farmer Opp 16,Manufacturing Corp 379,Helen Mirren,Farmer,Qualification,18161.32,2025-10-04,2025-12-10,Manufacturing,9,4,31,Inbound Web
+006673505733,Manufacturing - Hunter Opp 17,Manufacturing Corp 445,Charlie Brown,Hunter,Proposal,40072.9,2023-11-29,2024-05-23,Manufacturing,17,3,29,Inbound Web
+006523767187,Financial Services - Farmer Opp 18,Financial Services Corp 710,Helen Mirren,Farmer,Closed Won,52305.96,2025-02-21,2025-05-03,Financial Services,4,5,39,Outbound Cold Call
+006851425679,Healthcare - Farmer Opp 19,Healthcare Corp 332,Evan Wright,Farmer,Qualification,19115.99,2025-06-17,2025-07-25,Healthcare,5,6,51,Outbound Cold Call
+006515156431,Manufacturing - Farmer Opp 20,Manufacturing Corp 951,Helen Mirren,Farmer,Qualification,64258.58,2023-10-13,2024-02-23,Manufacturing,9,5,52,Inbound Web
+006625200495,Financial Services - Hunter Opp 21,Financial Services Corp 900,Charlie Brown,Hunter,Proposal,4101.49,2024-02-25,2024-06-01,Financial Services,7,4,38,Inbound Web
+006868037679,Healthcare - Farmer Opp 22,Healthcare Corp 121,Helen Mirren,Farmer,Closed Won,79625.08,2024-08-31,2025-01-26,Healthcare,9,5,36,Outbound Cold Call
+006714600044,Retail - Farmer Opp 23,Retail Corp 915,Helen Mirren,Farmer,Closed Won,28869.68,2024-07-11,2024-10-09,Retail,5,2,19,Outbound Cold Call
+006204436258,Retail - Farmer Opp 24,Retail Corp 379,Helen Mirren,Farmer,Negotiation,202958.75,2023-11-12,2024-01-17,Retail,7,4,55,Outbound Cold Call
+006326623789,Retail - Farmer Opp 25,Retail Corp 117,George Costanza,Farmer,Closed Won,80593.04,2025-06-26,2025-11-30,Retail,8,2,17,Inbound Web
+006899528670,Financial Services - Farmer Opp 26,Financial Services Corp 203,George Costanza,Farmer,Negotiation,11503.56,2025-10-01,2025-11-16,Financial Services,3,3,40,Inbound Web
+006969662506,Financial Services - Farmer Opp 27,Financial Services Corp 135,George Costanza,Farmer,Closed Won,20999.15,2025-01-25,2025-04-21,Financial Services,2,6,21,Event/Conference
+006744090176,Technology - Hunter Opp 28,Technology Corp 826,Bob Jones,Hunter,Qualification,5117.68,2024-12-04,2025-02-03,Technology,16,2,11,Inbound Web
+006435663154,Financial Services - Farmer Opp 29,Financial Services Corp 882,George Costanza,Farmer,Closed Lost,20161.15,2024-03-31,2024-07-08,Financial Services,2,5,56,Outbound Cold Call
+006645720763,Manufacturing - Hunter Opp 30,Manufacturing Corp 449,Diana Prince,Hunter,Negotiation,10336.53,2023-09-30,2024-02-22,Manufacturing,8,2,22,Inbound Web
+006690256950,Financial Services - Hunter Opp 31,Financial Services Corp 157,Diana Prince,Hunter,Qualification,73824.76,2024-05-27,2024-09-25,Financial Services,5,4,28,Outbound Cold Call
+006208880612,Retail - Hunter Opp 32,Retail Corp 195,Bob Jones,Hunter,Prospecting,27812.85,2024-03-04,2024-05-06,Retail,14,1,24,Inbound Web
+006885403480,Retail - Farmer Opp 33,Retail Corp 534,Evan Wright,Farmer,Closed Won,34766.62,2024-04-08,2024-09-28,Retail,8,4,26,Event/Conference
+006161819576,Manufacturing - Hunter Opp 34,Manufacturing Corp 650,Diana Prince,Hunter,Qualification,5977.79,2023-11-16,2024-03-09,Manufacturing,14,2,25,Outbound Cold Call
+006889636829,Manufacturing - Farmer Opp 35,Manufacturing Corp 868,Fiona Gallagher,Farmer,Prospecting,120992.74,2025-01-31,2025-06-05,Manufacturing,8,3,33,Inbound Web
+006890118380,Healthcare - Hunter Opp 36,Healthcare Corp 789,Diana Prince,Hunter,Closed Lost,24567.88,2024-06-15,2024-12-01,Healthcare,15,4,33,Inbound Web
+006651904800,Technology - Farmer Opp 37,Technology Corp 384,George Costanza,Farmer,Closed Won,115638.71,2024-12-19,2025-03-02,Technology,9,3,57,Outbound Cold Call
+006532838238,Healthcare - Hunter Opp 38,Healthcare Corp 517,Alice Smith,Hunter,Negotiation,23608.89,2025-01-14,2025-05-13,Healthcare,17,2,19,Outbound Cold Call
+006607514051,Manufacturing - Farmer Opp 39,Manufacturing Corp 968,Fiona Gallagher,Farmer,Closed Won,112628.89,2024-11-21,2025-05-07,Manufacturing,6,2,50,Event/Conference
+006344103359,Retail - Farmer Opp 40,Retail Corp 972,George Costanza,Farmer,Negotiation,25320.85,2025-02-23,2025-07-01,Retail,8,6,37,Outbound Cold Call
+006247435376,Technology - Farmer Opp 41,Technology Corp 175,Helen Mirren,Farmer,Qualification,22294.55,2025-07-06,2025-12-29,Technology,5,5,55,Outbound Cold Call
+006988203035,Retail - Farmer Opp 42,Retail Corp 250,Helen Mirren,Farmer,Qualification,40041.65,2025-04-26,2025-07-17,Retail,5,2,35,Event/Conference
+006587326758,Financial Services - Hunter Opp 43,Financial Services Corp 757,Bob Jones,Hunter,Proposal,5185.63,2024-03-22,2024-07-04,Financial Services,11,1,20,Partner Referral
+006907582728,Retail - Farmer Opp 44,Retail Corp 293,Helen Mirren,Farmer,Negotiation,75867.41,2024-04-11,2024-09-09,Retail,2,3,41,Outbound Cold Call
+006464375204,Manufacturing - Hunter Opp 45,Manufacturing Corp 903,Diana Prince,Hunter,Qualification,44432.36,2024-11-30,2025-05-10,Manufacturing,11,1,22,Outbound Cold Call
+006458632862,Financial Services - Farmer Opp 46,Financial Services Corp 853,Helen Mirren,Farmer,Closed Lost,53289.97,2024-01-12,2024-06-30,Financial Services,8,7,17,Inbound Web
+006341820729,Technology - Farmer Opp 47,Technology Corp 216,Helen Mirren,Farmer,Closed Won,58627.69,2024-10-02,2024-12-26,Technology,7,2,39,Partner Referral
+006152203051,Retail - Farmer Opp 48,Retail Corp 631,Evan Wright,Farmer,Closed Lost,9163.9,2023-12-04,2024-05-28,Retail,6,5,49,Outbound Cold Call
+006813889838,Retail - Farmer Opp 49,Retail Corp 429,Fiona Gallagher,Farmer,Closed Won,30229.79,2024-04-11,2024-05-22,Retail,4,2,25,Partner Referral
+006702428359,Financial Services - Hunter Opp 50,Financial Services Corp 277,Diana Prince,Hunter,Qualification,12361.91,2025-08-01,2025-10-29,Financial Services,14,4,35,Outbound Cold Call
+006573928548,Healthcare - Farmer Opp 51,Healthcare Corp 657,Helen Mirren,Farmer,Closed Won,8862.84,2024-11-27,2025-05-16,Healthcare,5,6,42,Outbound Cold Call
+006918327941,Financial Services - Farmer Opp 52,Financial Services Corp 218,Helen Mirren,Farmer,Qualification,43787.25,2025-11-05,2025-12-09,Financial Services,7,3,59,Inbound Web
+006218550901,Retail - Farmer Opp 53,Retail Corp 204,Helen Mirren,Farmer,Closed Won,13612.86,2024-04-21,2024-08-26,Retail,2,7,41,Inbound Web
+006200532608,Retail - Hunter Opp 54,Retail Corp 664,Charlie Brown,Hunter,Closed Lost,27947.59,2025-04-10,2025-06-01,Retail,10,3,30,Partner Referral
+006527982281,Healthcare - Hunter Opp 55,Healthcare Corp 587,Alice Smith,Hunter,Closed Lost,8589.4,2023-10-28,2024-03-18,Healthcare,17,4,39,Inbound Web
+006564555355,Technology - Hunter Opp 56,Technology Corp 833,Charlie Brown,Hunter,Proposal,17789.69,2023-12-23,2024-06-02,Technology,16,1,31,Event/Conference
+006486357648,Financial Services - Hunter Opp 57,Financial Services Corp 405,Charlie Brown,Hunter,Closed Won,34711.51,2024-05-19,2024-07-25,Financial Services,11,2,37,Inbound Web
+006710933533,Healthcare - Farmer Opp 58,Healthcare Corp 662,George Costanza,Farmer,Closed Won,56944.44,2024-11-07,2025-03-22,Healthcare,9,5,44,Inbound Web
+006299594780,Manufacturing - Hunter Opp 59,Manufacturing Corp 549,Diana Prince,Hunter,Prospecting,17813.31,2024-11-14,2025-02-04,Manufacturing,9,2,15,Outbound Cold Call
+006672952298,Technology - Farmer Opp 60,Technology Corp 795,George Costanza,Farmer,Proposal,12674.07,2023-11-11,2024-04-20,Technology,9,5,54,Inbound Web
+006633940063,Financial Services - Farmer Opp 61,Financial Services Corp 781,Evan Wright,Farmer,Negotiation,14811.2,2025-07-04,2025-11-02,Financial Services,6,6,32,Outbound Cold Call
+006480974484,Financial Services - Farmer Opp 62,Financial Services Corp 893,Evan Wright,Farmer,Proposal,24001.62,2024-05-10,2024-08-20,Financial Services,3,6,41,Event/Conference
+006649327992,Retail - Farmer Opp 63,Retail Corp 966,Helen Mirren,Farmer,Prospecting,13903.57,2024-07-26,2024-12-15,Retail,5,2,22,Outbound Cold Call
+006999148494,Manufacturing - Farmer Opp 64,Manufacturing Corp 798,Helen Mirren,Farmer,Closed Won,17864.25,2025-11-13,2025-12-26,Manufacturing,9,3,59,Outbound Cold Call
+006903869698,Retail - Farmer Opp 65,Retail Corp 584,Fiona Gallagher,Farmer,Closed Lost,35982.36,2024-08-02,2024-12-28,Retail,7,4,29,Outbound Cold Call
+006374727974,Manufacturing - Hunter Opp 66,Manufacturing Corp 493,Charlie Brown,Hunter,Qualification,11934.98,2023-12-20,2024-03-26,Manufacturing,17,4,34,Event/Conference
+006473319790,Healthcare - Farmer Opp 67,Healthcare Corp 791,Fiona Gallagher,Farmer,Closed Won,38094.84,2023-12-30,2024-02-03,Healthcare,3,2,51,Inbound Web
+006403990497,Retail - Hunter Opp 68,Retail Corp 942,Charlie Brown,Hunter,Qualification,9557.13,2024-09-10,2025-01-11,Retail,11,4,13,Outbound Cold Call
+006339937885,Technology - Hunter Opp 69,Technology Corp 421,Charlie Brown,Hunter,Prospecting,5672.71,2024-04-11,2024-05-16,Technology,9,4,33,Inbound Web
+006818958666,Technology - Farmer Opp 70,Technology Corp 534,Fiona Gallagher,Farmer,Closed Won,18685.32,2024-03-03,2024-04-27,Technology,3,4,22,Event/Conference
+006980801412,Healthcare - Hunter Opp 71,Healthcare Corp 649,Bob Jones,Hunter,Proposal,18442.24,2025-09-22,2025-12-24,Healthcare,5,2,23,Inbound Web
+006762982794,Financial Services - Farmer Opp 72,Financial Services Corp 112,Evan Wright,Farmer,Closed Won,9495.55,2024-04-09,2024-09-15,Financial Services,6,3,58,Inbound Web
+006477390675,Technology - Hunter Opp 73,Technology Corp 194,Alice Smith,Hunter,Proposal,32561.32,2024-07-24,2024-11-24,Technology,10,3,12,Partner Referral
+006446257725,Technology - Farmer Opp 74,Technology Corp 395,Fiona Gallagher,Farmer,Closed Lost,108830.2,2024-10-30,2024-11-29,Technology,5,4,49,Event/Conference
+006306564923,Technology - Farmer Opp 75,Technology Corp 231,Helen Mirren,Farmer,Proposal,15944.24,2024-05-17,2024-08-16,Technology,6,4,28,Outbound Cold Call
+006479274281,Technology - Hunter Opp 76,Technology Corp 324,Diana Prince,Hunter,Negotiation,29020.06,2024-04-30,2024-10-21,Technology,5,3,24,Outbound Cold Call
+006236826817,Technology - Farmer Opp 77,Technology Corp 547,Helen Mirren,Farmer,Closed Won,44204.97,2024-02-02,2024-04-13,Technology,4,4,22,Outbound Cold Call
+006652457838,Manufacturing - Farmer Opp 78,Manufacturing Corp 353,Helen Mirren,Farmer,Closed Lost,92998.23,2025-02-19,2025-04-22,Manufacturing,2,2,51,Outbound Cold Call
+006153509641,Manufacturing - Farmer Opp 79,Manufacturing Corp 256,Fiona Gallagher,Farmer,Closed Won,72067.8,2024-03-24,2024-04-27,Manufacturing,5,6,22,Outbound Cold Call
+006193982380,Manufacturing - Farmer Opp 80,Manufacturing Corp 353,George Costanza,Farmer,Closed Won,52678.57,2025-08-09,2025-09-18,Manufacturing,4,6,34,Partner Referral
+006458165029,Manufacturing - Hunter Opp 81,Manufacturing Corp 715,Charlie Brown,Hunter,Closed Lost,62856.47,2024-07-24,2024-12-11,Manufacturing,12,2,27,Event/Conference
+006882192075,Retail - Hunter Opp 82,Retail Corp 477,Diana Prince,Hunter,Negotiation,35221.02,2024-09-20,2024-11-19,Retail,14,1,37,Outbound Cold Call
+006432091442,Healthcare - Farmer Opp 83,Healthcare Corp 100,Helen Mirren,Farmer,Proposal,104920.36,2024-07-29,2024-10-23,Healthcare,6,3,50,Event/Conference
+006180908854,Retail - Hunter Opp 84,Retail Corp 674,Charlie Brown,Hunter,Qualification,13741.41,2025-08-19,2025-10-22,Retail,8,1,30,Inbound Web
+006587556697,Technology - Farmer Opp 85,Technology Corp 279,Fiona Gallagher,Farmer,Closed Won,32082.65,2024-06-04,2024-07-28,Technology,4,4,58,Inbound Web
+006808007767,Financial Services - Hunter Opp 86,Financial Services Corp 183,Alice Smith,Hunter,Prospecting,10503.17,2023-11-14,2024-03-03,Financial Services,9,1,16,Inbound Web
+006346124691,Healthcare - Farmer Opp 87,Healthcare Corp 822,Helen Mirren,Farmer,Negotiation,223803.06,2023-10-03,2024-03-03,Healthcare,9,6,44,Outbound Cold Call
+006918997532,Technology - Farmer Opp 88,Technology Corp 213,Evan Wright,Farmer,Qualification,75425.2,2024-05-23,2024-10-12,Technology,7,4,16,Inbound Web
+006165954738,Technology - Hunter Opp 89,Technology Corp 186,Alice Smith,Hunter,Proposal,43578.99,2024-04-20,2024-09-20,Technology,14,3,23,Partner Referral
+006485640223,Technology - Farmer Opp 90,Technology Corp 860,Evan Wright,Farmer,Negotiation,8530.12,2023-10-17,2024-01-08,Technology,4,6,22,Event/Conference
+006866843458,Technology - Farmer Opp 91,Technology Corp 834,Helen Mirren,Farmer,Closed Lost,11427.75,2024-04-02,2024-09-20,Technology,5,6,35,Outbound Cold Call
+006473340113,Technology - Hunter Opp 92,Technology Corp 613,Charlie Brown,Hunter,Prospecting,8790.92,2025-07-15,2025-11-03,Technology,7,4,38,Partner Referral
+006635845572,Manufacturing - Hunter Opp 93,Manufacturing Corp 325,Bob Jones,Hunter,Closed Won,13216.9,2024-08-07,2025-01-20,Manufacturing,9,2,39,Event/Conference
+006952350451,Technology - Farmer Opp 94,Technology Corp 620,Helen Mirren,Farmer,Closed Lost,12049.01,2024-08-24,2024-10-06,Technology,9,2,31,Inbound Web
+006673284588,Manufacturing - Farmer Opp 95,Manufacturing Corp 174,Evan Wright,Farmer,Proposal,75052.02,2024-07-30,2024-10-04,Manufacturing,6,6,48,Event/Conference
+006227395967,Healthcare - Hunter Opp 96,Healthcare Corp 728,Diana Prince,Hunter,Proposal,10405.63,2023-10-17,2024-02-10,Healthcare,10,2,21,Outbound Cold Call
+006687919316,Financial Services - Hunter Opp 97,Financial Services Corp 784,Charlie Brown,Hunter,Negotiation,30804.38,2025-04-23,2025-10-07,Financial Services,13,1,16,Event/Conference
+006763063508,Manufacturing - Hunter Opp 98,Manufacturing Corp 470,Bob Jones,Hunter,Closed Lost,5036.52,2025-05-07,2025-07-11,Manufacturing,5,3,30,Outbound Cold Call
+006698270100,Technology - Farmer Opp 99,Technology Corp 722,George Costanza,Farmer,Negotiation,101671.24,2025-03-03,2025-05-26,Technology,4,7,48,Partner Referral
+006679826069,Technology - Farmer Opp 100,Technology Corp 812,Evan Wright,Farmer,Closed Won,37156.12,2025-03-21,2025-07-01,Technology,4,2,59,Outbound Cold Call
+006799192960,Technology - Farmer Opp 101,Technology Corp 965,George Costanza,Farmer,Closed Won,29331.88,2025-04-29,2025-09-07,Technology,6,5,58,Outbound Cold Call
+006377440100,Healthcare - Hunter Opp 102,Healthcare Corp 875,Charlie Brown,Hunter,Qualification,64009.81,2023-09-27,2024-01-17,Healthcare,18,4,33,Inbound Web
+006138808656,Financial Services - Farmer Opp 103,Financial Services Corp 637,Fiona Gallagher,Farmer,Closed Won,157627.74,2025-07-25,2025-12-10,Financial Services,8,4,40,Outbound Cold Call
+006982938633,Retail - Farmer Opp 104,Retail Corp 322,Evan Wright,Farmer,Closed Won,100157.45,2023-12-06,2024-03-26,Retail,4,3,37,Event/Conference
+006506086566,Technology - Farmer Opp 105,Technology Corp 270,George Costanza,Farmer,Closed Won,46982.88,2025-02-27,2025-05-04,Technology,6,3,17,Outbound Cold Call
+006763509974,Healthcare - Hunter Opp 106,Healthcare Corp 993,Charlie Brown,Hunter,Negotiation,19753.11,2024-12-25,2025-05-11,Healthcare,5,4,22,Inbound Web
+006615820713,Technology - Farmer Opp 107,Technology Corp 344,George Costanza,Farmer,Qualification,25666.86,2024-02-19,2024-05-20,Technology,7,5,43,Inbound Web
+006446849551,Healthcare - Farmer Opp 108,Healthcare Corp 528,George Costanza,Farmer,Closed Won,63267.38,2024-12-10,2025-01-11,Healthcare,5,6,15,Outbound Cold Call
+006259940253,Healthcare - Farmer Opp 109,Healthcare Corp 988,Fiona Gallagher,Farmer,Closed Lost,9112.68,2024-08-02,2024-10-19,Healthcare,8,2,29,Inbound Web
+006986548666,Technology - Farmer Opp 110,Technology Corp 871,Evan Wright,Farmer,Closed Lost,28187.75,2024-10-25,2025-01-14,Technology,3,2,21,Outbound Cold Call
+006927776659,Financial Services - Farmer Opp 111,Financial Services Corp 987,Fiona Gallagher,Farmer,Prospecting,34456.94,2024-07-29,2024-08-30,Financial Services,2,3,55,Outbound Cold Call
+006348432388,Manufacturing - Farmer Opp 112,Manufacturing Corp 161,George Costanza,Farmer,Closed Lost,35411.5,2025-07-31,2025-11-19,Manufacturing,6,4,56,Partner Referral
+006733233410,Healthcare - Farmer Opp 113,Healthcare Corp 716,Fiona Gallagher,Farmer,Closed Won,59168.13,2024-03-20,2024-04-29,Healthcare,7,6,48,Outbound Cold Call
+006198609786,Manufacturing - Hunter Opp 114,Manufacturing Corp 494,Alice Smith,Hunter,Prospecting,66313.53,2024-06-09,2024-07-13,Manufacturing,19,4,34,Outbound Cold Call
+006780551383,Financial Services - Hunter Opp 115,Financial Services Corp 692,Bob Jones,Hunter,Proposal,27795.76,2024-09-27,2024-11-23,Financial Services,9,4,25,Outbound Cold Call
+006670828076,Financial Services - Farmer Opp 116,Financial Services Corp 315,Evan Wright,Farmer,Closed Won,72793.05,2024-03-20,2024-04-24,Financial Services,6,6,47,Event/Conference
+006780545447,Retail - Hunter Opp 117,Retail Corp 290,Charlie Brown,Hunter,Closed Won,7609.05,2025-03-17,2025-07-24,Retail,13,1,19,Inbound Web
+006912700347,Technology - Hunter Opp 118,Technology Corp 181,Charlie Brown,Hunter,Closed Lost,45766.42,2025-05-03,2025-07-10,Technology,14,2,20,Event/Conference
+006452763597,Retail - Farmer Opp 119,Retail Corp 322,Helen Mirren,Farmer,Closed Won,15547.36,2024-06-10,2024-10-21,Retail,2,2,31,Outbound Cold Call
+006138965695,Financial Services - Farmer Opp 120,Financial Services Corp 377,George Costanza,Farmer,Closed Won,19993.42,2024-09-16,2024-11-21,Financial Services,3,5,29,Partner Referral
+006906963039,Healthcare - Farmer Opp 121,Healthcare Corp 309,Helen Mirren,Farmer,Closed Won,53684.66,2024-02-12,2024-07-10,Healthcare,2,7,40,Event/Conference
+006856138670,Manufacturing - Farmer Opp 122,Manufacturing Corp 178,Helen Mirren,Farmer,Prospecting,41339.16,2024-03-27,2024-08-14,Manufacturing,4,2,20,Event/Conference
+006110774986,Retail - Farmer Opp 123,Retail Corp 370,Fiona Gallagher,Farmer,Closed Lost,19780.74,2025-02-17,2025-04-26,Retail,4,6,55,Event/Conference
+006931858844,Manufacturing - Hunter Opp 124,Manufacturing Corp 847,Diana Prince,Hunter,Negotiation,33640.5,2023-12-06,2024-05-09,Manufacturing,15,3,26,Outbound Cold Call
+006931574036,Healthcare - Farmer Opp 125,Healthcare Corp 261,Evan Wright,Farmer,Closed Won,26505.91,2024-02-09,2024-03-24,Healthcare,4,2,52,Outbound Cold Call
+006233719871,Manufacturing - Farmer Opp 126,Manufacturing Corp 704,Helen Mirren,Farmer,Closed Won,39099.73,2024-12-15,2025-06-07,Manufacturing,9,5,39,Event/Conference
+006189858638,Manufacturing - Farmer Opp 127,Manufacturing Corp 657,Fiona Gallagher,Farmer,Prospecting,44403.33,2024-01-22,2024-07-17,Manufacturing,5,3,17,Inbound Web
+006105290717,Healthcare - Hunter Opp 128,Healthcare Corp 485,Alice Smith,Hunter,Qualification,9688.15,2024-03-30,2024-08-23,Healthcare,13,4,31,Event/Conference
+006359252618,Financial Services - Farmer Opp 129,Financial Services Corp 400,Evan Wright,Farmer,Closed Won,30927.69,2024-02-01,2024-03-12,Financial Services,8,7,46,Event/Conference
+006970369275,Healthcare - Farmer Opp 130,Healthcare Corp 409,Helen Mirren,Farmer,Negotiation,59360.49,2024-04-14,2024-08-01,Healthcare,2,7,46,Inbound Web
+006969580435,Financial Services - Hunter Opp 131,Financial Services Corp 215,Diana Prince,Hunter,Proposal,11904.2,2024-05-15,2024-08-29,Financial Services,13,1,39,Outbound Cold Call
+006409644390,Financial Services - Hunter Opp 132,Financial Services Corp 971,Charlie Brown,Hunter,Closed Won,27389.17,2024-01-12,2024-03-30,Financial Services,14,3,21,Inbound Web
+006986806466,Healthcare - Farmer Opp 133,Healthcare Corp 183,Evan Wright,Farmer,Closed Won,9501.39,2023-12-13,2024-03-13,Healthcare,9,3,42,Outbound Cold Call
+006378421754,Financial Services - Farmer Opp 134,Financial Services Corp 113,George Costanza,Farmer,Closed Won,37695.0,2023-11-10,2024-03-24,Financial Services,8,4,55,Outbound Cold Call
+006359210229,Financial Services - Farmer Opp 135,Financial Services Corp 832,Helen Mirren,Farmer,Closed Won,85794.23,2025-01-06,2025-06-20,Financial Services,7,5,59,Event/Conference
+006781644726,Technology - Hunter Opp 136,Technology Corp 813,Diana Prince,Hunter,Qualification,4487.96,2025-03-09,2025-08-16,Technology,12,1,36,Inbound Web
+006410089820,Healthcare - Farmer Opp 137,Healthcare Corp 904,George Costanza,Farmer,Closed Lost,76327.99,2024-06-24,2024-12-18,Healthcare,8,3,38,Outbound Cold Call
+006619857515,Technology - Farmer Opp 138,Technology Corp 434,Helen Mirren,Farmer,Closed Won,36889.86,2024-02-26,2024-05-31,Technology,5,3,48,Partner Referral
+006837535749,Retail - Farmer Opp 139,Retail Corp 836,George Costanza,Farmer,Negotiation,20320.5,2024-11-16,2025-01-05,Retail,6,3,54,Outbound Cold Call
+006767052131,Financial Services - Farmer Opp 140,Financial Services Corp 417,George Costanza,Farmer,Proposal,17670.36,2024-08-15,2024-10-24,Financial Services,6,7,59,Outbound Cold Call
+006765809276,Financial Services - Farmer Opp 141,Financial Services Corp 165,Helen Mirren,Farmer,Qualification,24190.87,2024-06-22,2024-08-18,Financial Services,2,4,39,Event/Conference
+006138785284,Retail - Hunter Opp 142,Retail Corp 369,Diana Prince,Hunter,Qualification,6907.42,2024-11-08,2025-04-04,Retail,19,3,19,Outbound Cold Call
+006953743196,Manufacturing - Hunter Opp 143,Manufacturing Corp 985,Bob Jones,Hunter,Proposal,15273.54,2024-09-24,2024-12-26,Manufacturing,16,1,34,Outbound Cold Call
+006257502584,Healthcare - Farmer Opp 144,Healthcare Corp 719,George Costanza,Farmer,Closed Won,31637.03,2024-02-10,2024-07-22,Healthcare,9,5,29,Inbound Web
+006246835347,Financial Services - Hunter Opp 145,Financial Services Corp 936,Bob Jones,Hunter,Prospecting,9395.54,2025-02-26,2025-05-25,Financial Services,11,3,15,Outbound Cold Call
+006463657906,Technology - Hunter Opp 146,Technology Corp 284,Bob Jones,Hunter,Prospecting,90295.02,2024-08-05,2024-10-02,Technology,6,1,27,Inbound Web
+006118144439,Retail - Farmer Opp 147,Retail Corp 228,Fiona Gallagher,Farmer,Proposal,36532.79,2024-11-09,2025-03-03,Retail,3,3,22,Event/Conference
+006770718620,Financial Services - Farmer Opp 148,Financial Services Corp 244,Evan Wright,Farmer,Closed Won,15033.97,2024-12-17,2025-05-09,Financial Services,8,3,57,Event/Conference
+006592241198,Healthcare - Farmer Opp 149,Healthcare Corp 701,Helen Mirren,Farmer,Closed Won,51362.16,2024-07-29,2024-12-10,Healthcare,8,7,19,Outbound Cold Call
+006784134337,Healthcare - Farmer Opp 150,Healthcare Corp 709,Fiona Gallagher,Farmer,Closed Lost,151483.54,2025-04-22,2025-07-28,Healthcare,6,2,27,Inbound Web
+006430854893,Retail - Farmer Opp 151,Retail Corp 443,George Costanza,Farmer,Closed Won,95781.89,2024-10-22,2025-03-29,Retail,4,6,25,Outbound Cold Call
+006740270790,Retail - Hunter Opp 152,Retail Corp 835,Charlie Brown,Hunter,Proposal,13128.69,2023-12-18,2024-03-05,Retail,17,1,10,Outbound Cold Call
+006162994533,Financial Services - Hunter Opp 153,Financial Services Corp 915,Charlie Brown,Hunter,Proposal,24945.3,2025-06-04,2025-09-13,Financial Services,7,1,35,Event/Conference
+006805390491,Financial Services - Hunter Opp 154,Financial Services Corp 142,Bob Jones,Hunter,Proposal,13770.53,2025-09-12,2025-10-26,Financial Services,19,4,13,Event/Conference
+006370521669,Technology - Farmer Opp 155,Technology Corp 903,Helen Mirren,Farmer,Prospecting,8312.88,2025-01-07,2025-03-02,Technology,8,6,29,Partner Referral
+006358846478,Retail - Hunter Opp 156,Retail Corp 768,Alice Smith,Hunter,Negotiation,8452.2,2025-02-17,2025-04-14,Retail,9,4,23,Event/Conference
+006268196386,Financial Services - Farmer Opp 157,Financial Services Corp 558,Fiona Gallagher,Farmer,Negotiation,55744.72,2024-10-23,2025-02-23,Financial Services,5,3,39,Outbound Cold Call
+006569937259,Healthcare - Hunter Opp 158,Healthcare Corp 551,Alice Smith,Hunter,Proposal,28691.82,2024-02-15,2024-06-07,Healthcare,14,4,13,Outbound Cold Call
+006382388277,Technology - Farmer Opp 159,Technology Corp 125,Helen Mirren,Farmer,Prospecting,45781.8,2025-06-02,2025-11-15,Technology,7,7,35,Outbound Cold Call
+006576659721,Healthcare - Hunter Opp 160,Healthcare Corp 711,Alice Smith,Hunter,Qualification,52035.04,2025-08-11,2025-09-28,Healthcare,9,4,27,Inbound Web
+006819621321,Financial Services - Farmer Opp 161,Financial Services Corp 760,George Costanza,Farmer,Proposal,13785.12,2025-06-11,2025-11-06,Financial Services,2,4,58,Outbound Cold Call
+006201526959,Financial Services - Hunter Opp 162,Financial Services Corp 419,Charlie Brown,Hunter,Qualification,20121.27,2025-02-27,2025-03-30,Financial Services,17,1,34,Outbound Cold Call
+006938139476,Healthcare - Farmer Opp 163,Healthcare Corp 317,Fiona Gallagher,Farmer,Closed Won,30077.49,2024-10-03,2025-01-08,Healthcare,8,5,33,Outbound Cold Call
+006767973919,Healthcare - Hunter Opp 164,Healthcare Corp 169,Bob Jones,Hunter,Proposal,5791.02,2023-09-06,2024-02-05,Healthcare,13,4,10,Outbound Cold Call
+006398173123,Manufacturing - Farmer Opp 165,Manufacturing Corp 166,Helen Mirren,Farmer,Negotiation,49765.16,2025-07-16,2025-10-03,Manufacturing,6,7,22,Inbound Web
+006419261052,Financial Services - Farmer Opp 166,Financial Services Corp 215,Fiona Gallagher,Farmer,Closed Won,200231.13,2024-03-11,2024-05-09,Financial Services,4,3,37,Outbound Cold Call
+006367562795,Healthcare - Hunter Opp 167,Healthcare Corp 154,Alice Smith,Hunter,Qualification,27835.33,2024-11-22,2025-04-21,Healthcare,14,2,39,Event/Conference
+006519066512,Retail - Hunter Opp 168,Retail Corp 971,Diana Prince,Hunter,Prospecting,57240.61,2025-04-25,2025-05-29,Retail,7,4,31,Event/Conference
+006495279992,Healthcare - Farmer Opp 169,Healthcare Corp 903,Helen Mirren,Farmer,Closed Won,11165.6,2024-08-22,2025-02-09,Healthcare,5,7,48,Outbound Cold Call
+006156318065,Healthcare - Hunter Opp 170,Healthcare Corp 361,Alice Smith,Hunter,Proposal,12502.8,2024-09-13,2024-12-06,Healthcare,15,3,29,Partner Referral
+006420350350,Healthcare - Farmer Opp 171,Healthcare Corp 166,Evan Wright,Farmer,Proposal,16268.95,2024-03-21,2024-08-31,Healthcare,3,6,49,Event/Conference
+006334845107,Technology - Farmer Opp 172,Technology Corp 636,George Costanza,Farmer,Closed Won,8494.03,2024-12-31,2025-02-08,Technology,3,7,34,Inbound Web
+006581098549,Retail - Hunter Opp 173,Retail Corp 752,Charlie Brown,Hunter,Qualification,49707.01,2024-02-25,2024-04-19,Retail,7,1,15,Outbound Cold Call
+006392797831,Retail - Farmer Opp 174,Retail Corp 945,Helen Mirren,Farmer,Closed Won,17687.02,2025-04-21,2025-06-20,Retail,9,5,27,Event/Conference
+006219196636,Financial Services - Hunter Opp 175,Financial Services Corp 566,Bob Jones,Hunter,Negotiation,9000.92,2025-09-29,2025-11-02,Financial Services,7,3,28,Outbound Cold Call
+006349811585,Healthcare - Farmer Opp 176,Healthcare Corp 255,Fiona Gallagher,Farmer,Closed Won,43734.87,2024-05-30,2024-09-09,Healthcare,2,4,35,Outbound Cold Call
+006533988466,Healthcare - Hunter Opp 177,Healthcare Corp 519,Diana Prince,Hunter,Qualification,18517.08,2025-06-11,2025-08-31,Healthcare,16,4,38,Inbound Web
+006856272358,Retail - Farmer Opp 178,Retail Corp 554,Evan Wright,Farmer,Closed Won,27361.42,2025-08-07,2025-09-19,Retail,4,5,36,Event/Conference
+006182913877,Retail - Farmer Opp 179,Retail Corp 987,George Costanza,Farmer,Prospecting,13079.94,2024-10-25,2025-01-20,Retail,8,6,24,Inbound Web
+006415681804,Financial Services - Hunter Opp 180,Financial Services Corp 802,Bob Jones,Hunter,Prospecting,79666.44,2024-11-20,2025-05-07,Financial Services,8,1,12,Inbound Web
+006168802303,Manufacturing - Hunter Opp 181,Manufacturing Corp 120,Bob Jones,Hunter,Qualification,7360.3,2025-03-14,2025-05-24,Manufacturing,6,4,12,Partner Referral
+006671853424,Healthcare - Farmer Opp 182,Healthcare Corp 341,Evan Wright,Farmer,Closed Won,21709.9,2024-03-21,2024-04-29,Healthcare,9,6,47,Outbound Cold Call
+006751812795,Technology - Farmer Opp 183,Technology Corp 272,Helen Mirren,Farmer,Closed Won,33650.77,2025-08-20,2025-12-15,Technology,2,2,37,Outbound Cold Call
+006152492736,Technology - Farmer Opp 184,Technology Corp 744,Helen Mirren,Farmer,Closed Won,10822.65,2024-06-02,2024-07-18,Technology,4,4,38,Inbound Web
+006690967015,Technology - Hunter Opp 185,Technology Corp 872,Bob Jones,Hunter,Negotiation,12606.53,2024-07-12,2024-08-15,Technology,16,3,20,Inbound Web
+006161730143,Manufacturing - Hunter Opp 186,Manufacturing Corp 562,Bob Jones,Hunter,Closed Lost,5810.49,2025-03-23,2025-07-03,Manufacturing,12,4,17,Outbound Cold Call
+006621350704,Healthcare - Hunter Opp 187,Healthcare Corp 248,Diana Prince,Hunter,Proposal,5516.91,2025-07-04,2025-08-12,Healthcare,18,3,27,Outbound Cold Call
+006589440001,Manufacturing - Farmer Opp 188,Manufacturing Corp 282,Evan Wright,Farmer,Proposal,59198.12,2023-12-16,2024-06-08,Manufacturing,3,2,54,Outbound Cold Call
+006641135335,Manufacturing - Farmer Opp 189,Manufacturing Corp 643,Helen Mirren,Farmer,Proposal,116700.97,2025-04-19,2025-09-17,Manufacturing,9,4,35,Outbound Cold Call
+006655204646,Retail - Farmer Opp 190,Retail Corp 761,Evan Wright,Farmer,Closed Lost,46085.92,2025-02-18,2025-06-13,Retail,7,7,21,Partner Referral
+006904825621,Retail - Farmer Opp 191,Retail Corp 143,Evan Wright,Farmer,Closed Won,11960.23,2024-12-14,2025-04-10,Retail,4,3,45,Event/Conference
+006281407402,Technology - Farmer Opp 192,Technology Corp 328,Evan Wright,Farmer,Proposal,43642.33,2025-06-22,2025-11-26,Technology,7,5,39,Outbound Cold Call
+006349289913,Manufacturing - Hunter Opp 193,Manufacturing Corp 504,Alice Smith,Hunter,Prospecting,46648.54,2024-08-09,2024-09-17,Manufacturing,14,2,20,Event/Conference
+006598153702,Manufacturing - Farmer Opp 194,Manufacturing Corp 732,Fiona Gallagher,Farmer,Closed Won,64931.75,2024-03-09,2024-04-21,Manufacturing,3,3,26,Partner Referral
+006606551672,Retail - Farmer Opp 195,Retail Corp 635,Helen Mirren,Farmer,Proposal,85977.59,2024-01-21,2024-03-10,Retail,8,6,18,Outbound Cold Call
+006691944857,Manufacturing - Hunter Opp 196,Manufacturing Corp 682,Alice Smith,Hunter,Qualification,4658.9,2024-09-13,2025-02-08,Manufacturing,17,4,26,Inbound Web
+006711283469,Manufacturing - Farmer Opp 197,Manufacturing Corp 258,Evan Wright,Farmer,Closed Won,17079.7,2024-08-12,2024-12-01,Manufacturing,7,3,44,Outbound Cold Call
+006409701522,Retail - Farmer Opp 198,Retail Corp 803,Fiona Gallagher,Farmer,Closed Won,9762.56,2024-03-22,2024-07-29,Retail,3,7,45,Inbound Web
+006630267820,Financial Services - Hunter Opp 199,Financial Services Corp 924,Charlie Brown,Hunter,Proposal,15383.91,2024-02-06,2024-04-22,Financial Services,5,3,37,Partner Referral
+006712312876,Technology - Hunter Opp 200,Technology Corp 970,Bob Jones,Hunter,Negotiation,17710.18,2024-06-04,2024-09-16,Technology,19,2,37,Inbound Web
+006476966543,Technology - Hunter Opp 201,Technology Corp 809,Diana Prince,Hunter,Prospecting,83118.61,2025-03-01,2025-07-26,Technology,5,2,39,Inbound Web
+006309274732,Financial Services - Farmer Opp 202,Financial Services Corp 173,George Costanza,Farmer,Closed Lost,80520.24,2024-12-13,2025-03-01,Financial Services,6,6,34,Partner Referral
+006984844899,Financial Services - Hunter Opp 203,Financial Services Corp 908,Diana Prince,Hunter,Closed Lost,30485.12,2025-06-22,2025-09-29,Financial Services,12,1,13,Outbound Cold Call
+006573413435,Healthcare - Hunter Opp 204,Healthcare Corp 513,Alice Smith,Hunter,Closed Lost,56009.05,2025-02-11,2025-06-26,Healthcare,18,4,21,Outbound Cold Call
+006210465926,Financial Services - Hunter Opp 205,Financial Services Corp 327,Diana Prince,Hunter,Closed Won,9741.54,2024-07-14,2024-09-26,Financial Services,10,4,18,Outbound Cold Call
+006369093459,Financial Services - Farmer Opp 206,Financial Services Corp 571,George Costanza,Farmer,Closed Won,23771.03,2024-09-20,2025-03-16,Financial Services,8,7,29,Inbound Web
+006902396358,Healthcare - Hunter Opp 207,Healthcare Corp 698,Bob Jones,Hunter,Proposal,35521.27,2024-11-27,2025-05-06,Healthcare,9,2,14,Outbound Cold Call
+006380591319,Retail - Hunter Opp 208,Retail Corp 589,Charlie Brown,Hunter,Prospecting,73528.62,2024-08-15,2025-01-18,Retail,6,1,13,Outbound Cold Call
+006889217877,Financial Services - Farmer Opp 209,Financial Services Corp 276,Evan Wright,Farmer,Closed Won,12252.57,2025-07-02,2025-10-25,Financial Services,4,2,53,Inbound Web
+006451007685,Retail - Hunter Opp 210,Retail Corp 243,Bob Jones,Hunter,Closed Lost,15422.3,2025-03-25,2025-07-30,Retail,13,2,19,Inbound Web
+006748426108,Manufacturing - Farmer Opp 211,Manufacturing Corp 376,Helen Mirren,Farmer,Closed Won,65487.11,2024-06-28,2024-12-09,Manufacturing,4,4,46,Outbound Cold Call
+006444521086,Retail - Farmer Opp 212,Retail Corp 779,Helen Mirren,Farmer,Closed Won,8179.07,2024-02-29,2024-08-01,Retail,5,5,28,Partner Referral
+006194542873,Manufacturing - Farmer Opp 213,Manufacturing Corp 700,Fiona Gallagher,Farmer,Closed Won,23290.54,2024-07-20,2024-09-10,Manufacturing,5,4,20,Outbound Cold Call
+006501184170,Manufacturing - Farmer Opp 214,Manufacturing Corp 666,George Costanza,Farmer,Closed Won,15479.41,2025-02-06,2025-05-18,Manufacturing,5,6,35,Inbound Web
+006941129870,Manufacturing - Farmer Opp 215,Manufacturing Corp 382,Helen Mirren,Farmer,Closed Won,13947.06,2024-06-26,2024-07-28,Manufacturing,3,4,59,Outbound Cold Call
+006130284261,Manufacturing - Hunter Opp 216,Manufacturing Corp 857,Alice Smith,Hunter,Closed Won,49617.65,2025-01-15,2025-06-03,Manufacturing,9,4,39,Event/Conference
+006605277064,Retail - Farmer Opp 217,Retail Corp 201,Fiona Gallagher,Farmer,Closed Lost,174679.86,2023-12-14,2024-01-16,Retail,6,7,27,Partner Referral
+006770590522,Manufacturing - Hunter Opp 218,Manufacturing Corp 326,Charlie Brown,Hunter,Negotiation,6042.22,2025-01-09,2025-06-20,Manufacturing,6,2,39,Outbound Cold Call
+006564616924,Manufacturing - Hunter Opp 219,Manufacturing Corp 975,Bob Jones,Hunter,Qualification,6442.71,2024-10-23,2025-03-09,Manufacturing,15,2,24,Outbound Cold Call
+006118562775,Financial Services - Farmer Opp 220,Financial Services Corp 140,George Costanza,Farmer,Negotiation,23152.7,2025-06-08,2025-08-10,Financial Services,5,3,47,Event/Conference
+006921457233,Healthcare - Farmer Opp 221,Healthcare Corp 388,Evan Wright,Farmer,Closed Won,43876.15,2024-06-07,2024-10-05,Healthcare,4,7,29,Outbound Cold Call
+006856676879,Healthcare - Hunter Opp 222,Healthcare Corp 739,Charlie Brown,Hunter,Negotiation,5443.7,2024-05-11,2024-09-04,Healthcare,5,4,32,Inbound Web
+006933870339,Technology - Farmer Opp 223,Technology Corp 650,George Costanza,Farmer,Closed Won,16465.32,2023-11-30,2024-05-22,Technology,6,7,28,Event/Conference
+006353806331,Technology - Farmer Opp 224,Technology Corp 657,Fiona Gallagher,Farmer,Prospecting,96647.07,2023-11-27,2024-04-24,Technology,4,4,48,Inbound Web
+006592046947,Technology - Hunter Opp 225,Technology Corp 253,Bob Jones,Hunter,Proposal,14866.17,2025-05-18,2025-06-30,Technology,13,4,33,Partner Referral
+006647410581,Financial Services - Farmer Opp 226,Financial Services Corp 817,George Costanza,Farmer,Closed Won,99592.05,2025-06-05,2025-09-13,Financial Services,5,5,59,Event/Conference
+006335154170,Manufacturing - Farmer Opp 227,Manufacturing Corp 364,Evan Wright,Farmer,Proposal,45983.39,2025-03-24,2025-05-22,Manufacturing,7,6,50,Outbound Cold Call
+006245292083,Manufacturing - Hunter Opp 228,Manufacturing Corp 736,Charlie Brown,Hunter,Prospecting,31188.62,2024-07-18,2024-11-29,Manufacturing,16,4,11,Inbound Web
+006711184552,Healthcare - Farmer Opp 229,Healthcare Corp 593,George Costanza,Farmer,Negotiation,36457.31,2025-08-24,2025-11-25,Healthcare,5,4,25,Event/Conference
+006192108542,Manufacturing - Farmer Opp 230,Manufacturing Corp 134,Helen Mirren,Farmer,Proposal,16828.13,2024-06-27,2024-10-02,Manufacturing,6,2,23,Event/Conference
+006653960151,Manufacturing - Farmer Opp 231,Manufacturing Corp 919,Helen Mirren,Farmer,Closed Lost,51961.63,2024-09-02,2024-10-27,Manufacturing,7,2,33,Inbound Web
+006559946215,Manufacturing - Farmer Opp 232,Manufacturing Corp 175,Fiona Gallagher,Farmer,Closed Won,53774.35,2024-11-21,2025-05-19,Manufacturing,5,5,18,Inbound Web
+006753798229,Healthcare - Hunter Opp 233,Healthcare Corp 672,Diana Prince,Hunter,Proposal,16807.19,2023-12-19,2024-06-10,Healthcare,11,2,15,Inbound Web
+006296059865,Healthcare - Farmer Opp 234,Healthcare Corp 390,George Costanza,Farmer,Closed Won,31751.84,2024-07-27,2025-01-14,Healthcare,2,4,54,Inbound Web
+006989026359,Technology - Farmer Opp 235,Technology Corp 856,Evan Wright,Farmer,Closed Won,7788.51,2023-10-27,2024-02-18,Technology,2,3,53,Inbound Web
+006154407485,Retail - Hunter Opp 236,Retail Corp 670,Bob Jones,Hunter,Qualification,10667.32,2024-10-28,2025-01-16,Retail,5,4,30,Inbound Web
+006633531688,Retail - Hunter Opp 237,Retail Corp 118,Diana Prince,Hunter,Closed Lost,104261.12,2024-12-22,2025-05-08,Retail,17,1,17,Inbound Web
+006776934087,Healthcare - Farmer Opp 238,Healthcare Corp 252,Evan Wright,Farmer,Closed Won,49602.16,2024-08-18,2024-09-24,Healthcare,8,5,19,Inbound Web
+006319624790,Manufacturing - Farmer Opp 239,Manufacturing Corp 519,George Costanza,Farmer,Closed Won,9188.45,2025-07-24,2025-12-27,Manufacturing,3,5,44,Outbound Cold Call
+006619798418,Manufacturing - Farmer Opp 240,Manufacturing Corp 896,Helen Mirren,Farmer,Qualification,93967.61,2024-02-22,2024-03-24,Manufacturing,8,2,53,Inbound Web
+006580692673,Technology - Farmer Opp 241,Technology Corp 553,Evan Wright,Farmer,Closed Lost,33654.89,2024-06-01,2024-09-22,Technology,2,5,17,Outbound Cold Call
+006754781953,Healthcare - Farmer Opp 242,Healthcare Corp 410,George Costanza,Farmer,Closed Won,13249.16,2024-09-12,2024-12-15,Healthcare,5,4,57,Inbound Web
+006287857881,Healthcare - Farmer Opp 243,Healthcare Corp 537,Fiona Gallagher,Farmer,Closed Won,16627.94,2023-12-30,2024-02-18,Healthcare,2,7,42,Event/Conference
+006760986275,Financial Services - Farmer Opp 244,Financial Services Corp 140,George Costanza,Farmer,Closed Won,21215.07,2023-11-26,2024-03-13,Financial Services,5,3,46,Inbound Web
+006395780711,Healthcare - Farmer Opp 245,Healthcare Corp 295,Helen Mirren,Farmer,Closed Won,53353.8,2024-03-22,2024-04-27,Healthcare,3,5,51,Outbound Cold Call
+006151139392,Financial Services - Hunter Opp 246,Financial Services Corp 494,Diana Prince,Hunter,Negotiation,18843.16,2025-05-28,2025-10-30,Financial Services,15,3,36,Outbound Cold Call
+006860727333,Manufacturing - Farmer Opp 247,Manufacturing Corp 475,Helen Mirren,Farmer,Closed Won,16966.86,2025-08-12,2025-11-18,Manufacturing,8,5,59,Partner Referral
+006237064002,Technology - Farmer Opp 248,Technology Corp 224,Helen Mirren,Farmer,Closed Won,9126.5,2025-07-31,2025-10-27,Technology,3,4,20,Inbound Web
+006268555037,Manufacturing - Hunter Opp 249,Manufacturing Corp 300,Bob Jones,Hunter,Qualification,13253.32,2024-03-18,2024-05-04,Manufacturing,11,2,13,Partner Referral
+006264950092,Manufacturing - Farmer Opp 250,Manufacturing Corp 953,Fiona Gallagher,Farmer,Closed Lost,8808.66,2024-12-27,2025-05-14,Manufacturing,2,2,27,Outbound Cold Call
+006480315990,Technology - Farmer Opp 251,Technology Corp 399,Fiona Gallagher,Farmer,Proposal,18757.75,2024-10-30,2024-12-19,Technology,6,7,58,Event/Conference
+006292533315,Retail - Hunter Opp 252,Retail Corp 198,Diana Prince,Hunter,Negotiation,167176.68,2024-08-21,2024-10-06,Retail,15,4,28,Event/Conference
+006630024551,Manufacturing - Hunter Opp 253,Manufacturing Corp 163,Diana Prince,Hunter,Closed Lost,30247.35,2023-12-20,2024-06-13,Manufacturing,9,4,31,Inbound Web
+006525719649,Retail - Farmer Opp 254,Retail Corp 657,Evan Wright,Farmer,Closed Won,85259.38,2025-05-24,2025-07-12,Retail,8,5,19,Outbound Cold Call
+006739073808,Manufacturing - Farmer Opp 255,Manufacturing Corp 686,Fiona Gallagher,Farmer,Closed Lost,11188.29,2024-06-21,2024-10-30,Manufacturing,8,3,50,Outbound Cold Call
+006150672855,Technology - Farmer Opp 256,Technology Corp 703,George Costanza,Farmer,Closed Won,103150.76,2025-08-26,2025-12-15,Technology,4,6,28,Event/Conference
+006162396414,Healthcare - Farmer Opp 257,Healthcare Corp 836,George Costanza,Farmer,Qualification,31769.49,2024-08-10,2024-12-30,Healthcare,6,2,31,Event/Conference
+006368253330,Retail - Hunter Opp 258,Retail Corp 825,Charlie Brown,Hunter,Closed Lost,4694.86,2024-11-16,2025-03-18,Retail,6,4,31,Event/Conference
+006926920501,Manufacturing - Farmer Opp 259,Manufacturing Corp 833,Helen Mirren,Farmer,Closed Won,46280.49,2024-02-09,2024-05-05,Manufacturing,9,4,44,Outbound Cold Call
+006961789553,Technology - Farmer Opp 260,Technology Corp 648,Evan Wright,Farmer,Closed Won,20896.99,2024-11-11,2025-05-02,Technology,2,6,15,Outbound Cold Call
+006903549831,Manufacturing - Farmer Opp 261,Manufacturing Corp 359,Helen Mirren,Farmer,Closed Won,61984.86,2024-02-13,2024-07-19,Manufacturing,8,2,48,Inbound Web
+006383510117,Financial Services - Hunter Opp 262,Financial Services Corp 165,Diana Prince,Hunter,Prospecting,21209.58,2024-05-22,2024-07-06,Financial Services,7,3,15,Outbound Cold Call
+006102681206,Financial Services - Farmer Opp 263,Financial Services Corp 550,Helen Mirren,Farmer,Qualification,32375.42,2025-08-10,2025-10-17,Financial Services,6,5,48,Event/Conference
+006869778637,Retail - Hunter Opp 264,Retail Corp 632,Charlie Brown,Hunter,Closed Won,4445.46,2023-12-16,2024-01-27,Retail,5,1,39,Outbound Cold Call
+006813486098,Financial Services - Farmer Opp 265,Financial Services Corp 113,Fiona Gallagher,Farmer,Closed Won,89818.44,2023-09-10,2024-01-31,Financial Services,9,7,34,Inbound Web
+006411534579,Manufacturing - Hunter Opp 266,Manufacturing Corp 730,Charlie Brown,Hunter,Prospecting,20569.67,2023-12-12,2024-01-22,Manufacturing,11,4,27,Outbound Cold Call
+006666902049,Manufacturing - Hunter Opp 267,Manufacturing Corp 253,Bob Jones,Hunter,Proposal,5194.03,2025-05-31,2025-09-30,Manufacturing,13,3,26,Event/Conference
+006501518293,Healthcare - Farmer Opp 268,Healthcare Corp 732,George Costanza,Farmer,Closed Won,76067.08,2023-10-12,2024-03-28,Healthcare,5,2,43,Outbound Cold Call
+006187588498,Financial Services - Farmer Opp 269,Financial Services Corp 667,Fiona Gallagher,Farmer,Closed Lost,39896.59,2024-10-13,2025-03-03,Financial Services,6,4,20,Partner Referral
+006483495588,Manufacturing - Hunter Opp 270,Manufacturing Corp 824,Charlie Brown,Hunter,Negotiation,20631.14,2024-06-14,2024-08-05,Manufacturing,12,3,19,Event/Conference
+006814619916,Healthcare - Hunter Opp 271,Healthcare Corp 392,Diana Prince,Hunter,Qualification,65189.53,2024-12-19,2025-06-06,Healthcare,9,4,28,Outbound Cold Call
+006572663140,Technology - Farmer Opp 272,Technology Corp 991,George Costanza,Farmer,Closed Won,84063.86,2025-02-09,2025-06-23,Technology,3,7,49,Event/Conference
+006898962700,Healthcare - Farmer Opp 273,Healthcare Corp 720,Evan Wright,Farmer,Closed Won,78729.1,2023-12-02,2024-04-09,Healthcare,4,7,36,Event/Conference
+006254355436,Technology - Hunter Opp 274,Technology Corp 587,Diana Prince,Hunter,Qualification,6687.19,2024-07-24,2024-09-19,Technology,16,4,30,Inbound Web
+006440055104,Healthcare - Farmer Opp 275,Healthcare Corp 152,Helen Mirren,Farmer,Closed Won,24694.77,2024-06-07,2024-08-22,Healthcare,7,3,58,Inbound Web
+006654454692,Healthcare - Farmer Opp 276,Healthcare Corp 635,Fiona Gallagher,Farmer,Closed Won,27931.25,2024-09-09,2025-02-01,Healthcare,7,2,26,Event/Conference
+006648239768,Manufacturing - Farmer Opp 277,Manufacturing Corp 601,Helen Mirren,Farmer,Negotiation,61379.4,2024-06-22,2024-08-17,Manufacturing,2,5,26,Outbound Cold Call
+006186578874,Retail - Hunter Opp 278,Retail Corp 737,Alice Smith,Hunter,Qualification,8131.66,2025-08-10,2025-11-04,Retail,11,2,16,Inbound Web
+006392455119,Technology - Hunter Opp 279,Technology Corp 313,Diana Prince,Hunter,Prospecting,46975.73,2025-07-26,2025-10-08,Technology,15,4,10,Outbound Cold Call
+006741905255,Manufacturing - Hunter Opp 280,Manufacturing Corp 701,Alice Smith,Hunter,Proposal,9663.28,2024-05-03,2024-06-05,Manufacturing,16,3,21,Partner Referral
+006251137924,Manufacturing - Farmer Opp 281,Manufacturing Corp 540,Helen Mirren,Farmer,Closed Won,46987.64,2024-10-25,2025-03-09,Manufacturing,2,4,40,Inbound Web
+006234526345,Manufacturing - Hunter Opp 282,Manufacturing Corp 148,Charlie Brown,Hunter,Proposal,83966.14,2024-06-21,2024-09-23,Manufacturing,16,3,20,Partner Referral
+006475123045,Healthcare - Hunter Opp 283,Healthcare Corp 695,Diana Prince,Hunter,Negotiation,48893.74,2025-06-18,2025-07-22,Healthcare,14,1,27,Inbound Web
+006949000906,Retail - Hunter Opp 284,Retail Corp 673,Alice Smith,Hunter,Closed Lost,19372.27,2024-12-20,2025-02-25,Retail,18,1,15,Event/Conference
+006301260621,Retail - Farmer Opp 285,Retail Corp 432,Evan Wright,Farmer,Closed Won,9183.48,2024-04-28,2024-08-10,Retail,6,4,58,Inbound Web
+006709276766,Technology - Hunter Opp 286,Technology Corp 545,Bob Jones,Hunter,Proposal,8511.95,2025-07-15,2025-11-11,Technology,12,4,36,Inbound Web
+006140981642,Financial Services - Farmer Opp 287,Financial Services Corp 224,Fiona Gallagher,Farmer,Closed Lost,14763.77,2023-10-23,2024-01-19,Financial Services,5,5,43,Partner Referral
+006723654698,Financial Services - Farmer Opp 288,Financial Services Corp 526,Fiona Gallagher,Farmer,Closed Won,26208.26,2024-06-01,2024-09-03,Financial Services,9,5,44,Inbound Web
+006798790074,Healthcare - Farmer Opp 289,Healthcare Corp 421,Fiona Gallagher,Farmer,Closed Won,33410.29,2023-11-21,2024-04-02,Healthcare,5,6,42,Inbound Web
+006350291119,Technology - Hunter Opp 290,Technology Corp 537,Alice Smith,Hunter,Closed Lost,4592.07,2024-04-26,2024-06-03,Technology,17,2,13,Outbound Cold Call
+006828130202,Healthcare - Farmer Opp 291,Healthcare Corp 724,Evan Wright,Farmer,Closed Won,34976.27,2025-06-27,2025-11-02,Healthcare,5,6,44,Inbound Web
+006209727577,Manufacturing - Hunter Opp 292,Manufacturing Corp 868,Bob Jones,Hunter,Proposal,9927.07,2025-06-25,2025-11-15,Manufacturing,6,4,10,Outbound Cold Call
+006822581356,Healthcare - Farmer Opp 293,Healthcare Corp 453,George Costanza,Farmer,Prospecting,76178.74,2024-08-02,2024-09-22,Healthcare,3,2,31,Inbound Web
+006960965596,Retail - Farmer Opp 294,Retail Corp 799,Helen Mirren,Farmer,Closed Won,39149.76,2025-05-27,2025-10-12,Retail,3,4,33,Inbound Web
+006760383734,Manufacturing - Farmer Opp 295,Manufacturing Corp 652,Helen Mirren,Farmer,Closed Won,28309.97,2025-04-24,2025-10-06,Manufacturing,5,3,59,Outbound Cold Call
+006502878575,Manufacturing - Farmer Opp 296,Manufacturing Corp 379,Helen Mirren,Farmer,Negotiation,10422.16,2024-12-19,2025-05-08,Manufacturing,4,6,15,Event/Conference
+006304617662,Manufacturing - Hunter Opp 297,Manufacturing Corp 378,Bob Jones,Hunter,Qualification,12886.34,2025-01-25,2025-06-19,Manufacturing,13,1,32,Partner Referral
+006709129310,Healthcare - Hunter Opp 298,Healthcare Corp 779,Bob Jones,Hunter,Prospecting,4060.24,2025-05-28,2025-11-11,Healthcare,10,1,34,Outbound Cold Call
+006332781733,Manufacturing - Hunter Opp 299,Manufacturing Corp 442,Diana Prince,Hunter,Closed Lost,47569.27,2024-12-10,2025-05-29,Manufacturing,10,3,13,Inbound Web
+006727240477,Healthcare - Hunter Opp 300,Healthcare Corp 627,Alice Smith,Hunter,Proposal,37941.3,2024-02-13,2024-04-21,Healthcare,15,3,31,Event/Conference
+006715018708,Financial Services - Farmer Opp 301,Financial Services Corp 579,Helen Mirren,Farmer,Closed Won,10563.92,2024-04-13,2024-09-28,Financial Services,4,3,23,Outbound Cold Call
+006165825272,Technology - Hunter Opp 302,Technology Corp 903,Diana Prince,Hunter,Closed Won,24362.15,2024-12-21,2025-03-11,Technology,10,1,10,Partner Referral
+006953898110,Healthcare - Farmer Opp 303,Healthcare Corp 240,Helen Mirren,Farmer,Proposal,11377.55,2023-12-25,2024-04-05,Healthcare,3,6,31,Outbound Cold Call
+006809297491,Manufacturing - Farmer Opp 304,Manufacturing Corp 199,George Costanza,Farmer,Closed Won,52795.5,2024-10-19,2024-12-02,Manufacturing,6,2,31,Event/Conference
+006772472515,Financial Services - Hunter Opp 305,Financial Services Corp 827,Charlie Brown,Hunter,Negotiation,40526.69,2023-09-04,2024-02-12,Financial Services,6,1,32,Event/Conference
+006388313170,Healthcare - Farmer Opp 306,Healthcare Corp 339,Evan Wright,Farmer,Closed Won,9489.43,2024-05-05,2024-06-16,Healthcare,9,7,54,Event/Conference
+006326375138,Manufacturing - Farmer Opp 307,Manufacturing Corp 412,Helen Mirren,Farmer,Closed Won,83915.39,2025-02-14,2025-07-08,Manufacturing,5,3,36,Event/Conference
+006102009606,Technology - Hunter Opp 308,Technology Corp 212,Charlie Brown,Hunter,Negotiation,42663.81,2024-10-24,2025-03-26,Technology,8,4,17,Outbound Cold Call
+006704225076,Healthcare - Hunter Opp 309,Healthcare Corp 987,Charlie Brown,Hunter,Proposal,23419.82,2023-12-24,2024-05-19,Healthcare,16,2,14,Event/Conference
+006253580861,Technology - Hunter Opp 310,Technology Corp 240,Alice Smith,Hunter,Prospecting,26635.58,2023-11-18,2024-01-19,Technology,19,3,13,Event/Conference
+006668147534,Retail - Hunter Opp 311,Retail Corp 813,Charlie Brown,Hunter,Prospecting,35288.88,2024-11-06,2025-02-06,Retail,17,4,27,Partner Referral
+006149309063,Financial Services - Hunter Opp 312,Financial Services Corp 573,Alice Smith,Hunter,Prospecting,7953.53,2024-03-31,2024-07-20,Financial Services,18,1,14,Inbound Web
+006978065584,Financial Services - Hunter Opp 313,Financial Services Corp 891,Diana Prince,Hunter,Proposal,10290.08,2025-03-05,2025-08-05,Financial Services,7,4,11,Inbound Web
+006718225817,Manufacturing - Farmer Opp 314,Manufacturing Corp 695,George Costanza,Farmer,Negotiation,10447.23,2024-02-12,2024-08-06,Manufacturing,7,5,58,Outbound Cold Call
+006329261121,Financial Services - Hunter Opp 315,Financial Services Corp 158,Bob Jones,Hunter,Proposal,9777.47,2024-01-05,2024-05-13,Financial Services,10,1,36,Inbound Web
+006598626972,Retail - Hunter Opp 316,Retail Corp 990,Charlie Brown,Hunter,Closed Lost,15923.49,2023-12-07,2024-06-02,Retail,10,3,25,Event/Conference
+006637750371,Retail - Farmer Opp 317,Retail Corp 996,Evan Wright,Farmer,Closed Won,44530.58,2024-06-20,2024-10-10,Retail,2,2,50,Outbound Cold Call
+006485694956,Healthcare - Farmer Opp 318,Healthcare Corp 226,Helen Mirren,Farmer,Closed Won,148971.13,2024-05-27,2024-09-18,Healthcare,4,7,49,Event/Conference
+006578114158,Financial Services - Hunter Opp 319,Financial Services Corp 140,Alice Smith,Hunter,Closed Lost,30152.72,2024-08-16,2025-01-13,Financial Services,16,1,20,Outbound Cold Call
+006976279276,Manufacturing - Hunter Opp 320,Manufacturing Corp 168,Alice Smith,Hunter,Prospecting,5026.26,2024-01-12,2024-05-30,Manufacturing,19,1,34,Outbound Cold Call
+006792212513,Financial Services - Hunter Opp 321,Financial Services Corp 738,Alice Smith,Hunter,Proposal,22181.13,2024-09-03,2024-11-09,Financial Services,11,2,27,Event/Conference
+006884735674,Healthcare - Hunter Opp 322,Healthcare Corp 608,Diana Prince,Hunter,Qualification,14343.61,2025-08-06,2025-11-16,Healthcare,15,2,17,Inbound Web
+006264634456,Financial Services - Hunter Opp 323,Financial Services Corp 462,Diana Prince,Hunter,Closed Won,43946.56,2025-08-29,2025-11-24,Financial Services,9,2,38,Inbound Web
+006459244517,Retail - Farmer Opp 324,Retail Corp 797,Helen Mirren,Farmer,Closed Won,47497.73,2025-04-02,2025-09-17,Retail,3,3,36,Outbound Cold Call
+006319241219,Manufacturing - Farmer Opp 325,Manufacturing Corp 484,George Costanza,Farmer,Negotiation,31743.5,2025-02-26,2025-07-26,Manufacturing,2,4,28,Partner Referral
+006580523604,Financial Services - Hunter Opp 326,Financial Services Corp 902,Alice Smith,Hunter,Closed Lost,62047.25,2025-08-24,2025-12-14,Financial Services,17,3,29,Event/Conference
+006134206848,Healthcare - Hunter Opp 327,Healthcare Corp 252,Diana Prince,Hunter,Proposal,18472.36,2024-06-14,2024-10-09,Healthcare,19,2,29,Event/Conference
+006803466015,Healthcare - Farmer Opp 328,Healthcare Corp 236,Evan Wright,Farmer,Closed Won,45684.94,2025-04-02,2025-07-01,Healthcare,8,2,35,Outbound Cold Call
+006438749548,Financial Services - Farmer Opp 329,Financial Services Corp 994,Fiona Gallagher,Farmer,Closed Lost,82127.33,2024-12-04,2025-02-28,Financial Services,5,4,44,Inbound Web
+006788764188,Manufacturing - Farmer Opp 330,Manufacturing Corp 696,George Costanza,Farmer,Negotiation,56327.92,2025-06-03,2025-10-14,Manufacturing,8,6,31,Event/Conference
+006269359979,Technology - Farmer Opp 331,Technology Corp 773,Fiona Gallagher,Farmer,Closed Won,23380.17,2024-05-24,2024-10-15,Technology,4,7,24,Inbound Web
+006562794267,Technology - Hunter Opp 332,Technology Corp 462,Charlie Brown,Hunter,Qualification,9587.12,2024-05-25,2024-09-03,Technology,18,4,33,Inbound Web
+006811998638,Financial Services - Farmer Opp 333,Financial Services Corp 192,Evan Wright,Farmer,Proposal,50109.27,2023-08-14,2024-01-19,Financial Services,3,3,27,Inbound Web
+006595616204,Financial Services - Farmer Opp 334,Financial Services Corp 550,Evan Wright,Farmer,Closed Won,22923.45,2024-08-26,2024-11-12,Financial Services,6,6,40,Outbound Cold Call
+006133522480,Healthcare - Farmer Opp 335,Healthcare Corp 479,Evan Wright,Farmer,Closed Won,67517.87,2025-06-02,2025-07-27,Healthcare,4,6,57,Event/Conference
+006947291464,Healthcare - Farmer Opp 336,Healthcare Corp 758,Evan Wright,Farmer,Closed Won,72095.3,2023-12-12,2024-04-02,Healthcare,4,7,55,Event/Conference
+006669340332,Healthcare - Farmer Opp 337,Healthcare Corp 633,George Costanza,Farmer,Closed Won,27678.7,2025-06-11,2025-11-23,Healthcare,4,3,46,Inbound Web
+006880495598,Healthcare - Farmer Opp 338,Healthcare Corp 434,Helen Mirren,Farmer,Closed Lost,10083.14,2024-09-17,2024-11-30,Healthcare,3,3,27,Outbound Cold Call
+006926978524,Technology - Farmer Opp 339,Technology Corp 578,Evan Wright,Farmer,Closed Won,16822.65,2024-06-20,2024-11-18,Technology,5,4,25,Event/Conference
+006135921754,Healthcare - Hunter Opp 340,Healthcare Corp 508,Bob Jones,Hunter,Prospecting,40944.45,2023-12-16,2024-03-02,Healthcare,16,2,38,Inbound Web
+006856219080,Financial Services - Farmer Opp 341,Financial Services Corp 640,Evan Wright,Farmer,Closed Won,60645.24,2024-10-21,2025-01-02,Financial Services,4,6,33,Outbound Cold Call
+006797863259,Technology - Hunter Opp 342,Technology Corp 943,Diana Prince,Hunter,Proposal,52545.6,2024-12-16,2025-03-17,Technology,14,4,19,Inbound Web
+006189948213,Retail - Hunter Opp 343,Retail Corp 399,Diana Prince,Hunter,Qualification,8100.49,2023-09-14,2024-02-28,Retail,18,2,21,Event/Conference
+006348796495,Financial Services - Hunter Opp 344,Financial Services Corp 161,Bob Jones,Hunter,Proposal,13651.2,2024-01-21,2024-06-26,Financial Services,18,4,26,Inbound Web
+006160395758,Retail - Farmer Opp 345,Retail Corp 889,George Costanza,Farmer,Closed Won,17060.49,2024-04-02,2024-08-09,Retail,6,3,27,Outbound Cold Call
+006215064244,Manufacturing - Farmer Opp 346,Manufacturing Corp 491,Helen Mirren,Farmer,Closed Won,62067.37,2025-02-26,2025-04-24,Manufacturing,5,5,47,Outbound Cold Call
+006141130558,Retail - Hunter Opp 347,Retail Corp 316,Alice Smith,Hunter,Negotiation,48586.2,2024-08-29,2025-02-08,Retail,18,2,25,Event/Conference
+006693213114,Financial Services - Farmer Opp 348,Financial Services Corp 375,George Costanza,Farmer,Closed Won,219303.84,2025-02-02,2025-03-30,Financial Services,4,2,52,Partner Referral
+006888431804,Retail - Farmer Opp 349,Retail Corp 902,Helen Mirren,Farmer,Closed Won,81914.01,2025-03-06,2025-07-26,Retail,8,6,27,Outbound Cold Call
+006574279610,Technology - Farmer Opp 350,Technology Corp 532,Fiona Gallagher,Farmer,Prospecting,48046.5,2024-12-30,2025-05-22,Technology,8,7,38,Event/Conference
+006267237535,Technology - Hunter Opp 351,Technology Corp 636,Diana Prince,Hunter,Negotiation,4107.21,2024-05-02,2024-08-22,Technology,9,1,19,Outbound Cold Call
+006694089500,Technology - Farmer Opp 352,Technology Corp 721,George Costanza,Farmer,Closed Won,54388.97,2024-10-08,2025-03-25,Technology,9,4,37,Outbound Cold Call
+006609069851,Financial Services - Farmer Opp 353,Financial Services Corp 814,George Costanza,Farmer,Closed Won,29890.35,2025-06-03,2025-07-16,Financial Services,2,3,34,Partner Referral
+006455760316,Technology - Farmer Opp 354,Technology Corp 950,George Costanza,Farmer,Proposal,25387.85,2025-05-29,2025-11-24,Technology,6,2,39,Event/Conference
+006358808646,Financial Services - Farmer Opp 355,Financial Services Corp 533,George Costanza,Farmer,Closed Won,54096.39,2025-03-14,2025-09-07,Financial Services,6,7,28,Event/Conference
+006571146870,Technology - Hunter Opp 356,Technology Corp 904,Charlie Brown,Hunter,Negotiation,36471.85,2024-07-19,2024-10-22,Technology,14,2,22,Event/Conference
+006712366145,Technology - Farmer Opp 357,Technology Corp 439,Fiona Gallagher,Farmer,Qualification,41813.54,2025-03-05,2025-08-09,Technology,9,6,54,Event/Conference
+006670864783,Technology - Farmer Opp 358,Technology Corp 355,George Costanza,Farmer,Closed Lost,34115.55,2025-02-05,2025-06-02,Technology,9,4,37,Event/Conference
+006961368498,Healthcare - Hunter Opp 359,Healthcare Corp 375,Bob Jones,Hunter,Proposal,23842.97,2024-11-21,2025-04-09,Healthcare,19,1,39,Outbound Cold Call
+006896259636,Retail - Farmer Opp 360,Retail Corp 669,Evan Wright,Farmer,Qualification,90923.8,2023-10-19,2024-03-04,Retail,4,3,21,Outbound Cold Call
+006337178929,Manufacturing - Hunter Opp 361,Manufacturing Corp 395,Bob Jones,Hunter,Closed Lost,15774.45,2025-04-07,2025-07-17,Manufacturing,18,1,17,Outbound Cold Call
+006768174230,Manufacturing - Farmer Opp 362,Manufacturing Corp 112,Fiona Gallagher,Farmer,Closed Won,20842.29,2024-02-07,2024-07-10,Manufacturing,5,2,50,Outbound Cold Call
+006830640153,Financial Services - Farmer Opp 363,Financial Services Corp 523,George Costanza,Farmer,Closed Won,23232.42,2024-10-25,2024-12-03,Financial Services,4,5,46,Outbound Cold Call
+006364955799,Healthcare - Farmer Opp 364,Healthcare Corp 889,Helen Mirren,Farmer,Closed Won,86884.96,2025-02-11,2025-03-21,Healthcare,8,3,56,Event/Conference
+006419062703,Retail - Farmer Opp 365,Retail Corp 944,Helen Mirren,Farmer,Closed Lost,16070.04,2024-10-14,2025-02-02,Retail,2,5,40,Event/Conference
+006355889227,Technology - Farmer Opp 366,Technology Corp 587,George Costanza,Farmer,Closed Won,24682.88,2024-12-18,2025-03-19,Technology,9,5,39,Outbound Cold Call
+006965198928,Financial Services - Farmer Opp 367,Financial Services Corp 892,Fiona Gallagher,Farmer,Closed Lost,40569.66,2025-05-02,2025-08-11,Financial Services,7,5,53,Event/Conference
+006226340282,Technology - Hunter Opp 368,Technology Corp 707,Bob Jones,Hunter,Qualification,8097.98,2023-11-02,2024-04-29,Technology,17,2,11,Partner Referral
+006352397814,Technology - Farmer Opp 369,Technology Corp 898,Evan Wright,Farmer,Closed Lost,25098.04,2023-10-10,2024-01-06,Technology,9,4,26,Inbound Web
+006476450884,Retail - Hunter Opp 370,Retail Corp 624,Alice Smith,Hunter,Closed Lost,8982.16,2023-11-27,2024-05-06,Retail,11,3,31,Inbound Web
+006530705577,Manufacturing - Farmer Opp 371,Manufacturing Corp 427,Helen Mirren,Farmer,Closed Won,60418.81,2025-02-16,2025-05-14,Manufacturing,8,6,31,Partner Referral
+006272052588,Technology - Farmer Opp 372,Technology Corp 986,Helen Mirren,Farmer,Closed Won,17700.05,2024-09-26,2024-11-10,Technology,6,2,42,Inbound Web
+006873030609,Retail - Farmer Opp 373,Retail Corp 760,Fiona Gallagher,Farmer,Closed Won,62523.1,2023-09-12,2024-01-13,Retail,3,6,57,Outbound Cold Call
+006729644112,Financial Services - Farmer Opp 374,Financial Services Corp 407,Helen Mirren,Farmer,Closed Won,98051.2,2024-02-26,2024-05-22,Financial Services,6,5,44,Partner Referral
+006790113536,Manufacturing - Farmer Opp 375,Manufacturing Corp 766,George Costanza,Farmer,Closed Won,16601.61,2023-12-28,2024-04-07,Manufacturing,7,2,22,Outbound Cold Call
+006657278528,Technology - Farmer Opp 376,Technology Corp 523,Fiona Gallagher,Farmer,Closed Won,9786.86,2025-08-10,2025-12-02,Technology,2,3,43,Partner Referral
+006689795717,Healthcare - Hunter Opp 377,Healthcare Corp 248,Bob Jones,Hunter,Qualification,39659.02,2025-02-18,2025-05-07,Healthcare,7,3,33,Partner Referral
+006820987198,Technology - Hunter Opp 378,Technology Corp 392,Charlie Brown,Hunter,Qualification,22523.76,2025-06-03,2025-10-29,Technology,16,2,15,Event/Conference
+006531271637,Manufacturing - Hunter Opp 379,Manufacturing Corp 285,Charlie Brown,Hunter,Negotiation,71184.46,2025-07-17,2025-11-06,Manufacturing,5,1,13,Outbound Cold Call
+006710981613,Healthcare - Hunter Opp 380,Healthcare Corp 591,Charlie Brown,Hunter,Closed Lost,99820.54,2024-03-07,2024-07-28,Healthcare,12,4,25,Outbound Cold Call
+006799181967,Retail - Farmer Opp 381,Retail Corp 172,George Costanza,Farmer,Closed Won,23510.34,2024-11-20,2025-04-16,Retail,3,4,38,Event/Conference
+006116613311,Financial Services - Hunter Opp 382,Financial Services Corp 792,Charlie Brown,Hunter,Closed Lost,38010.01,2024-01-18,2024-05-31,Financial Services,5,3,12,Outbound Cold Call
+006754579873,Healthcare - Farmer Opp 383,Healthcare Corp 248,Fiona Gallagher,Farmer,Closed Won,97455.89,2023-12-20,2024-05-19,Healthcare,3,7,17,Inbound Web
+006447674032,Manufacturing - Farmer Opp 384,Manufacturing Corp 124,Evan Wright,Farmer,Negotiation,32930.79,2025-01-05,2025-03-21,Manufacturing,8,3,29,Outbound Cold Call
+006600720504,Manufacturing - Hunter Opp 385,Manufacturing Corp 838,Bob Jones,Hunter,Negotiation,4999.99,2025-03-22,2025-09-16,Manufacturing,8,3,27,Inbound Web
+006774440854,Manufacturing - Farmer Opp 386,Manufacturing Corp 336,Helen Mirren,Farmer,Prospecting,38336.22,2024-03-31,2024-08-29,Manufacturing,8,4,19,Outbound Cold Call
+006579066660,Financial Services - Hunter Opp 387,Financial Services Corp 207,Alice Smith,Hunter,Negotiation,5392.02,2024-06-05,2024-07-15,Financial Services,16,3,39,Outbound Cold Call
+006840984409,Manufacturing - Farmer Opp 388,Manufacturing Corp 663,Helen Mirren,Farmer,Closed Lost,18372.27,2025-01-19,2025-03-20,Manufacturing,2,3,35,Outbound Cold Call
+006201303168,Healthcare - Farmer Opp 389,Healthcare Corp 434,Helen Mirren,Farmer,Proposal,43841.95,2025-03-10,2025-09-04,Healthcare,3,7,56,Event/Conference
+006726567778,Healthcare - Hunter Opp 390,Healthcare Corp 595,Diana Prince,Hunter,Proposal,37320.06,2025-08-14,2025-12-02,Healthcare,17,1,15,Inbound Web
+006490449925,Retail - Farmer Opp 391,Retail Corp 105,Fiona Gallagher,Farmer,Closed Won,13138.37,2024-05-29,2024-08-26,Retail,2,6,49,Inbound Web
+006428858169,Financial Services - Farmer Opp 392,Financial Services Corp 884,Evan Wright,Farmer,Closed Won,111238.18,2023-08-18,2024-01-26,Financial Services,7,4,32,Partner Referral
+006507430605,Technology - Hunter Opp 393,Technology Corp 518,Diana Prince,Hunter,Closed Won,6571.19,2025-03-21,2025-07-09,Technology,19,4,12,Outbound Cold Call
+006317597539,Retail - Farmer Opp 394,Retail Corp 899,Fiona Gallagher,Farmer,Closed Won,9436.29,2024-10-30,2025-03-07,Retail,8,4,15,Event/Conference
+006235983045,Manufacturing - Farmer Opp 395,Manufacturing Corp 528,Fiona Gallagher,Farmer,Closed Won,26756.24,2024-10-28,2025-04-07,Manufacturing,9,5,30,Outbound Cold Call
+006178495583,Technology - Farmer Opp 396,Technology Corp 682,George Costanza,Farmer,Negotiation,33675.51,2024-04-08,2024-05-15,Technology,8,6,16,Partner Referral
+006814770802,Financial Services - Hunter Opp 397,Financial Services Corp 709,Alice Smith,Hunter,Qualification,10729.03,2024-08-11,2024-11-08,Financial Services,6,1,30,Event/Conference
+006728938924,Manufacturing - Farmer Opp 398,Manufacturing Corp 245,Fiona Gallagher,Farmer,Closed Won,17915.51,2025-05-13,2025-09-25,Manufacturing,8,7,46,Outbound Cold Call
+006303888505,Technology - Farmer Opp 399,Technology Corp 195,Evan Wright,Farmer,Closed Won,39415.13,2024-01-28,2024-07-20,Technology,3,4,57,Partner Referral
+006723437251,Technology - Hunter Opp 400,Technology Corp 862,Charlie Brown,Hunter,Closed Lost,26633.21,2025-01-10,2025-02-19,Technology,8,2,25,Event/Conference
+006544652859,Technology - Hunter Opp 401,Technology Corp 274,Bob Jones,Hunter,Closed Lost,15276.93,2024-03-11,2024-08-12,Technology,11,2,28,Inbound Web
+006299537919,Healthcare - Farmer Opp 402,Healthcare Corp 738,Evan Wright,Farmer,Closed Won,38751.57,2024-03-29,2024-08-24,Healthcare,3,2,44,Outbound Cold Call
+006794576461,Retail - Hunter Opp 403,Retail Corp 675,Diana Prince,Hunter,Closed Won,9357.44,2023-11-05,2024-04-08,Retail,17,3,32,Outbound Cold Call
+006254318968,Technology - Farmer Opp 404,Technology Corp 361,Fiona Gallagher,Farmer,Closed Won,27927.53,2024-06-06,2024-11-26,Technology,6,4,40,Event/Conference
+006373617386,Retail - Hunter Opp 405,Retail Corp 382,Diana Prince,Hunter,Proposal,21751.74,2024-07-28,2024-10-24,Retail,10,2,35,Inbound Web
+006106240327,Manufacturing - Farmer Opp 406,Manufacturing Corp 903,George Costanza,Farmer,Closed Won,9587.82,2025-03-01,2025-07-28,Manufacturing,4,2,31,Event/Conference
+006874805316,Manufacturing - Hunter Opp 407,Manufacturing Corp 279,Diana Prince,Hunter,Qualification,12416.81,2025-06-13,2025-09-21,Manufacturing,11,4,23,Inbound Web
+006925093412,Manufacturing - Farmer Opp 408,Manufacturing Corp 410,George Costanza,Farmer,Proposal,51882.56,2024-06-20,2024-08-15,Manufacturing,3,6,51,Outbound Cold Call
+006741021587,Financial Services - Farmer Opp 409,Financial Services Corp 570,George Costanza,Farmer,Qualification,27141.32,2024-04-25,2024-06-12,Financial Services,5,7,59,Event/Conference
+006707757117,Manufacturing - Farmer Opp 410,Manufacturing Corp 215,Helen Mirren,Farmer,Proposal,23273.29,2025-03-10,2025-06-17,Manufacturing,4,4,52,Inbound Web
+006426695352,Retail - Hunter Opp 411,Retail Corp 935,Diana Prince,Hunter,Qualification,6325.33,2024-12-02,2025-01-22,Retail,18,3,14,Outbound Cold Call
+006448878625,Manufacturing - Hunter Opp 412,Manufacturing Corp 288,Alice Smith,Hunter,Closed Lost,18319.29,2025-05-18,2025-09-09,Manufacturing,18,3,12,Inbound Web
+006177332767,Manufacturing - Farmer Opp 413,Manufacturing Corp 187,Helen Mirren,Farmer,Closed Won,28414.46,2024-01-02,2024-05-17,Manufacturing,9,7,53,Event/Conference
+006341337206,Manufacturing - Hunter Opp 414,Manufacturing Corp 658,Charlie Brown,Hunter,Prospecting,19112.42,2024-11-11,2025-02-13,Manufacturing,5,3,37,Outbound Cold Call
+006165985129,Technology - Farmer Opp 415,Technology Corp 294,Fiona Gallagher,Farmer,Closed Lost,9860.53,2024-03-07,2024-04-17,Technology,4,4,59,Inbound Web
+006504765552,Manufacturing - Farmer Opp 416,Manufacturing Corp 907,Evan Wright,Farmer,Negotiation,7818.78,2025-08-07,2025-10-17,Manufacturing,2,6,24,Outbound Cold Call
+006792093943,Retail - Farmer Opp 417,Retail Corp 652,Fiona Gallagher,Farmer,Closed Won,9818.07,2024-09-03,2024-10-29,Retail,5,3,57,Partner Referral
+006887922079,Manufacturing - Farmer Opp 418,Manufacturing Corp 138,Fiona Gallagher,Farmer,Prospecting,22628.42,2023-11-24,2024-01-12,Manufacturing,3,2,48,Inbound Web
+006857625152,Financial Services - Farmer Opp 419,Financial Services Corp 623,Helen Mirren,Farmer,Closed Won,33436.14,2024-12-29,2025-02-11,Financial Services,7,3,43,Inbound Web
+006812539475,Financial Services - Farmer Opp 420,Financial Services Corp 553,Helen Mirren,Farmer,Proposal,11197.05,2025-03-18,2025-09-13,Financial Services,3,3,26,Event/Conference
+006286201507,Healthcare - Farmer Opp 421,Healthcare Corp 222,George Costanza,Farmer,Closed Won,42378.32,2024-08-05,2024-12-21,Healthcare,5,3,52,Outbound Cold Call
+006848557252,Manufacturing - Farmer Opp 422,Manufacturing Corp 899,Helen Mirren,Farmer,Closed Won,29843.03,2025-01-21,2025-04-06,Manufacturing,6,7,21,Event/Conference
+006848416400,Retail - Farmer Opp 423,Retail Corp 142,George Costanza,Farmer,Closed Lost,47548.31,2025-03-23,2025-07-09,Retail,8,4,28,Outbound Cold Call
+006412358242,Retail - Hunter Opp 424,Retail Corp 425,Charlie Brown,Hunter,Closed Lost,4259.63,2024-02-21,2024-04-19,Retail,7,1,18,Event/Conference
+006675708766,Healthcare - Hunter Opp 425,Healthcare Corp 443,Alice Smith,Hunter,Qualification,9253.38,2025-02-28,2025-05-22,Healthcare,11,4,20,Inbound Web
+006476453173,Healthcare - Farmer Opp 426,Healthcare Corp 425,George Costanza,Farmer,Closed Won,40878.54,2025-02-22,2025-06-15,Healthcare,6,2,31,Inbound Web
+006936031599,Technology - Hunter Opp 427,Technology Corp 778,Charlie Brown,Hunter,Prospecting,6746.79,2024-03-26,2024-07-06,Technology,8,1,29,Event/Conference
+006497286362,Manufacturing - Farmer Opp 428,Manufacturing Corp 310,Evan Wright,Farmer,Closed Won,62207.25,2024-04-25,2024-07-06,Manufacturing,6,6,36,Outbound Cold Call
+006319262151,Technology - Farmer Opp 429,Technology Corp 534,Helen Mirren,Farmer,Negotiation,32392.29,2025-07-12,2025-09-18,Technology,2,5,33,Inbound Web
+006290459870,Technology - Hunter Opp 430,Technology Corp 841,Charlie Brown,Hunter,Prospecting,11175.18,2025-06-04,2025-10-27,Technology,15,3,15,Inbound Web
+006761079259,Technology - Farmer Opp 431,Technology Corp 977,Helen Mirren,Farmer,Closed Lost,40311.8,2024-07-15,2024-11-23,Technology,5,2,26,Outbound Cold Call
+006922816306,Retail - Farmer Opp 432,Retail Corp 579,Fiona Gallagher,Farmer,Closed Won,105754.38,2025-05-10,2025-08-22,Retail,7,7,18,Event/Conference
+006976962157,Retail - Hunter Opp 433,Retail Corp 637,Diana Prince,Hunter,Prospecting,20291.0,2024-12-17,2025-03-13,Retail,16,3,24,Event/Conference
+006483563218,Manufacturing - Hunter Opp 434,Manufacturing Corp 784,Bob Jones,Hunter,Closed Lost,5261.03,2024-07-30,2024-11-29,Manufacturing,18,2,29,Outbound Cold Call
+006672405751,Retail - Farmer Opp 435,Retail Corp 186,Fiona Gallagher,Farmer,Closed Won,43842.85,2025-06-08,2025-09-09,Retail,5,3,52,Inbound Web
+006738942485,Healthcare - Hunter Opp 436,Healthcare Corp 772,Alice Smith,Hunter,Negotiation,7981.66,2024-03-28,2024-06-17,Healthcare,17,2,15,Outbound Cold Call
+006708779188,Financial Services - Farmer Opp 437,Financial Services Corp 619,Helen Mirren,Farmer,Negotiation,16528.4,2025-08-02,2025-10-05,Financial Services,8,7,23,Outbound Cold Call
+006327684306,Healthcare - Hunter Opp 438,Healthcare Corp 658,Diana Prince,Hunter,Proposal,27088.76,2025-05-21,2025-09-26,Healthcare,16,1,25,Event/Conference
+006622038302,Financial Services - Farmer Opp 439,Financial Services Corp 302,Evan Wright,Farmer,Closed Won,114425.25,2025-05-14,2025-07-04,Financial Services,2,5,44,Event/Conference
+006812055051,Retail - Farmer Opp 440,Retail Corp 848,Fiona Gallagher,Farmer,Proposal,19666.57,2023-12-02,2024-03-30,Retail,3,3,37,Outbound Cold Call
+006543817003,Retail - Hunter Opp 441,Retail Corp 729,Bob Jones,Hunter,Prospecting,18525.12,2023-12-09,2024-01-19,Retail,14,1,19,Inbound Web
+006494481062,Retail - Farmer Opp 442,Retail Corp 358,Evan Wright,Farmer,Closed Won,20133.89,2025-05-08,2025-06-24,Retail,5,6,58,Outbound Cold Call
+006999071697,Technology - Hunter Opp 443,Technology Corp 197,Alice Smith,Hunter,Qualification,15688.63,2024-02-13,2024-07-04,Technology,15,4,36,Event/Conference
+006334878997,Healthcare - Hunter Opp 444,Healthcare Corp 532,Charlie Brown,Hunter,Prospecting,16551.54,2023-12-17,2024-05-13,Healthcare,15,4,23,Inbound Web
+006893874860,Retail - Farmer Opp 445,Retail Corp 882,Evan Wright,Farmer,Closed Won,66607.61,2025-07-29,2025-12-27,Retail,3,4,53,Inbound Web
+006153004410,Technology - Hunter Opp 446,Technology Corp 246,Charlie Brown,Hunter,Prospecting,9598.55,2024-08-13,2024-12-13,Technology,19,2,22,Event/Conference
+006188562183,Retail - Farmer Opp 447,Retail Corp 927,Helen Mirren,Farmer,Prospecting,33922.73,2024-05-16,2024-06-23,Retail,9,6,17,Outbound Cold Call
+006587653364,Healthcare - Hunter Opp 448,Healthcare Corp 811,Charlie Brown,Hunter,Negotiation,39135.94,2025-04-19,2025-09-05,Healthcare,5,2,20,Outbound Cold Call
+006431517912,Healthcare - Farmer Opp 449,Healthcare Corp 629,Evan Wright,Farmer,Proposal,68208.48,2025-02-14,2025-04-09,Healthcare,8,4,20,Partner Referral
+006491446058,Healthcare - Farmer Opp 450,Healthcare Corp 236,Fiona Gallagher,Farmer,Qualification,7657.36,2024-06-23,2024-11-10,Healthcare,9,4,46,Inbound Web
+006203100883,Technology - Farmer Opp 451,Technology Corp 808,Helen Mirren,Farmer,Closed Lost,11385.42,2024-07-25,2024-09-05,Technology,7,7,59,Outbound Cold Call
+006868935029,Retail - Farmer Opp 452,Retail Corp 210,Fiona Gallagher,Farmer,Closed Won,40724.88,2023-10-15,2024-03-06,Retail,8,5,27,Outbound Cold Call
+006239267786,Retail - Farmer Opp 453,Retail Corp 825,George Costanza,Farmer,Negotiation,51093.63,2024-06-09,2024-11-04,Retail,2,2,57,Outbound Cold Call
+006311131893,Manufacturing - Hunter Opp 454,Manufacturing Corp 276,Diana Prince,Hunter,Proposal,10522.47,2024-10-10,2025-03-14,Manufacturing,7,4,36,Partner Referral
+006701888354,Retail - Hunter Opp 455,Retail Corp 639,Charlie Brown,Hunter,Negotiation,19907.52,2024-05-02,2024-06-16,Retail,16,2,31,Inbound Web
+006727069371,Retail - Farmer Opp 456,Retail Corp 745,Helen Mirren,Farmer,Closed Won,56624.1,2024-05-21,2024-08-23,Retail,6,2,55,Outbound Cold Call
+006826790207,Technology - Farmer Opp 457,Technology Corp 714,George Costanza,Farmer,Closed Won,24107.74,2024-09-22,2024-12-17,Technology,8,2,35,Inbound Web
+006401880108,Financial Services - Hunter Opp 458,Financial Services Corp 748,Diana Prince,Hunter,Proposal,4510.44,2024-07-01,2024-10-29,Financial Services,8,3,15,Event/Conference
+006797515832,Retail - Farmer Opp 459,Retail Corp 127,Fiona Gallagher,Farmer,Closed Won,42820.7,2024-05-01,2024-10-22,Retail,5,6,42,Inbound Web
+006264001304,Retail - Hunter Opp 460,Retail Corp 267,Alice Smith,Hunter,Negotiation,51722.61,2024-02-08,2024-05-13,Retail,17,3,23,Outbound Cold Call
+006417185908,Healthcare - Farmer Opp 461,Healthcare Corp 252,Helen Mirren,Farmer,Closed Won,45014.59,2025-05-15,2025-06-14,Healthcare,9,6,49,Outbound Cold Call
+006579597051,Retail - Hunter Opp 462,Retail Corp 740,Bob Jones,Hunter,Closed Won,11598.22,2024-08-30,2024-12-10,Retail,7,1,25,Outbound Cold Call
+006807039712,Healthcare - Hunter Opp 463,Healthcare Corp 963,Diana Prince,Hunter,Proposal,13919.67,2024-12-05,2025-03-14,Healthcare,10,1,35,Event/Conference
+006861611754,Manufacturing - Hunter Opp 464,Manufacturing Corp 578,Bob Jones,Hunter,Proposal,18599.44,2023-09-30,2024-01-10,Manufacturing,12,4,38,Outbound Cold Call
+006741577150,Healthcare - Farmer Opp 465,Healthcare Corp 887,Evan Wright,Farmer,Prospecting,20530.55,2024-04-12,2024-05-16,Healthcare,4,2,19,Event/Conference
+006683746158,Healthcare - Farmer Opp 466,Healthcare Corp 366,Evan Wright,Farmer,Closed Lost,56086.17,2025-04-19,2025-09-12,Healthcare,9,7,23,Outbound Cold Call
+006693243644,Retail - Hunter Opp 467,Retail Corp 857,Diana Prince,Hunter,Qualification,14987.58,2024-08-04,2025-01-10,Retail,12,1,29,Inbound Web
+006616990566,Financial Services - Farmer Opp 468,Financial Services Corp 847,George Costanza,Farmer,Closed Won,25787.32,2024-04-11,2024-05-30,Financial Services,8,2,45,Outbound Cold Call
+006883651308,Financial Services - Farmer Opp 469,Financial Services Corp 686,Evan Wright,Farmer,Closed Won,40186.72,2025-06-06,2025-09-25,Financial Services,4,3,49,Inbound Web
+006684409412,Healthcare - Hunter Opp 470,Healthcare Corp 282,Charlie Brown,Hunter,Proposal,19104.18,2025-02-06,2025-04-11,Healthcare,13,4,32,Outbound Cold Call
+006777385682,Healthcare - Farmer Opp 471,Healthcare Corp 599,George Costanza,Farmer,Closed Lost,23384.29,2025-03-08,2025-06-25,Healthcare,7,4,22,Inbound Web
+006297240080,Financial Services - Hunter Opp 472,Financial Services Corp 384,Alice Smith,Hunter,Qualification,42930.54,2023-07-28,2024-01-07,Financial Services,10,4,27,Outbound Cold Call
+006330950326,Technology - Farmer Opp 473,Technology Corp 701,Helen Mirren,Farmer,Closed Won,34294.3,2024-08-11,2024-11-26,Technology,5,4,25,Outbound Cold Call
+006884486965,Technology - Farmer Opp 474,Technology Corp 807,Fiona Gallagher,Farmer,Closed Won,84371.08,2024-08-30,2024-11-23,Technology,6,2,43,Inbound Web
+006694211202,Technology - Hunter Opp 475,Technology Corp 222,Diana Prince,Hunter,Qualification,29718.24,2025-03-24,2025-06-02,Technology,11,4,32,Event/Conference
+006310065268,Technology - Farmer Opp 476,Technology Corp 471,George Costanza,Farmer,Closed Won,40435.41,2025-03-27,2025-04-28,Technology,4,6,46,Partner Referral
+006753795938,Healthcare - Farmer Opp 477,Healthcare Corp 178,George Costanza,Farmer,Closed Won,53063.02,2024-09-16,2025-01-02,Healthcare,5,3,28,Partner Referral
+006869497358,Retail - Farmer Opp 478,Retail Corp 852,George Costanza,Farmer,Negotiation,18501.13,2025-03-21,2025-08-13,Retail,9,6,46,Outbound Cold Call
+006341213985,Financial Services - Hunter Opp 479,Financial Services Corp 113,Diana Prince,Hunter,Qualification,12434.68,2024-09-23,2024-11-29,Financial Services,11,1,32,Partner Referral
+006415096272,Manufacturing - Farmer Opp 480,Manufacturing Corp 405,Evan Wright,Farmer,Closed Won,36355.61,2025-06-06,2025-07-21,Manufacturing,6,7,49,Inbound Web
+006825719664,Manufacturing - Hunter Opp 481,Manufacturing Corp 424,Diana Prince,Hunter,Proposal,5017.3,2024-11-27,2025-03-17,Manufacturing,6,2,15,Outbound Cold Call
+006107059903,Retail - Hunter Opp 482,Retail Corp 441,Alice Smith,Hunter,Closed Lost,8569.21,2024-02-05,2024-06-13,Retail,6,1,20,Event/Conference
+006410217377,Financial Services - Hunter Opp 483,Financial Services Corp 359,Bob Jones,Hunter,Negotiation,5399.97,2024-03-30,2024-09-07,Financial Services,19,1,10,Outbound Cold Call
+006413548058,Healthcare - Hunter Opp 484,Healthcare Corp 698,Diana Prince,Hunter,Negotiation,29367.96,2024-04-07,2024-06-09,Healthcare,16,2,39,Event/Conference
+006205255383,Retail - Hunter Opp 485,Retail Corp 757,Alice Smith,Hunter,Negotiation,36976.85,2024-11-27,2025-03-15,Retail,15,3,38,Event/Conference
+006142566130,Financial Services - Hunter Opp 486,Financial Services Corp 593,Bob Jones,Hunter,Closed Lost,95318.0,2025-09-02,2025-12-08,Financial Services,12,2,31,Outbound Cold Call
+006584998001,Technology - Hunter Opp 487,Technology Corp 631,Alice Smith,Hunter,Qualification,12667.31,2024-11-12,2025-04-18,Technology,14,3,33,Event/Conference
+006102568101,Technology - Farmer Opp 488,Technology Corp 385,Fiona Gallagher,Farmer,Closed Won,13026.18,2024-05-29,2024-08-28,Technology,2,5,49,Inbound Web
+006767004115,Healthcare - Farmer Opp 489,Healthcare Corp 497,George Costanza,Farmer,Closed Lost,36925.1,2024-12-23,2025-02-28,Healthcare,9,3,31,Inbound Web
+006505079246,Healthcare - Farmer Opp 490,Healthcare Corp 952,Fiona Gallagher,Farmer,Qualification,20307.4,2025-05-01,2025-07-21,Healthcare,4,3,15,Inbound Web
+006434391204,Manufacturing - Hunter Opp 491,Manufacturing Corp 164,Alice Smith,Hunter,Proposal,30779.09,2024-04-19,2024-08-06,Manufacturing,10,4,35,Event/Conference
+006110589887,Manufacturing - Farmer Opp 492,Manufacturing Corp 115,Evan Wright,Farmer,Closed Won,91006.16,2025-08-14,2025-11-29,Manufacturing,5,3,59,Outbound Cold Call
+006921398162,Manufacturing - Farmer Opp 493,Manufacturing Corp 537,Fiona Gallagher,Farmer,Closed Won,29728.53,2023-11-28,2024-05-04,Manufacturing,9,2,34,Outbound Cold Call
+006750677305,Financial Services - Hunter Opp 494,Financial Services Corp 196,Bob Jones,Hunter,Qualification,8114.95,2023-12-21,2024-02-14,Financial Services,19,4,36,Outbound Cold Call
+006869206892,Financial Services - Farmer Opp 495,Financial Services Corp 253,George Costanza,Farmer,Closed Won,53401.0,2024-03-18,2024-07-03,Financial Services,2,7,30,Event/Conference
+006652188482,Technology - Hunter Opp 496,Technology Corp 716,Bob Jones,Hunter,Closed Won,60527.62,2025-03-20,2025-08-31,Technology,19,2,20,Outbound Cold Call
+006373602829,Financial Services - Farmer Opp 497,Financial Services Corp 173,Fiona Gallagher,Farmer,Closed Won,43702.39,2023-12-08,2024-04-12,Financial Services,5,6,31,Partner Referral
+006777597166,Healthcare - Hunter Opp 498,Healthcare Corp 593,Diana Prince,Hunter,Proposal,22708.74,2025-09-14,2025-12-16,Healthcare,18,3,37,Inbound Web
+006873775489,Healthcare - Hunter Opp 499,Healthcare Corp 636,Bob Jones,Hunter,Negotiation,14658.27,2024-04-05,2024-07-17,Healthcare,10,4,35,Inbound Web
+006473967988,Healthcare - Hunter Opp 500,Healthcare Corp 988,Alice Smith,Hunter,Prospecting,7183.74,2024-08-06,2024-12-09,Healthcare,9,1,11,Outbound Cold Call
+006367688919,Financial Services - Hunter Opp 501,Financial Services Corp 976,Alice Smith,Hunter,Negotiation,7527.46,2024-06-18,2024-09-29,Financial Services,9,2,32,Event/Conference
+006813949679,Healthcare - Hunter Opp 502,Healthcare Corp 475,Alice Smith,Hunter,Prospecting,8494.49,2023-09-27,2024-03-22,Healthcare,8,2,36,Inbound Web
+006662190442,Manufacturing - Hunter Opp 503,Manufacturing Corp 828,Alice Smith,Hunter,Qualification,17830.93,2024-01-24,2024-03-19,Manufacturing,7,2,29,Inbound Web
+006150470573,Financial Services - Farmer Opp 504,Financial Services Corp 276,Fiona Gallagher,Farmer,Closed Lost,33170.72,2025-01-09,2025-04-24,Financial Services,4,2,58,Outbound Cold Call
+006888961130,Manufacturing - Farmer Opp 505,Manufacturing Corp 507,Fiona Gallagher,Farmer,Closed Lost,166960.49,2024-06-30,2024-12-20,Manufacturing,8,7,50,Event/Conference
+006722999357,Financial Services - Farmer Opp 506,Financial Services Corp 247,Evan Wright,Farmer,Closed Won,9920.47,2024-04-02,2024-09-22,Financial Services,8,5,20,Outbound Cold Call
+006296262698,Healthcare - Hunter Opp 507,Healthcare Corp 864,Bob Jones,Hunter,Proposal,17259.71,2024-04-11,2024-07-17,Healthcare,19,3,29,Outbound Cold Call
+006585983745,Manufacturing - Farmer Opp 508,Manufacturing Corp 760,Fiona Gallagher,Farmer,Closed Won,94484.2,2025-05-20,2025-07-14,Manufacturing,7,7,48,Outbound Cold Call
+006104051939,Retail - Hunter Opp 509,Retail Corp 695,Bob Jones,Hunter,Negotiation,13055.06,2024-10-24,2025-04-01,Retail,18,4,37,Event/Conference
+006910523181,Technology - Farmer Opp 510,Technology Corp 377,Helen Mirren,Farmer,Closed Won,80056.11,2024-07-11,2024-11-17,Technology,6,7,20,Outbound Cold Call
+006495595955,Technology - Farmer Opp 511,Technology Corp 915,Fiona Gallagher,Farmer,Closed Won,26654.18,2024-08-30,2025-01-07,Technology,4,6,57,Outbound Cold Call
+006874745156,Retail - Hunter Opp 512,Retail Corp 253,Diana Prince,Hunter,Proposal,7732.72,2024-12-06,2025-01-21,Retail,19,3,38,Outbound Cold Call
+006409527700,Technology - Farmer Opp 513,Technology Corp 905,Fiona Gallagher,Farmer,Closed Won,49458.22,2025-03-24,2025-09-09,Technology,8,7,24,Inbound Web
+006138243565,Technology - Farmer Opp 514,Technology Corp 615,Fiona Gallagher,Farmer,Closed Won,11681.19,2025-05-16,2025-09-25,Technology,4,2,26,Outbound Cold Call
+006990889057,Retail - Hunter Opp 515,Retail Corp 873,Bob Jones,Hunter,Prospecting,74010.76,2023-12-25,2024-04-30,Retail,16,1,19,Outbound Cold Call
+006815909426,Financial Services - Farmer Opp 516,Financial Services Corp 107,Evan Wright,Farmer,Closed Won,33225.7,2025-05-25,2025-10-13,Financial Services,6,5,24,Event/Conference
+006682198121,Retail - Farmer Opp 517,Retail Corp 234,Fiona Gallagher,Farmer,Proposal,60371.28,2024-11-17,2025-03-13,Retail,7,5,38,Outbound Cold Call
+006471152165,Financial Services - Hunter Opp 518,Financial Services Corp 365,Diana Prince,Hunter,Prospecting,12199.21,2024-01-06,2024-03-26,Financial Services,7,2,15,Inbound Web
+006474808468,Healthcare - Farmer Opp 519,Healthcare Corp 397,Evan Wright,Farmer,Closed Won,17624.47,2023-12-11,2024-02-26,Healthcare,9,5,46,Outbound Cold Call
+006121094509,Healthcare - Farmer Opp 520,Healthcare Corp 442,Fiona Gallagher,Farmer,Proposal,158831.69,2025-01-23,2025-06-27,Healthcare,3,2,54,Outbound Cold Call
+006293923647,Healthcare - Farmer Opp 521,Healthcare Corp 865,Evan Wright,Farmer,Closed Won,18332.62,2024-03-14,2024-07-31,Healthcare,5,4,32,Outbound Cold Call
+006557944956,Technology - Farmer Opp 522,Technology Corp 907,Evan Wright,Farmer,Closed Lost,62061.91,2024-10-27,2024-12-08,Technology,3,5,47,Inbound Web
+006521686313,Technology - Farmer Opp 523,Technology Corp 920,Evan Wright,Farmer,Negotiation,15936.57,2024-07-30,2024-10-01,Technology,2,5,38,Outbound Cold Call
+006838358801,Retail - Farmer Opp 524,Retail Corp 797,Evan Wright,Farmer,Closed Won,37703.0,2024-09-14,2025-02-13,Retail,4,3,54,Inbound Web
+006527691595,Retail - Farmer Opp 525,Retail Corp 187,Helen Mirren,Farmer,Closed Won,36580.18,2025-09-04,2025-10-29,Retail,3,6,21,Outbound Cold Call
+006251248022,Retail - Farmer Opp 526,Retail Corp 277,Helen Mirren,Farmer,Closed Won,27059.15,2024-07-08,2024-11-24,Retail,4,3,27,Event/Conference
+006782154622,Manufacturing - Farmer Opp 527,Manufacturing Corp 125,Helen Mirren,Farmer,Closed Won,21080.22,2024-10-05,2025-02-19,Manufacturing,2,5,25,Partner Referral
+006427148764,Retail - Farmer Opp 528,Retail Corp 435,Evan Wright,Farmer,Proposal,29433.14,2024-04-13,2024-08-24,Retail,9,7,18,Event/Conference
+006391648361,Healthcare - Hunter Opp 529,Healthcare Corp 411,Diana Prince,Hunter,Prospecting,38496.66,2025-06-28,2025-08-24,Healthcare,16,1,31,Outbound Cold Call
+006896263277,Financial Services - Hunter Opp 530,Financial Services Corp 170,Charlie Brown,Hunter,Proposal,17654.1,2025-07-09,2025-09-09,Financial Services,14,2,13,Event/Conference
+006165782983,Retail - Farmer Opp 531,Retail Corp 103,George Costanza,Farmer,Closed Won,8868.15,2025-02-20,2025-08-08,Retail,7,4,24,Partner Referral
+006301831247,Manufacturing - Farmer Opp 532,Manufacturing Corp 732,Evan Wright,Farmer,Closed Won,25257.48,2024-05-02,2024-08-02,Manufacturing,2,6,32,Outbound Cold Call
+006126595432,Financial Services - Farmer Opp 533,Financial Services Corp 845,Evan Wright,Farmer,Closed Won,13059.76,2024-10-24,2025-02-28,Financial Services,3,5,19,Outbound Cold Call
+006803269727,Technology - Hunter Opp 534,Technology Corp 545,Diana Prince,Hunter,Proposal,5182.09,2024-06-21,2024-09-07,Technology,10,3,35,Inbound Web
+006827286933,Healthcare - Hunter Opp 535,Healthcare Corp 267,Charlie Brown,Hunter,Negotiation,9925.39,2024-02-28,2024-07-17,Healthcare,11,2,24,Outbound Cold Call
+006162232362,Healthcare - Farmer Opp 536,Healthcare Corp 953,Helen Mirren,Farmer,Closed Won,55694.35,2025-06-30,2025-11-19,Healthcare,8,4,18,Event/Conference
+006859600763,Manufacturing - Hunter Opp 537,Manufacturing Corp 306,Charlie Brown,Hunter,Qualification,15018.95,2024-12-21,2025-04-13,Manufacturing,11,2,30,Event/Conference
+006363633423,Retail - Farmer Opp 538,Retail Corp 519,George Costanza,Farmer,Closed Won,31265.99,2024-02-23,2024-05-24,Retail,6,3,28,Outbound Cold Call
+006229055539,Retail - Farmer Opp 539,Retail Corp 877,Helen Mirren,Farmer,Closed Won,7859.59,2023-10-15,2024-01-07,Retail,3,3,19,Inbound Web
+006440292904,Technology - Hunter Opp 540,Technology Corp 980,Alice Smith,Hunter,Closed Lost,10028.89,2024-09-29,2025-01-28,Technology,7,1,17,Outbound Cold Call
+006891568468,Healthcare - Farmer Opp 541,Healthcare Corp 246,Evan Wright,Farmer,Proposal,63351.42,2024-02-22,2024-05-24,Healthcare,5,6,54,Event/Conference
+006145153952,Technology - Hunter Opp 542,Technology Corp 361,Diana Prince,Hunter,Proposal,21118.7,2025-04-29,2025-08-31,Technology,14,4,19,Partner Referral
+006251139398,Manufacturing - Hunter Opp 543,Manufacturing Corp 731,Alice Smith,Hunter,Proposal,56320.61,2024-02-27,2024-04-01,Manufacturing,10,1,37,Inbound Web
+006419240110,Healthcare - Hunter Opp 544,Healthcare Corp 422,Alice Smith,Hunter,Proposal,14382.82,2023-11-11,2024-01-19,Healthcare,14,1,12,Event/Conference
+006562803180,Financial Services - Farmer Opp 545,Financial Services Corp 300,George Costanza,Farmer,Closed Won,12278.11,2024-11-15,2025-03-11,Financial Services,8,7,27,Outbound Cold Call
+006360633921,Financial Services - Farmer Opp 546,Financial Services Corp 674,Helen Mirren,Farmer,Closed Lost,14102.94,2024-03-27,2024-04-27,Financial Services,2,2,41,Inbound Web
+006603272913,Retail - Hunter Opp 547,Retail Corp 295,Charlie Brown,Hunter,Prospecting,46846.0,2024-01-23,2024-03-21,Retail,13,1,39,Inbound Web
+006937390349,Financial Services - Hunter Opp 548,Financial Services Corp 308,Bob Jones,Hunter,Proposal,26052.6,2024-01-05,2024-02-26,Financial Services,12,3,12,Event/Conference
+006224314911,Technology - Farmer Opp 549,Technology Corp 740,George Costanza,Farmer,Closed Won,67749.32,2025-07-15,2025-11-30,Technology,5,5,15,Outbound Cold Call
+006716520058,Financial Services - Hunter Opp 550,Financial Services Corp 527,Bob Jones,Hunter,Closed Won,18311.69,2023-12-23,2024-04-12,Financial Services,15,4,27,Inbound Web
+006855172830,Technology - Farmer Opp 551,Technology Corp 693,George Costanza,Farmer,Closed Won,12975.0,2024-12-03,2025-02-05,Technology,4,2,22,Outbound Cold Call
+006521129947,Manufacturing - Farmer Opp 552,Manufacturing Corp 915,George Costanza,Farmer,Closed Won,22459.49,2025-02-19,2025-04-12,Manufacturing,4,7,36,Event/Conference
+006321866661,Healthcare - Hunter Opp 553,Healthcare Corp 457,Charlie Brown,Hunter,Prospecting,6992.5,2024-01-17,2024-03-28,Healthcare,14,1,21,Event/Conference
+006160481382,Financial Services - Farmer Opp 554,Financial Services Corp 773,Fiona Gallagher,Farmer,Closed Won,40319.91,2024-11-10,2025-04-07,Financial Services,8,7,55,Outbound Cold Call
+006512929509,Financial Services - Farmer Opp 555,Financial Services Corp 173,George Costanza,Farmer,Closed Won,77752.96,2024-10-29,2025-02-21,Financial Services,9,4,17,Outbound Cold Call
+006396043004,Financial Services - Hunter Opp 556,Financial Services Corp 745,Diana Prince,Hunter,Prospecting,23714.51,2025-07-29,2025-10-18,Financial Services,11,4,26,Event/Conference
+006976308425,Manufacturing - Hunter Opp 557,Manufacturing Corp 267,Alice Smith,Hunter,Closed Lost,7105.65,2025-08-15,2025-12-23,Manufacturing,7,3,13,Event/Conference
+006566696994,Manufacturing - Hunter Opp 558,Manufacturing Corp 519,Diana Prince,Hunter,Negotiation,34588.22,2025-03-02,2025-04-17,Manufacturing,17,3,15,Outbound Cold Call
+006361587298,Manufacturing - Farmer Opp 559,Manufacturing Corp 206,Fiona Gallagher,Farmer,Proposal,27642.82,2025-03-24,2025-08-11,Manufacturing,4,3,36,Event/Conference
+006288621026,Retail - Farmer Opp 560,Retail Corp 219,Helen Mirren,Farmer,Negotiation,99156.68,2025-11-16,2025-12-28,Retail,6,6,26,Inbound Web
+006730455352,Technology - Farmer Opp 561,Technology Corp 283,Helen Mirren,Farmer,Negotiation,19835.24,2025-05-08,2025-10-01,Technology,3,4,21,Inbound Web
+006180521377,Retail - Farmer Opp 562,Retail Corp 810,George Costanza,Farmer,Closed Won,30317.06,2025-02-21,2025-08-09,Retail,2,5,48,Outbound Cold Call
+006980793132,Financial Services - Farmer Opp 563,Financial Services Corp 960,Evan Wright,Farmer,Closed Lost,43893.74,2023-11-10,2024-03-31,Financial Services,5,2,29,Inbound Web
+006163463472,Financial Services - Farmer Opp 564,Financial Services Corp 749,Fiona Gallagher,Farmer,Closed Won,36246.0,2025-06-16,2025-09-17,Financial Services,6,6,44,Outbound Cold Call
+006881729402,Technology - Farmer Opp 565,Technology Corp 936,Fiona Gallagher,Farmer,Closed Won,14188.3,2023-12-30,2024-03-27,Technology,3,7,27,Inbound Web
+006606804404,Financial Services - Hunter Opp 566,Financial Services Corp 664,Diana Prince,Hunter,Negotiation,5565.26,2024-04-22,2024-07-07,Financial Services,14,4,16,Outbound Cold Call
+006687106756,Financial Services - Farmer Opp 567,Financial Services Corp 278,Fiona Gallagher,Farmer,Closed Won,76187.84,2025-02-14,2025-07-18,Financial Services,4,2,43,Inbound Web
+006158203138,Financial Services - Farmer Opp 568,Financial Services Corp 145,Evan Wright,Farmer,Qualification,48033.12,2024-08-28,2025-01-06,Financial Services,2,6,53,Outbound Cold Call
+006494181795,Technology - Farmer Opp 569,Technology Corp 585,Fiona Gallagher,Farmer,Closed Won,46584.63,2024-02-20,2024-05-02,Technology,5,2,39,Inbound Web
+006582296882,Financial Services - Hunter Opp 570,Financial Services Corp 213,Bob Jones,Hunter,Prospecting,22293.37,2025-03-28,2025-05-06,Financial Services,6,2,37,Outbound Cold Call
+006208741109,Retail - Farmer Opp 571,Retail Corp 329,George Costanza,Farmer,Closed Won,158556.21,2025-07-23,2025-11-19,Retail,6,6,59,Outbound Cold Call
+006345218329,Healthcare - Hunter Opp 572,Healthcare Corp 624,Bob Jones,Hunter,Prospecting,25313.8,2024-05-26,2024-09-27,Healthcare,7,4,24,Inbound Web
+006998952502,Financial Services - Farmer Opp 573,Financial Services Corp 555,Fiona Gallagher,Farmer,Negotiation,58423.71,2024-09-26,2025-03-13,Financial Services,4,7,39,Outbound Cold Call
+006317199220,Retail - Farmer Opp 574,Retail Corp 876,Fiona Gallagher,Farmer,Closed Won,18779.17,2025-02-14,2025-06-16,Retail,5,3,45,Outbound Cold Call
+006128546713,Retail - Farmer Opp 575,Retail Corp 947,Fiona Gallagher,Farmer,Proposal,85156.27,2025-04-14,2025-08-14,Retail,7,2,54,Inbound Web
+006570260143,Healthcare - Farmer Opp 576,Healthcare Corp 916,Fiona Gallagher,Farmer,Negotiation,22670.86,2024-11-10,2025-01-07,Healthcare,4,6,40,Inbound Web
+006446844379,Financial Services - Farmer Opp 577,Financial Services Corp 172,Evan Wright,Farmer,Closed Won,92719.87,2024-11-30,2025-01-23,Financial Services,4,3,16,Event/Conference
+006432480086,Technology - Farmer Opp 578,Technology Corp 605,Helen Mirren,Farmer,Closed Won,11862.5,2025-07-31,2025-10-26,Technology,3,7,16,Inbound Web
+006354239745,Manufacturing - Hunter Opp 579,Manufacturing Corp 727,Alice Smith,Hunter,Negotiation,42687.27,2024-09-14,2025-02-07,Manufacturing,5,3,10,Partner Referral
+006815127278,Manufacturing - Farmer Opp 580,Manufacturing Corp 635,George Costanza,Farmer,Prospecting,16708.27,2024-09-23,2024-11-26,Manufacturing,6,2,38,Inbound Web
+006794861775,Healthcare - Hunter Opp 581,Healthcare Corp 679,Charlie Brown,Hunter,Proposal,9302.22,2024-04-08,2024-08-30,Healthcare,5,3,35,Inbound Web
+006767745762,Financial Services - Hunter Opp 582,Financial Services Corp 815,Charlie Brown,Hunter,Prospecting,11150.75,2025-03-25,2025-04-26,Financial Services,11,3,16,Outbound Cold Call
+006726273817,Manufacturing - Hunter Opp 583,Manufacturing Corp 100,Diana Prince,Hunter,Proposal,8732.96,2025-04-29,2025-08-13,Manufacturing,9,4,37,Inbound Web
+006405103394,Healthcare - Hunter Opp 584,Healthcare Corp 406,Bob Jones,Hunter,Proposal,7106.61,2023-09-01,2024-02-05,Healthcare,7,1,14,Outbound Cold Call
+006716022634,Manufacturing - Farmer Opp 585,Manufacturing Corp 633,Evan Wright,Farmer,Closed Lost,37028.21,2024-01-06,2024-06-29,Manufacturing,6,3,30,Outbound Cold Call
+006884566655,Financial Services - Hunter Opp 586,Financial Services Corp 578,Charlie Brown,Hunter,Proposal,6168.82,2023-10-29,2024-02-08,Financial Services,16,3,28,Partner Referral
+006802726244,Healthcare - Hunter Opp 587,Healthcare Corp 854,Diana Prince,Hunter,Closed Lost,16585.35,2024-07-25,2024-08-25,Healthcare,11,2,24,Outbound Cold Call
+006559977850,Manufacturing - Farmer Opp 588,Manufacturing Corp 173,Helen Mirren,Farmer,Closed Won,45521.64,2024-11-22,2025-01-22,Manufacturing,2,3,56,Partner Referral
+006971167044,Manufacturing - Farmer Opp 589,Manufacturing Corp 213,Evan Wright,Farmer,Closed Lost,18706.67,2024-10-05,2025-03-08,Manufacturing,7,2,43,Event/Conference
+006130719118,Manufacturing - Hunter Opp 590,Manufacturing Corp 369,Bob Jones,Hunter,Negotiation,26823.76,2024-02-22,2024-06-05,Manufacturing,13,1,21,Partner Referral
+006609180529,Financial Services - Farmer Opp 591,Financial Services Corp 560,Helen Mirren,Farmer,Closed Lost,8139.65,2024-01-16,2024-04-11,Financial Services,5,3,39,Outbound Cold Call
+006799477453,Manufacturing - Farmer Opp 592,Manufacturing Corp 388,Helen Mirren,Farmer,Closed Won,34214.95,2025-04-03,2025-06-03,Manufacturing,6,6,23,Outbound Cold Call
+006530162461,Retail - Hunter Opp 593,Retail Corp 529,Alice Smith,Hunter,Prospecting,8685.33,2025-09-02,2025-10-04,Retail,14,2,39,Inbound Web
+006997494706,Healthcare - Hunter Opp 594,Healthcare Corp 130,Diana Prince,Hunter,Prospecting,38966.38,2025-08-04,2025-11-05,Healthcare,10,1,21,Inbound Web
+006867783041,Financial Services - Hunter Opp 595,Financial Services Corp 170,Alice Smith,Hunter,Negotiation,17457.45,2025-07-16,2025-09-13,Financial Services,12,3,34,Outbound Cold Call
+006453207157,Retail - Farmer Opp 596,Retail Corp 970,Evan Wright,Farmer,Closed Won,32104.54,2025-04-19,2025-05-29,Retail,5,3,56,Partner Referral
+006763210641,Retail - Hunter Opp 597,Retail Corp 641,Diana Prince,Hunter,Qualification,25010.37,2025-02-08,2025-07-11,Retail,6,3,38,Inbound Web
+006797979704,Technology - Farmer Opp 598,Technology Corp 125,George Costanza,Farmer,Closed Won,54885.99,2024-07-25,2024-10-02,Technology,8,4,37,Inbound Web
+006208035154,Healthcare - Farmer Opp 599,Healthcare Corp 627,Fiona Gallagher,Farmer,Proposal,28522.9,2024-09-29,2025-02-16,Healthcare,6,4,47,Event/Conference
+006479809305,Retail - Hunter Opp 600,Retail Corp 511,Diana Prince,Hunter,Closed Won,15836.85,2025-08-25,2025-10-06,Retail,14,1,31,Inbound Web
+006950770710,Retail - Hunter Opp 601,Retail Corp 468,Bob Jones,Hunter,Closed Lost,23712.96,2023-11-19,2024-04-26,Retail,14,4,10,Event/Conference
+006763369777,Manufacturing - Farmer Opp 602,Manufacturing Corp 249,Helen Mirren,Farmer,Proposal,41201.07,2025-07-12,2025-10-19,Manufacturing,8,7,43,Inbound Web
+006241971366,Financial Services - Farmer Opp 603,Financial Services Corp 178,Fiona Gallagher,Farmer,Closed Lost,93350.63,2024-08-27,2024-10-04,Financial Services,6,2,24,Inbound Web
+006542932120,Technology - Farmer Opp 604,Technology Corp 422,George Costanza,Farmer,Qualification,27857.74,2024-01-10,2024-07-04,Technology,9,4,20,Inbound Web
+006342417992,Manufacturing - Hunter Opp 605,Manufacturing Corp 432,Alice Smith,Hunter,Closed Won,10996.44,2025-09-01,2025-10-12,Manufacturing,15,4,38,Inbound Web
+006205956644,Manufacturing - Hunter Opp 606,Manufacturing Corp 927,Diana Prince,Hunter,Closed Lost,13865.93,2023-08-05,2024-01-24,Manufacturing,14,2,38,Outbound Cold Call
+006851896552,Technology - Hunter Opp 607,Technology Corp 982,Bob Jones,Hunter,Qualification,28240.46,2024-05-11,2024-07-10,Technology,11,2,15,Inbound Web
+006785761730,Technology - Farmer Opp 608,Technology Corp 248,Helen Mirren,Farmer,Closed Won,9221.17,2024-07-06,2024-10-30,Technology,3,2,52,Event/Conference
+006745776788,Manufacturing - Farmer Opp 609,Manufacturing Corp 175,George Costanza,Farmer,Closed Won,35041.97,2024-02-07,2024-07-16,Manufacturing,6,2,54,Event/Conference
+006962907639,Retail - Farmer Opp 610,Retail Corp 273,George Costanza,Farmer,Closed Lost,13499.83,2024-02-04,2024-06-06,Retail,4,4,16,Outbound Cold Call
+006256639163,Healthcare - Hunter Opp 611,Healthcare Corp 157,Charlie Brown,Hunter,Prospecting,4346.51,2024-11-22,2025-01-11,Healthcare,6,3,14,Outbound Cold Call
+006280454316,Manufacturing - Farmer Opp 612,Manufacturing Corp 553,Helen Mirren,Farmer,Closed Won,71420.58,2024-07-18,2024-09-11,Manufacturing,3,2,46,Outbound Cold Call
+006397358658,Healthcare - Farmer Opp 613,Healthcare Corp 889,George Costanza,Farmer,Qualification,16483.95,2023-12-10,2024-01-13,Healthcare,4,5,44,Outbound Cold Call
+006234615736,Healthcare - Farmer Opp 614,Healthcare Corp 431,George Costanza,Farmer,Proposal,34138.0,2024-11-18,2025-04-12,Healthcare,3,5,30,Outbound Cold Call
+006102695145,Manufacturing - Farmer Opp 615,Manufacturing Corp 903,Fiona Gallagher,Farmer,Proposal,11066.37,2024-07-30,2024-09-12,Manufacturing,3,3,27,Outbound Cold Call
+006203783748,Healthcare - Hunter Opp 616,Healthcare Corp 410,Alice Smith,Hunter,Proposal,45378.43,2024-08-28,2024-11-25,Healthcare,8,2,14,Inbound Web
+006790889727,Healthcare - Hunter Opp 617,Healthcare Corp 285,Alice Smith,Hunter,Prospecting,43005.94,2025-07-30,2025-10-24,Healthcare,9,1,32,Inbound Web
+006719293459,Financial Services - Farmer Opp 618,Financial Services Corp 172,Evan Wright,Farmer,Closed Won,23136.79,2024-11-07,2024-12-24,Financial Services,7,2,53,Outbound Cold Call
+006412555536,Manufacturing - Farmer Opp 619,Manufacturing Corp 622,Fiona Gallagher,Farmer,Closed Won,32980.08,2025-06-01,2025-09-23,Manufacturing,3,3,38,Outbound Cold Call
+006825245145,Technology - Hunter Opp 620,Technology Corp 852,Bob Jones,Hunter,Proposal,8856.98,2024-11-14,2025-01-17,Technology,12,2,21,Inbound Web
+006438272170,Technology - Hunter Opp 621,Technology Corp 358,Alice Smith,Hunter,Closed Won,9580.18,2024-07-16,2024-10-14,Technology,6,1,37,Inbound Web
+006255005030,Financial Services - Hunter Opp 622,Financial Services Corp 605,Alice Smith,Hunter,Proposal,8587.74,2023-10-22,2024-04-10,Financial Services,17,2,34,Event/Conference
+006540359725,Financial Services - Farmer Opp 623,Financial Services Corp 802,George Costanza,Farmer,Negotiation,96132.05,2024-06-25,2024-11-10,Financial Services,7,5,38,Partner Referral
+006642279704,Retail - Hunter Opp 624,Retail Corp 281,Diana Prince,Hunter,Negotiation,6721.55,2024-06-09,2024-12-03,Retail,16,3,17,Inbound Web
+006323440338,Healthcare - Hunter Opp 625,Healthcare Corp 495,Diana Prince,Hunter,Closed Won,154504.07,2024-02-28,2024-08-22,Healthcare,8,2,32,Inbound Web
+006817112234,Financial Services - Hunter Opp 626,Financial Services Corp 313,Charlie Brown,Hunter,Qualification,19808.61,2025-01-14,2025-06-24,Financial Services,8,3,29,Partner Referral
+006690139158,Retail - Farmer Opp 627,Retail Corp 813,George Costanza,Farmer,Proposal,158662.3,2024-12-22,2025-05-18,Retail,3,7,28,Inbound Web
+006942616290,Manufacturing - Hunter Opp 628,Manufacturing Corp 310,Diana Prince,Hunter,Negotiation,7925.72,2025-02-19,2025-04-04,Manufacturing,13,1,19,Inbound Web
+006764800955,Manufacturing - Farmer Opp 629,Manufacturing Corp 760,Helen Mirren,Farmer,Qualification,24963.91,2024-01-21,2024-05-30,Manufacturing,9,2,49,Outbound Cold Call
+006326885472,Financial Services - Farmer Opp 630,Financial Services Corp 111,Evan Wright,Farmer,Closed Lost,25161.96,2025-01-17,2025-05-26,Financial Services,7,4,26,Outbound Cold Call
+006395568129,Manufacturing - Farmer Opp 631,Manufacturing Corp 470,Evan Wright,Farmer,Closed Won,12319.82,2025-01-15,2025-04-24,Manufacturing,7,2,46,Outbound Cold Call
+006129334810,Technology - Hunter Opp 632,Technology Corp 943,Alice Smith,Hunter,Negotiation,8438.17,2024-07-25,2024-10-06,Technology,12,1,27,Outbound Cold Call
+006411480987,Financial Services - Farmer Opp 633,Financial Services Corp 821,George Costanza,Farmer,Qualification,35685.18,2025-06-05,2025-11-04,Financial Services,6,3,42,Outbound Cold Call
+006267268059,Manufacturing - Hunter Opp 634,Manufacturing Corp 385,Bob Jones,Hunter,Proposal,6632.23,2023-12-22,2024-04-27,Manufacturing,9,1,26,Inbound Web
+006382359870,Manufacturing - Hunter Opp 635,Manufacturing Corp 853,Alice Smith,Hunter,Closed Won,36034.7,2024-07-29,2024-10-19,Manufacturing,11,4,23,Partner Referral
+006402388713,Manufacturing - Farmer Opp 636,Manufacturing Corp 339,Helen Mirren,Farmer,Prospecting,40501.82,2024-10-23,2025-02-12,Manufacturing,5,3,34,Outbound Cold Call
+006827917415,Financial Services - Farmer Opp 637,Financial Services Corp 915,George Costanza,Farmer,Closed Won,16851.22,2025-09-22,2025-12-01,Financial Services,3,2,32,Outbound Cold Call
+006145318936,Technology - Farmer Opp 638,Technology Corp 312,Helen Mirren,Farmer,Prospecting,92280.63,2024-12-11,2025-02-06,Technology,8,5,33,Inbound Web
+006670471151,Healthcare - Hunter Opp 639,Healthcare Corp 718,Bob Jones,Hunter,Proposal,7406.58,2023-12-18,2024-01-22,Healthcare,6,4,31,Outbound Cold Call
+006742152427,Financial Services - Farmer Opp 640,Financial Services Corp 857,Fiona Gallagher,Farmer,Closed Won,106360.38,2024-05-07,2024-09-14,Financial Services,3,3,58,Outbound Cold Call
+006502354798,Technology - Farmer Opp 641,Technology Corp 808,George Costanza,Farmer,Qualification,68584.73,2024-02-12,2024-04-13,Technology,5,2,54,Outbound Cold Call
+006252320775,Technology - Farmer Opp 642,Technology Corp 422,Fiona Gallagher,Farmer,Closed Lost,13277.52,2024-03-23,2024-05-16,Technology,8,6,34,Outbound Cold Call
+006457588918,Technology - Farmer Opp 643,Technology Corp 520,Fiona Gallagher,Farmer,Closed Won,8170.22,2024-08-06,2024-10-28,Technology,7,7,22,Outbound Cold Call
+006603973671,Manufacturing - Hunter Opp 644,Manufacturing Corp 304,Charlie Brown,Hunter,Negotiation,47900.12,2024-05-10,2024-09-29,Manufacturing,17,1,10,Inbound Web
+006734452820,Healthcare - Hunter Opp 645,Healthcare Corp 468,Bob Jones,Hunter,Prospecting,18246.96,2024-03-16,2024-04-24,Healthcare,19,2,17,Outbound Cold Call
+006884257930,Technology - Farmer Opp 646,Technology Corp 459,Evan Wright,Farmer,Closed Won,9069.91,2025-08-26,2025-11-19,Technology,5,6,40,Inbound Web
+006153448821,Technology - Farmer Opp 647,Technology Corp 539,Fiona Gallagher,Farmer,Closed Won,46972.59,2024-03-16,2024-06-28,Technology,5,7,43,Inbound Web
+006131601658,Financial Services - Hunter Opp 648,Financial Services Corp 432,Charlie Brown,Hunter,Proposal,7330.7,2025-05-27,2025-10-01,Financial Services,14,4,18,Inbound Web
+006378740259,Retail - Farmer Opp 649,Retail Corp 375,Helen Mirren,Farmer,Negotiation,37301.49,2025-08-17,2025-10-18,Retail,5,4,29,Partner Referral
+006595860068,Retail - Hunter Opp 650,Retail Corp 462,Diana Prince,Hunter,Negotiation,8697.96,2024-04-28,2024-09-26,Retail,17,3,14,Outbound Cold Call
+006845913996,Technology - Farmer Opp 651,Technology Corp 491,Evan Wright,Farmer,Closed Lost,18393.09,2024-08-03,2025-01-05,Technology,8,6,36,Inbound Web
+006100690778,Technology - Farmer Opp 652,Technology Corp 980,Evan Wright,Farmer,Closed Won,19709.23,2024-02-19,2024-07-22,Technology,8,5,56,Inbound Web
+006298795517,Technology - Hunter Opp 653,Technology Corp 716,Diana Prince,Hunter,Proposal,5310.94,2025-02-09,2025-06-11,Technology,12,2,15,Event/Conference
+006994545822,Healthcare - Hunter Opp 654,Healthcare Corp 501,Diana Prince,Hunter,Qualification,14296.71,2025-01-05,2025-05-17,Healthcare,16,4,34,Event/Conference
+006183399173,Healthcare - Farmer Opp 655,Healthcare Corp 957,George Costanza,Farmer,Proposal,9750.09,2023-11-22,2024-04-25,Healthcare,3,2,46,Outbound Cold Call
+006921536746,Technology - Hunter Opp 656,Technology Corp 889,Alice Smith,Hunter,Negotiation,34309.28,2025-03-01,2025-05-15,Technology,11,1,35,Outbound Cold Call
+006773516307,Technology - Hunter Opp 657,Technology Corp 133,Charlie Brown,Hunter,Negotiation,19495.55,2024-07-28,2024-10-19,Technology,5,3,36,Outbound Cold Call
+006506651769,Healthcare - Farmer Opp 658,Healthcare Corp 143,Fiona Gallagher,Farmer,Closed Won,96428.8,2023-09-03,2024-01-23,Healthcare,4,7,34,Inbound Web
+006672059805,Manufacturing - Farmer Opp 659,Manufacturing Corp 366,Fiona Gallagher,Farmer,Closed Won,9780.2,2024-12-10,2025-05-26,Manufacturing,7,4,50,Inbound Web
+006302133992,Manufacturing - Farmer Opp 660,Manufacturing Corp 182,Fiona Gallagher,Farmer,Proposal,43983.2,2024-09-20,2024-12-22,Manufacturing,4,4,32,Partner Referral
+006582693903,Healthcare - Farmer Opp 661,Healthcare Corp 922,Fiona Gallagher,Farmer,Negotiation,26029.95,2025-07-06,2025-11-22,Healthcare,6,3,21,Outbound Cold Call
+006931941396,Financial Services - Hunter Opp 662,Financial Services Corp 891,Diana Prince,Hunter,Closed Won,4523.57,2024-06-08,2024-11-06,Financial Services,18,3,10,Outbound Cold Call
+006464067851,Technology - Farmer Opp 663,Technology Corp 554,Helen Mirren,Farmer,Closed Won,100002.7,2024-06-05,2024-08-07,Technology,8,2,26,Outbound Cold Call
+006549575900,Healthcare - Hunter Opp 664,Healthcare Corp 805,Alice Smith,Hunter,Qualification,30427.26,2025-04-29,2025-06-26,Healthcare,11,4,20,Partner Referral
+006856589990,Technology - Hunter Opp 665,Technology Corp 609,Alice Smith,Hunter,Prospecting,4570.15,2024-11-30,2025-02-08,Technology,12,1,14,Outbound Cold Call
+006426873029,Technology - Hunter Opp 666,Technology Corp 797,Charlie Brown,Hunter,Closed Lost,45161.42,2025-06-01,2025-09-06,Technology,11,2,28,Partner Referral
+006353202232,Healthcare - Farmer Opp 667,Healthcare Corp 191,Helen Mirren,Farmer,Closed Won,155137.03,2025-02-19,2025-03-30,Healthcare,4,7,32,Event/Conference
+006389003968,Healthcare - Farmer Opp 668,Healthcare Corp 756,Helen Mirren,Farmer,Closed Won,18725.88,2023-12-01,2024-02-21,Healthcare,4,2,43,Outbound Cold Call
+006889470360,Retail - Farmer Opp 669,Retail Corp 155,Fiona Gallagher,Farmer,Closed Won,72617.94,2025-09-24,2025-11-06,Retail,6,2,40,Event/Conference
+006434487700,Manufacturing - Farmer Opp 670,Manufacturing Corp 165,Fiona Gallagher,Farmer,Closed Lost,19626.84,2025-05-20,2025-09-23,Manufacturing,4,2,33,Event/Conference
+006472029051,Retail - Farmer Opp 671,Retail Corp 483,Fiona Gallagher,Farmer,Prospecting,23410.33,2025-02-11,2025-07-11,Retail,3,6,41,Outbound Cold Call
+006938033218,Manufacturing - Hunter Opp 672,Manufacturing Corp 276,Charlie Brown,Hunter,Qualification,32120.66,2024-10-26,2025-01-03,Manufacturing,17,3,26,Inbound Web
+006935215190,Financial Services - Hunter Opp 673,Financial Services Corp 986,Charlie Brown,Hunter,Qualification,19099.03,2025-09-16,2025-11-27,Financial Services,16,2,13,Event/Conference
+006160540089,Financial Services - Farmer Opp 674,Financial Services Corp 150,Evan Wright,Farmer,Closed Won,49397.35,2024-01-15,2024-05-13,Financial Services,9,2,29,Outbound Cold Call
+006205229157,Manufacturing - Farmer Opp 675,Manufacturing Corp 554,Fiona Gallagher,Farmer,Negotiation,62154.37,2024-02-07,2024-04-15,Manufacturing,7,4,26,Inbound Web
+006694413107,Healthcare - Farmer Opp 676,Healthcare Corp 799,Evan Wright,Farmer,Closed Lost,118270.83,2024-04-16,2024-05-25,Healthcare,8,6,55,Inbound Web
+006289556482,Technology - Farmer Opp 677,Technology Corp 156,Fiona Gallagher,Farmer,Closed Won,11057.11,2024-09-03,2024-11-18,Technology,5,5,24,Event/Conference
+006481278278,Financial Services - Hunter Opp 678,Financial Services Corp 705,Bob Jones,Hunter,Qualification,14727.77,2024-09-28,2025-01-06,Financial Services,6,3,35,Outbound Cold Call
+006298327690,Manufacturing - Farmer Opp 679,Manufacturing Corp 503,Helen Mirren,Farmer,Closed Won,23817.52,2025-02-19,2025-04-11,Manufacturing,6,5,26,Outbound Cold Call
+006659711517,Technology - Hunter Opp 680,Technology Corp 816,Diana Prince,Hunter,Prospecting,45320.38,2024-08-04,2024-09-26,Technology,19,3,22,Outbound Cold Call
+006337493785,Technology - Hunter Opp 681,Technology Corp 394,Bob Jones,Hunter,Prospecting,9310.26,2024-08-25,2024-11-16,Technology,17,1,26,Outbound Cold Call
+006880502300,Manufacturing - Farmer Opp 682,Manufacturing Corp 470,Helen Mirren,Farmer,Closed Won,66047.76,2024-03-23,2024-05-17,Manufacturing,7,3,46,Outbound Cold Call
+006572632572,Manufacturing - Farmer Opp 683,Manufacturing Corp 439,Fiona Gallagher,Farmer,Negotiation,8570.68,2025-07-21,2025-10-31,Manufacturing,7,3,15,Inbound Web
+006793492067,Financial Services - Hunter Opp 684,Financial Services Corp 822,Alice Smith,Hunter,Closed Won,18057.89,2024-10-15,2025-03-27,Financial Services,15,3,18,Event/Conference
+006276937412,Retail - Farmer Opp 685,Retail Corp 427,George Costanza,Farmer,Prospecting,91232.79,2025-04-02,2025-07-02,Retail,9,3,36,Outbound Cold Call
+006562843457,Healthcare - Farmer Opp 686,Healthcare Corp 688,Helen Mirren,Farmer,Closed Won,17245.77,2025-06-22,2025-11-30,Healthcare,9,5,51,Partner Referral
+006116450961,Financial Services - Farmer Opp 687,Financial Services Corp 493,Helen Mirren,Farmer,Proposal,13479.36,2025-07-05,2025-12-06,Financial Services,5,4,53,Partner Referral
+006869536596,Financial Services - Farmer Opp 688,Financial Services Corp 986,George Costanza,Farmer,Closed Won,56741.06,2024-11-02,2025-03-16,Financial Services,2,5,39,Partner Referral
+006258255163,Financial Services - Hunter Opp 689,Financial Services Corp 619,Alice Smith,Hunter,Closed Won,7697.82,2025-08-14,2025-11-30,Financial Services,17,2,23,Outbound Cold Call
+006584646447,Manufacturing - Farmer Opp 690,Manufacturing Corp 640,Helen Mirren,Farmer,Closed Won,9559.43,2024-11-11,2025-03-21,Manufacturing,9,7,56,Outbound Cold Call
+006478574345,Manufacturing - Hunter Opp 691,Manufacturing Corp 645,Bob Jones,Hunter,Qualification,17988.68,2024-05-22,2024-10-03,Manufacturing,8,2,32,Event/Conference
+006531988655,Manufacturing - Farmer Opp 692,Manufacturing Corp 852,George Costanza,Farmer,Closed Won,22683.76,2024-09-29,2024-11-12,Manufacturing,2,6,30,Outbound Cold Call
+006369915631,Technology - Hunter Opp 693,Technology Corp 898,Alice Smith,Hunter,Negotiation,6169.18,2024-10-02,2025-01-03,Technology,7,1,36,Event/Conference
+006992975560,Retail - Farmer Opp 694,Retail Corp 659,Evan Wright,Farmer,Qualification,22094.63,2025-10-29,2025-12-17,Retail,8,2,25,Inbound Web
+006662130212,Technology - Hunter Opp 695,Technology Corp 142,Diana Prince,Hunter,Negotiation,58899.24,2023-12-22,2024-02-23,Technology,11,4,19,Event/Conference
+006362442113,Healthcare - Hunter Opp 696,Healthcare Corp 619,Diana Prince,Hunter,Proposal,6657.7,2024-01-24,2024-04-15,Healthcare,6,1,24,Partner Referral
+006586716740,Retail - Hunter Opp 697,Retail Corp 277,Charlie Brown,Hunter,Qualification,23305.49,2024-03-20,2024-06-14,Retail,8,1,27,Outbound Cold Call
+006466826649,Manufacturing - Farmer Opp 698,Manufacturing Corp 722,Fiona Gallagher,Farmer,Closed Won,75629.07,2023-12-27,2024-04-24,Manufacturing,7,7,18,Partner Referral
+006780366224,Healthcare - Farmer Opp 699,Healthcare Corp 630,George Costanza,Farmer,Closed Lost,45246.82,2024-12-24,2025-04-21,Healthcare,9,3,36,Event/Conference
+006238986152,Financial Services - Hunter Opp 700,Financial Services Corp 184,Charlie Brown,Hunter,Proposal,11738.81,2025-04-09,2025-06-08,Financial Services,16,1,12,Outbound Cold Call
+006437603041,Financial Services - Farmer Opp 701,Financial Services Corp 538,Evan Wright,Farmer,Negotiation,15533.73,2024-01-09,2024-04-21,Financial Services,2,2,55,Inbound Web
+006548631165,Retail - Farmer Opp 702,Retail Corp 373,George Costanza,Farmer,Closed Won,16191.39,2024-07-30,2024-09-26,Retail,4,3,25,Event/Conference
+006125281805,Financial Services - Farmer Opp 703,Financial Services Corp 811,Fiona Gallagher,Farmer,Closed Won,69133.21,2023-12-14,2024-01-31,Financial Services,3,7,39,Outbound Cold Call
+006715768286,Technology - Farmer Opp 704,Technology Corp 375,Helen Mirren,Farmer,Closed Won,19804.67,2024-10-23,2025-04-09,Technology,7,6,26,Outbound Cold Call
+006279818158,Manufacturing - Hunter Opp 705,Manufacturing Corp 851,Diana Prince,Hunter,Negotiation,26709.49,2025-07-24,2025-10-09,Manufacturing,19,2,21,Outbound Cold Call
+006531694259,Healthcare - Farmer Opp 706,Healthcare Corp 205,Helen Mirren,Farmer,Closed Won,9148.75,2025-06-03,2025-10-12,Healthcare,2,6,40,Outbound Cold Call
+006860692187,Retail - Hunter Opp 707,Retail Corp 816,Diana Prince,Hunter,Qualification,16037.7,2025-07-21,2025-12-23,Retail,9,2,19,Event/Conference
+006603164640,Healthcare - Farmer Opp 708,Healthcare Corp 723,Helen Mirren,Farmer,Closed Won,10317.87,2024-01-08,2024-03-24,Healthcare,7,7,27,Event/Conference
+006780173610,Technology - Farmer Opp 709,Technology Corp 406,George Costanza,Farmer,Closed Won,72754.98,2025-07-12,2025-09-28,Technology,8,7,57,Outbound Cold Call
+006974900410,Healthcare - Farmer Opp 710,Healthcare Corp 163,Fiona Gallagher,Farmer,Closed Lost,28045.76,2024-06-28,2024-09-11,Healthcare,8,5,56,Outbound Cold Call
+006801550519,Healthcare - Farmer Opp 711,Healthcare Corp 761,Helen Mirren,Farmer,Closed Won,14588.85,2025-05-06,2025-08-09,Healthcare,9,2,33,Inbound Web
+006893804615,Retail - Hunter Opp 712,Retail Corp 416,Alice Smith,Hunter,Proposal,45977.76,2024-07-16,2024-12-08,Retail,10,4,22,Outbound Cold Call
+006932693378,Healthcare - Hunter Opp 713,Healthcare Corp 420,Bob Jones,Hunter,Proposal,21337.5,2024-05-31,2024-10-18,Healthcare,14,1,16,Outbound Cold Call
+006902181914,Retail - Hunter Opp 714,Retail Corp 257,Alice Smith,Hunter,Qualification,27836.71,2025-04-22,2025-08-05,Retail,19,1,32,Outbound Cold Call
+006102074242,Technology - Hunter Opp 715,Technology Corp 931,Alice Smith,Hunter,Closed Lost,22661.7,2024-03-27,2024-06-15,Technology,13,1,37,Event/Conference
+006317714213,Retail - Farmer Opp 716,Retail Corp 295,Fiona Gallagher,Farmer,Closed Won,80896.43,2024-02-21,2024-07-09,Retail,6,4,58,Outbound Cold Call
+006753815203,Healthcare - Hunter Opp 717,Healthcare Corp 705,Alice Smith,Hunter,Proposal,10155.97,2024-12-12,2025-06-05,Healthcare,15,4,39,Inbound Web
+006261886436,Technology - Farmer Opp 718,Technology Corp 727,Evan Wright,Farmer,Closed Won,41009.63,2024-05-19,2024-09-24,Technology,7,3,39,Event/Conference
+006294509837,Retail - Hunter Opp 719,Retail Corp 705,Alice Smith,Hunter,Qualification,46807.86,2024-10-22,2025-03-18,Retail,7,3,18,Outbound Cold Call
+006326156832,Healthcare - Farmer Opp 720,Healthcare Corp 320,Fiona Gallagher,Farmer,Closed Lost,26905.31,2024-08-01,2024-09-13,Healthcare,3,5,30,Outbound Cold Call
+006533607862,Financial Services - Hunter Opp 721,Financial Services Corp 679,Diana Prince,Hunter,Qualification,9692.42,2024-12-31,2025-02-21,Financial Services,5,4,37,Partner Referral
+006115855977,Healthcare - Farmer Opp 722,Healthcare Corp 293,Helen Mirren,Farmer,Closed Won,104305.31,2024-12-07,2025-01-18,Healthcare,2,5,29,Inbound Web
+006178848663,Financial Services - Farmer Opp 723,Financial Services Corp 116,George Costanza,Farmer,Qualification,19975.51,2024-04-02,2024-07-05,Financial Services,5,2,42,Outbound Cold Call
+006355983241,Healthcare - Farmer Opp 724,Healthcare Corp 941,Fiona Gallagher,Farmer,Closed Lost,47324.3,2024-03-02,2024-07-28,Healthcare,5,6,28,Outbound Cold Call
+006369471054,Retail - Hunter Opp 725,Retail Corp 853,Bob Jones,Hunter,Proposal,9614.0,2024-01-09,2024-04-14,Retail,18,1,32,Inbound Web
+006780548052,Healthcare - Farmer Opp 726,Healthcare Corp 416,Helen Mirren,Farmer,Prospecting,68683.23,2024-07-12,2024-11-27,Healthcare,6,5,37,Inbound Web
+006247230677,Healthcare - Farmer Opp 727,Healthcare Corp 853,Fiona Gallagher,Farmer,Closed Won,32166.38,2024-04-27,2024-08-05,Healthcare,3,4,32,Inbound Web
+006835746885,Technology - Farmer Opp 728,Technology Corp 902,George Costanza,Farmer,Closed Lost,7690.94,2024-05-07,2024-10-14,Technology,2,2,27,Outbound Cold Call
+006205969471,Retail - Farmer Opp 729,Retail Corp 581,Fiona Gallagher,Farmer,Qualification,44839.85,2024-11-28,2025-04-24,Retail,9,5,33,Outbound Cold Call
+006412502861,Retail - Farmer Opp 730,Retail Corp 736,Fiona Gallagher,Farmer,Closed Won,21981.5,2024-09-25,2025-01-24,Retail,7,3,32,Inbound Web
+006576841951,Manufacturing - Hunter Opp 731,Manufacturing Corp 150,Diana Prince,Hunter,Qualification,16503.02,2025-08-16,2025-11-29,Manufacturing,17,1,20,Outbound Cold Call
+006556943737,Financial Services - Hunter Opp 732,Financial Services Corp 143,Bob Jones,Hunter,Qualification,101293.58,2025-08-10,2025-11-15,Financial Services,14,1,26,Outbound Cold Call
+006378335610,Financial Services - Farmer Opp 733,Financial Services Corp 638,Fiona Gallagher,Farmer,Closed Won,104820.84,2024-10-07,2025-02-12,Financial Services,2,7,40,Inbound Web
+006121186229,Retail - Farmer Opp 734,Retail Corp 458,Helen Mirren,Farmer,Closed Won,19229.8,2025-02-21,2025-05-17,Retail,9,7,33,Inbound Web
+006583652941,Technology - Farmer Opp 735,Technology Corp 208,George Costanza,Farmer,Closed Won,18426.63,2024-07-02,2024-09-17,Technology,3,3,37,Inbound Web
+006733309733,Healthcare - Farmer Opp 736,Healthcare Corp 112,George Costanza,Farmer,Closed Lost,11761.23,2024-03-04,2024-07-21,Healthcare,4,2,29,Outbound Cold Call
+006324526700,Manufacturing - Farmer Opp 737,Manufacturing Corp 714,Helen Mirren,Farmer,Closed Won,81048.85,2024-04-08,2024-08-08,Manufacturing,9,3,57,Outbound Cold Call
+006288454216,Financial Services - Farmer Opp 738,Financial Services Corp 725,Helen Mirren,Farmer,Closed Won,13279.21,2023-10-23,2024-02-29,Financial Services,3,7,21,Inbound Web
+006424091044,Financial Services - Hunter Opp 739,Financial Services Corp 846,Charlie Brown,Hunter,Qualification,43722.05,2024-05-16,2024-06-15,Financial Services,8,1,34,Outbound Cold Call
+006761223381,Financial Services - Farmer Opp 740,Financial Services Corp 484,George Costanza,Farmer,Closed Won,18767.52,2025-04-19,2025-07-27,Financial Services,6,2,25,Inbound Web
+006101724620,Manufacturing - Hunter Opp 741,Manufacturing Corp 387,Charlie Brown,Hunter,Proposal,5070.56,2025-09-13,2025-11-17,Manufacturing,19,2,14,Inbound Web
+006200643782,Retail - Hunter Opp 742,Retail Corp 137,Bob Jones,Hunter,Prospecting,25952.07,2025-03-11,2025-05-12,Retail,5,1,24,Outbound Cold Call
+006549094092,Healthcare - Hunter Opp 743,Healthcare Corp 676,Alice Smith,Hunter,Proposal,8659.43,2024-09-28,2024-12-22,Healthcare,12,1,24,Outbound Cold Call
+006434981119,Financial Services - Farmer Opp 744,Financial Services Corp 940,Evan Wright,Farmer,Closed Lost,14070.11,2024-08-13,2024-09-13,Financial Services,4,5,57,Outbound Cold Call
+006874453179,Manufacturing - Hunter Opp 745,Manufacturing Corp 145,Alice Smith,Hunter,Qualification,4901.08,2025-05-09,2025-07-14,Manufacturing,15,1,27,Inbound Web
+006188871328,Retail - Hunter Opp 746,Retail Corp 187,Charlie Brown,Hunter,Closed Lost,5374.26,2024-01-31,2024-05-27,Retail,18,2,10,Event/Conference
+006237811856,Technology - Farmer Opp 747,Technology Corp 913,Helen Mirren,Farmer,Proposal,16480.93,2025-06-15,2025-07-26,Technology,3,6,45,Inbound Web
+006330544543,Retail - Farmer Opp 748,Retail Corp 858,Evan Wright,Farmer,Negotiation,10655.7,2024-04-09,2024-06-29,Retail,8,5,41,Partner Referral
+006712695754,Retail - Farmer Opp 749,Retail Corp 216,Helen Mirren,Farmer,Proposal,33191.17,2025-03-27,2025-09-22,Retail,4,2,52,Event/Conference
+006918792562,Retail - Farmer Opp 750,Retail Corp 474,Fiona Gallagher,Farmer,Proposal,8130.51,2025-03-21,2025-09-16,Retail,5,4,31,Event/Conference
+006978293495,Healthcare - Hunter Opp 751,Healthcare Corp 478,Diana Prince,Hunter,Negotiation,42517.5,2024-09-10,2025-03-02,Healthcare,9,1,18,Inbound Web
+006672385643,Healthcare - Hunter Opp 752,Healthcare Corp 374,Bob Jones,Hunter,Prospecting,11086.06,2023-12-31,2024-06-18,Healthcare,7,2,29,Inbound Web
+006889744594,Financial Services - Farmer Opp 753,Financial Services Corp 622,Helen Mirren,Farmer,Closed Won,38960.7,2025-04-08,2025-07-26,Financial Services,8,2,28,Outbound Cold Call
+006846500479,Manufacturing - Farmer Opp 754,Manufacturing Corp 573,George Costanza,Farmer,Closed Won,70876.03,2025-06-19,2025-11-18,Manufacturing,9,4,31,Inbound Web
+006320726088,Retail - Hunter Opp 755,Retail Corp 315,Charlie Brown,Hunter,Proposal,16661.37,2023-10-28,2024-01-23,Retail,15,4,12,Outbound Cold Call
+006517112720,Healthcare - Hunter Opp 756,Healthcare Corp 724,Diana Prince,Hunter,Closed Won,12794.71,2024-08-02,2024-11-06,Healthcare,9,4,27,Outbound Cold Call
+006599307327,Retail - Hunter Opp 757,Retail Corp 719,Alice Smith,Hunter,Prospecting,13898.27,2024-01-22,2024-03-08,Retail,9,4,24,Outbound Cold Call
+006803233710,Retail - Farmer Opp 758,Retail Corp 166,George Costanza,Farmer,Closed Won,30614.11,2023-11-30,2024-05-08,Retail,4,5,15,Outbound Cold Call
+006123380568,Financial Services - Hunter Opp 759,Financial Services Corp 332,Alice Smith,Hunter,Negotiation,16222.17,2024-09-30,2025-01-22,Financial Services,10,4,12,Outbound Cold Call
+006747801108,Financial Services - Farmer Opp 760,Financial Services Corp 858,George Costanza,Farmer,Negotiation,91173.77,2024-06-03,2024-07-31,Financial Services,9,4,55,Inbound Web
+006764456640,Healthcare - Farmer Opp 761,Healthcare Corp 432,Fiona Gallagher,Farmer,Closed Lost,217445.97,2024-01-21,2024-05-26,Healthcare,7,5,30,Event/Conference
+006462620299,Retail - Farmer Opp 762,Retail Corp 749,Fiona Gallagher,Farmer,Closed Won,23091.77,2024-12-07,2025-02-26,Retail,8,2,47,Outbound Cold Call
+006289765160,Financial Services - Farmer Opp 763,Financial Services Corp 836,George Costanza,Farmer,Closed Won,23599.52,2025-06-12,2025-11-29,Financial Services,4,6,46,Event/Conference
+006371227127,Retail - Farmer Opp 764,Retail Corp 411,George Costanza,Farmer,Closed Won,70322.16,2025-03-23,2025-07-26,Retail,7,5,32,Inbound Web
+006115547488,Manufacturing - Farmer Opp 765,Manufacturing Corp 581,Helen Mirren,Farmer,Closed Won,49667.44,2025-07-23,2025-09-28,Manufacturing,6,2,19,Outbound Cold Call
+006879365248,Healthcare - Farmer Opp 766,Healthcare Corp 317,Fiona Gallagher,Farmer,Proposal,43130.73,2024-12-21,2025-05-26,Healthcare,9,6,59,Inbound Web
+006403123517,Healthcare - Hunter Opp 767,Healthcare Corp 790,Bob Jones,Hunter,Prospecting,31595.18,2023-08-30,2024-01-12,Healthcare,7,2,18,Partner Referral
+006877776881,Healthcare - Hunter Opp 768,Healthcare Corp 700,Charlie Brown,Hunter,Negotiation,21607.64,2024-02-19,2024-08-13,Healthcare,11,4,30,Outbound Cold Call
+006100850122,Manufacturing - Farmer Opp 769,Manufacturing Corp 374,Helen Mirren,Farmer,Closed Won,9032.89,2025-04-25,2025-05-26,Manufacturing,6,2,39,Inbound Web
+006816528105,Manufacturing - Farmer Opp 770,Manufacturing Corp 834,Evan Wright,Farmer,Closed Won,18417.6,2024-02-21,2024-03-29,Manufacturing,4,3,40,Outbound Cold Call
+006854385528,Financial Services - Hunter Opp 771,Financial Services Corp 900,Alice Smith,Hunter,Closed Won,19040.3,2023-09-26,2024-01-04,Financial Services,18,3,14,Outbound Cold Call
+006712409724,Manufacturing - Farmer Opp 772,Manufacturing Corp 644,Helen Mirren,Farmer,Prospecting,19842.16,2025-05-15,2025-06-27,Manufacturing,4,5,34,Event/Conference
+006135883199,Technology - Farmer Opp 773,Technology Corp 377,Helen Mirren,Farmer,Closed Lost,110235.18,2024-10-23,2025-04-19,Technology,5,2,33,Outbound Cold Call
+006616080072,Retail - Farmer Opp 774,Retail Corp 616,Helen Mirren,Farmer,Closed Won,16917.54,2023-10-30,2024-01-08,Retail,2,5,20,Event/Conference
+006721747985,Technology - Farmer Opp 775,Technology Corp 789,Evan Wright,Farmer,Negotiation,69863.69,2024-08-15,2024-12-04,Technology,3,6,54,Inbound Web
+006761575200,Healthcare - Farmer Opp 776,Healthcare Corp 761,Evan Wright,Farmer,Negotiation,15305.11,2024-06-12,2024-08-18,Healthcare,4,6,39,Outbound Cold Call
+006952155187,Technology - Farmer Opp 777,Technology Corp 838,Helen Mirren,Farmer,Closed Won,106859.73,2025-09-16,2025-10-18,Technology,9,6,26,Outbound Cold Call
+006877604309,Financial Services - Farmer Opp 778,Financial Services Corp 155,Helen Mirren,Farmer,Proposal,29711.39,2024-12-12,2025-01-27,Financial Services,4,5,59,Outbound Cold Call
+006477412804,Retail - Farmer Opp 779,Retail Corp 883,George Costanza,Farmer,Qualification,11814.76,2025-05-14,2025-08-28,Retail,7,3,39,Outbound Cold Call
+006554296246,Manufacturing - Hunter Opp 780,Manufacturing Corp 441,Alice Smith,Hunter,Proposal,27779.0,2025-03-21,2025-08-20,Manufacturing,8,2,33,Inbound Web
+006365897607,Retail - Farmer Opp 781,Retail Corp 641,Evan Wright,Farmer,Proposal,11877.27,2024-05-29,2024-09-16,Retail,7,6,19,Outbound Cold Call
+006217796952,Retail - Hunter Opp 782,Retail Corp 519,Alice Smith,Hunter,Closed Won,44953.83,2024-04-26,2024-09-22,Retail,17,3,23,Inbound Web
+006197627488,Manufacturing - Farmer Opp 783,Manufacturing Corp 458,Evan Wright,Farmer,Closed Won,113174.83,2025-03-04,2025-05-02,Manufacturing,9,4,43,Outbound Cold Call
+006827552426,Manufacturing - Hunter Opp 784,Manufacturing Corp 242,Bob Jones,Hunter,Closed Lost,21170.0,2025-01-11,2025-03-24,Manufacturing,7,3,13,Outbound Cold Call
+006806220658,Retail - Farmer Opp 785,Retail Corp 881,Helen Mirren,Farmer,Closed Lost,19027.8,2024-02-17,2024-06-12,Retail,6,7,41,Inbound Web
+006296652518,Technology - Hunter Opp 786,Technology Corp 913,Charlie Brown,Hunter,Prospecting,33203.13,2025-04-21,2025-07-19,Technology,13,1,22,Inbound Web
+006410854255,Financial Services - Hunter Opp 787,Financial Services Corp 118,Charlie Brown,Hunter,Proposal,27765.82,2023-08-27,2024-01-27,Financial Services,17,3,27,Outbound Cold Call
+006570884255,Technology - Farmer Opp 788,Technology Corp 935,Evan Wright,Farmer,Closed Won,13340.83,2024-11-30,2025-03-25,Technology,4,4,22,Partner Referral
+006680519048,Retail - Farmer Opp 789,Retail Corp 123,Helen Mirren,Farmer,Closed Won,45854.34,2025-07-17,2025-08-29,Retail,4,5,22,Inbound Web
+006804081380,Financial Services - Hunter Opp 790,Financial Services Corp 909,Charlie Brown,Hunter,Proposal,97017.17,2025-06-20,2025-09-23,Financial Services,13,4,21,Inbound Web
+006779820536,Healthcare - Farmer Opp 791,Healthcare Corp 169,Helen Mirren,Farmer,Closed Won,28275.2,2024-07-26,2024-09-11,Healthcare,7,7,39,Inbound Web
+006162423631,Manufacturing - Farmer Opp 792,Manufacturing Corp 666,Helen Mirren,Farmer,Closed Lost,26130.73,2024-03-30,2024-09-25,Manufacturing,8,2,46,Event/Conference
+006735791116,Healthcare - Farmer Opp 793,Healthcare Corp 682,Fiona Gallagher,Farmer,Negotiation,54567.43,2024-11-03,2025-03-13,Healthcare,6,3,49,Event/Conference
+006904651692,Healthcare - Farmer Opp 794,Healthcare Corp 185,Fiona Gallagher,Farmer,Closed Won,8804.23,2025-09-26,2025-12-10,Healthcare,8,7,37,Inbound Web
+006868373268,Manufacturing - Farmer Opp 795,Manufacturing Corp 169,George Costanza,Farmer,Closed Won,17036.41,2024-11-19,2025-01-15,Manufacturing,4,5,55,Event/Conference
+006877033528,Retail - Hunter Opp 796,Retail Corp 968,Bob Jones,Hunter,Closed Lost,4842.64,2025-01-17,2025-04-25,Retail,17,3,21,Partner Referral
+006549119005,Technology - Farmer Opp 797,Technology Corp 158,George Costanza,Farmer,Proposal,28033.37,2024-09-03,2025-01-11,Technology,2,2,45,Outbound Cold Call
+006918351456,Financial Services - Farmer Opp 798,Financial Services Corp 175,George Costanza,Farmer,Closed Won,44889.42,2023-12-15,2024-04-16,Financial Services,8,3,49,Partner Referral
+006469135932,Manufacturing - Farmer Opp 799,Manufacturing Corp 998,Helen Mirren,Farmer,Closed Won,26983.33,2023-12-26,2024-01-25,Manufacturing,5,7,52,Inbound Web
