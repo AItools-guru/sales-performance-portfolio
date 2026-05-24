@@ -54,10 +54,10 @@ Real ODP revenue data: $856M ISO baseline, 3% stagnant growth, 7% target gap of 
 
 <img src="./assets/dashboard_exec_summary.png" alt="Executive Summary Dashboard" width="100%">
 
-### ⏳ Page 2 — Funnel Leakage Analysis
-Side-by-side Hunter vs. Farmer funnel conversion. Hunters drop from 68% at Qualification to 45% at Proposal — the critical $8M leak identified by the Salesforce pipeline data.
+### ⏳ Page 2 — Salesforce CRM Funnel Leakage
+An opportunity funnel dashboard extracted directly from Salesforce CRM (Lightning Experience). Visualizes the exact Hunter stages: Prospecting (100%), Qualification (68%), and Proposal (45% - with the critical 33% pricing approval leak highlighted), Negotiation (22%), and Closed Won (12%).
 
-<img src="./assets/dashboard_funnel_leakage.png" alt="Funnel Leakage Analysis" width="100%">
+<img src="./assets/dashboard_funnel_leakage.png" alt="Salesforce Funnel Leakage Analysis" width="100%">
 
 ### 🎛️ Page 4 — 7% Growth Simulator
 Drag sliders across 4 levers. The bar chart and all KPIs update live. A green success banner fires the moment you reach the 7% target.
