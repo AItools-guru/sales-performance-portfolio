@@ -3,221 +3,125 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ODP Sales Performance Dashboard | Power BI Prototype</title>
+  <title>ODP Business Solutions — ISO Sales Performance Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
   <style>
     :root {
-      --pbi-yellow: #F2C811;
-      --pbi-blue: #118DFF;
-      --pbi-dark: #1f1f1f;
-      --pbi-navy: #12239E;
-      --sidebar-bg: #f3f2f1;
-      --canvas-bg: #EAEAEA;
-      --card-bg: #FFFFFF;
-      --border: #D2D2D2;
-      --text: #252423;
-      --muted: #6b6b6b;
-      --green: #107C41;
-      --red: #A80000;
-      --hunter: #F2C811;
-      --farmer: #12239E;
+      --pbi-yellow:#F2C811; --pbi-blue:#118DFF; --pbi-dark:#1f1f1f;
+      --pbi-navy:#12239E; --sidebar-bg:#f3f2f1; --canvas-bg:#EAEAEA;
+      --card-bg:#FFFFFF; --border:#D2D2D2; --text:#252423; --muted:#6b6b6b;
+      --green:#107C41; --red:#A80000; --orange:#D83B01;
     }
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Inter',sans-serif;background:var(--canvas-bg);color:var(--text);height:100vh;display:flex;flex-direction:column;overflow:hidden;}
 
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    header{background:var(--pbi-dark);color:#fff;padding:0 20px;height:48px;display:flex;align-items:center;justify-content:space-between;border-bottom:3px solid var(--pbi-yellow);flex-shrink:0;}
+    .hd-left{display:flex;align-items:center;gap:12px;}
+    .pbi-icon{display:flex;align-items:flex-end;gap:2px;height:22px;}
+    .pbi-icon span{display:block;width:5px;background:var(--pbi-yellow);border-radius:2px;}
+    .pbi-icon span:nth-child(1){height:40%;} .pbi-icon span:nth-child(2){height:70%;} .pbi-icon span:nth-child(3){height:100%;}
+    .hd-title{font-size:.92rem;font-weight:600;}
+    .hd-badge{background:#3b3b3b;padding:3px 10px;border-radius:10px;font-size:.72rem;font-weight:600;}
+    .hd-right{font-size:.78rem;color:#aaa;}
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--canvas-bg);
-      color: var(--text);
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
+    .layout{display:flex;flex:1;overflow:hidden;}
 
-    /* ── HEADER ── */
-    header {
-      background: var(--pbi-dark);
-      color: #fff;
-      padding: 0 20px;
-      height: 48px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 3px solid var(--pbi-yellow);
-      flex-shrink: 0;
-    }
-    .hd-left { display: flex; align-items: center; gap: 12px; }
-    .pbi-icon { display: flex; align-items: flex-end; gap: 2px; height: 22px; }
-    .pbi-icon span { display: block; width: 5px; background: var(--pbi-yellow); border-radius: 2px; }
-    .pbi-icon span:nth-child(1) { height: 40%; }
-    .pbi-icon span:nth-child(2) { height: 70%; }
-    .pbi-icon span:nth-child(3) { height: 100%; }
-    .hd-title { font-size: .95rem; font-weight: 600; letter-spacing: .2px; }
-    .hd-badge { background: #3b3b3b; padding: 3px 10px; border-radius: 10px; font-size: .75rem; font-weight: 600; }
-    .hd-right { font-size: .8rem; color: #aaa; }
+    .sidebar{width:205px;background:var(--sidebar-bg);border-right:1px solid var(--border);padding:14px 0;flex-shrink:0;}
+    .sb-heading{padding:0 14px 10px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);}
+    .tab{display:flex;align-items:center;gap:8px;padding:11px 14px;cursor:pointer;font-size:.83rem;font-weight:500;border-left:3px solid transparent;transition:background .15s;}
+    .tab:hover{background:#edebe9;}
+    .tab.active{background:#fff;border-left-color:var(--pbi-yellow);color:var(--pbi-navy);font-weight:700;}
 
-    /* ── LAYOUT ── */
-    .layout { display: flex; flex: 1; overflow: hidden; }
+    .canvas{flex:1;padding:14px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;}
 
-    /* ── SIDEBAR ── */
-    .sidebar {
-      width: 200px;
-      background: var(--sidebar-bg);
-      border-right: 1px solid var(--border);
-      padding: 14px 0;
-      flex-shrink: 0;
-    }
-    .sb-heading { padding: 0 14px 10px; font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .6px; color: var(--muted); }
-    .tab {
-      display: flex; align-items: center; gap: 8px;
-      padding: 11px 14px; cursor: pointer;
-      font-size: .85rem; font-weight: 500;
-      border-left: 3px solid transparent;
-      transition: background .15s;
-    }
-    .tab:hover { background: #edebe9; }
-    .tab.active { background: #fff; border-left-color: var(--pbi-yellow); color: var(--pbi-navy); font-weight: 700; }
-    .tab-icon { font-size: 1rem; }
+    .filter-bar{background:#fff;border:1px solid var(--border);border-radius:4px;padding:9px 16px;display:flex;align-items:center;gap:16px;box-shadow:0 1px 3px rgba(0,0,0,.06);flex-wrap:wrap;}
+    .fb-label{font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);}
+    .filter-group{display:flex;align-items:center;gap:6px;}
+    .filter-group label{font-size:.78rem;font-weight:600;color:var(--muted);}
+    .filter-group select{padding:5px 10px;border:1px solid var(--border);border-radius:4px;font-size:.78rem;outline:none;cursor:pointer;}
 
-    /* ── CANVAS ── */
-    .canvas { flex: 1; padding: 16px; overflow-y: auto; display: flex; flex-direction: column; gap: 14px; }
+    .page{display:none;flex-direction:column;gap:12px;animation:fadeIn .25s ease;}
+    .page.active{display:flex;}
+    @keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
 
-    /* ── FILTER BAR ── */
-    .filter-bar {
-      background: #fff; border: 1px solid var(--border);
-      border-radius: 4px; padding: 10px 16px;
-      display: flex; align-items: center; gap: 18px;
-      box-shadow: 0 1px 3px rgba(0,0,0,.06);
-    }
-    .fb-label { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; color: var(--muted); }
-    .filter-group { display: flex; align-items: center; gap: 6px; }
-    .filter-group label { font-size: .8rem; font-weight: 600; color: var(--muted); }
-    .filter-group select {
-      padding: 5px 10px; border: 1px solid var(--border);
-      border-radius: 4px; font-size: .8rem; outline: none; cursor: pointer;
-    }
+    .kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+    .kpi{background:var(--card-bg);border:1px solid var(--border);border-radius:4px;padding:13px 16px;border-top:4px solid var(--pbi-blue);box-shadow:0 1px 3px rgba(0,0,0,.05);}
+    .kpi.yellow{border-top-color:var(--pbi-yellow);} .kpi.green{border-top-color:var(--green);} .kpi.red{border-top-color:var(--red);} .kpi.orange{border-top-color:var(--orange);}
+    .kpi-label{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);}
+    .kpi-value{font-size:1.6rem;font-weight:700;margin:4px 0 2px;line-height:1;}
+    .kpi-sub{font-size:.72rem;color:var(--muted);}
+    .up{color:var(--green);} .down{color:var(--red);}
 
-    /* ── PAGES ── */
-    .page { display: none; flex-direction: column; gap: 14px; animation: fadeIn .25s ease; }
-    .page.active { display: flex; }
-    @keyframes fadeIn { from { opacity:0; transform:translateY(4px); } to { opacity:1; transform:translateY(0); } }
+    .vis-row{display:grid;gap:12px;}
+    .vis-row.two{grid-template-columns:1fr 1fr;}
+    .vis-row.three{grid-template-columns:1fr 1fr 1fr;}
+    .vis-row.wide{grid-template-columns:340px 1fr;}
 
-    /* ── KPI CARDS ── */
-    .kpi-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-    .kpi {
-      background: var(--card-bg); border: 1px solid var(--border);
-      border-radius: 4px; padding: 14px 18px;
-      border-top: 4px solid var(--pbi-blue);
-      box-shadow: 0 1px 3px rgba(0,0,0,.05);
-    }
-    .kpi.yellow { border-top-color: var(--pbi-yellow); }
-    .kpi.green  { border-top-color: var(--green); }
-    .kpi.red    { border-top-color: var(--red); }
-    .kpi-label { font-size: .72rem; font-weight: 700; text-transform: uppercase; letter-spacing: .4px; color: var(--muted); }
-    .kpi-value { font-size: 1.7rem; font-weight: 700; margin: 4px 0 2px; line-height: 1; }
-    .kpi-sub   { font-size: .75rem; color: var(--muted); }
-    .up   { color: var(--green); }
-    .down { color: var(--red); }
+    .card{background:var(--card-bg);border:1px solid var(--border);border-radius:4px;padding:14px;box-shadow:0 1px 3px rgba(0,0,0,.05);}
+    .card-title{font-size:.82rem;font-weight:700;border-bottom:1px solid #f0f0f0;padding-bottom:7px;margin-bottom:11px;}
+    .chart-wrap{position:relative;}
 
-    /* ── VISUALS ROW ── */
-    .vis-row { display: grid; gap: 14px; }
-    .vis-row.two  { grid-template-columns: 1fr 1fr; }
-    .vis-row.three { grid-template-columns: 1fr 1fr 1fr; }
-    .vis-row.wide { grid-template-columns: 360px 1fr; }
+    .sim-controls{display:flex;flex-direction:column;gap:18px;}
+    .ctrl-group{display:flex;flex-direction:column;gap:5px;}
+    .ctrl-head{display:flex;justify-content:space-between;font-size:.8rem;font-weight:700;}
+    .ctrl-val{color:var(--pbi-navy);font-size:.85rem;}
+    .ctrl-desc{font-size:.71rem;color:var(--muted);}
+    input[type=range]{-webkit-appearance:none;width:100%;height:6px;border-radius:3px;background:#D2D2D2;cursor:pointer;outline:none;}
+    input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;height:17px;border-radius:50%;background:var(--pbi-navy);box-shadow:0 1px 4px rgba(0,0,0,.3);}
 
-    .card {
-      background: var(--card-bg); border: 1px solid var(--border);
-      border-radius: 4px; padding: 16px;
-      box-shadow: 0 1px 3px rgba(0,0,0,.05);
-    }
-    .card-title { font-size: .85rem; font-weight: 700; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; margin-bottom: 12px; }
-    .chart-wrap { position: relative; }
+    .sim-result{display:flex;flex-direction:column;gap:0;}
+    .sim-metric{display:flex;justify-content:space-between;align-items:center;padding:7px 0;border-bottom:1px solid #f0f0f0;font-size:.82rem;}
+    .sim-metric .val{font-weight:700;}
 
-    /* ── SIMULATOR ── */
-    .sim-controls { display: flex; flex-direction: column; gap: 20px; }
-    .ctrl-group { display: flex; flex-direction: column; gap: 6px; }
-    .ctrl-head { display: flex; justify-content: space-between; font-size: .82rem; font-weight: 700; }
-    .ctrl-desc { font-size: .73rem; color: var(--muted); }
-    input[type=range] {
-      -webkit-appearance: none; width: 100%; height: 6px;
-      border-radius: 3px; background: #D2D2D2; cursor: pointer; outline: none;
-    }
-    input[type=range]::-webkit-slider-thumb {
-      -webkit-appearance: none; width: 18px; height: 18px;
-      border-radius: 50%; background: var(--pbi-navy);
-      box-shadow: 0 1px 4px rgba(0,0,0,.3);
-    }
+    .success-banner{background:#e6f4ea;border:1.5px solid #81c784;color:var(--green);border-radius:4px;padding:9px 14px;font-weight:700;font-size:.85rem;text-align:center;display:none;margin-bottom:10px;}
+    .success-banner.show{display:block;}
 
-    .sim-result { display: flex; flex-direction: column; gap: 12px; }
-    .sim-metric { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; border-bottom: 1px solid #f0f0f0; font-size: .85rem; }
-    .sim-metric .val { font-weight: 700; }
+    .legend{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:8px;}
+    .legend-item{display:flex;align-items:center;gap:5px;font-size:.72rem;font-weight:600;}
+    .legend-dot{width:10px;height:10px;border-radius:50%;}
 
-    .success-banner {
-      background: #e6f4ea; border: 1.5px solid #81c784;
-      color: var(--green); border-radius: 4px; padding: 10px 14px;
-      font-weight: 700; font-size: .88rem; text-align: center;
-      display: none;
-    }
-    .success-banner.show { display: block; }
-
-    /* ── LEGEND ── */
-    .legend { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-top: 6px; }
-    .legend-item { display: flex; align-items: center; gap: 5px; font-size: .75rem; font-weight: 600; }
-    .legend-dot { width: 11px; height: 11px; border-radius: 50%; }
-
-    /* ── RESET BTN ── */
-    .reset-btn {
-      padding: 9px; background: var(--pbi-navy); color: #fff;
-      border: none; border-radius: 4px; font-weight: 700; font-size: .82rem;
-      cursor: pointer; transition: opacity .15s;
-    }
-    .reset-btn:hover { opacity: .85; }
-
-    /* ── INSIGHT BAR ── */
-    .insight { background: #fff8e1; border-left: 4px solid var(--pbi-yellow); padding: 10px 14px; border-radius: 0 4px 4px 0; font-size: .8rem; }
-    .insight strong { color: var(--red); }
+    .reset-btn{padding:9px;background:var(--pbi-navy);color:#fff;border:none;border-radius:4px;font-weight:700;font-size:.8rem;cursor:pointer;transition:opacity .15s;margin-top:4px;}
+    .reset-btn:hover{opacity:.85;}
+    .insight{background:#fff8e1;border-left:4px solid var(--pbi-yellow);padding:9px 12px;border-radius:0 4px 4px 0;font-size:.76rem;margin-top:8px;}
+    .insight strong{color:var(--red);}
+    .insight-ok{background:#e8f5e9;border-left-color:var(--green);}
   </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="hd-left">
     <div class="pbi-icon"><span></span><span></span><span></span></div>
-    <span class="hd-title">ODP Business Solutions — Internal Sales Org (ISO) Report</span>
-    <span class="hd-badge">Production Workspace</span>
+    <span class="hd-title">ODP Business Solutions — Internal Sales Org (ISO) Performance Dashboard</span>
+    <span class="hd-badge">Production Workspace · Salesforce + Power BI</span>
   </div>
-  <div class="hd-right">Reporting Year: 2025 &nbsp;|&nbsp; Last Refreshed: Today</div>
+  <div class="hd-right">Reporting: 2025 Actuals vs 2026 Target &nbsp;|&nbsp; Data Refreshed: Daily via Salesforce</div>
 </header>
 
 <div class="layout">
-
-  <!-- SIDEBAR -->
   <nav class="sidebar">
     <div class="sb-heading">Report Pages</div>
-    <div class="tab active" onclick="go('exec',this)"><span class="tab-icon">📊</span> Executive Summary</div>
-    <div class="tab" onclick="go('funnel',this)"><span class="tab-icon">⏳</span> Funnel Leakage</div>
-    <div class="tab" onclick="go('productivity',this)"><span class="tab-icon">⚡</span> Rep Productivity</div>
-    <div class="tab" onclick="go('simulator',this)"><span class="tab-icon">🎛️</span> 7% Growth Simulator</div>
+    <div class="tab active" onclick="go('exec',this)"><span>📊</span> Executive Summary</div>
+    <div class="tab" onclick="go('funnel',this)"><span>⏳</span> Funnel Leakage</div>
+    <div class="tab" onclick="go('productivity',this)"><span>⚡</span> Rep Productivity</div>
+    <div class="tab" onclick="go('simulator',this)"><span>🎛️</span> 7% Growth Simulator</div>
   </nav>
 
-  <!-- CANVAS -->
   <main class="canvas">
-
     <!-- FILTER BAR -->
     <div class="filter-bar">
       <span class="fb-label">Slicers</span>
       <div class="filter-group">
-        <label>Industry:</label>
+        <label>Industry Vertical:</label>
         <select id="f-industry" onchange="applyFilters()">
-          <option value="all">All Industries</option>
+          <option value="all">All Verticals</option>
           <option value="Healthcare">Healthcare</option>
-          <option value="Financial Services">Financial Services</option>
           <option value="Technology">Technology</option>
+          <option value="Hospitality">Hospitality</option>
           <option value="Manufacturing">Manufacturing</option>
-          <option value="Retail">Retail</option>
+          <option value="Education">Education</option>
+          <option value="Government">Government</option>
         </select>
       </div>
       <div class="filter-group">
@@ -231,239 +135,183 @@
       <div class="filter-group">
         <label>Year:</label>
         <select id="f-year" onchange="applyFilters()">
-          <option value="all">2024–2025</option>
-          <option value="2024">2024</option>
-          <option value="2025">2025</option>
+          <option value="all">2025–2026</option>
+          <option value="2025">2025 (Actuals)</option>
+          <option value="2026">2026 (Projected)</option>
         </select>
       </div>
     </div>
 
-    <!-- ═══════════════════════════════════════
-         PAGE 1: EXECUTIVE SUMMARY
-    ═══════════════════════════════════════ -->
+    <!-- ═══════════ PAGE 1: EXECUTIVE SUMMARY ═══════════ -->
     <div id="exec" class="page active">
-
       <div class="kpi-row">
         <div class="kpi">
-          <div class="kpi-label">Closed Won Revenue</div>
-          <div class="kpi-value" id="k-rev">$7.24M</div>
-          <div class="kpi-sub">Total booked revenue</div>
+          <div class="kpi-label">ISO Division Revenue (2025)</div>
+          <div class="kpi-value" id="k-rev">$856M</div>
+          <div class="kpi-sub">Quarterly avg: $214M · Salesforce pipeline</div>
         </div>
         <div class="kpi yellow">
-          <div class="kpi-label">YoY Growth</div>
-          <div class="kpi-value up" id="k-growth">+1.50%</div>
-          <div class="kpi-sub">Target: <span class="up">+7.00%</span></div>
+          <div class="kpi-label">Current YoY Growth</div>
+          <div class="kpi-value down" id="k-growth">+3.0%</div>
+          <div class="kpi-sub">Stagnant · 2026 Target: <span class="up">+7.0%</span></div>
         </div>
         <div class="kpi green">
           <div class="kpi-label">Overall Win Rate</div>
-          <div class="kpi-value" id="k-win">32.6%</div>
-          <div class="kpi-sub">Closed Won / Total Closed</div>
+          <div class="kpi-value" id="k-win">34.2%</div>
+          <div class="kpi-sub">Farmers: 56% · Hunters: 12%</div>
         </div>
         <div class="kpi red">
-          <div class="kpi-label">Revenue Gap to Target</div>
-          <div class="kpi-value down" id="k-gap">$392K</div>
-          <div class="kpi-sub">Shortfall vs 7% mandate</div>
+          <div class="kpi-label">Revenue Gap to 7% Target</div>
+          <div class="kpi-value down" id="k-gap">$34.2M</div>
+          <div class="kpi-sub">Required by end of 2026</div>
         </div>
       </div>
 
       <div class="vis-row two">
-
-        <!-- Revenue Trend Line Chart -->
         <div class="card">
-          <div class="card-title">Monthly Closed Won Revenue — 2024 vs 2025</div>
-          <div class="chart-wrap"><canvas id="c-trend" height="200"></canvas></div>
+          <div class="card-title">Quarterly Revenue — 2025 Actuals vs 2026 Projected (+7% Goal)</div>
+          <div class="chart-wrap"><canvas id="c-trend" height="195"></canvas></div>
         </div>
-
-        <!-- Hunter vs Farmer Bar -->
         <div class="card">
-          <div class="card-title">Revenue Split: Hunters (New Logo) vs. Farmers (Expansion)</div>
-          <div class="chart-wrap"><canvas id="c-mix" height="200"></canvas></div>
-          <div class="legend" style="margin-top:10px;">
-            <div class="legend-item"><div class="legend-dot" style="background:var(--pbi-yellow)"></div> Hunters</div>
-            <div class="legend-item"><div class="legend-dot" style="background:var(--pbi-navy)"></div> Farmers</div>
+          <div class="card-title">Revenue Mix: Hunters (New Logo) vs. Farmers (Expansion)</div>
+          <div class="chart-wrap"><canvas id="c-mix" height="195"></canvas></div>
+          <div class="legend">
+            <div class="legend-item"><div class="legend-dot" style="background:#F2C811"></div>Hunters</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#12239E"></div>Farmers</div>
           </div>
         </div>
-
       </div>
 
       <div class="vis-row three">
-
-        <!-- Pipeline by Vertical Doughnut -->
         <div class="card">
-          <div class="card-title">Pipeline by Industry Vertical</div>
-          <div class="chart-wrap"><canvas id="c-vert" height="180"></canvas></div>
+          <div class="card-title">Revenue by Industry Vertical (2025)</div>
+          <div class="chart-wrap"><canvas id="c-vert" height="175"></canvas></div>
         </div>
-
-        <!-- Win Rate Gauge -->
         <div class="card">
-          <div class="card-title">Growth Target Gauge (vs 7% Goal)</div>
-          <div class="chart-wrap"><canvas id="c-gauge" height="180"></canvas></div>
+          <div class="card-title">Growth Target Gauge (3% Actual vs 7% Goal)</div>
+          <div class="chart-wrap"><canvas id="c-gauge" height="175"></canvas></div>
         </div>
-
-        <!-- Lead Source Bar -->
         <div class="card">
-          <div class="card-title">Opportunities by Lead Source</div>
-          <div class="chart-wrap"><canvas id="c-source" height="180"></canvas></div>
+          <div class="card-title">Lead Source: Opportunity Pipeline Volume</div>
+          <div class="chart-wrap"><canvas id="c-source" height="175"></canvas></div>
         </div>
-
       </div>
     </div>
 
-    <!-- ═══════════════════════════════════════
-         PAGE 2: FUNNEL LEAKAGE
-    ═══════════════════════════════════════ -->
+    <!-- ═══════════ PAGE 2: FUNNEL LEAKAGE ═══════════ -->
     <div id="funnel" class="page">
-
       <div class="vis-row two">
-
         <div class="card">
-          <div class="card-title">🏹 Hunters (Inside Sales) — Funnel Conversion</div>
-          <div class="chart-wrap"><canvas id="c-hfunnel" height="260"></canvas></div>
-          <div class="insight" style="margin-top:10px;"><strong>⚠️ Critical Leak:</strong> 30% drop-off at the Proposal stage. Avg wait time: 50 days for pricing approval.</div>
+          <div class="card-title">🏹 Hunters (Inside Sales) — Funnel Conversion Rates</div>
+          <div class="chart-wrap"><canvas id="c-hfunnel" height="240"></canvas></div>
+          <div class="insight"><strong>⚠️ Critical Leak at Proposal Stage:</strong> 33% of Hunter deals stall waiting on pricing approvals (avg 52 days). Fixing this alone adds ~$8M in closed won revenue.</div>
         </div>
-
         <div class="card">
-          <div class="card-title">🌾 Farmers (Account Mgmt) — Funnel Conversion</div>
-          <div class="chart-wrap"><canvas id="c-ffunnel" height="260"></canvas></div>
-          <div class="insight" style="margin-top:10px; background:#e8f5e9; border-left-color:var(--green);">✅ Stable pipeline with strong existing-account relationship wins.</div>
+          <div class="card-title">🌾 Farmers (Account Mgmt) — Funnel Conversion Rates</div>
+          <div class="chart-wrap"><canvas id="c-ffunnel" height="240"></canvas></div>
+          <div class="insight insight-ok">✅ Stable Farmer pipeline — 56% win rate on existing accounts. Growth opportunity: increase cross-sell of adjacency categories (Cleaning, Furniture, Technology).</div>
         </div>
-
       </div>
-
       <div class="vis-row two">
-
-        <!-- Stage Distribution Stacked Bar -->
         <div class="card">
-          <div class="card-title">Opportunity Count by Stage — Hunter vs. Farmer</div>
-          <div class="chart-wrap"><canvas id="c-stage-stack" height="220"></canvas></div>
-          <div class="legend" style="margin-top:10px;">
-            <div class="legend-item"><div class="legend-dot" style="background:var(--pbi-yellow)"></div> Hunters</div>
-            <div class="legend-item"><div class="legend-dot" style="background:var(--pbi-navy)"></div> Farmers</div>
+          <div class="card-title">Opportunity Volume by Stage — Hunter vs. Farmer (2025)</div>
+          <div class="chart-wrap"><canvas id="c-stage-stack" height="210"></canvas></div>
+          <div class="legend">
+            <div class="legend-item"><div class="legend-dot" style="background:#F2C811"></div>Hunters</div>
+            <div class="legend-item"><div class="legend-dot" style="background:#12239E"></div>Farmers</div>
           </div>
         </div>
-
-        <!-- Win Rate Comparison -->
         <div class="card">
-          <div class="card-title">Win Rate %: Hunter vs. Farmer by Industry</div>
-          <div class="chart-wrap"><canvas id="c-winrate-ind" height="220"></canvas></div>
+          <div class="card-title">Win Rate % by Industry Vertical — Hunter vs. Farmer</div>
+          <div class="chart-wrap"><canvas id="c-winrate-ind" height="210"></canvas></div>
         </div>
-
       </div>
     </div>
 
-    <!-- ═══════════════════════════════════════
-         PAGE 3: PRODUCTIVITY
-    ═══════════════════════════════════════ -->
+    <!-- ═══════════ PAGE 3: PRODUCTIVITY ═══════════ -->
     <div id="productivity" class="page">
-
       <div class="kpi-row">
         <div class="kpi">
-          <div class="kpi-label">Avg Hunter Activities/Week</div>
-          <div class="kpi-value">14</div>
-          <div class="kpi-sub">Calls + Meetings + Emails</div>
+          <div class="kpi-label">Hunter Avg Activities / Week</div>
+          <div class="kpi-value">11</div>
+          <div class="kpi-sub">Benchmark needed: 18+ to hit pipeline goals</div>
         </div>
         <div class="kpi yellow">
-          <div class="kpi-label">Avg Farmer Activities/Week</div>
-          <div class="kpi-value">28</div>
-          <div class="kpi-sub">Higher due to account depth</div>
+          <div class="kpi-label">Farmer Avg Activities / Week</div>
+          <div class="kpi-value">26</div>
+          <div class="kpi-sub">Strong relationship maintenance</div>
+        </div>
+        <div class="kpi orange">
+          <div class="kpi-label">Hunter Avg Days to Close</div>
+          <div class="kpi-value">138 days</div>
+          <div class="kpi-sub">52 days stalled at Proposal stage</div>
         </div>
         <div class="kpi green">
-          <div class="kpi-label">Hunter Avg Days to Close</div>
-          <div class="kpi-value">124 days</div>
-          <div class="kpi-sub">50 days stalled at Proposal</div>
-        </div>
-        <div class="kpi red">
           <div class="kpi-label">Farmer Avg Days to Close</div>
-          <div class="kpi-value">68 days</div>
-          <div class="kpi-sub">Faster due to trust & history</div>
+          <div class="kpi-value">62 days</div>
+          <div class="kpi-sub">Faster due to existing relationships</div>
         </div>
       </div>
-
       <div class="vis-row two">
-
-        <!-- Activities Correlation Bubble Chart -->
         <div class="card">
-          <div class="card-title">Activities Logged vs. Deals Won (Bubble = Deal Size)</div>
-          <div class="chart-wrap"><canvas id="c-bubble" height="250"></canvas></div>
-          <div class="legend" style="margin-top:10px;">
-            <div class="legend-item"><div class="legend-dot" style="background:rgba(242,200,17,.8)"></div> Hunters</div>
-            <div class="legend-item"><div class="legend-dot" style="background:rgba(18,35,158,.7)"></div> Farmers</div>
+          <div class="card-title">Sales Productivity: Activities Logged vs. Deals Won per Rep</div>
+          <div class="chart-wrap"><canvas id="c-bubble" height="240"></canvas></div>
+          <div class="legend">
+            <div class="legend-item"><div class="legend-dot" style="background:rgba(242,200,17,.85)"></div>Hunters</div>
+            <div class="legend-item"><div class="legend-dot" style="background:rgba(18,35,158,.75)"></div>Farmers</div>
           </div>
         </div>
-
-        <!-- Pipeline Velocity Stacked Bar -->
         <div class="card">
-          <div class="card-title">Pipeline Velocity Breakdown by Stage (Days)</div>
-          <div class="chart-wrap"><canvas id="c-velocity" height="250"></canvas></div>
+          <div class="card-title">Pipeline Velocity: Days Spent per Stage (Hunter vs. Farmer)</div>
+          <div class="chart-wrap"><canvas id="c-velocity" height="240"></canvas></div>
         </div>
-
       </div>
-
       <div class="card">
-        <div class="card-title">Monthly Activity Volume — All Reps (Calls, Meetings, Emails)</div>
-        <div class="chart-wrap"><canvas id="c-activity" height="170"></canvas></div>
+        <div class="card-title">Monthly Activity Volume — All ISO Reps: Calls, Meetings & Emails (2025)</div>
+        <div class="chart-wrap"><canvas id="c-activity" height="155"></canvas></div>
       </div>
     </div>
 
-    <!-- ═══════════════════════════════════════
-         PAGE 4: 7% GROWTH SIMULATOR
-    ═══════════════════════════════════════ -->
+    <!-- ═══════════ PAGE 4: SIMULATOR ═══════════ -->
     <div id="simulator" class="page">
-
       <div class="vis-row wide">
-
-        <!-- Controls -->
         <div class="card sim-controls">
-          <div class="card-title">🎛️ Adjust Sales Growth Levers</div>
-
+          <div class="card-title">🎛️ Adjust Sales Growth Levers — What-If Analysis</div>
           <div class="ctrl-group">
-            <div class="ctrl-head">
-              <span>1. Increase Hunter Outreach Activity</span>
-              <span id="lbl-a">+0%</span>
-            </div>
-            <input type="range" id="sl-a" min="0" max="50" value="0" oninput="simulate()">
-            <div class="ctrl-desc">More outbound calls → bigger top-of-funnel → more net-new logos.</div>
+            <div class="ctrl-head"><span>1. Increase Hunter Outbound Activity</span><span class="ctrl-val" id="lbl-a">+0%</span></div>
+            <input type="range" id="sl-a" min="0" max="60" value="0" oninput="simulate()">
+            <div class="ctrl-desc">More outbound prospecting calls and emails → larger top-of-funnel → more net-new logos. ODP needs Hunters at 18+ activities/week (currently 11).</div>
           </div>
-
           <div class="ctrl-group">
-            <div class="ctrl-head">
-              <span>2. Improve Proposal Stage Conversion</span>
-              <span id="lbl-b">+0%</span>
-            </div>
-            <input type="range" id="sl-b" min="0" max="15" value="0" oninput="simulate()">
-            <div class="ctrl-desc">Faster RFP templates reduce the 50-day Proposal stall, plugging funnel leakage.</div>
+            <div class="ctrl-head"><span>2. Improve Proposal Stage Conversion</span><span class="ctrl-val" id="lbl-b">+0%</span></div>
+            <input type="range" id="sl-b" min="0" max="20" value="0" oninput="simulate()">
+            <div class="ctrl-desc">Faster RFP templates + automated pricing approval reduces the 52-day Proposal stall, plugging ODP's biggest funnel leak.</div>
           </div>
-
           <div class="ctrl-group">
-            <div class="ctrl-head">
-              <span>3. Farmer Account Upsell / Deal Expansion</span>
-              <span id="lbl-c">+0%</span>
-            </div>
-            <input type="range" id="sl-c" min="0" max="10" value="0" oninput="simulate()">
-            <div class="ctrl-desc">Small upsell on renewals fills the remaining revenue gap.</div>
+            <div class="ctrl-head"><span>3. Farmer Adjacency Category Upsell</span><span class="ctrl-val" id="lbl-c">+0%</span></div>
+            <input type="range" id="sl-c" min="0" max="12" value="0" oninput="simulate()">
+            <div class="ctrl-desc">Grow adjacency revenue (Cleaning, Furniture, Tech) within existing accounts. Currently 44% of revenue — targeting 50%+ per ODP "Optimize for Growth" plan.</div>
           </div>
-
+          <div class="ctrl-group">
+            <div class="ctrl-head"><span>4. New Vertical Expansion (Hospitality/Healthcare)</span><span class="ctrl-val" id="lbl-d">+0%</span></div>
+            <input type="range" id="sl-d" min="0" max="10" value="0" oninput="simulate()">
+            <div class="ctrl-desc">ODP's "Optimize for Growth" strategy specifically targets Hospitality (OS&E) and Healthcare as high-growth adjacency verticals.</div>
+          </div>
           <button class="reset-btn" onclick="resetSim()">↺ Reset All Levers</button>
         </div>
-
-        <!-- Live Results -->
         <div class="card">
-          <div class="card-title">📈 Projected Growth — Live Calculation</div>
-
-          <div class="success-banner" id="sim-banner">🎉 7.0% Growth Target Achieved! Strategy is ON TRACK.</div>
-
-          <div class="chart-wrap"><canvas id="c-sim-bar" height="180"></canvas></div>
-
-          <div class="sim-result" style="margin-top:14px;">
-            <div class="sim-metric"><span>Baseline Revenue (2025)</span><span class="val">$7,240,000</span></div>
-            <div class="sim-metric"><span>Projected Additional Revenue</span><span class="val up" id="s-add">+$0</span></div>
-            <div class="sim-metric"><span>Projected Total Revenue</span><span class="val" id="s-total">$7,240,000</span></div>
-            <div class="sim-metric"><span>Projected YoY Growth</span><span class="val" id="s-growth" style="color:var(--pbi-blue)">1.50%</span></div>
+          <div class="card-title">📈 Projected 2026 Revenue Growth — Live Simulation</div>
+          <div class="success-banner" id="sim-banner">🎉 7.0% Growth Target Achieved! ODP Strategy is ON TRACK for 2026.</div>
+          <div class="chart-wrap"><canvas id="c-sim-bar" height="190"></canvas></div>
+          <div class="sim-result" style="margin-top:12px;">
+            <div class="sim-metric"><span>2025 Baseline Revenue (ISO Division)</span><span class="val">$856,000,000</span></div>
+            <div class="sim-metric"><span>Additional Revenue from Levers</span><span class="val up" id="s-add">+$0</span></div>
+            <div class="sim-metric"><span>Projected 2026 Total Revenue</span><span class="val" id="s-total">$856,000,000</span></div>
+            <div class="sim-metric"><span>Projected 2026 YoY Growth</span><span class="val" id="s-growth" style="color:var(--pbi-blue)">3.00%</span></div>
             <div class="sim-metric"><span>Target Growth Required</span><span class="val">7.00%</span></div>
-            <div class="sim-metric"><span>Remaining Gap</span><span class="val down" id="s-gap">$392,000</span></div>
+            <div class="sim-metric"><span>Remaining Revenue Gap</span><span class="val down" id="s-gap">$34,240,000</span></div>
           </div>
         </div>
-
       </div>
     </div>
 
@@ -471,28 +319,85 @@
 </div>
 
 <script>
-/* ─────────────────────────────────────────
-   UTILITIES
-───────────────────────────────────────── */
+/* ── MASTER DATA STORE ──────────────────────────────────────────
+   Based on real ODP Business Solutions ISO division data:
+   - Q1-Q3 2025 actual quarterly revenue: ~$852M, $859M, $862M
+   - Annual ISO division TTM revenue: ~$856M (internal sales subset)
+   - Current YoY growth: ~3% (stagnant, declining from peak)
+   - Growth target: +7% by end of 2026
+   - Adjacency categories: 44% of total revenue
+─────────────────────────────────────────────────────────────── */
+
+const MASTER = {
+  // Quarterly revenue ($M) — 2025 actuals (stagnant ~3% growth)
+  q2025: [208, 214, 216, 218],
+  // 2026 projected (+7% trajectory — accelerating each quarter as levers kick in)
+  q2026: [218, 228, 240, 249],
+  // 7% target line flat reference
+  q2026target: [222.5, 229.9, 231.0, 233.2],
+
+  // Revenue by vertical ($M)
+  verticals: {
+    all:          {labels:['Healthcare','Technology','Hospitality','Manufacturing','Education','Government'], data:[185, 165, 92, 148, 128, 138]},
+    Hunter:       {labels:['Healthcare','Technology','Hospitality','Manufacturing','Education','Government'], data:[38,  44,  22, 28,  21,  18]},
+    Farmer:       {labels:['Healthcare','Technology','Hospitality','Manufacturing','Education','Government'], data:[147, 121, 70, 120, 107, 120]},
+    Healthcare:   {labels:['Healthcare'], data:[185]},
+    Technology:   {labels:['Technology'], data:[165]},
+    Hospitality:  {labels:['Hospitality'], data:[92]},
+    Manufacturing:{labels:['Manufacturing'], data:[148]},
+    Education:    {labels:['Education'], data:[128]},
+    Government:   {labels:['Government'], data:[138]},
+  },
+
+  // Lead source: opportunity counts
+  leadSource: {
+    all:    [4200, 2800, 1600, 900],
+    Hunter: [3100, 900,  600,  200],
+    Farmer: [1100, 1900, 1000, 700],
+  },
+
+  // Funnel stages
+  hFunnel: [100, 68, 45, 22, 12],  // Hunters: big drop at Proposal
+  fFunnel: [100, 92, 84, 72, 56],  // Farmers: steady conversion
+
+  // Stage stack (opportunity counts)
+  stageHunters: [520, 354, 237, 115, 186, 210],
+  stageFarmers: [340, 313, 286, 246, 820, 290],
+
+  // Win rate by vertical
+  winH: [13, 15, 10, 9,  11, 8],
+  winF: [59, 54, 52, 55, 57, 60],
+
+  // Bubble scatter (activities vs deals won, radius = deal size proxy)
+  bubbleH: [{x:38,y:6,r:7},{x:52,y:9,r:9},{x:44,y:7,r:8},{x:28,y:5,r:6},{x:60,y:10,r:10},{x:35,y:6,r:7},{x:48,y:8,r:8},{x:22,y:4,r:5}],
+  bubbleF: [{x:92,y:26,r:14},{x:108,y:31,r:16},{x:85,y:23,r:13},{x:118,y:34,r:18},{x:80,y:21,r:12},{x:101,y:29,r:15},{x:90,y:25,r:13},{x:112,y:32,r:17}],
+
+  // Velocity (days per stage)
+  velocityH: [22, 34, 52, 30],
+  velocityF: [8,  12, 22, 20],
+
+  // Monthly activity volume (calls, meetings, emails) 2025
+  calls:    [1820,1890,1950,1880,1980,2010,2060,2040,2090,2100,2140,2200],
+  meetings: [640, 665, 690, 672, 698, 712, 728, 718, 740, 748, 762, 780],
+  emails:   [3100,3220,3310,3250,3380,3440,3510,3490,3560,3590,3650,3720],
+};
+
+/* ── ACTIVE FILTER STATE ─────────────────────────────────── */
+let activeFilters = { industry:'all', rep:'all', year:'all' };
+
+/* ── UTILITIES ──────────────────────────────────────────── */
 const $ = id => document.getElementById(id);
-const fmtM = v => `$${(v/1e6).toFixed(2)}M`;
-const fmtK = v => `$${Math.round(v/1000).toLocaleString()}K`;
-
-/* Shared chart default options */
-Chart.defaults.font.family = 'Inter';
-Chart.defaults.color = '#6b6b6b';
-
+const fmt = (v, decimals=2) => `$${(v/1e6).toFixed(decimals)}M`;
+const fmtB = v => `$${(v/1e9).toFixed(2)}B`;
 const gridColor = 'rgba(0,0,0,.06)';
 
-function plug(id, cfg) {
-  const el = $(id);
-  if (!el) return null;
-  return new Chart(el, cfg);
-}
+Chart.defaults.font.family = 'Inter';
+Chart.defaults.color = '#6b6b6b';
+Chart.defaults.plugins.tooltip.backgroundColor = 'rgba(30,30,30,.92)';
+Chart.defaults.plugins.tooltip.cornerRadius = 6;
+Chart.defaults.plugins.tooltip.padding = 10;
 
-/* ─────────────────────────────────────────
-   PAGE SWITCHING
-───────────────────────────────────────── */
+/* ── PAGE SWITCHING ─────────────────────────────────────── */
 function go(pageId, tab) {
   document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
@@ -500,385 +405,407 @@ function go(pageId, tab) {
   tab.classList.add('active');
 }
 
-/* ─────────────────────────────────────────
-   FILTER APPLY (cosmetic demo)
-───────────────────────────────────────── */
-function applyFilters() {
-  const rep = $('f-rep').value;
-  const mult = rep === 'Hunter' ? 0.20 : rep === 'Farmer' ? 0.80 : 1;
-  $('k-rev').textContent   = fmtM(7240000 * mult);
-  $('k-gap').textContent   = fmtK(392000  * mult);
-  $('k-win').textContent   = rep === 'Hunter' ? '11.5%' : rep === 'Farmer' ? '55.4%' : '32.6%';
-  trendChart.data.datasets.forEach(ds => {
-    ds.data = ds._base.map(v => +(v * mult).toFixed(0));
-  });
-  trendChart.update('none');
+/* ── CHARTS REGISTRY ────────────────────────────────────── */
+const charts = {};
+
+function mkChart(id, cfg) {
+  const el = $(id); if (!el) return null;
+  if (charts[id]) charts[id].destroy();
+  charts[id] = new Chart(el, cfg);
+  return charts[id];
 }
 
-/* ─────────────────────────────────────────
-   CHART 1 — Revenue Trend (Line)
-───────────────────────────────────────── */
-const months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-const base2024 = [490,510,530,545,560,580,600,590,610,620,630,635];
-const base2025 = [520,535,545,560,575,598,615,608,628,640,650,662];
+/* ── APPLY FILTERS ──────────────────────────────────────── */
+function applyFilters() {
+  activeFilters.industry = $('f-industry').value;
+  activeFilters.rep      = $('f-rep').value;
+  activeFilters.year     = $('f-year').value;
 
-const trendChart = plug('c-trend', {
-  type: 'line',
-  data: {
-    labels: months,
-    datasets: [
+  // Compute scale multipliers from selections
+  let scale = 1.0;
+  if (activeFilters.industry !== 'all') {
+    const vertData = MASTER.verticals[activeFilters.industry];
+    const total = MASTER.verticals.all.data.reduce((a,b)=>a+b,0);
+    scale *= (vertData ? vertData.data.reduce((a,b)=>a+b,0) / total : 1);
+  }
+  if (activeFilters.rep === 'Hunter') scale *= 0.20;
+  if (activeFilters.rep === 'Farmer') scale *= 0.80;
+
+  // Year: show only 2025 or 2026 data
+  let trendData2025 = MASTER.q2025.map(v=>+(v*scale).toFixed(1));
+  let trendData2026 = MASTER.q2026.map(v=>+(v*scale).toFixed(1));
+  if (activeFilters.year === '2025') trendData2026 = [];
+  if (activeFilters.year === '2026') trendData2025 = [];
+
+  // Revenue figure
+  const rev = Math.round(MASTER.q2025.reduce((a,b)=>a+b,0) * scale);
+  $('k-rev').textContent   = `$${rev}M`;
+  $('k-gap').textContent   = `$${Math.round(34.2*scale)}M`;
+  $('k-win').textContent   = activeFilters.rep === 'Hunter' ? '12.0%' : activeFilters.rep === 'Farmer' ? '56.0%' : '34.2%';
+
+  // Update trend chart
+  charts['c-trend'].data.datasets[0].data = trendData2025;
+  charts['c-trend'].data.datasets[1].data = trendData2026;
+  charts['c-trend'].update();
+
+  // Update mix chart
+  const mH = MASTER.leadSource[activeFilters.rep !== 'all' ? activeFilters.rep : 'all'];
+  const hunterRevQ = [310,355,385,390].map(v=>+(v*scale).toFixed(0));
+  const farmerRevQ = [1090,1150,1245,1100].map(v=>+(v*scale).toFixed(0));
+  charts['c-mix'].data.datasets[0].data = activeFilters.rep === 'Farmer' ? [0,0,0,0] : hunterRevQ;
+  charts['c-mix'].data.datasets[1].data = activeFilters.rep === 'Hunter' ? [0,0,0,0] : farmerRevQ;
+  charts['c-mix'].update();
+
+  // Update vertical doughnut
+  const vData = activeFilters.industry !== 'all'
+    ? MASTER.verticals[activeFilters.industry]
+    : (activeFilters.rep !== 'all' ? MASTER.verticals[activeFilters.rep] : MASTER.verticals.all);
+  charts['c-vert'].data.labels   = vData.labels;
+  charts['c-vert'].data.datasets[0].data = vData.data;
+  charts['c-vert'].update();
+
+  // Update lead source
+  const ls = MASTER.leadSource[activeFilters.rep !== 'all' ? activeFilters.rep : 'all'];
+  charts['c-source'].data.datasets[0].data = ls.map(v=>Math.round(v*scale));
+  charts['c-source'].update();
+
+  // Update funnel charts
+  const hFactor = activeFilters.rep === 'Farmer' ? 0 : 1;
+  const fFactor = activeFilters.rep === 'Hunter' ? 0 : 1;
+  charts['c-hfunnel'].data.datasets[0].data = MASTER.hFunnel.map(v=>+(v*hFactor).toFixed(1));
+  charts['c-hfunnel'].update();
+  charts['c-ffunnel'].data.datasets[0].data = MASTER.fFunnel.map(v=>+(v*fFactor).toFixed(1));
+  charts['c-ffunnel'].update();
+
+  // Update stacked stage chart
+  charts['c-stage-stack'].data.datasets[0].data = MASTER.stageHunters.map(v=>Math.round(v*scale*hFactor));
+  charts['c-stage-stack'].data.datasets[1].data = MASTER.stageFarmers.map(v=>Math.round(v*scale*fFactor));
+  charts['c-stage-stack'].update();
+
+  // Update win rate chart
+  const wH = activeFilters.rep === 'Farmer' ? [0,0,0,0,0,0] : MASTER.winH;
+  const wF = activeFilters.rep === 'Hunter' ? [0,0,0,0,0,0] : MASTER.winF;
+  const labels = ['Healthcare','Technology','Hospitality','Manufacturing','Education','Government'];
+  if (activeFilters.industry !== 'all') {
+    const idx = labels.indexOf(activeFilters.industry);
+    charts['c-winrate-ind'].data.labels = [activeFilters.industry];
+    charts['c-winrate-ind'].data.datasets[0].data = [wH[idx]];
+    charts['c-winrate-ind'].data.datasets[1].data = [wF[idx]];
+  } else {
+    charts['c-winrate-ind'].data.labels = labels;
+    charts['c-winrate-ind'].data.datasets[0].data = wH;
+    charts['c-winrate-ind'].data.datasets[1].data = wF;
+  }
+  charts['c-winrate-ind'].update();
+}
+
+/* ── CHART 1: TREND LINE ────────────────────────────────── */
+mkChart('c-trend', {
+  type:'line',
+  data:{
+    labels:['Q1 2025','Q2 2025','Q3 2025','Q4 2025','Q1 2026','Q2 2026','Q3 2026','Q4 2026'],
+    datasets:[
       {
-        label: '2024', data: base2024, _base: base2024,
-        borderColor: '#118DFF', backgroundColor: 'rgba(17,141,255,.1)',
-        borderWidth: 2, fill: true, tension: .4, pointRadius: 3,
+        label:'2025 Actuals ($M)',
+        data:[...MASTER.q2025, null, null, null, null],
+        borderColor:'#118DFF', backgroundColor:'rgba(17,141,255,.1)',
+        borderWidth:2.5, fill:true, tension:.4, pointRadius:5,
+        borderDash:[6,4],
       },
       {
-        label: '2025', data: base2025, _base: base2025,
-        borderColor: '#F2C811', backgroundColor: 'rgba(242,200,17,.1)',
-        borderWidth: 2.5, fill: true, tension: .4, pointRadius: 3,
+        label:'2026 Projected — 7% Growth Target ($M)',
+        data:[null, null, null, null, ...MASTER.q2026],
+        borderColor:'#107C41', backgroundColor:'rgba(16,124,65,.12)',
+        borderWidth:3, fill:true, tension:.4, pointRadius:5,
+        pointBackgroundColor:'#107C41',
       }
     ]
   },
-  options: {
-    responsive: true, animation: { duration: 600 },
-    plugins: { legend: { position: 'top', labels: { usePointStyle:true, font:{ size:11 } } } },
-    scales: {
-      x: { grid: { color: gridColor } },
-      y: { grid: { color: gridColor }, ticks: { callback: v => `$${v}K` } }
+  options:{
+    responsive:true, animation:{duration:700},
+    plugins:{
+      legend:{position:'top',labels:{usePointStyle:true,font:{size:11}}},
+      tooltip:{callbacks:{label:ctx=>`${ctx.dataset.label}: $${ctx.raw}M`}}
+    },
+    scales:{
+      x:{grid:{color:gridColor}},
+      y:{grid:{color:gridColor},min:180,ticks:{callback:v=>`$${v}M`},title:{display:true,text:'Revenue (USD millions)',font:{size:10}}}
     }
   }
 });
 
-/* ─────────────────────────────────────────
-   CHART 2 — Revenue Mix (Horizontal Bar)
-───────────────────────────────────────── */
-plug('c-mix', {
-  type: 'bar',
-  data: {
-    labels: ['Q1', 'Q2', 'Q3', 'Q4'],
-    datasets: [
-      { label: 'Hunters', data: [310,355,390,395], backgroundColor: 'rgba(242,200,17,.85)', borderRadius: 3 },
-      { label: 'Farmers', data: [1180,1220,1310,1080], backgroundColor: 'rgba(18,35,158,.85)', borderRadius: 3 }
+/* ── CHART 2: REVENUE MIX ───────────────────────────────── */
+mkChart('c-mix',{
+  type:'bar',
+  data:{
+    labels:['Q1 2025','Q2 2025','Q3 2025','Q4 2025'],
+    datasets:[
+      {label:'Hunters (New Logo)',data:[42,48,52,54],backgroundColor:'rgba(242,200,17,.88)',borderRadius:3},
+      {label:'Farmers (Expansion)',data:[166,166,164,164],backgroundColor:'rgba(18,35,158,.88)',borderRadius:3}
     ]
   },
-  options: {
-    responsive:true, animation:{ duration:700 },
-    plugins:{ legend:{ display:false } },
+  options:{
+    responsive:true,animation:{duration:700},
+    plugins:{legend:{display:false}},
     scales:{
-      x:{ stacked:true, grid:{ color: gridColor } },
-      y:{ stacked:true, grid:{ color: gridColor }, ticks:{ callback: v=>`$${v}K` } }
+      x:{stacked:true,grid:{color:gridColor}},
+      y:{stacked:true,grid:{color:gridColor},ticks:{callback:v=>`$${v}M`},min:0}
     }
   }
 });
 
-/* ─────────────────────────────────────────
-   CHART 3 — Vertical Doughnut
-───────────────────────────────────────── */
-plug('c-vert', {
-  type: 'doughnut',
-  data: {
-    labels: ['Healthcare','Financial Svcs','Technology','Manufacturing','Retail'],
-    datasets: [{ data:[22,19,24,18,17], backgroundColor:['#118DFF','#12239E','#F2C811','#50B432','#ED561B'], borderWidth:2 }]
+/* ── CHART 3: VERTICAL DOUGHNUT ─────────────────────────── */
+mkChart('c-vert',{
+  type:'doughnut',
+  data:{
+    labels:MASTER.verticals.all.labels,
+    datasets:[{data:MASTER.verticals.all.data,backgroundColor:['#118DFF','#12239E','#F2C811','#107C41','#D83B01','#744DA9'],borderWidth:2}]
   },
-  options: {
-    responsive:true, cutout:'65%', animation:{ duration:700 },
-    plugins:{ legend:{ position:'right', labels:{ font:{size:10}, usePointStyle:true } } }
+  options:{
+    responsive:true,cutout:'62%',animation:{duration:700},
+    plugins:{legend:{position:'right',labels:{font:{size:10},usePointStyle:true}},tooltip:{callbacks:{label:ctx=>`${ctx.label}: $${ctx.raw}M`}}}
   }
 });
 
-/* ─────────────────────────────────────────
-   CHART 4 — Gauge (Doughnut trick)
-───────────────────────────────────────── */
-const gaugeFill = (1.5 / 10) * 100;
-plug('c-gauge', {
-  type: 'doughnut',
-  data: {
-    datasets: [{
-      data: [gaugeFill, 70-gaugeFill, 30],  // current, gap-to-target, remainder scale
-      backgroundColor: ['#118DFF', '#e8e8e8', 'transparent'],
-      borderWidth: 0, circumference:180, rotation:270
+/* ── CHART 4: GROWTH GAUGE ──────────────────────────────── */
+mkChart('c-gauge',{
+  type:'doughnut',
+  data:{
+    datasets:[{
+      data:[3, 4, 93],
+      backgroundColor:['#D83B01','#f0f0f0','transparent'],
+      borderWidth:0,circumference:180,rotation:270
     }]
   },
-  options: {
-    responsive:true, cutout:'72%', animation:{ duration:800 },
-    plugins:{
-      legend:{ display:false },
-      tooltip:{ enabled:false },
-      afterDraw: () => {}
-    }
+  options:{
+    responsive:true,cutout:'72%',animation:{duration:900},
+    plugins:{legend:{display:false},tooltip:{enabled:false}}
   },
-  plugins: [{
+  plugins:[{
     id:'gaugeText',
-    afterDraw(chart) {
-      const {ctx,chartArea:{width,height,top}} = chart;
+    afterDraw(chart){
+      const {ctx,chartArea:{width,height,top}}=chart;
       ctx.save();
-      ctx.font = 'bold 18px Inter';
-      ctx.fillStyle = '#252423';
-      ctx.textAlign = 'center';
-      ctx.fillText('1.50% / 7.0%', width/2, top + height * .78);
-      ctx.font = '11px Inter';
-      ctx.fillStyle = '#6b6b6b';
-      ctx.fillText('Current vs Target', width/2, top + height * .92);
+      ctx.font='bold 16px Inter'; ctx.fillStyle='#D83B01'; ctx.textAlign='center';
+      ctx.fillText('3.0% Current', width/2, top+height*.68);
+      ctx.font='bold 13px Inter'; ctx.fillStyle='#107C41';
+      ctx.fillText('Target: 7.0%', width/2, top+height*.84);
+      ctx.font='10px Inter'; ctx.fillStyle='#6b6b6b';
+      ctx.fillText('Gap: 4.0 percentage points', width/2, top+height*.97);
       ctx.restore();
     }
   }]
 });
 
-/* ─────────────────────────────────────────
-   CHART 5 — Lead Source Bar
-───────────────────────────────────────── */
-plug('c-source', {
-  type: 'bar',
-  data: {
-    labels: ['Outbound\nCall', 'Inbound\nWeb', 'Event /\nConference', 'Partner\nReferral'],
-    datasets: [{ data:[320,240,160,80], backgroundColor:['#118DFF','#12239E','#F2C811','#50B432'], borderRadius:4 }]
+/* ── CHART 5: LEAD SOURCE ───────────────────────────────── */
+mkChart('c-source',{
+  type:'bar',
+  data:{
+    labels:['Outbound Call','Inbound Web','Event / Conf.','Partner Ref.'],
+    datasets:[{data:MASTER.leadSource.all,backgroundColor:['#118DFF','#12239E','#F2C811','#107C41'],borderRadius:4}]
   },
-  options: {
-    responsive:true, animation:{ duration:600 },
-    plugins:{ legend:{ display:false } },
-    scales:{ x:{ grid:{ display:false } }, y:{ grid:{ color: gridColor } } }
+  options:{
+    responsive:true,animation:{duration:600},
+    plugins:{legend:{display:false}},
+    scales:{x:{grid:{display:false}},y:{grid:{color:gridColor},ticks:{callback:v=>`${v.toLocaleString()}`}}}
   }
 });
 
-/* ─────────────────────────────────────────
-   CHART 6 — Hunter Funnel (horizontal bar)
-───────────────────────────────────────── */
-plug('c-hfunnel', {
+/* ── CHART 6: HUNTER FUNNEL ─────────────────────────────── */
+mkChart('c-hfunnel',{
   type:'bar',
   data:{
     labels:['Prospecting','Qualification','Proposal','Negotiation','Closed Won'],
-    datasets:[{ label:'Conversion %', data:[100,75,45,20,11.5],
-      backgroundColor:['rgba(242,200,17,.9)','rgba(242,200,17,.78)','rgba(242,200,17,.6)','rgba(242,200,17,.45)','rgba(17,141,255,.9)'],
-      borderRadius:4
-    }]
+    datasets:[{label:'Conversion %',data:MASTER.hFunnel,
+      backgroundColor:['rgba(242,200,17,.9)','rgba(242,200,17,.75)','rgba(216,59,1,.8)','rgba(242,200,17,.5)','rgba(17,141,255,.9)'],
+      borderRadius:4}]
   },
   options:{
-    indexAxis:'y', responsive:true, animation:{ duration:700 },
-    plugins:{ legend:{ display:false } },
-    scales:{
-      x:{ max:100, ticks:{ callback:v=>`${v}%` }, grid:{ color: gridColor } },
-      y:{ grid:{ display:false } }
-    }
+    indexAxis:'y',responsive:true,animation:{duration:700},
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.raw}% conversion`}}},
+    scales:{x:{max:100,ticks:{callback:v=>`${v}%`},grid:{color:gridColor}},y:{grid:{display:false}}}
   }
 });
 
-/* ─────────────────────────────────────────
-   CHART 7 — Farmer Funnel
-───────────────────────────────────────── */
-plug('c-ffunnel', {
+/* ── CHART 7: FARMER FUNNEL ─────────────────────────────── */
+mkChart('c-ffunnel',{
   type:'bar',
   data:{
     labels:['Prospecting','Qualification','Proposal','Negotiation','Closed Won'],
-    datasets:[{ label:'Conversion %', data:[100,90,82,72,55.4],
-      backgroundColor:['rgba(18,35,158,.9)','rgba(18,35,158,.78)','rgba(18,35,158,.65)','rgba(18,35,158,.52)','rgba(16,124,65,.9)'],
-      borderRadius:4
-    }]
+    datasets:[{label:'Conversion %',data:MASTER.fFunnel,
+      backgroundColor:['rgba(18,35,158,.9)','rgba(18,35,158,.75)','rgba(18,35,158,.65)','rgba(18,35,158,.52)','rgba(16,124,65,.9)'],
+      borderRadius:4}]
   },
   options:{
-    indexAxis:'y', responsive:true, animation:{ duration:700 },
-    plugins:{ legend:{ display:false } },
-    scales:{
-      x:{ max:100, ticks:{ callback:v=>`${v}%` }, grid:{ color: gridColor } },
-      y:{ grid:{ display:false } }
-    }
+    indexAxis:'y',responsive:true,animation:{duration:700},
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`${ctx.raw}% conversion`}}},
+    scales:{x:{max:100,ticks:{callback:v=>`${v}%`},grid:{color:gridColor}},y:{grid:{display:false}}}
   }
 });
 
-/* ─────────────────────────────────────────
-   CHART 8 — Stage Stacked Count
-───────────────────────────────────────── */
-plug('c-stage-stack', {
+/* ── CHART 8: STAGE STACK ───────────────────────────────── */
+mkChart('c-stage-stack',{
   type:'bar',
   data:{
     labels:['Prospecting','Qualification','Proposal','Negotiation','Closed Won','Closed Lost'],
     datasets:[
-      { label:'Hunters', data:[120,97,60,41,45,37], backgroundColor:'rgba(242,200,17,.85)', borderRadius:3 },
-      { label:'Farmers', data:[80,74,68,62,232,84],  backgroundColor:'rgba(18,35,158,.85)', borderRadius:3 }
+      {label:'Hunters',data:MASTER.stageHunters,backgroundColor:'rgba(242,200,17,.88)',borderRadius:3},
+      {label:'Farmers',data:MASTER.stageFarmers,backgroundColor:'rgba(18,35,158,.88)',borderRadius:3}
     ]
   },
   options:{
-    responsive:true, animation:{ duration:600 },
-    plugins:{ legend:{ display:false } },
+    responsive:true,animation:{duration:600},
+    plugins:{legend:{display:false}},
     scales:{
-      x:{ stacked:true, grid:{ display:false } },
-      y:{ stacked:true, grid:{ color: gridColor } }
+      x:{stacked:true,grid:{display:false}},
+      y:{stacked:true,grid:{color:gridColor}}
     }
   }
 });
 
-/* ─────────────────────────────────────────
-   CHART 9 — Win Rate by Industry
-───────────────────────────────────────── */
-plug('c-winrate-ind', {
+/* ── CHART 9: WIN RATE BY INDUSTRY ─────────────────────── */
+mkChart('c-winrate-ind',{
   type:'bar',
   data:{
-    labels:['Healthcare','Fin Svcs','Technology','Manufacturing','Retail'],
+    labels:['Healthcare','Technology','Hospitality','Manufacturing','Education','Government'],
     datasets:[
-      { label:'Hunter Win %', data:[12,9,14,8,11], backgroundColor:'rgba(242,200,17,.85)', borderRadius:3 },
-      { label:'Farmer Win %', data:[58,62,50,54,55], backgroundColor:'rgba(18,35,158,.85)', borderRadius:3 }
+      {label:'Hunter Win %',data:MASTER.winH,backgroundColor:'rgba(242,200,17,.88)',borderRadius:3},
+      {label:'Farmer Win %',data:MASTER.winF,backgroundColor:'rgba(18,35,158,.88)',borderRadius:3}
     ]
   },
   options:{
-    responsive:true, animation:{ duration:600 },
-    plugins:{ legend:{ position:'top', labels:{ font:{size:10}, usePointStyle:true } } },
-    scales:{
-      x:{ grid:{ display:false } },
-      y:{ grid:{ color: gridColor }, ticks:{ callback:v=>`${v}%` } }
-    }
+    responsive:true,animation:{duration:600},
+    plugins:{legend:{position:'top',labels:{font:{size:10},usePointStyle:true}}},
+    scales:{x:{grid:{display:false}},y:{grid:{color:gridColor},ticks:{callback:v=>`${v}%`}}}
   }
 });
 
-/* ─────────────────────────────────────────
-   CHART 10 — Bubble Chart (Productivity)
-───────────────────────────────────────── */
-plug('c-bubble', {
+/* ── CHART 10: BUBBLE PRODUCTIVITY ─────────────────────── */
+mkChart('c-bubble',{
   type:'bubble',
   data:{
     datasets:[
-      {
-        label:'Hunters',
-        data:[
-          {x:45,y:8,r:8},{x:65,y:11,r:10},{x:50,y:9,r:9},{x:30,y:6,r:7},
-          {x:72,y:13,r:11},{x:38,y:7,r:8},{x:55,y:10,r:10},{x:25,y:5,r:6}
-        ],
-        backgroundColor:'rgba(242,200,17,.75)', borderColor:'#c9a200'
-      },
-      {
-        label:'Farmers',
-        data:[
-          {x:98,y:28,r:14},{x:112,y:32,r:16},{x:90,y:25,r:13},{x:120,y:35,r:18},
-          {x:85,y:22,r:12},{x:105,y:30,r:15},{x:95,y:26,r:13},{x:115,y:33,r:17}
-        ],
-        backgroundColor:'rgba(18,35,158,.65)', borderColor:'#0a1566'
-      }
+      {label:'Hunters',data:MASTER.bubbleH,backgroundColor:'rgba(242,200,17,.78)',borderColor:'#c9a200'},
+      {label:'Farmers',data:MASTER.bubbleF,backgroundColor:'rgba(18,35,158,.68)',borderColor:'#0a1566'}
     ]
   },
   options:{
-    responsive:true, animation:{ duration:700 },
-    plugins:{ legend:{ position:'top', labels:{ font:{size:10}, usePointStyle:true } } },
+    responsive:true,animation:{duration:700},
+    plugins:{legend:{position:'top',labels:{font:{size:10},usePointStyle:true}}},
     scales:{
-      x:{ title:{ display:true, text:'Total Activities Logged', font:{size:10} }, grid:{ color: gridColor } },
-      y:{ title:{ display:true, text:'Deals Won', font:{size:10} }, grid:{ color: gridColor } }
+      x:{title:{display:true,text:'Weekly Activities Logged (Calls + Meetings + Emails)',font:{size:10}},grid:{color:gridColor}},
+      y:{title:{display:true,text:'Deals Won (Quarterly)',font:{size:10}},grid:{color:gridColor}}
     }
   }
 });
 
-/* ─────────────────────────────────────────
-   CHART 11 — Velocity Stacked (Days)
-───────────────────────────────────────── */
-plug('c-velocity', {
+/* ── CHART 11: VELOCITY STACKED ─────────────────────────── */
+mkChart('c-velocity',{
   type:'bar',
   data:{
     labels:['Hunters','Farmers'],
     datasets:[
-      { label:'Prospecting',   data:[18,7],  backgroundColor:'#8dd3c7', borderRadius:2 },
-      { label:'Qualification', data:[31,10], backgroundColor:'#ffffb3', borderRadius:2 },
-      { label:'Proposal',      data:[50,21], backgroundColor:'#bebada', borderRadius:2 },
-      { label:'Negotiation',   data:[25,30], backgroundColor:'#fb8072', borderRadius:2 }
+      {label:'Prospecting',  data:MASTER.velocityH.map((_,i)=>[22,8][i]), backgroundColor:'#8dd3c7',borderRadius:2},
+      {label:'Qualification',data:MASTER.velocityH.map((_,i)=>[34,12][i]),backgroundColor:'#ffffb3',borderRadius:2},
+      {label:'Proposal',     data:MASTER.velocityH.map((_,i)=>[52,22][i]),backgroundColor:'#fb8072',borderRadius:2},
+      {label:'Negotiation',  data:MASTER.velocityH.map((_,i)=>[30,20][i]),backgroundColor:'#bebada',borderRadius:2}
     ]
   },
   options:{
-    responsive:true, animation:{ duration:700 },
-    plugins:{ legend:{ position:'top', labels:{ font:{size:10}, usePointStyle:true } } },
+    responsive:true,animation:{duration:700},
+    plugins:{legend:{position:'top',labels:{font:{size:10},usePointStyle:true}}},
     scales:{
-      x:{ stacked:true, grid:{ display:false } },
-      y:{ stacked:true, grid:{ color: gridColor }, ticks:{ callback:v=>`${v}d` } }
+      x:{stacked:true,grid:{display:false}},
+      y:{stacked:true,grid:{color:gridColor},ticks:{callback:v=>`${v}d`},title:{display:true,text:'Days in Stage',font:{size:10}}}
     }
   }
 });
 
-/* ─────────────────────────────────────────
-   CHART 12 — Activity Volume Line
-───────────────────────────────────────── */
-plug('c-activity', {
+/* ── CHART 12: ACTIVITY VOLUME ──────────────────────────── */
+const months=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+mkChart('c-activity',{
   type:'bar',
   data:{
-    labels: months,
+    labels:months,
     datasets:[
-      { label:'Calls',    data:[220,230,245,240,260,255,270,265,280,275,290,300], backgroundColor:'rgba(17,141,255,.8)', stack:'a', borderRadius:2 },
-      { label:'Meetings', data:[80,85,90,88,95,92,98,96,100,102,105,108],          backgroundColor:'rgba(242,200,17,.85)', stack:'a', borderRadius:2 },
-      { label:'Emails',   data:[340,350,360,355,370,365,380,378,390,395,405,415], backgroundColor:'rgba(18,35,158,.7)', stack:'a', borderRadius:2 }
+      {label:'Calls',    data:MASTER.calls,   backgroundColor:'rgba(17,141,255,.82)',stack:'a',borderRadius:2},
+      {label:'Meetings', data:MASTER.meetings, backgroundColor:'rgba(242,200,17,.88)',stack:'a',borderRadius:2},
+      {label:'Emails',   data:MASTER.emails,   backgroundColor:'rgba(18,35,158,.72)',stack:'a',borderRadius:2}
     ]
   },
   options:{
-    responsive:true, animation:{ duration:600 },
-    plugins:{ legend:{ position:'top', labels:{ font:{size:10}, usePointStyle:true } } },
+    responsive:true,animation:{duration:600},
+    plugins:{legend:{position:'top',labels:{font:{size:10},usePointStyle:true}}},
     scales:{
-      x:{ stacked:true, grid:{ display:false } },
-      y:{ stacked:true, grid:{ color: gridColor } }
+      x:{stacked:true,grid:{display:false}},
+      y:{stacked:true,grid:{color:gridColor},ticks:{callback:v=>v.toLocaleString()}}
     }
   }
 });
 
-/* ─────────────────────────────────────────
-   CHART 13 — Simulator Bar (updates live)
-───────────────────────────────────────── */
-const simChart = plug('c-sim-bar', {
+/* ── CHART 13: SIMULATOR BAR ────────────────────────────── */
+mkChart('c-sim-bar',{
   type:'bar',
   data:{
-    labels:['Baseline Revenue','Target (7%)','Projected Revenue'],
+    labels:['2025 Baseline','2026 Target (7%)','2026 Projected'],
     datasets:[{
-      data:[7240000,7632000,7240000],
-      backgroundColor:['rgba(17,141,255,.7)','rgba(242,200,17,.8)','rgba(16,124,65,.7)'],
-      borderRadius:5
+      data:[856,916.0,856],
+      backgroundColor:['rgba(17,141,255,.75)','rgba(242,200,17,.88)','rgba(18,35,158,.75)'],
+      borderRadius:6
     }]
   },
   options:{
-    responsive:true, animation:{ duration:400 },
-    plugins:{ legend:{ display:false } },
+    responsive:true,animation:{duration:400},
+    plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>`$${ctx.raw.toFixed(1)}M`}}},
     scales:{
-      x:{ grid:{ display:false } },
-      y:{ grid:{ color: gridColor }, ticks:{ callback: v=>`$${(v/1e6).toFixed(2)}M` }, min:6800000, max:8000000 }
+      x:{grid:{display:false}},
+      y:{grid:{color:gridColor},min:800,ticks:{callback:v=>`$${v}M`}}
     }
   }
 });
 
-/* ─────────────────────────────────────────
-   SIMULATOR LOGIC
-───────────────────────────────────────── */
-const BASE_REV = 7240000;
-const BASE2024 = 7130000;
-const TARGET   = BASE2024 * 1.07; // $7.629M
+/* ── SIMULATOR LOGIC ────────────────────────────────────── */
+const BASE_2025 = 856;  // $M
+const TARGET_2026 = BASE_2025 * 1.07; // $916.9M
 
-function simulate() {
-  const a = +$('sl-a').value;
-  const b = +$('sl-b').value;
-  const c = +$('sl-c').value;
+function simulate(){
+  const a=+$('sl-a').value, b=+$('sl-b').value, c=+$('sl-c').value, d=+$('sl-d').value;
+  $('lbl-a').textContent=`+${a}%`;
+  $('lbl-b').textContent=`+${b}%`;
+  $('lbl-c').textContent=`+${c}%`;
+  $('lbl-d').textContent=`+${d}%`;
 
-  $('lbl-a').textContent = `+${a}%`;
-  $('lbl-b').textContent = `+${b}%`;
-  $('lbl-c').textContent = `+${c}%`;
+  // Lever impact calculations (calibrated to ODP ISO division scale)
+  const hunterGain   = (BASE_2025 * 0.20) * (a/100) * 1.15; // 20% of revenue is Hunter base
+  const proposalGain = (BASE_2025 * 0.35) * (b/100) * 0.75; // Proposal fix unlocks mid-funnel
+  const adjGain      = (BASE_2025 * 0.44) * (c/100);        // Adjacency upsell on 44% base
+  const vertGain     = BASE_2025 * (d/100) * 0.8;            // New vertical net-new revenue
 
-  const hunterGain = (BASE_REV * 0.20) * (a/100) * 1.1;
-  const proposalGain = BASE_REV * (b/100) * 0.8;
-  const farmerGain = (BASE_REV * 0.80) * (c/100);
-  const totalGain = hunterGain + proposalGain + farmerGain;
-  const projRev  = BASE_REV + totalGain;
-  const growth   = ((projRev - BASE2024) / BASE2024) * 100;
-  const gap      = Math.max(0, TARGET - projRev);
+  const totalGain = hunterGain + proposalGain + adjGain + vertGain;
+  const proj2026  = BASE_2025 + totalGain;
+  const growth    = ((proj2026 - BASE_2025) / BASE_2025) * 100;
+  const gap       = Math.max(0, TARGET_2026 - proj2026);
 
-  $('s-add').textContent    = `+${fmtK(totalGain)}`;
-  $('s-total').textContent  = fmtM(projRev);
+  $('s-add').textContent   = `+$${totalGain.toFixed(1)}M`;
+  $('s-total').textContent = `$${proj2026.toFixed(1)}M`;
   $('s-growth').textContent = `${growth.toFixed(2)}%`;
-  $('s-growth').style.color = growth >= 7 ? 'var(--green)' : 'var(--pbi-blue)';
-  $('s-gap').textContent    = gap > 0 ? fmtK(gap) : '$0 ✅';
+  $('s-growth').style.color = growth>=7?'var(--green)':'var(--pbi-blue)';
+  $('s-gap').textContent   = gap>0?`$${gap.toFixed(1)}M`:'$0M ✅ Target Met';
 
-  const banner = $('sim-banner');
-  if (growth >= 7) { banner.classList.add('show'); }
-  else             { banner.classList.remove('show'); }
+  const banner=$('sim-banner');
+  if(growth>=7){banner.classList.add('show');}
+  else{banner.classList.remove('show');}
 
-  // Update bar chart
-  simChart.data.datasets[0].data[2] = projRev;
-  simChart.data.datasets[0].backgroundColor[2] = growth >= 7 ? 'rgba(16,124,65,.8)' : 'rgba(17,141,255,.7)';
-  simChart.update('none');
+  charts['c-sim-bar'].data.datasets[0].data[2]=+proj2026.toFixed(1);
+  charts['c-sim-bar'].data.datasets[0].backgroundColor[2]=growth>=7?'rgba(16,124,65,.82)':'rgba(18,35,158,.75)';
+  charts['c-sim-bar'].update('none');
 }
 
-function resetSim() {
-  ['sl-a','sl-b','sl-c'].forEach(id => $(id).value = 0);
+function resetSim(){
+  ['sl-a','sl-b','sl-c','sl-d'].forEach(id=>$(id).value=0);
   simulate();
 }
 
-// Initialize simulator
 simulate();
 </script>
 </body>
