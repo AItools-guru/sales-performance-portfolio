@@ -421,68 +421,188 @@ function applyFilters() {
   activeFilters.rep      = $('f-rep').value;
   activeFilters.year     = $('f-year').value;
 
-  // Compute scale multipliers from selections
-  let scale = 1.0;
+  // 1. Calculate scale multipliers from selections to prevent double scaling
+  let industryScale = 1.0;
   if (activeFilters.industry !== 'all') {
     const vertData = MASTER.verticals[activeFilters.industry];
     const total = MASTER.verticals.all.data.reduce((a,b)=>a+b,0);
-    scale *= (vertData ? vertData.data.reduce((a,b)=>a+b,0) / total : 1);
+    industryScale = vertData ? vertData.data.reduce((a,b)=>a+b,0) / total : 1.0;
   }
-  if (activeFilters.rep === 'Hunter') scale *= 0.20;
-  if (activeFilters.rep === 'Farmer') scale *= 0.80;
+  
+  let repScale = 1.0;
+  if (activeFilters.rep === 'Hunter') repScale = 196/856;
+  else if (activeFilters.rep === 'Farmer') repScale = 660/856;
 
-  // Year: show only 2025 or 2026 data
-  let trendData2025 = MASTER.q2025.map(v=>+(v*scale).toFixed(1));
-  let trendData2026 = MASTER.q2026.map(v=>+(v*scale).toFixed(1));
-  if (activeFilters.year === '2025') trendData2026 = [];
-  if (activeFilters.year === '2026') trendData2025 = [];
+  const scale = industryScale * repScale;
 
-  // Revenue figure
-  const rev = Math.round(MASTER.q2025.reduce((a,b)=>a+b,0) * scale);
-  $('k-rev').textContent   = `$${rev}M`;
-  $('k-gap').textContent   = `$${Math.round(34.2*scale)}M`;
-  $('k-win').textContent   = activeFilters.rep === 'Hunter' ? '12.0%' : activeFilters.rep === 'Farmer' ? '56.0%' : '34.2%';
+  // 2. Update KPI Cards
+  const baseRev = activeFilters.year === '2026' ? 935 : 856;
+  const rev = Math.round(baseRev * industryScale * repScale);
+  $('k-rev').textContent = `$${rev}M`;
 
-  // Update trend chart
-  charts['c-trend'].data.datasets[0].data = trendData2025;
-  charts['c-trend'].data.datasets[1].data = trendData2026;
+  // Dynamic growth calculations
+  let currentGrowthRate = 3.0;
+  let projGrowthRate = 9.2;
+  
+  if (activeFilters.rep === 'Hunter') {
+    currentGrowthRate = 1.5;
+    projGrowthRate = 5.8;
+  } else if (activeFilters.rep === 'Farmer') {
+    currentGrowthRate = 3.4;
+    projGrowthRate = 10.2;
+  }
+  
+  if (activeFilters.industry !== 'all') {
+    const indGrowths = {
+      Healthcare: { cur: 4.5, proj: 11.8 },
+      Technology: { cur: 3.8, proj: 10.5 },
+      Hospitality: { cur: 1.2, proj: 4.8 },
+      Manufacturing: { cur: 2.8, proj: 8.2 },
+      Education: { cur: 2.0, proj: 6.8 },
+      Government: { cur: 1.8, proj: 5.4 }
+    };
+    const indData = indGrowths[activeFilters.industry];
+    if (indData) {
+      if (activeFilters.rep === 'all') {
+        currentGrowthRate = indData.cur;
+        projGrowthRate = indData.proj;
+      } else {
+        const factor = activeFilters.rep === 'Hunter' ? 0.6 : 1.1;
+        currentGrowthRate = +(indData.cur * factor).toFixed(1);
+        projGrowthRate = +(indData.proj * factor).toFixed(1);
+      }
+    }
+  }
+
+  const is2026 = activeFilters.year === '2026';
+  const displayGrowth = is2026 ? projGrowthRate : currentGrowthRate;
+  $('k-growth').textContent = `+${displayGrowth.toFixed(1)}%`;
+  $('k-growth').className = displayGrowth >= 7.0 ? 'kpi-value up' : 'kpi-value down';
+
+  // Win rate lookup
+  const industryWinRates = {
+    all: { Hunter: 12.0, Farmer: 56.0, all: 34.2 },
+    Healthcare: { Hunter: 13.0, Farmer: 59.0, all: 49.2 },
+    Technology: { Hunter: 15.0, Farmer: 54.0, all: 43.6 },
+    Hospitality: { Hunter: 10.0, Farmer: 52.0, all: 41.9 },
+    Manufacturing: { Hunter: 9.0, Farmer: 55.0, all: 45.4 },
+    Education: { Hunter: 11.0, Farmer: 57.0, all: 48.1 },
+    Government: { Hunter: 8.0, Farmer: 60.0, all: 48.8 }
+  };
+  const winRateObj = industryWinRates[activeFilters.industry] || industryWinRates.all;
+  const displayWinRate = winRateObj[activeFilters.rep];
+  $('k-win').textContent = `${displayWinRate.toFixed(1)}%`;
+
+  // Gap to target
+  const targetRev = Math.round(856 * 1.07 * industryScale * repScale);
+  const gapVal = Math.max(0, targetRev - rev);
+  if (activeFilters.year === '2026' && projGrowthRate >= 7.0) {
+    $('k-gap').textContent = '$0M';
+    $('k-gap').className = 'kpi-value up';
+  } else {
+    $('k-gap').textContent = `$${gapVal}M`;
+    $('k-gap').className = 'kpi-value down';
+  }
+
+  // 3. Update Page 1 (Executive Summary) Charts
+  
+  // Trend Line Chart
+  let t2025 = [...MASTER.q2025, null, null, null, null].map(v => v === null ? null : +(v * industryScale * repScale).toFixed(1));
+  let t2026 = [null, null, null, null, ...MASTER.q2026].map(v => v === null ? null : +(v * industryScale * repScale).toFixed(1));
+  if (activeFilters.year === '2025') {
+    t2026 = [null, null, null, null, null, null, null, null];
+  } else if (activeFilters.year === '2026') {
+    t2025 = [null, null, null, null, null, null, null, null];
+  }
+  charts['c-trend'].data.datasets[0].data = t2025;
+  charts['c-trend'].data.datasets[1].data = t2026;
   charts['c-trend'].update();
 
-  // Update mix chart
-  const mH = MASTER.leadSource[activeFilters.rep !== 'all' ? activeFilters.rep : 'all'];
-  const hunterRevQ = [310,355,385,390].map(v=>+(v*scale).toFixed(0));
-  const farmerRevQ = [1090,1150,1245,1100].map(v=>+(v*scale).toFixed(0));
-  charts['c-mix'].data.datasets[0].data = activeFilters.rep === 'Farmer' ? [0,0,0,0] : hunterRevQ;
-  charts['c-mix'].data.datasets[1].data = activeFilters.rep === 'Hunter' ? [0,0,0,0] : farmerRevQ;
+  // Mix Chart
+  const labelsMix = activeFilters.year === '2025'
+    ? ['Q1 2025', 'Q2 2025', 'Q3 2025', 'Q4 2025']
+    : (activeFilters.year === '2026' ? ['Q1 2026', 'Q2 2026', 'Q3 2026', 'Q4 2026'] : ['Q1', 'Q2', 'Q3', 'Q4']);
+  let hMix = activeFilters.year === '2026' ? [50, 60, 75, 84] : [42, 48, 52, 54];
+  let fMix = activeFilters.year === '2026' ? [168, 168, 165, 165] : [166, 166, 164, 164];
+  if (activeFilters.rep === 'Hunter') {
+    fMix = [0, 0, 0, 0];
+  } else if (activeFilters.rep === 'Farmer') {
+    hMix = [0, 0, 0, 0];
+  }
+  charts['c-mix'].data.labels = labelsMix;
+  charts['c-mix'].data.datasets[0].data = hMix.map(v => +(v * industryScale).toFixed(0));
+  charts['c-mix'].data.datasets[1].data = fMix.map(v => +(v * industryScale).toFixed(0));
   charts['c-mix'].update();
 
-  // Update vertical doughnut
-  const vData = activeFilters.industry !== 'all'
-    ? MASTER.verticals[activeFilters.industry]
-    : (activeFilters.rep !== 'all' ? MASTER.verticals[activeFilters.rep] : MASTER.verticals.all);
-  charts['c-vert'].data.labels   = vData.labels;
-  charts['c-vert'].data.datasets[0].data = vData.data;
+  // Vertical Doughnut (Show split if single industry vertical is selected)
+  const vertSplit = {
+    Healthcare: [38, 147],
+    Technology: [44, 121],
+    Hospitality: [22, 70],
+    Manufacturing: [28, 120],
+    Education: [21, 107],
+    Government: [18, 120]
+  };
+  if (activeFilters.industry !== 'all') {
+    const split = vertSplit[activeFilters.industry] || [0, 0];
+    const hVal = activeFilters.rep === 'Farmer' ? 0 : split[0];
+    const fVal = activeFilters.rep === 'Hunter' ? 0 : split[1];
+    charts['c-vert'].data.labels = ['Hunters (New Logo)', 'Farmers (Expansion)'];
+    charts['c-vert'].data.datasets[0].data = [hVal, fVal];
+    charts['c-vert'].data.datasets[0].backgroundColor = ['rgba(242,200,17,.88)', 'rgba(18,35,158,.88)'];
+  } else {
+    const vData = activeFilters.rep !== 'all' ? MASTER.verticals[activeFilters.rep] : MASTER.verticals.all;
+    charts['c-vert'].data.labels = vData.labels;
+    charts['c-vert'].data.datasets[0].data = vData.data;
+    charts['c-vert'].data.datasets[0].backgroundColor = ['#118DFF','#12239E','#F2C811','#107C41','#D83B01','#744DA9'];
+  }
   charts['c-vert'].update();
 
-  // Update lead source
+  // Lead Source
   const ls = MASTER.leadSource[activeFilters.rep !== 'all' ? activeFilters.rep : 'all'];
-  charts['c-source'].data.datasets[0].data = ls.map(v=>Math.round(v*scale));
+  charts['c-source'].data.datasets[0].data = ls.map(v => Math.round(v * industryScale));
   charts['c-source'].update();
 
-  // Update funnel charts
+  // Growth Gauge
+  const gVal = currentGrowthRate;
+  const targetVal = 7.0;
+  charts['c-gauge'].data.datasets[0].data = [gVal, Math.max(0, targetVal - gVal), Math.max(0, 100 - Math.max(targetVal, gVal))];
+  charts['c-gauge'].data.datasets[0].backgroundColor[0] = gVal >= 7.0 ? '#107C41' : (gVal >= 5.0 ? '#F2C811' : '#D83B01');
+  charts['c-gauge'].options.plugins.gaugeValue = gVal;
+  charts['c-gauge'].options.plugins.gaugeTarget = targetVal;
+  charts['c-gauge'].update();
+
+  // 4. Update Page 2 (Funnel Leakage) Charts
+  let hF = [...MASTER.hFunnel];
+  let fF = [...MASTER.fFunnel];
+  if (activeFilters.industry !== 'all') {
+    const funnelVariance = {
+      Healthcare:   { h: [100, 72, 48, 25, 13], f: [100, 94, 86, 75, 59] },
+      Technology:   { h: [100, 70, 46, 24, 14], f: [100, 93, 85, 73, 57] },
+      Hospitality:  { h: [100, 60, 38, 18, 10], f: [100, 88, 80, 68, 52] },
+      Manufacturing:{ h: [100, 66, 43, 21, 11], f: [100, 91, 83, 71, 55] },
+      Education:    { h: [100, 64, 42, 20, 11], f: [100, 90, 82, 70, 54] },
+      Government:   { h: [100, 62, 40, 19, 10], f: [100, 89, 81, 69, 53] }
+    };
+    const indFunnel = funnelVariance[activeFilters.industry];
+    if (indFunnel) {
+      hF = indFunnel.h;
+      fF = indFunnel.f;
+    }
+  }
   const hFactor = activeFilters.rep === 'Farmer' ? 0 : 1;
   const fFactor = activeFilters.rep === 'Hunter' ? 0 : 1;
-  charts['c-hfunnel'].data.datasets[0].data = MASTER.hFunnel.map(v=>+(v*hFactor).toFixed(1));
+  charts['c-hfunnel'].data.datasets[0].data = hF.map(v => +(v * hFactor).toFixed(1));
   charts['c-hfunnel'].update();
-  charts['c-ffunnel'].data.datasets[0].data = MASTER.fFunnel.map(v=>+(v*fFactor).toFixed(1));
+  charts['c-ffunnel'].data.datasets[0].data = fF.map(v => +(v * fFactor).toFixed(1));
   charts['c-ffunnel'].update();
 
-  // Update stacked stage chart
-  charts['c-stage-stack'].data.datasets[0].data = MASTER.stageHunters.map(v=>Math.round(v*scale*hFactor));
-  charts['c-stage-stack'].data.datasets[1].data = MASTER.stageFarmers.map(v=>Math.round(v*scale*fFactor));
+  // Stage Stack
+  charts['c-stage-stack'].data.datasets[0].data = MASTER.stageHunters.map(v => Math.round(v * industryScale * hFactor));
+  charts['c-stage-stack'].data.datasets[1].data = MASTER.stageFarmers.map(v => Math.round(v * industryScale * fFactor));
   charts['c-stage-stack'].update();
 
-  // Update win rate chart
+  // Win Rate
   const wH = activeFilters.rep === 'Farmer' ? [0,0,0,0,0,0] : MASTER.winH;
   const wF = activeFilters.rep === 'Hunter' ? [0,0,0,0,0,0] : MASTER.winF;
   const labels = ['Healthcare','Technology','Hospitality','Manufacturing','Education','Government'];
@@ -497,6 +617,44 @@ function applyFilters() {
     charts['c-winrate-ind'].data.datasets[1].data = wF;
   }
   charts['c-winrate-ind'].update();
+
+  // 5. Update Page 3 (Rep Productivity) Charts
+  let bH = activeFilters.rep === 'Farmer' ? [] : [...MASTER.bubbleH];
+  let bF = activeFilters.rep === 'Hunter' ? [] : [...MASTER.bubbleF];
+  let rMult = 1.0;
+  if (activeFilters.industry !== 'all') {
+    const indRadii = { Healthcare: 1.3, Technology: 1.15, Hospitality: 0.75, Manufacturing: 1.05, Education: 0.9, Government: 1.2 };
+    rMult = indRadii[activeFilters.industry] || 1.0;
+  }
+  charts['c-bubble'].data.datasets[0].data = bH.map(p => ({ x: p.x, y: p.y, r: Math.round(p.r * rMult) }));
+  charts['c-bubble'].data.datasets[1].data = bF.map(p => ({ x: p.x, y: p.y, r: Math.round(p.r * rMult) }));
+  charts['c-bubble'].update();
+
+  // Velocity
+  let vMult = 1.0;
+  if (activeFilters.industry !== 'all') {
+    const indVels = { Government: 1.3, Healthcare: 1.1, Technology: 0.85, Education: 1.15, Manufacturing: 1.05, Hospitality: 1.0 };
+    vMult = indVels[activeFilters.industry] || 1.0;
+  }
+  const hVelFactor = activeFilters.rep === 'Farmer' ? 0 : 1;
+  const fVelFactor = activeFilters.rep === 'Hunter' ? 0 : 1;
+  charts['c-velocity'].data.datasets[0].data = [Math.round(22 * vMult * hVelFactor), Math.round(8 * vMult * fVelFactor)];
+  charts['c-velocity'].data.datasets[1].data = [Math.round(34 * vMult * hVelFactor), Math.round(12 * vMult * fVelFactor)];
+  charts['c-velocity'].data.datasets[2].data = [Math.round(52 * vMult * hVelFactor), Math.round(22 * vMult * fVelFactor)];
+  charts['c-velocity'].data.datasets[3].data = [Math.round(30 * vMult * hVelFactor), Math.round(20 * vMult * fVelFactor)];
+  charts['c-velocity'].update();
+
+  // Activity Volume
+  const actYearMult = activeFilters.year === '2026' ? 1.25 : 1.0;
+  const actRepScale = activeFilters.rep === 'Hunter' ? 0.30 : (activeFilters.rep === 'Farmer' ? 0.70 : 1.0);
+  const actScale = industryScale * actRepScale * actYearMult;
+  charts['c-activity'].data.datasets[0].data = MASTER.calls.map(v => Math.round(v * actScale));
+  charts['c-activity'].data.datasets[1].data = MASTER.meetings.map(v => Math.round(v * actScale));
+  charts['c-activity'].data.datasets[2].data = MASTER.emails.map(v => Math.round(v * actScale));
+  charts['c-activity'].update();
+
+  // 6. Recalibrate and run the Growth Simulator
+  simulate();
 }
 
 /* ── CHART 1: TREND LINE ────────────────────────────────── */
@@ -579,19 +737,38 @@ mkChart('c-gauge',{
   },
   options:{
     responsive:true,cutout:'72%',animation:{duration:900},
-    plugins:{legend:{display:false},tooltip:{enabled:false}}
+    plugins:{
+      legend:{display:false},
+      tooltip:{enabled:false},
+      gaugeValue: 3.0,
+      gaugeTarget: 7.0
+    }
   },
   plugins:[{
     id:'gaugeText',
     afterDraw(chart){
       const {ctx,chartArea:{width,height,top}}=chart;
+      const gVal = chart.options.plugins.gaugeValue !== undefined ? chart.options.plugins.gaugeValue : 3.0;
+      const targetVal = chart.options.plugins.gaugeTarget !== undefined ? chart.options.plugins.gaugeTarget : 7.0;
+      const gapVal = targetVal - gVal;
+      
       ctx.save();
-      ctx.font='bold 16px Inter'; ctx.fillStyle='#D83B01'; ctx.textAlign='center';
-      ctx.fillText('3.0% Current', width/2, top+height*.68);
+      ctx.textAlign='center';
+      
+      const primaryColor = gVal >= 7.0 ? '#107C41' : (gVal >= 5.0 ? '#F2C811' : '#D83B01');
+      
+      ctx.font='bold 16px Inter'; ctx.fillStyle=primaryColor;
+      ctx.fillText(`${gVal.toFixed(1)}% Current`, width/2, top+height*.68);
+      
       ctx.font='bold 13px Inter'; ctx.fillStyle='#107C41';
-      ctx.fillText('Target: 7.0%', width/2, top+height*.84);
+      ctx.fillText(`Target: ${targetVal.toFixed(1)}%`, width/2, top+height*.84);
+      
       ctx.font='10px Inter'; ctx.fillStyle='#6b6b6b';
-      ctx.fillText('Gap: 4.0 percentage points', width/2, top+height*.97);
+      if (gapVal > 0) {
+        ctx.fillText(`Gap: ${gapVal.toFixed(1)} percentage points`, width/2, top+height*.97);
+      } else {
+        ctx.fillText('Target Met! 🎉', width/2, top+height*.97);
+      }
       ctx.restore();
     }
   }]
@@ -768,6 +945,8 @@ mkChart('c-sim-bar',{
 const BASE_2025 = 856;  // $M
 const TARGET_2026 = BASE_2025 * 1.07; // $916.9M
 
+const fmtSim = v => `$${Math.round(v * 1e6).toLocaleString()}`;
+
 function simulate(){
   const a=+$('sl-a').value, b=+$('sl-b').value, c=+$('sl-c').value, d=+$('sl-d').value;
   $('lbl-a').textContent=`+${a}%`;
@@ -775,29 +954,52 @@ function simulate(){
   $('lbl-c').textContent=`+${c}%`;
   $('lbl-d').textContent=`+${d}%`;
 
-  // Lever impact calculations (calibrated to ODP ISO division scale)
-  const hunterGain   = (BASE_2025 * 0.20) * (a/100) * 1.15; // 20% of revenue is Hunter base
-  const proposalGain = (BASE_2025 * 0.35) * (b/100) * 0.75; // Proposal fix unlocks mid-funnel
-  const adjGain      = (BASE_2025 * 0.44) * (c/100);        // Adjacency upsell on 44% base
-  const vertGain     = BASE_2025 * (d/100) * 0.8;            // New vertical net-new revenue
+  const indVal = $('f-industry').value;
+  const repVal = $('f-rep').value;
+  
+  let industryScale = 1.0;
+  if (indVal !== 'all') {
+    const vertData = MASTER.verticals[indVal];
+    const total = MASTER.verticals.all.data.reduce((a,b)=>a+b,0);
+    industryScale = vertData ? vertData.data.reduce((a,b)=>a+b,0) / total : 1.0;
+  }
+  
+  let repScale = 1.0;
+  if (repVal === 'Hunter') repScale = 196/856;
+  else if (repVal === 'Farmer') repScale = 660/856;
+  
+  const activeBase2025 = Math.round(856 * industryScale * repScale);
+  const activeTarget2026 = activeBase2025 * 1.07;
+  
+  const hFactor = repVal === 'Farmer' ? 0 : 1;
+  const fFactor = repVal === 'Hunter' ? 0 : 1;
+
+  // Calculate lever gains relative to active base
+  const hunterGain   = (activeBase2025 * (repVal === 'all' ? 0.23 : 1.0) * hFactor) * (a/100) * 1.15;
+  const proposalGain = (activeBase2025 * (repVal === 'all' ? 0.23 : 1.0) * hFactor) * (b/100) * 0.75;
+  const adjGain      = (activeBase2025 * (repVal === 'all' ? 0.77 : 1.0) * fFactor) * (c/100);
+  const vertGain     = activeBase2025 * (d/100) * 0.8 * hFactor;
 
   const totalGain = hunterGain + proposalGain + adjGain + vertGain;
-  const proj2026  = BASE_2025 + totalGain;
-  const growth    = ((proj2026 - BASE_2025) / BASE_2025) * 100;
-  const gap       = Math.max(0, TARGET_2026 - proj2026);
+  const proj2026  = activeBase2025 + totalGain;
+  const growth    = activeBase2025 > 0 ? ((proj2026 - activeBase2025) / activeBase2025) * 100 : 0;
+  const gap       = Math.max(0, activeTarget2026 - proj2026);
 
-  $('s-add').textContent   = `+$${totalGain.toFixed(1)}M`;
-  $('s-total').textContent = `$${proj2026.toFixed(1)}M`;
+  document.querySelectorAll('.sim-metric')[0].querySelector('.val').textContent = fmtSim(activeBase2025);
+  $('s-add').textContent   = `+${fmtSim(totalGain)}`;
+  $('s-total').textContent = fmtSim(proj2026);
   $('s-growth').textContent = `${growth.toFixed(2)}%`;
   $('s-growth').style.color = growth>=7?'var(--green)':'var(--pbi-blue)';
-  $('s-gap').textContent   = gap>0?`$${gap.toFixed(1)}M`:'$0M ✅ Target Met';
+  $('s-gap').textContent   = gap>0?fmtSim(gap):'$0 ✅ Target Met';
 
   const banner=$('sim-banner');
-  if(growth>=7){banner.classList.add('show');}
+  if(growth>=7 && activeBase2025 > 0){banner.classList.add('show');}
   else{banner.classList.remove('show');}
 
-  charts['c-sim-bar'].data.datasets[0].data[2]=+proj2026.toFixed(1);
-  charts['c-sim-bar'].data.datasets[0].backgroundColor[2]=growth>=7?'rgba(16,124,65,.82)':'rgba(18,35,158,.75)';
+  charts['c-sim-bar'].data.datasets[0].data[0] = activeBase2025;
+  charts['c-sim-bar'].data.datasets[0].data[1] = +activeTarget2026.toFixed(1);
+  charts['c-sim-bar'].data.datasets[0].data[2] = +proj2026.toFixed(1);
+  charts['c-sim-bar'].data.datasets[0].backgroundColor[2] = growth>=7?'rgba(16,124,65,.82)':'rgba(18,35,158,.75)';
   charts['c-sim-bar'].update('none');
 }
 
