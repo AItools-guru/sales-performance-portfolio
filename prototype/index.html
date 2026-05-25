@@ -262,7 +262,7 @@
       box-shadow: none !important;
     }
 
-    /* Geographic Sales Map Page Styles */
+    /* Geographic Heat Map Page Styles */
     .map-grid-layout {
       display: grid;
       grid-template-columns: 1fr 350px;
@@ -307,7 +307,7 @@
       opacity: 1 !important;
     }
     .map-region.de-emphasize-region {
-      opacity: 0.45;
+      opacity: 0.85;
     }
     /* Concentric Pulsing Coordinate Hotspots */
     .map-hotspot {
@@ -402,7 +402,7 @@
     <div class="tab" onclick="go('funnel',this)"><span>⏳</span> Funnel Leakage</div>
     <div class="tab" onclick="go('productivity',this)"><span>⚡</span> Rep Productivity</div>
     <div class="tab" onclick="go('simulator',this)"><span>🎛️</span> 7% Growth Simulator</div>
-    <div class="tab" onclick="go('map',this)"><span>🌐</span> Geographic Map</div>
+    <div class="tab" onclick="go('map',this)"><span>🌐</span> Geographic Heat Map</div>
   </nav>
 
   <main class="canvas">
@@ -730,7 +730,7 @@
       </div>
     </div>
 
-    <!-- ═══════════ PAGE 5: GEOGRAPHIC SALES MAP ═══════════ -->
+    <!-- ═══════════ PAGE 5: GEOGRAPHIC HEAT MAP ═══════════ -->
     <div id="map" class="page">
       <div class="map-grid-layout">
         <!-- Left Column (Visual Map Card) -->
@@ -795,7 +795,7 @@
               <span>Mid Shading ($100M)</span>
               <span>High Volume ($200M+)</span>
             </div>
-            <div style="height:6px; border-radius:3px; background: linear-gradient(to right, hsl(135, 82%, 88%), hsl(67, 82%, 88%), hsl(0, 82%, 88%)); border: 1px solid var(--border); box-shadow:inset 0 1px 2px rgba(0,0,0,0.06);"></div>
+            <div style="height:6px; border-radius:3px; background: linear-gradient(to right, hsl(0, 82%, 88%), hsl(67, 82%, 88%), hsl(135, 82%, 88%)); border: 1px solid var(--border); box-shadow:inset 0 1px 2px rgba(0,0,0,0.06);"></div>
           </div>
         </div>
         
@@ -1230,7 +1230,7 @@ function renderHeatmap() {
   tbody.innerHTML = html;
 }
 
-/* ── INTERACTIVE GEOGRAPHIC SALES MAP DATA & LOGIC ───────── */
+/* ── INTERACTIVE GEOGRAPHIC HEAT MAP DATA & LOGIC ───────── */
 const GEO_REGIONS_DATA = {
   West: {
     name: 'West Division',
@@ -1365,10 +1365,16 @@ function showHubTooltip(e, hubName, volume) {
   if (!tooltip) return;
 
   // Dynamic scaling for hub metrics
+  let industryScale = 1.0;
+  if (activeFilters.industry !== 'all') {
+    const vertData = MASTER.verticals[activeFilters.industry];
+    const total = MASTER.verticals.all.data.reduce((a,b)=>a+b,0);
+    industryScale = vertData ? vertData.data.reduce((a,b)=>a+b,0) / total : 1.0;
+  }
   let repScale = 1.0;
   if (activeFilters.rep === 'Hunter') repScale = 196/856;
   else if (activeFilters.rep === 'Farmer') repScale = 660/856;
-  const scaledVolume = Math.round(volume * repScale * (activeFilters.year === '2026' ? 1.25 : 1.0));
+  const scaledVolume = Math.round(volume * industryScale * repScale * (activeFilters.year === '2026' ? 1.25 : 1.0));
 
   tooltip.innerHTML = `
     <div style="font-weight:700; color:var(--pbi-yellow); font-size:0.7rem; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.5px;">ODP Operations Hub</div>
@@ -1378,7 +1384,7 @@ function showHubTooltip(e, hubName, volume) {
       <strong style="color:#FFF;">High Density Cluster</strong>
     </div>
     <div style="font-size:0.7rem; color:#dfdfdf; line-height:1.35; margin-top:2px;">
-      Active center managing approximately <strong>${scaledVolume.toLocaleString()} regional accounts</strong>. concentric pulsing circles represent localized lead density.
+      Active center managing approximately <strong>${scaledVolume.toLocaleString()} regional accounts</strong>. Concentric pulsing circles represent localized lead density.
     </div>
   `;
 
@@ -1420,6 +1426,38 @@ function renderGeoMap() {
     if (path) {
       path.setAttribute('fill', `hsl(${hue}, 80%, 88%)`);
       path.style.stroke = `hsl(${hue}, 70%, 45%)`;
+    }
+
+    // Set hub pulse coordinate styling dynamically
+    const hubGroup = $('hub-' + regionId);
+    if (hubGroup) {
+      if (rev <= 2) {
+        hubGroup.style.display = 'none';
+      } else {
+        hubGroup.style.display = 'block';
+        const core = hubGroup.querySelector('.map-hotspot-core');
+        const pulse1 = $('pulse-' + regionId + '-1');
+        const pulse2 = $('pulse-' + regionId + '-2');
+
+        // Dynamically scale hotspot core and pulse size based on volume
+        const scaleFactor = Math.max(0.4, Math.min(1.6, rev / 100));
+        
+        if (core) {
+          core.setAttribute('r', (6 * scaleFactor).toFixed(1));
+          core.style.fill = `hsl(${hue}, 85%, 45%)`;
+          core.style.stroke = `#FFFFFF`;
+        }
+
+        // Dynamically change pulse color and animation speed
+        if (pulse1) {
+          pulse1.style.stroke = `hsl(${hue}, 85%, 45%)`;
+          pulse1.style.animationDuration = `${2 / scaleFactor}s`;
+        }
+        if (pulse2) {
+          pulse2.style.stroke = `hsl(${hue}, 85%, 45%)`;
+          pulse2.style.animationDuration = `${2 / scaleFactor}s`;
+        }
+      }
     }
   });
 
