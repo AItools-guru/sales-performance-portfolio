@@ -86,6 +86,113 @@
     .insight{background:#fff8e1;border-left:4px solid var(--pbi-yellow);padding:9px 12px;border-radius:0 4px 4px 0;font-size:.76rem;margin-top:8px;}
     .insight strong{color:var(--red);}
     .insight-ok{background:#e8f5e9;border-left-color:var(--green);}
+
+    /* Scorecard Styles */
+    .scorecard-card {
+      grid-column: span 2;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 14px;
+    }
+    .scorecard-ribbon {
+      background: #FF6F61;
+      color: #FFFFFF;
+      padding: 8px 14px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-radius: 4px 4px 0 0;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .scorecard-ribbon .right {
+      font-weight: 500;
+      text-transform: none;
+      opacity: 0.9;
+    }
+    .scorecard-table-wrap {
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      border-radius: 0 0 4px 4px;
+      margin-top: -12px;
+    }
+    .scorecard-tbl {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.78rem;
+      text-align: left;
+      background: #FFF;
+    }
+    .scorecard-tbl th {
+      background: var(--pbi-navy);
+      color: #FFFFFF;
+      padding: 9px 14px;
+      font-weight: 600;
+      border-right: 1px solid rgba(255,255,255,0.15);
+    }
+    .scorecard-tbl th:last-child {
+      border-right: none;
+    }
+    .scorecard-tbl td {
+      padding: 9px 14px;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+    }
+    .scorecard-tbl td:last-child {
+      border-right: none;
+    }
+    .scorecard-tbl tr:last-child td {
+      border-bottom: none;
+    }
+    .scorecard-tbl tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+    .insight-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-top: 6px;
+    }
+    .alert-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--border);
+      border-radius: 4px;
+      padding: 12px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      font-size: 0.76rem;
+      line-height: 1.4;
+    }
+    .alert-card.red {
+      border-left-color: var(--red);
+    }
+    .alert-card.yellow {
+      border-left-color: var(--pbi-yellow);
+    }
+    .alert-card.green {
+      border-left-color: var(--green);
+    }
+    .alert-card-title {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 5px;
+    }
+    .alert-card.red .alert-card-title { color: var(--red); }
+    .alert-card.yellow .alert-card-title { color: #d89f00; }
+    .alert-card.green .alert-card-title { color: var(--green); }
+    
+    .scorecard-caption {
+      font-size: 0.74rem;
+      font-style: italic;
+      color: var(--muted);
+      text-align: center;
+      margin-top: 4px;
+    }
   </style>
 </head>
 <body>
@@ -270,6 +377,60 @@
         <div class="card-title">Monthly Activity Volume — All ISO Reps: Calls, Meetings & Emails (2025)</div>
         <div class="chart-wrap"><canvas id="c-activity" height="155"></canvas></div>
       </div>
+
+      <!-- Rep Productivity Scorecard Section -->
+      <div class="card scorecard-card">
+        <div class="card-title" style="margin-bottom:6px;border-bottom:none;">Rep Productivity Scorecard</div>
+        <p style="font-size:0.76rem;color:var(--muted);margin-bottom:8px;">Manager view showing activity vs. outcome. Variance reveals coaching opportunities.</p>
+        
+        <div class="scorecard-ribbon">
+          <span>Rep Productivity Scorecard</span>
+          <span class="right">Manager View · Daily Refresh · Salesforce Embedded</span>
+        </div>
+        <div class="scorecard-table-wrap">
+          <table class="scorecard-tbl" id="scorecard-table">
+            <thead>
+              <tr>
+                <th>Rep</th>
+                <th>Segment</th>
+                <th>Calls/Wk</th>
+                <th>Meetings</th>
+                <th>Opps Created</th>
+                <th>Win Rate</th>
+                <th>Pipeline</th>
+                <th>Quota Attain.</th>
+              </tr>
+            </thead>
+            <tbody id="scorecard-tbody">
+              <!-- Rendered dynamically -->
+            </tbody>
+          </table>
+        </div>
+        
+        <div class="insight-row">
+          <div class="alert-card red" id="sc-card-red">
+            <div class="alert-card-title">Volume Problem</div>
+            <div class="alert-card-body" id="sc-body-red">
+              Loading...
+            </div>
+          </div>
+          <div class="alert-card yellow" id="sc-card-yellow">
+            <div class="alert-card-title">Conversion Problem</div>
+            <div class="alert-card-body" id="sc-body-yellow">
+              Loading...
+            </div>
+          </div>
+          <div class="alert-card green" id="sc-card-green">
+            <div class="alert-card-title">Top Performer</div>
+            <div class="alert-card-body" id="sc-body-green">
+              Loading...
+            </div>
+          </div>
+        </div>
+        <div class="scorecard-caption">
+          This dashboard answers: "What do I coach today?" Three different problems. Three different conversations.
+        </div>
+      </div>
     </div>
 
     <!-- ═══════════ PAGE 4: SIMULATOR ═══════════ -->
@@ -413,6 +574,123 @@ function mkChart(id, cfg) {
   if (charts[id]) charts[id].destroy();
   charts[id] = new Chart(el, cfg);
   return charts[id];
+}
+
+/* ── REPS PRODUCTIVITY SCORECARD DATA ─────────────────────── */
+const REPS_DATA = [
+  // Farmers (Account Management)
+  { name: 'G. Costanza', segment: 'Farmer', vertical: 'Healthcare', calls: 12, meetings: 8, opps: 5, win: 82, pipeline: 342, quota: 112 },
+  { name: 'E. Wright', segment: 'Farmer', vertical: 'Technology', calls: 10, meetings: 6, opps: 4, win: 78, pipeline: 285, quota: 98 },
+  { name: 'S. Cooper', segment: 'Farmer', vertical: 'Healthcare', calls: 14, meetings: 9, opps: 6, win: 85, pipeline: 410, quota: 120 },
+  { name: 'M. Scott', segment: 'Farmer', vertical: 'Hospitality', calls: 18, meetings: 12, opps: 7, win: 62, pipeline: 320, quota: 104 },
+  { name: 'P. Beesly', segment: 'Farmer', vertical: 'Hospitality', calls: 11, meetings: 7, opps: 4, win: 74, pipeline: 210, quota: 90 },
+  { name: 'J. Halpert', segment: 'Farmer', vertical: 'Technology', calls: 15, meetings: 10, opps: 8, win: 88, pipeline: 512, quota: 128 },
+  { name: 'D. Schrute', segment: 'Farmer', vertical: 'Manufacturing', calls: 24, meetings: 15, opps: 11, win: 92, pipeline: 650, quota: 144 },
+  { name: 'S. Martin', segment: 'Farmer', vertical: 'Manufacturing', calls: 16, meetings: 8, opps: 5, win: 80, pipeline: 310, quota: 100 },
+  { name: 'A. Bernard', segment: 'Farmer', vertical: 'Education', calls: 9, meetings: 5, opps: 3, win: 58, pipeline: 180, quota: 72 },
+  { name: 'K. Malone', segment: 'Farmer', vertical: 'Education', calls: 8, meetings: 4, opps: 2, win: 52, pipeline: 140, quota: 64 },
+  { name: 'O. Martinez', segment: 'Farmer', vertical: 'Government', calls: 13, meetings: 8, opps: 5, win: 84, pipeline: 365, quota: 110 },
+  { name: 'A. Martin', segment: 'Farmer', vertical: 'Government', calls: 11, meetings: 6, opps: 4, win: 76, pipeline: 240, quota: 94 },
+  { name: 'T. Flenderson', segment: 'Farmer', vertical: 'Healthcare', calls: 9, meetings: 5, opps: 3, win: 60, pipeline: 190, quota: 80 },
+  { name: 'K. Kapoor', segment: 'Farmer', vertical: 'Technology', calls: 12, meetings: 7, opps: 4, win: 70, pipeline: 230, quota: 88 },
+  { name: 'R. Howard', segment: 'Farmer', vertical: 'Hospitality', calls: 10, meetings: 6, opps: 3, win: 64, pipeline: 200, quota: 82 },
+
+  // Hunters (Inside Sales)
+  { name: 'C. Brown', segment: 'Hunter', vertical: 'Healthcare', calls: 45, meetings: 8, opps: 3, win: 28, pipeline: 78, quota: 42 },
+  { name: 'J. Smith', segment: 'Hunter', vertical: 'Technology', calls: 62, meetings: 12, opps: 5, win: 44, pipeline: 125, quota: 68 },
+  { name: 'R. Garcia', segment: 'Hunter', vertical: 'Hospitality', calls: 38, meetings: 5, opps: 1, win: 15, pipeline: 32, quota: 24 },
+  { name: 'T. Stark', segment: 'Hunter', vertical: 'Technology', calls: 58, meetings: 14, opps: 7, win: 48, pipeline: 195, quota: 95 },
+  { name: 'S. Rogers', segment: 'Hunter', vertical: 'Government', calls: 52, meetings: 11, opps: 6, win: 40, pipeline: 150, quota: 80 },
+  { name: 'B. Banner', segment: 'Hunter', vertical: 'Healthcare', calls: 32, meetings: 6, opps: 2, win: 20, pipeline: 64, quota: 35 },
+  { name: 'N. Romanoff', segment: 'Hunter', vertical: 'Government', calls: 65, meetings: 16, opps: 9, win: 52, pipeline: 220, quota: 110 },
+  { name: 'C. Kent', segment: 'Hunter', vertical: 'Education', calls: 48, meetings: 9, opps: 4, win: 30, pipeline: 90, quota: 50 },
+  { name: 'B. Wayne', segment: 'Hunter', vertical: 'Manufacturing', calls: 55, meetings: 13, opps: 6, win: 42, pipeline: 175, quota: 85 },
+  { name: 'D. Prince', segment: 'Hunter', vertical: 'Manufacturing', calls: 60, meetings: 12, opps: 8, win: 46, pipeline: 185, quota: 90 },
+  { name: 'B. Allen', segment: 'Hunter', vertical: 'Education', calls: 40, meetings: 7, opps: 3, win: 22, pipeline: 70, quota: 38 },
+  { name: 'H. Jordan', segment: 'Hunter', vertical: 'Hospitality', calls: 42, meetings: 8, opps: 4, win: 26, pipeline: 85, quota: 46 },
+  { name: 'W. West', segment: 'Hunter', vertical: 'Technology', calls: 44, meetings: 9, opps: 5, win: 32, pipeline: 105, quota: 58 },
+  { name: 'O. Queen', segment: 'Hunter', vertical: 'Healthcare', calls: 50, meetings: 10, opps: 6, win: 35, pipeline: 120, quota: 65 },
+  { name: 'A. Curry', segment: 'Hunter', vertical: 'Government', calls: 35, meetings: 5, opps: 2, win: 18, pipeline: 45, quota: 30 }
+];
+
+function renderScorecard() {
+  const tbody = $('scorecard-tbody');
+  if (!tbody) return;
+
+  // Filter the reps based on activeFilters
+  let filtered = REPS_DATA.filter(rep => {
+    const repMatch = activeFilters.rep === 'all' || rep.segment === activeFilters.rep;
+    const indMatch = activeFilters.industry === 'all' || rep.vertical === activeFilters.industry;
+    return repMatch && indMatch;
+  });
+
+  // Sort by Quota Attainment descending
+  filtered.sort((a, b) => b.quota - a.quota);
+
+  let html = '';
+  const displayReps = filtered.slice(0, 5);
+
+  if (displayReps.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;padding:20px;color:var(--muted);">No reps active in this sliced segment.</td></tr>`;
+    $('sc-body-red').textContent = "No data available for coaching.";
+    $('sc-body-yellow').textContent = "No data available for coaching.";
+    $('sc-body-green').textContent = "No data available for coaching.";
+    return;
+  }
+
+  displayReps.forEach(rep => {
+    const winColor = rep.win >= 70 ? 'var(--green)' : (rep.win <= 30 ? 'var(--red)' : '#d89f00');
+    const quotaColor = rep.quota >= 100 ? 'var(--green)' : (rep.quota <= 50 ? 'var(--red)' : 'var(--orange)');
+    
+    html += `
+      <tr>
+        <td style="font-weight:600;color:var(--pbi-navy);">${rep.name}</td>
+        <td>${rep.segment}</td>
+        <td>${rep.calls}</td>
+        <td>${rep.meetings}</td>
+        <td>${rep.opps}</td>
+        <td style="font-weight:700;color:${winColor};">${rep.win}%</td>
+        <td style="font-weight:600;">$${rep.pipeline}K</td>
+        <td style="font-weight:700;color:${quotaColor};">${rep.quota}%</td>
+      </tr>
+    `;
+  });
+  tbody.innerHTML = html;
+
+  // DYNAMIC INSIGHT GENERATION
+  let volRep = null;
+  let minCalls = Infinity;
+  filtered.forEach(rep => {
+    if (rep.calls < minCalls) {
+      minCalls = rep.calls;
+      volRep = rep;
+    }
+  });
+
+  let convRep = null;
+  let minWin = Infinity;
+  const avgCalls = filtered.reduce((sum, r) => sum + r.calls, 0) / filtered.length;
+  filtered.forEach(rep => {
+    if (rep.calls >= avgCalls && rep.win < minWin) {
+      minWin = rep.win;
+      convRep = rep;
+    }
+  });
+  if (!convRep && filtered.length > 0) {
+    convRep = filtered[filtered.length - 1];
+  }
+
+  const topRep = filtered[0];
+
+  if (volRep) {
+    $('sc-body-red').innerHTML = `<strong>${volRep.name}</strong>: ${volRep.calls} calls/wk, ${volRep.opps} opps created. Activity too low — coach prospecting cadence.`;
+  }
+  if (convRep) {
+    $('sc-body-yellow').innerHTML = `<strong>${convRep.name}</strong>: ${convRep.calls} calls, ${convRep.meetings} meetings, but only <strong>${convRep.win}% win rate</strong>. Messaging needs coaching.`;
+  }
+  if (topRep) {
+    $('sc-body-green').innerHTML = `<strong>${topRep.name}</strong>: ${topRep.calls} calls, ${topRep.meetings} meetings, <strong>${topRep.win}% win rate</strong>. Reverse-engineer and systematize.`;
+  }
 }
 
 /* ── APPLY FILTERS ──────────────────────────────────────── */
@@ -655,6 +933,7 @@ function applyFilters() {
 
   // 6. Recalibrate and run the Growth Simulator
   simulate();
+  renderScorecard();
 }
 
 /* ── CHART 1: TREND LINE ────────────────────────────────── */
@@ -1009,6 +1288,7 @@ function resetSim(){
 }
 
 simulate();
+applyFilters();
 </script>
 </body>
 </html>
