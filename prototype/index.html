@@ -755,6 +755,33 @@
               <path id="region-Northeast" class="map-region" d="M 335,30 L 450,30 L 440,115 L 365,185 L 325,135 Z" fill="#e6f4ea" onclick="clickRegion('Northeast')" onmouseover="hoverRegion('Northeast')" />
             </g>
             
+            <!-- Major US Cities Overlay Group -->
+            <g id="map-cities-group" style="pointer-events: none; opacity: 0.85;">
+              <!-- Seattle -->
+              <circle cx="70" cy="50" r="3.5" fill="#555" stroke="#FFF" stroke-width="1" />
+              <text x="70" y="50" dx="8" dy="3" font-size="7.5px" font-weight="600" fill="#252423">Seattle</text>
+              
+              <!-- Los Angeles -->
+              <circle cx="75" cy="165" r="3.5" fill="#555" stroke="#FFF" stroke-width="1" />
+              <text x="75" y="165" dx="8" dy="3" font-size="7.5px" font-weight="600" fill="#252423">Los Angeles</text>
+              
+              <!-- Denver -->
+              <circle cx="155" cy="130" r="3.5" fill="#555" stroke="#FFF" stroke-width="1" />
+              <text x="155" y="130" dx="8" dy="3" font-size="7.5px" font-weight="600" fill="#252423">Denver</text>
+              
+              <!-- Houston -->
+              <circle cx="200" cy="265" r="3.5" fill="#555" stroke="#FFF" stroke-width="1" />
+              <text x="200" y="265" dx="8" dy="3" font-size="7.5px" font-weight="600" fill="#252423">Houston</text>
+              
+              <!-- Miami -->
+              <circle cx="340" cy="280" r="3.5" fill="#555" stroke="#FFF" stroke-width="1" />
+              <text x="340" y="280" dx="-36" dy="-2" font-size="7.5px" font-weight="600" fill="#252423">Miami</text>
+              
+              <!-- Boston -->
+              <circle cx="415" cy="75" r="3.5" fill="#555" stroke="#FFF" stroke-width="1" />
+              <text x="415" y="75" dx="8" dy="3" font-size="7.5px" font-weight="600" fill="#252423">Boston</text>
+            </g>
+            
             <!-- Pulsing Hotspot Coordinates Overlay -->
             <!-- West Hub (San Francisco) -->
             <g id="hub-West" class="map-hotspot" onclick="clickHub('West')" onmouseover="showHubTooltip(event, 'West Hub (San Francisco)', 310)" onmouseout="hideHeatmapTooltip()" onmousemove="moveHeatmapTooltip(event)">
@@ -1410,15 +1437,23 @@ function renderGeoMap() {
   const is2026 = activeFilters.year === '2026';
   const yearMult = is2026 ? 1.09 : 1.0;
 
+  // Dynamically scale mapping boundaries based on the selected segment volume
+  const scaleProduct = industryScale * repScale;
+  const minBound = 15 * scaleProduct * yearMult;
+  const maxBound = 220 * scaleProduct * yearMult;
+
   regions.forEach(regionId => {
     const reg = GEO_REGIONS_DATA[regionId];
     if (!reg) return;
 
     const rev = reg.baseRev * industryScale * repScale * yearMult;
     
-    // Map rev ($5M - $220M) to HSL Hue (0 = red to 135 = green)
-    const cappedRev = Math.min(220, Math.max(15, rev));
-    const percent = (cappedRev - 15) / (220 - 15); // 0 to 1
+    // Map rev within dynamic bounds to secure full HSL contrast transitions!
+    const cappedRev = Math.min(maxBound, Math.max(minBound, rev));
+    let percent = 0.5;
+    if (maxBound !== minBound) {
+      percent = (cappedRev - minBound) / (maxBound - minBound);
+    }
     const hue = percent * 135; // 0 (red) to 135 (green)
 
     // Set paths backgrounds and outlines dynamically!
