@@ -114,7 +114,8 @@
       opacity: 0.9;
     }
     .scorecard-table-wrap {
-      overflow-x: auto;
+      overflow-y: auto;
+      max-height: 290px;
       border: 1px solid var(--border);
       border-radius: 0 0 4px 4px;
       margin-top: -12px;
@@ -127,6 +128,9 @@
       background: #FFF;
     }
     .scorecard-tbl th {
+      position: sticky;
+      top: 0;
+      z-index: 5;
       background: var(--pbi-navy);
       color: #FFFFFF;
       padding: 9px 14px;
@@ -381,8 +385,30 @@
       <!-- Rep Productivity Scorecard Section -->
       <div class="card scorecard-card">
         <div class="card-title" style="margin-bottom:6px;border-bottom:none;">Rep Productivity Scorecard</div>
-        <p style="font-size:0.76rem;color:var(--muted);margin-bottom:8px;">Manager view showing activity vs. outcome. Variance reveals coaching opportunities.</p>
         
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px; border-bottom:1px solid #f0f0f0; padding-bottom:8px;">
+          <p style="font-size:0.75rem;color:var(--muted);margin:0;max-width:450px;">Manager view showing activity vs. outcome. Variance reveals coaching opportunities.</p>
+          <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap;">
+            <div style="display:flex; align-items:center; gap:4px;">
+              <label for="sc-f-rep" style="font-size:0.68rem; font-weight:700; color:var(--muted); text-transform:uppercase;">Rep Type:</label>
+              <select id="sc-f-rep" onchange="renderScorecard()" style="padding:4px 8px; font-size:0.74rem; border:1px solid var(--border); border-radius:4px; outline:none; cursor:pointer;">
+                <option value="all">All Reps</option>
+                <option value="Hunter">Hunters (Inside Sales)</option>
+                <option value="Farmer">Farmers (Account Mgmt)</option>
+              </select>
+            </div>
+            <div style="display:flex; align-items:center; gap:4px;">
+              <label for="sc-f-timeframe" style="font-size:0.68rem; font-weight:700; color:var(--muted); text-transform:uppercase;">Call Period:</label>
+              <select id="sc-f-timeframe" onchange="renderScorecard()" style="padding:4px 8px; font-size:0.74rem; border:1px solid var(--border); border-radius:4px; outline:none; cursor:pointer;">
+                <option value="week">Calls/Week</option>
+                <option value="day">Calls/Day</option>
+                <option value="quarter">Calls/Quarter</option>
+                <option value="year">Calls/Year</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
         <div class="scorecard-ribbon">
           <span>Rep Productivity Scorecard</span>
           <span class="right">Manager View · Daily Refresh · Salesforce Embedded</span>
@@ -393,7 +419,7 @@
               <tr>
                 <th>Rep</th>
                 <th>Segment</th>
-                <th>Calls/Wk</th>
+                <th id="th-calls">Calls/Wk</th>
                 <th>Meetings</th>
                 <th>Opps Created</th>
                 <th>Win Rate</th>
@@ -577,49 +603,62 @@ function mkChart(id, cfg) {
 }
 
 /* ── REPS PRODUCTIVITY SCORECARD DATA ─────────────────────── */
+/* ── REPS PRODUCTIVITY SCORECARD DATA ─────────────────────── */
 const REPS_DATA = [
-  // Farmers (Account Management)
-  { name: 'G. Costanza', segment: 'Farmer', vertical: 'Healthcare', calls: 12, meetings: 8, opps: 5, win: 82, pipeline: 342, quota: 112 },
-  { name: 'E. Wright', segment: 'Farmer', vertical: 'Technology', calls: 10, meetings: 6, opps: 4, win: 78, pipeline: 285, quota: 98 },
-  { name: 'S. Cooper', segment: 'Farmer', vertical: 'Healthcare', calls: 14, meetings: 9, opps: 6, win: 85, pipeline: 410, quota: 120 },
-  { name: 'M. Scott', segment: 'Farmer', vertical: 'Hospitality', calls: 18, meetings: 12, opps: 7, win: 62, pipeline: 320, quota: 104 },
-  { name: 'P. Beesly', segment: 'Farmer', vertical: 'Hospitality', calls: 11, meetings: 7, opps: 4, win: 74, pipeline: 210, quota: 90 },
-  { name: 'J. Halpert', segment: 'Farmer', vertical: 'Technology', calls: 15, meetings: 10, opps: 8, win: 88, pipeline: 512, quota: 128 },
-  { name: 'D. Schrute', segment: 'Farmer', vertical: 'Manufacturing', calls: 24, meetings: 15, opps: 11, win: 92, pipeline: 650, quota: 144 },
-  { name: 'S. Martin', segment: 'Farmer', vertical: 'Manufacturing', calls: 16, meetings: 8, opps: 5, win: 80, pipeline: 310, quota: 100 },
-  { name: 'A. Bernard', segment: 'Farmer', vertical: 'Education', calls: 9, meetings: 5, opps: 3, win: 58, pipeline: 180, quota: 72 },
-  { name: 'K. Malone', segment: 'Farmer', vertical: 'Education', calls: 8, meetings: 4, opps: 2, win: 52, pipeline: 140, quota: 64 },
-  { name: 'O. Martinez', segment: 'Farmer', vertical: 'Government', calls: 13, meetings: 8, opps: 5, win: 84, pipeline: 365, quota: 110 },
-  { name: 'A. Martin', segment: 'Farmer', vertical: 'Government', calls: 11, meetings: 6, opps: 4, win: 76, pipeline: 240, quota: 94 },
-  { name: 'T. Flenderson', segment: 'Farmer', vertical: 'Healthcare', calls: 9, meetings: 5, opps: 3, win: 60, pipeline: 190, quota: 80 },
-  { name: 'K. Kapoor', segment: 'Farmer', vertical: 'Technology', calls: 12, meetings: 7, opps: 4, win: 70, pipeline: 230, quota: 88 },
-  { name: 'R. Howard', segment: 'Farmer', vertical: 'Hospitality', calls: 10, meetings: 6, opps: 3, win: 64, pipeline: 200, quota: 82 },
+  // Farmers (Account Management) - Recalibrated to reflect stagnant baseline (average ~70-80% quota, only a couple top performers barely above 100%)
+  { name: 'G. Costanza', segment: 'Farmer', vertical: 'Healthcare', calls: 12, meetings: 6, opps: 4, win: 48, pipeline: 210, quota: 78 },
+  { name: 'E. Wright', segment: 'Farmer', vertical: 'Technology', calls: 10, meetings: 5, opps: 3, win: 45, pipeline: 180, quota: 72 },
+  { name: 'S. Cooper', segment: 'Farmer', vertical: 'Healthcare', calls: 14, meetings: 7, opps: 5, win: 52, pipeline: 245, quota: 85 },
+  { name: 'M. Scott', segment: 'Farmer', vertical: 'Hospitality', calls: 18, meetings: 8, opps: 4, win: 40, pipeline: 190, quota: 68 },
+  { name: 'P. Beesly', segment: 'Farmer', vertical: 'Hospitality', calls: 11, meetings: 5, opps: 3, win: 44, pipeline: 150, quota: 65 },
+  { name: 'J. Halpert', segment: 'Farmer', vertical: 'Technology', calls: 15, meetings: 9, opps: 6, win: 58, pipeline: 310, quota: 102 },
+  { name: 'D. Schrute', segment: 'Farmer', vertical: 'Manufacturing', calls: 24, meetings: 12, opps: 8, win: 62, pipeline: 380, quota: 105 },
+  { name: 'S. Martin', segment: 'Farmer', vertical: 'Manufacturing', calls: 16, meetings: 7, opps: 4, win: 46, pipeline: 200, quota: 74 },
+  { name: 'A. Bernard', segment: 'Farmer', vertical: 'Education', calls: 9, meetings: 4, opps: 2, win: 38, pipeline: 110, quota: 48 },
+  { name: 'K. Malone', segment: 'Farmer', vertical: 'Education', calls: 8, meetings: 3, opps: 1, win: 35, pipeline: 90, quota: 42 },
+  { name: 'O. Martinez', segment: 'Farmer', vertical: 'Government', calls: 13, meetings: 7, opps: 4, win: 50, pipeline: 230, quota: 82 },
+  { name: 'A. Martin', segment: 'Farmer', vertical: 'Government', calls: 11, meetings: 5, opps: 3, win: 42, pipeline: 160, quota: 64 },
+  { name: 'T. Flenderson', segment: 'Farmer', vertical: 'Healthcare', calls: 9, meetings: 4, opps: 2, win: 38, pipeline: 120, quota: 52 },
+  { name: 'K. Kapoor', segment: 'Farmer', vertical: 'Technology', calls: 12, meetings: 6, opps: 3, win: 44, pipeline: 145, quota: 62 },
+  { name: 'R. Howard', segment: 'Farmer', vertical: 'Hospitality', calls: 10, meetings: 4, opps: 2, win: 40, pipeline: 130, quota: 58 },
 
-  // Hunters (Inside Sales)
-  { name: 'C. Brown', segment: 'Hunter', vertical: 'Healthcare', calls: 45, meetings: 8, opps: 3, win: 28, pipeline: 78, quota: 42 },
-  { name: 'J. Smith', segment: 'Hunter', vertical: 'Technology', calls: 62, meetings: 12, opps: 5, win: 44, pipeline: 125, quota: 68 },
-  { name: 'R. Garcia', segment: 'Hunter', vertical: 'Hospitality', calls: 38, meetings: 5, opps: 1, win: 15, pipeline: 32, quota: 24 },
-  { name: 'T. Stark', segment: 'Hunter', vertical: 'Technology', calls: 58, meetings: 14, opps: 7, win: 48, pipeline: 195, quota: 95 },
-  { name: 'S. Rogers', segment: 'Hunter', vertical: 'Government', calls: 52, meetings: 11, opps: 6, win: 40, pipeline: 150, quota: 80 },
-  { name: 'B. Banner', segment: 'Hunter', vertical: 'Healthcare', calls: 32, meetings: 6, opps: 2, win: 20, pipeline: 64, quota: 35 },
-  { name: 'N. Romanoff', segment: 'Hunter', vertical: 'Government', calls: 65, meetings: 16, opps: 9, win: 52, pipeline: 220, quota: 110 },
-  { name: 'C. Kent', segment: 'Hunter', vertical: 'Education', calls: 48, meetings: 9, opps: 4, win: 30, pipeline: 90, quota: 50 },
-  { name: 'B. Wayne', segment: 'Hunter', vertical: 'Manufacturing', calls: 55, meetings: 13, opps: 6, win: 42, pipeline: 175, quota: 85 },
-  { name: 'D. Prince', segment: 'Hunter', vertical: 'Manufacturing', calls: 60, meetings: 12, opps: 8, win: 46, pipeline: 185, quota: 90 },
-  { name: 'B. Allen', segment: 'Hunter', vertical: 'Education', calls: 40, meetings: 7, opps: 3, win: 22, pipeline: 70, quota: 38 },
-  { name: 'H. Jordan', segment: 'Hunter', vertical: 'Hospitality', calls: 42, meetings: 8, opps: 4, win: 26, pipeline: 85, quota: 46 },
-  { name: 'W. West', segment: 'Hunter', vertical: 'Technology', calls: 44, meetings: 9, opps: 5, win: 32, pipeline: 105, quota: 58 },
-  { name: 'O. Queen', segment: 'Hunter', vertical: 'Healthcare', calls: 50, meetings: 10, opps: 6, win: 35, pipeline: 120, quota: 65 },
-  { name: 'A. Curry', segment: 'Hunter', vertical: 'Government', calls: 35, meetings: 5, opps: 2, win: 18, pipeline: 45, quota: 30 }
+  // Hunters (Inside Sales) - Recalibrated to represent difficult prospecting and leak baseline (low win rates 8%-24%, quota attainment 15%-82%, none meeting 100%)
+  { name: 'C. Brown', segment: 'Hunter', vertical: 'Healthcare', calls: 45, meetings: 5, opps: 2, win: 12, pipeline: 45, quota: 22 },
+  { name: 'J. Smith', segment: 'Hunter', vertical: 'Technology', calls: 62, meetings: 8, opps: 3, win: 18, pipeline: 75, quota: 44 },
+  { name: 'R. Garcia', segment: 'Hunter', vertical: 'Hospitality', calls: 38, meetings: 3, opps: 1, win: 8, pipeline: 22, quota: 15 },
+  { name: 'T. Stark', segment: 'Hunter', vertical: 'Technology', calls: 58, meetings: 9, opps: 4, win: 22, pipeline: 115, quota: 65 },
+  { name: 'S. Rogers', segment: 'Hunter', vertical: 'Government', calls: 52, meetings: 7, opps: 3, win: 16, pipeline: 88, quota: 50 },
+  { name: 'B. Banner', segment: 'Hunter', vertical: 'Healthcare', calls: 32, meetings: 4, opps: 1, win: 10, pipeline: 35, quota: 18 },
+  { name: 'N. Romanoff', segment: 'Hunter', vertical: 'Government', calls: 65, meetings: 10, opps: 5, win: 24, pipeline: 140, quota: 82 },
+  { name: 'C. Kent', segment: 'Hunter', vertical: 'Education', calls: 48, meetings: 6, opps: 2, win: 14, pipeline: 55, quota: 32 },
+  { name: 'B. Wayne', segment: 'Hunter', vertical: 'Manufacturing', calls: 55, meetings: 8, opps: 4, win: 20, pipeline: 105, quota: 58 },
+  { name: 'D. Prince', segment: 'Hunter', vertical: 'Manufacturing', calls: 60, meetings: 9, opps: 4, win: 22, pipeline: 120, quota: 62 },
+  { name: 'B. Allen', segment: 'Hunter', vertical: 'Education', calls: 40, meetings: 4, opps: 1, win: 10, pipeline: 40, quota: 22 },
+  { name: 'H. Jordan', segment: 'Hunter', vertical: 'Hospitality', calls: 42, meetings: 5, opps: 2, win: 12, pipeline: 50, quota: 28 },
+  { name: 'W. West', segment: 'Hunter', vertical: 'Technology', calls: 44, meetings: 6, opps: 2, win: 15, pipeline: 65, quota: 38 },
+  { name: 'O. Queen', segment: 'Hunter', vertical: 'Healthcare', calls: 50, meetings: 7, opps: 3, win: 16, pipeline: 78, quota: 46 },
+  { name: 'A. Curry', segment: 'Hunter', vertical: 'Government', calls: 35, meetings: 3, opps: 1, win: 8, pipeline: 28, quota: 16 }
 ];
 
 function renderScorecard() {
   const tbody = $('scorecard-tbody');
   if (!tbody) return;
 
-  // Filter the reps based on activeFilters
+  const localRepFilter = $('sc-f-rep') ? $('sc-f-rep').value : 'all';
+  const localTimeframe = $('sc-f-timeframe') ? $('sc-f-timeframe').value : 'week';
+
+  // Dynamic header update for Calls
+  const thCalls = $('th-calls');
+  if (thCalls) {
+    if (localTimeframe === 'day') thCalls.textContent = 'Calls/Day';
+    else if (localTimeframe === 'week') thCalls.textContent = 'Calls/Wk';
+    else if (localTimeframe === 'quarter') thCalls.textContent = 'Calls/Qtr';
+    else if (localTimeframe === 'year') thCalls.textContent = 'Calls/Yr';
+  }
+
+  // Filter the reps based on active global industry vertical and local rep type filter
   let filtered = REPS_DATA.filter(rep => {
-    const repMatch = activeFilters.rep === 'all' || rep.segment === activeFilters.rep;
+    const repMatch = localRepFilter === 'all' || rep.segment === localRepFilter;
     const indMatch = activeFilters.industry === 'all' || rep.vertical === activeFilters.industry;
     return repMatch && indMatch;
   });
@@ -628,9 +667,8 @@ function renderScorecard() {
   filtered.sort((a, b) => b.quota - a.quota);
 
   let html = '';
-  const displayReps = filtered.slice(0, 5);
 
-  if (displayReps.length === 0) {
+  if (filtered.length === 0) {
     tbody.innerHTML = `<tr><td colspan="8" style="text-align:center;padding:20px;color:var(--muted);">No reps active in this sliced segment.</td></tr>`;
     $('sc-body-red').textContent = "No data available for coaching.";
     $('sc-body-yellow').textContent = "No data available for coaching.";
@@ -638,15 +676,22 @@ function renderScorecard() {
     return;
   }
 
-  displayReps.forEach(rep => {
-    const winColor = rep.win >= 70 ? 'var(--green)' : (rep.win <= 30 ? 'var(--red)' : '#d89f00');
+  filtered.forEach(rep => {
+    // Calibrated color codings matching our pre-growth baseline ranges
+    const winColor = rep.win >= 45 ? 'var(--green)' : (rep.win <= 15 ? 'var(--red)' : '#d89f00');
     const quotaColor = rep.quota >= 100 ? 'var(--green)' : (rep.quota <= 50 ? 'var(--red)' : 'var(--orange)');
     
+    // Calculate display calls based on timeframe granularity
+    let callsVal = rep.calls;
+    if (localTimeframe === 'day') callsVal = (rep.calls / 5).toFixed(1);
+    else if (localTimeframe === 'quarter') callsVal = Math.round(rep.calls * 12);
+    else if (localTimeframe === 'year') callsVal = Math.round(rep.calls * 48);
+
     html += `
       <tr>
         <td style="font-weight:600;color:var(--pbi-navy);">${rep.name}</td>
         <td>${rep.segment}</td>
-        <td>${rep.calls}</td>
+        <td>${callsVal}</td>
         <td>${rep.meetings}</td>
         <td>${rep.opps}</td>
         <td style="font-weight:700;color:${winColor};">${rep.win}%</td>
@@ -658,6 +703,13 @@ function renderScorecard() {
   tbody.innerHTML = html;
 
   // DYNAMIC INSIGHT GENERATION
+  const getCallsStr = (rep) => {
+    if (localTimeframe === 'day') return `${(rep.calls / 5).toFixed(1)} calls/day`;
+    if (localTimeframe === 'quarter') return `${Math.round(rep.calls * 12)} calls/qtr`;
+    if (localTimeframe === 'year') return `${Math.round(rep.calls * 48)} calls/yr`;
+    return `${rep.calls} calls/wk`;
+  };
+
   let volRep = null;
   let minCalls = Infinity;
   filtered.forEach(rep => {
@@ -683,13 +735,13 @@ function renderScorecard() {
   const topRep = filtered[0];
 
   if (volRep) {
-    $('sc-body-red').innerHTML = `<strong>${volRep.name}</strong>: ${volRep.calls} calls/wk, ${volRep.opps} opps created. Activity too low — coach prospecting cadence.`;
+    $('sc-body-red').innerHTML = `<strong>${volRep.name}</strong>: ${getCallsStr(volRep)}, ${volRep.opps} opps created. Activity too low — coach prospecting cadence.`;
   }
   if (convRep) {
-    $('sc-body-yellow').innerHTML = `<strong>${convRep.name}</strong>: ${convRep.calls} calls, ${convRep.meetings} meetings, but only <strong>${convRep.win}% win rate</strong>. Messaging needs coaching.`;
+    $('sc-body-yellow').innerHTML = `<strong>${convRep.name}</strong>: ${getCallsStr(convRep)}, ${convRep.meetings} meetings, but only <strong>${convRep.win}% win rate</strong>. Messaging needs coaching.`;
   }
   if (topRep) {
-    $('sc-body-green').innerHTML = `<strong>${topRep.name}</strong>: ${topRep.calls} calls, ${topRep.meetings} meetings, <strong>${topRep.win}% win rate</strong>. Reverse-engineer and systematize.`;
+    $('sc-body-green').innerHTML = `<strong>${topRep.name}</strong>: ${getCallsStr(topRep)}, ${topRep.meetings} meetings, <strong>${topRep.win}% win rate</strong>. Reverse-engineer and systematize.`;
   }
 }
 
@@ -698,6 +750,11 @@ function applyFilters() {
   activeFilters.industry = $('f-industry').value;
   activeFilters.rep      = $('f-rep').value;
   activeFilters.year     = $('f-year').value;
+
+  // Synchronize local rep dropdown with global one
+  if ($('sc-f-rep')) {
+    $('sc-f-rep').value = activeFilters.rep;
+  }
 
   // 1. Calculate scale multipliers from selections to prevent double scaling
   let industryScale = 1.0;
