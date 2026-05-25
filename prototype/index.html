@@ -202,7 +202,7 @@
     .heatmap-tbl {
       width: 100%;
       border-collapse: separate;
-      border-spacing: 4px;
+      border-spacing: 5px;
       font-size: 0.76rem;
       text-align: center;
       background: transparent;
@@ -210,16 +210,24 @@
     .heatmap-tbl th {
       background: var(--pbi-navy);
       color: #FFFFFF;
-      padding: 9px 8px;
+      padding: 10px 8px;
       font-weight: 600;
       border-radius: 4px;
       font-size: 0.74rem;
     }
     .heatmap-tbl td {
-      padding: 11px 8px;
+      padding: 12px 8px;
       border-radius: 4px;
       font-weight: 700;
-      transition: all 0.15s ease;
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      cursor: pointer;
+    }
+    /* Gorgeous tactile pop-out effect on hover */
+    .heatmap-tbl td:hover {
+      transform: scale(1.08);
+      box-shadow: 0 5px 12px rgba(0,0,0,0.18);
+      z-index: 10;
     }
     .heatmap-row {
       transition: opacity 0.25s ease, transform 0.2s ease;
@@ -247,22 +255,11 @@
       text-align: left;
       padding-left: 14px !important;
       border: 1px solid var(--border) !important;
+      cursor: default !important;
     }
-    /* Soft color-code badges for leakage Drop-off Severity */
-    .leak-low {
-      background: #e6f4ea !important;
-      color: #137333 !important;
-      border: 1.5px solid #c2e7c9 !important;
-    }
-    .leak-med {
-      background: #fef7e0 !important;
-      color: #b06000 !important;
-      border: 1.5px solid #fbe5b5 !important;
-    }
-    .leak-high {
-      background: #fce8e6 !important;
-      color: #c5221f !important;
-      border: 1.5px solid #f9ccc8 !important;
+    .heatmap-label-cell:hover {
+      transform: none !important;
+      box-shadow: none !important;
     }
   </style>
 </head>
@@ -408,10 +405,15 @@
       <div class="card" style="margin-top: 12px; display: flex; flex-direction: column; gap: 10px;">
         <div class="card-title" style="margin-bottom:4px; border-bottom:none; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
           <span style="font-weight:700;">Dynamic Funnel Stage Leakage Heat Map (Vertical vs. Conversion Step)</span>
-          <span style="font-size:0.7rem; font-weight:600; color:var(--muted); background:var(--sidebar-bg); padding:3px 10px; border-radius:10px;">Relational Slicer Responsive</span>
+          <div style="display:flex; gap:8px; align-items:center;">
+            <button id="btn-sort-heatmap" onclick="toggleHeatmapSort()" style="padding:4px 10px; font-size:0.72rem; font-weight:700; border:1px solid var(--border); border-radius:4px; background:#fff; cursor:pointer; outline:none; transition:all 0.15s; color:var(--text); box-shadow:0 1px 3px rgba(0,0,0,0.05);">
+              ⇅ Sort by Highest Leakage
+            </button>
+            <span style="font-size:0.7rem; font-weight:600; color:var(--muted); background:var(--sidebar-bg); padding:4px 10px; border-radius:10px;">Interactive Diagnostic Map</span>
+          </div>
         </div>
         <p style="font-size:0.74rem; color:var(--muted); margin:0;">
-          Operational drop-off diagnostic showing <strong>% leakage (deals lost or stalled)</strong> at each stage transition. Select a global industry vertical to isolate its bottleneck focus.
+          Operational drop-off diagnostic showing <strong>% leakage (deals lost or stalled)</strong> at each stage transition. Select a global industry vertical to isolate its bottleneck focus. Hover over cells for dynamic operational advice.
         </p>
         
         <div style="overflow-x: auto; margin-top: 6px;">
@@ -430,10 +432,15 @@
             </tbody>
           </table>
         </div>
-        <div style="display:flex; justify-content:center; gap:20px; font-size:0.7rem; color:var(--muted); margin-top:6px; flex-wrap:wrap;">
-          <div style="display:flex; align-items:center; gap:6px;"><div style="width:12px; height:12px; border-radius:2px;" class="leak-low"></div> <strong>Low Leakage (&lt;15%)</strong> — Healthy Velocity</div>
-          <div style="display:flex; align-items:center; gap:6px;"><div style="width:12px; height:12px; border-radius:2px;" class="leak-med"></div> <strong>Mild Leakage (15% - 30%)</strong> — Warning Stage</div>
-          <div style="display:flex; align-items:center; gap:6px;"><div style="width:12px; height:12px; border-radius:2px;" class="leak-high"></div> <strong>Severe Leakage (&gt;30%)</strong> — High Pricing approval bottleneck</div>
+        
+        <!-- Continuous Interactive Hue Legend Scale -->
+        <div style="display:flex; flex-direction:column; gap:4px; margin-top:8px; width:100%; max-width:480px; margin-left:auto; margin-right:auto; text-align:center;">
+          <div style="display:flex; justify-content:space-between; font-size:0.68rem; font-weight:700; color:var(--muted);">
+            <span>0% (Healthy Flow)</span>
+            <span>30% (Warning Stage)</span>
+            <span>60%+ (Severe Leakage)</span>
+          </div>
+          <div style="height:8px; border-radius:4px; background: linear-gradient(to right, hsl(135, 82%, 88%), hsl(67, 82%, 88%), hsl(0, 82%, 88%)); border: 1px solid var(--border); box-shadow:inset 0 1px 3px rgba(0,0,0,0.08);"></div>
         </div>
       </div>
     </div>
@@ -872,6 +879,81 @@ const HEATMAP_FARMERS = {
   Government:    { pq: 11, qp: 14, pn: 19, nw: 27 }
 };
 
+let heatmapSortMode = 'default'; // 'default' or 'leakage'
+
+function toggleHeatmapSort() {
+  const btn = $('btn-sort-heatmap');
+  if (heatmapSortMode === 'default') {
+    heatmapSortMode = 'leakage';
+    if (btn) btn.innerHTML = '⇅ Sorted: Highest Leakage';
+  } else {
+    heatmapSortMode = 'default';
+    if (btn) btn.innerHTML = '⇅ Sort by Highest Leakage';
+  }
+  renderHeatmap();
+}
+
+// Continuous HSL dynamic gradient calculations
+const getHeatmapColor = (val) => {
+  const cappedVal = Math.min(60, val);
+  const hue = Math.max(0, 135 - (cappedVal * 2.25));
+  return `hsl(${hue}, 82%, 88%)`;
+};
+const getHeatmapTextColor = (val) => {
+  const cappedVal = Math.min(60, val);
+  const hue = Math.max(0, 135 - (cappedVal * 2.25));
+  return `hsl(${hue}, 90%, 25%)`;
+};
+const getHeatmapBorderColor = (val) => {
+  const cappedVal = Math.min(60, val);
+  const hue = Math.max(0, 135 - (cappedVal * 2.25));
+  return `hsl(${hue}, 70%, 75%)`;
+};
+
+// Dynamic Tooltip events coordination
+const showHeatmapTooltip = (e, vert, stage, val) => {
+  const tooltip = $('heatmap-tooltip');
+  if (!tooltip) return;
+
+  let advice = '';
+  if (stage === 'Prospecting ➔ Qualification') {
+    advice = 'Prospecting cadence is low. Implement automated sequence workflows in outreach to scale discovery.';
+  } else if (stage === 'Qualification ➔ Proposal') {
+    advice = 'Lead qualification drop-off. Refine discover/BANT scoping during qualification calls.';
+  } else if (stage === 'Proposal ➔ Negotiation') {
+    advice = '⚠️ Pricing approval bottleneck. speed up turnaround times (currently 52 days stalled at proposal).';
+  } else if (stage === 'Negotiation ➔ Closed Won') {
+    advice = 'Negotiation friction. Coach sales reps on trade-off concession models and contract terms flexibility.';
+  }
+
+  tooltip.innerHTML = `
+    <div style="font-weight:700; color:var(--pbi-yellow); font-size:0.7rem; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.5px;">${vert}</div>
+    <div style="font-weight:700; margin-bottom:6px; color:#FFF; font-size:0.76rem;">${stage}</div>
+    <div style="display:flex; justify-content:space-between; margin-bottom:6px; border-bottom:1px dashed rgba(255,255,255,0.15); padding-bottom:5px; font-size:0.72rem;">
+      <span style="color:#aaa;">Leakage Rate:</span>
+      <strong style="color:#FFF; font-size:0.74rem;">${val}% Drop</strong>
+    </div>
+    <div style="font-size:0.7rem; color:#dfdfdf; line-height:1.35; margin-top:2px;"><strong>Advice:</strong> ${advice}</div>
+  `;
+
+  tooltip.style.left = (e.pageX + 15) + 'px';
+  tooltip.style.top = (e.pageY + 15) + 'px';
+  tooltip.style.display = 'block';
+};
+
+const hideHeatmapTooltip = () => {
+  const tooltip = $('heatmap-tooltip');
+  if (tooltip) tooltip.style.display = 'none';
+};
+
+const moveHeatmapTooltip = (e) => {
+  const tooltip = $('heatmap-tooltip');
+  if (tooltip) {
+    tooltip.style.left = (e.pageX + 15) + 'px';
+    tooltip.style.top = (e.pageY + 15) + 'px';
+  }
+};
+
 function renderHeatmap() {
   const tbody = $('heatmap-tbody');
   if (!tbody) return;
@@ -881,19 +963,21 @@ function renderHeatmap() {
   if (repProfile === 'Hunter') dataset = HEATMAP_HUNTERS;
   else if (repProfile === 'Farmer') dataset = HEATMAP_FARMERS;
 
-  const verticals = ['Healthcare', 'Technology', 'Hospitality', 'Manufacturing', 'Education', 'Government'];
+  let verticals = ['Healthcare', 'Technology', 'Hospitality', 'Manufacturing', 'Education', 'Government'];
+  if (heatmapSortMode === 'leakage') {
+    // Sort descending by Proposal ➔ Negotiation stage (pn) leakage severity
+    verticals.sort((a, b) => {
+      const aVal = dataset[a] ? dataset[a].pn : 0;
+      const bVal = dataset[b] ? dataset[b].pn : 0;
+      return bVal - aVal;
+    });
+  }
+
   let html = '';
 
   verticals.forEach(vert => {
     const rowData = dataset[vert] || { pq: 0, qp: 0, pn: 0, nw: 0 };
     
-    // Curated leakage drop-off severity soft badges thresholds
-    const getLeakClass = (val) => {
-      if (val < 15) return 'leak-low';
-      if (val <= 30) return 'leak-med';
-      return 'leak-high';
-    };
-
     // Row coordination highlighting: Highlight selected vertical row, dim other rows
     let rowClass = 'heatmap-row';
     if (activeFilters.industry !== 'all') {
@@ -904,13 +988,27 @@ function renderHeatmap() {
       }
     }
 
+    const mkCell = (val, stageName) => {
+      const bg = getHeatmapColor(val);
+      const fg = getHeatmapTextColor(val);
+      const border = getHeatmapBorderColor(val);
+      return `
+        <td style="background:${bg} !important; color:${fg} !important; border:1px solid ${border} !important;"
+            onmouseover="showHeatmapTooltip(event, '${vert}', '${stageName}', ${val})"
+            onmouseout="hideHeatmapTooltip()"
+            onmousemove="moveHeatmapTooltip(event)">
+          ${val}% Drop
+        </td>
+      `;
+    };
+
     html += `
       <tr class="${rowClass}">
         <td class="heatmap-label-cell">${vert}</td>
-        <td class="${getLeakClass(rowData.pq)}">${rowData.pq}% Drop</td>
-        <td class="${getLeakClass(rowData.qp)}">${rowData.qp}% Drop</td>
-        <td class="${getLeakClass(rowData.pn)}">${rowData.pn}% Drop</td>
-        <td class="${getLeakClass(rowData.nw)}">${rowData.nw}% Drop</td>
+        ${mkCell(rowData.pq, 'Prospecting ➔ Qualification')}
+        ${mkCell(rowData.qp, 'Qualification ➔ Proposal')}
+        ${mkCell(rowData.pn, 'Proposal ➔ Negotiation')}
+        ${mkCell(rowData.nw, 'Negotiation ➔ Closed Won')}
       </tr>
     `;
   });
@@ -1521,5 +1619,9 @@ function resetSim(){
 simulate();
 applyFilters();
 </script>
+  <!-- Floating Heatmap Tooltip -->
+  <div id="heatmap-tooltip" style="position: absolute; display: none; background: rgba(25, 25, 25, 0.96); color: #FFF; padding: 12px; border-radius: 6px; font-size: 0.74rem; z-index: 1000; pointer-events: none; box-shadow: 0 5px 18px rgba(0,0,0,0.35); border-left: 4px solid var(--pbi-yellow); min-width: 240px; line-height: 1.4; transition: opacity 0.1s ease;">
+    <!-- Rendered dynamically -->
+  </div>
 </body>
 </html>
