@@ -443,7 +443,7 @@
     <div id="exec" class="page active">
       <div class="kpi-row">
         <div class="kpi">
-          <div class="kpi-label">ISO Division Revenue (2025)</div>
+          <div class="kpi-label" id="k-rev-lbl">ISO Division Revenue (2025)</div>
           <div class="kpi-value" id="k-rev">$856M</div>
           <div class="kpi-sub">Quarterly avg: $214M · Salesforce pipeline</div>
         </div>
@@ -2080,6 +2080,10 @@ function applyFilters() {
   const baseRev = activeFilters.year === '2026' ? 935 : 856;
   const rev = Math.round(baseRev * industryScale * repScale);
   $('k-rev').textContent = `$${rev}M`;
+  if ($('k-rev-lbl')) {
+    const activeYearDisplay = activeFilters.year === '2026' ? '2026' : (activeFilters.year === '2025' ? '2025' : 'TTM');
+    $('k-rev-lbl').textContent = `ISO Division Revenue (${activeYearDisplay})`;
+  }
 
   // Dynamic growth calculations
   let currentGrowthRate = 3.0;
