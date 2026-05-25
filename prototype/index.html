@@ -261,6 +261,127 @@
       transform: none !important;
       box-shadow: none !important;
     }
+
+    /* Geographic Sales Map Page Styles */
+    .map-grid-layout {
+      display: grid;
+      grid-template-columns: 1fr 350px;
+      gap: 12px;
+      align-items: stretch;
+      min-height: 480px;
+    }
+    .map-card-wrapper {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 14px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      overflow: hidden;
+    }
+    .map-svg-element {
+      width: 100%;
+      height: auto;
+      max-height: 440px;
+      filter: drop-shadow(0 2px 5px rgba(0,0,0,0.05));
+    }
+    .map-region {
+      stroke: #FFFFFF;
+      stroke-width: 1.8;
+      cursor: pointer;
+      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .map-region:hover {
+      stroke: var(--pbi-navy) !important;
+      stroke-width: 2.8;
+      filter: drop-shadow(0 4px 10px rgba(0,0,0,0.15));
+      opacity: 0.95;
+    }
+    .map-region.active-region-focus {
+      stroke: var(--pbi-navy) !important;
+      stroke-width: 3.2;
+      filter: drop-shadow(0 4px 12px rgba(18,35,158,0.25));
+      opacity: 1 !important;
+    }
+    .map-region.de-emphasize-region {
+      opacity: 0.45;
+    }
+    /* Concentric Pulsing Coordinate Hotspots */
+    .map-hotspot {
+      cursor: pointer;
+      pointer-events: auto;
+    }
+    .map-hotspot-core {
+      fill: #d90429;
+      stroke: #FFFFFF;
+      stroke-width: 1.5;
+      transition: all 0.15s ease;
+    }
+    .map-hotspot:hover .map-hotspot-core {
+      fill: var(--pbi-yellow);
+      r: 8px !important;
+    }
+    .map-hotspot-pulse {
+      fill: none;
+      stroke: #d90429;
+      stroke-width: 1.8;
+      opacity: 0.8;
+      transform-origin: center;
+      animation: mapPulse 2s infinite ease-out;
+    }
+    .map-hotspot-pulse-2 {
+      animation-delay: 1.0s;
+    }
+    @keyframes mapPulse {
+      0% {
+        r: 4px;
+        stroke-width: 2.5;
+        opacity: 0.9;
+      }
+      50% {
+        opacity: 0.45;
+      }
+      100% {
+        r: 32px;
+        stroke-width: 0.5;
+        opacity: 0;
+      }
+    }
+    /* Side KPI detail Panel */
+    .geo-panel-card {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      height: 100%;
+    }
+    .geo-metric-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 9px 0;
+      border-bottom: 1px solid #f0f0f0;
+      font-size: 0.8rem;
+    }
+    .geo-metric-row .val {
+      font-weight: 700;
+      color: var(--text);
+    }
+    .geo-metric-row:last-child {
+      border-bottom: none;
+    }
+    .geo-hub-badge {
+      display: inline-block;
+      padding: 3px 8px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      background: var(--pbi-navy);
+      color: #FFFFFF;
+      border-radius: 4px;
+      margin-top: 4px;
+    }
   </style>
 </head>
 <body>
@@ -281,6 +402,7 @@
     <div class="tab" onclick="go('funnel',this)"><span>⏳</span> Funnel Leakage</div>
     <div class="tab" onclick="go('productivity',this)"><span>⚡</span> Rep Productivity</div>
     <div class="tab" onclick="go('simulator',this)"><span>🎛️</span> 7% Growth Simulator</div>
+    <div class="tab" onclick="go('map',this)"><span>🌐</span> Geographic Map</div>
   </nav>
 
   <main class="canvas">
@@ -603,6 +725,98 @@
             <div class="sim-metric"><span>Projected 2026 YoY Growth</span><span class="val" id="s-growth" style="color:var(--pbi-blue)">3.00%</span></div>
             <div class="sim-metric"><span>Target Growth Required</span><span class="val">7.00%</span></div>
             <div class="sim-metric"><span>Remaining Revenue Gap</span><span class="val down" id="s-gap">$34,240,000</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══════════ PAGE 5: GEOGRAPHIC SALES MAP ═══════════ -->
+    <div id="map" class="page">
+      <div class="map-grid-layout">
+        <!-- Left Column (Visual Map Card) -->
+        <div class="map-card-wrapper" style="flex-direction: column; justify-content: flex-start; gap: 8px;">
+          <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; margin-bottom: 6px;">
+            <span style="font-size: 0.82rem; font-weight: 700; color: var(--text);">ODP ISO Regional Sales Shading & Coordinate Hotspots</span>
+            <span style="font-size: 0.68rem; font-weight: 700; color: var(--muted); text-transform: uppercase;">Hover regions to inspect · Click to lock</span>
+          </div>
+          
+          <svg class="map-svg-element" viewBox="0 0 500 320" xmlns="http://www.w3.org/2000/svg">
+            <!-- Map Shaded Regions Group -->
+            <g id="map-regions-group">
+              <!-- West Territory -->
+              <path id="region-West" class="map-region" d="M 30,30 L 145,30 L 160,95 L 120,140 L 130,210 L 85,245 L 30,225 Z" fill="#e6f4ea" onclick="clickRegion('West')" onmouseover="hoverRegion('West')" />
+              <!-- Southwest Territory -->
+              <path id="region-Southwest" class="map-region" d="M 130,210 L 210,210 L 230,285 L 140,285 L 85,245 Z" fill="#e6f4ea" onclick="clickRegion('Southwest')" onmouseover="hoverRegion('Southwest')" />
+              <!-- Midwest Territory -->
+              <path id="region-Midwest" class="map-region" d="M 145,30 L 335,30 L 325,135 L 210,210 L 160,95 Z" fill="#e6f4ea" onclick="clickRegion('Midwest')" onmouseover="hoverRegion('Midwest')" />
+              <!-- Southeast Territory -->
+              <path id="region-Southeast" class="map-region" d="M 210,210 L 325,135 L 365,185 L 385,285 L 305,285 L 230,285 Z" fill="#e6f4ea" onclick="clickRegion('Southeast')" onmouseover="hoverRegion('Southeast')" />
+              <!-- Northeast Territory -->
+              <path id="region-Northeast" class="map-region" d="M 335,30 L 450,30 L 440,115 L 365,185 L 325,135 Z" fill="#e6f4ea" onclick="clickRegion('Northeast')" onmouseover="hoverRegion('Northeast')" />
+            </g>
+            
+            <!-- Pulsing Hotspot Coordinates Overlay -->
+            <!-- West Hub (San Francisco) -->
+            <g id="hub-West" class="map-hotspot" onclick="clickHub('West')" onmouseover="showHubTooltip(event, 'West Hub (San Francisco)', 310)" onmouseout="hideHeatmapTooltip()" onmousemove="moveHeatmapTooltip(event)">
+              <circle id="pulse-West-1" class="map-hotspot-pulse" cx="80" cy="115" r="20" />
+              <circle id="pulse-West-2" class="map-hotspot-pulse map-hotspot-pulse-2" cx="80" cy="115" r="20" />
+              <circle class="map-hotspot-core" cx="80" cy="115" r="6" />
+            </g>
+            <!-- Southwest Hub (Dallas) -->
+            <g id="hub-Southwest" class="map-hotspot" onclick="clickHub('Southwest')" onmouseover="showHubTooltip(event, 'Southwest Hub (Dallas)', 190)" onmouseout="hideHeatmapTooltip()" onmousemove="moveHeatmapTooltip(event)">
+              <circle id="pulse-Southwest-1" class="map-hotspot-pulse" cx="155" cy="245" r="20" />
+              <circle id="pulse-Southwest-2" class="map-hotspot-pulse map-hotspot-pulse-2" cx="155" cy="245" r="20" />
+              <circle class="map-hotspot-core" cx="155" cy="245" r="6" />
+            </g>
+            <!-- Midwest Hub (Chicago) -->
+            <g id="hub-Midwest" class="map-hotspot" onclick="clickHub('Midwest')" onmouseover="showHubTooltip(event, 'Midwest Hub (Chicago)', 240)" onmouseout="hideHeatmapTooltip()" onmousemove="moveHeatmapTooltip(event)">
+              <circle id="pulse-Midwest-1" class="map-hotspot-pulse" cx="245" cy="100" r="20" />
+              <circle id="pulse-Midwest-2" class="map-hotspot-pulse map-hotspot-pulse-2" cx="245" cy="100" r="20" />
+              <circle class="map-hotspot-core" cx="245" cy="100" r="6" />
+            </g>
+            <!-- Southeast Hub (Atlanta) -->
+            <g id="hub-Southeast" class="map-hotspot" onclick="clickHub('Southeast')" onmouseover="showHubTooltip(event, 'Southeast Hub (Atlanta)', 275)" onmouseout="hideHeatmapTooltip()" onmousemove="moveHeatmapTooltip(event)">
+              <circle id="pulse-Southeast-1" class="map-hotspot-pulse" cx="295" cy="225" r="20" />
+              <circle id="pulse-Southeast-2" class="map-hotspot-pulse map-hotspot-pulse-2" cx="295" cy="225" r="20" />
+              <circle class="map-hotspot-core" cx="295" cy="225" r="6" />
+            </g>
+            <!-- Northeast Hub (New York) -->
+            <g id="hub-Northeast" class="map-hotspot" onclick="clickHub('Northeast')" onmouseover="showHubTooltip(event, 'Northeast Hub (New York)', 380)" onmouseout="hideHeatmapTooltip()" onmousemove="moveHeatmapTooltip(event)">
+              <circle id="pulse-Northeast-1" class="map-hotspot-pulse" cx="385" cy="100" r="20" />
+              <circle id="pulse-Northeast-2" class="map-hotspot-pulse map-hotspot-pulse-2" cx="385" cy="100" r="20" />
+              <circle class="map-hotspot-core" cx="385" cy="100" r="6" />
+            </g>
+          </svg>
+          
+          <!-- Continuous color legend -->
+          <div style="display:flex; flex-direction:column; gap:3px; width:100%; max-width:320px; text-align:center; margin-top: 10px;">
+            <div style="display:flex; justify-content:space-between; font-size:0.65rem; font-weight:700; color:var(--muted);">
+              <span>Low Volume ($15M)</span>
+              <span>Mid Shading ($100M)</span>
+              <span>High Volume ($200M+)</span>
+            </div>
+            <div style="height:6px; border-radius:3px; background: linear-gradient(to right, hsl(135, 82%, 88%), hsl(67, 82%, 88%), hsl(0, 82%, 88%)); border: 1px solid var(--border); box-shadow:inset 0 1px 2px rgba(0,0,0,0.06);"></div>
+          </div>
+        </div>
+        
+        <!-- Right Column (Regional Diagnostics panel) -->
+        <div class="card geo-panel-card">
+          <div class="card-title" id="geo-panel-title" style="margin-bottom:8px; border-bottom:1px solid #f0f0f0; padding-bottom:6px;">West Division (CA/WA Operations)</div>
+          <p style="font-size:0.75rem; color:var(--muted); margin:0; line-height:1.45;" id="geo-panel-desc">
+            ODP West Coast Division covering major tech and healthcare accounts. High outbound density.
+          </p>
+          
+          <div style="display:flex; flex-direction:column; gap:2px; margin-top:4px;">
+            <div class="geo-metric-row"><span>Active Sales Revenue</span><span class="val" id="geo-m-rev">$214.0M</span></div>
+            <div class="geo-metric-row"><span>Regional Win Rate</span><span class="val" id="geo-m-win">32.8%</span></div>
+            <div class="geo-metric-row"><span>Opportunity Volume</span><span class="val" id="geo-m-opps">940 opps</span></div>
+            <div class="geo-metric-row"><span>Active ISO Rep Count</span><span class="val" id="geo-m-reps">12 Reps</span></div>
+            <div class="geo-metric-row"><span>Primary Industry Split</span><span class="val" id="geo-m-split">Healthcare (48%)</span></div>
+            <div class="geo-metric-row"><span>Regional Headquarter Hub</span><span class="val"><span class="geo-hub-badge" id="geo-m-hub">San Francisco Hub</span></span></div>
+          </div>
+          
+          <div class="insight" id="geo-panel-alert" style="margin-top:auto; font-size:0.73rem;">
+            <strong>⚠️ West Bottleneck:</strong> 35% of deals are delayed at proposal stage. Pricing template reviews must be streamlined.
           </div>
         </div>
       </div>
@@ -1016,6 +1230,203 @@ function renderHeatmap() {
   tbody.innerHTML = html;
 }
 
+/* ── INTERACTIVE GEOGRAPHIC SALES MAP DATA & LOGIC ───────── */
+const GEO_REGIONS_DATA = {
+  West: {
+    name: 'West Division',
+    desc: 'ODP West Coast Division covering major technology, aerospace, and healthcare accounts. Characterized by high outbound density and rapid pipeline velocity.',
+    hub: 'San Francisco Hub',
+    reps: 12,
+    baseRev: 214,
+    winRate: 32.8,
+    opps: 940,
+    split: 'Healthcare (48%)',
+    alert: '<strong>⚠️ West Bottleneck:</strong> 35% of deals are delayed at proposal stage. Pricing template reviews must be streamlined to accelerate West Coast tech signings.'
+  },
+  Southwest: {
+    name: 'Southwest Division',
+    desc: 'ODP Southwest Division driving massive healthcare expansion accounts and local hospitality groupings. Demonstrates strong contract compliance ratio.',
+    hub: 'Dallas Hub',
+    reps: 8,
+    baseRev: 128,
+    winRate: 34.5,
+    opps: 580,
+    split: 'Technology (41%)',
+    alert: '<strong>✅ Southwest Strong:</strong> Pipeline is highly active and healthy. Adjacency category cross-sells are on track, accounting for 46% of Southwest account mix.'
+  },
+  Midwest: {
+    name: 'Midwest Division',
+    desc: 'ODP Midwest territory capturing heavy manufacturing, school districts, local universities, and transport logistics clients.',
+    hub: 'Chicago Hub',
+    reps: 10,
+    baseRev: 172,
+    winRate: 31.2,
+    opps: 780,
+    split: 'Manufacturing (52%)',
+    alert: '<strong>⚠️ Midwest Warning:</strong> Outbound prospecting activities are low (average 10 activities/wk). Coach Hunter reps to scale cold prospect cadences.'
+  },
+  Southeast: {
+    name: 'Southeast Division',
+    desc: 'ODP Southeast Division managing high hospitality (OS&E) penetration, vacation resorts, and extensive state government supply contracts.',
+    hub: 'Atlanta Hub',
+    reps: 11,
+    baseRev: 196,
+    winRate: 33.4,
+    opps: 880,
+    split: 'Hospitality (45%)',
+    alert: '<strong>✅ Southeast Healthy:</strong> 11% YoY growth in hospitality segment driven by new logo acquisition. Proposal leaks remain low at 18%.'
+  },
+  Northeast: {
+    name: 'Northeast Division',
+    desc: 'ODP Northeast territory covering major Ivy League universities, K-12 school systems, and large financial institution headquarters.',
+    hub: 'New York Hub',
+    reps: 9,
+    baseRev: 146,
+    winRate: 30.5,
+    opps: 660,
+    split: 'Education (50%)',
+    alert: '<strong>⚠️ Northeast Leakage:</strong> High qualification-to-proposal leak (38% drop). Discovery calls and scoping criteria need structural training.'
+  }
+};
+
+let selectedGeoRegion = 'West'; // West is default selected region
+
+function hoverRegion(regionId) {
+  updateGeoPanel(regionId);
+}
+
+function clickRegion(regionId) {
+  selectedGeoRegion = regionId;
+  
+  // Highlight the clicked region path and de-emphasize others
+  const paths = document.querySelectorAll('.map-region');
+  paths.forEach(p => {
+    p.classList.remove('active-region-focus');
+    p.classList.remove('de-emphasize-region');
+  });
+
+  const activePath = $('region-' + regionId);
+  if (activePath) activePath.classList.add('active-region-focus');
+
+  // De-emphasize other paths
+  paths.forEach(p => {
+    if (p.id !== 'region-' + regionId) {
+      p.classList.add('de-emphasize-region');
+    }
+  });
+
+  updateGeoPanel(regionId);
+}
+
+function clickHub(regionId) {
+  clickRegion(regionId);
+}
+
+function updateGeoPanel(regionId) {
+  const reg = GEO_REGIONS_DATA[regionId];
+  if (!reg) return;
+
+  // Calculate dynamic scales
+  let industryScale = 1.0;
+  if (activeFilters.industry !== 'all') {
+    const vertData = MASTER.verticals[activeFilters.industry];
+    const total = MASTER.verticals.all.data.reduce((a,b)=>a+b,0);
+    industryScale = vertData ? vertData.data.reduce((a,b)=>a+b,0) / total : 1.0;
+  }
+  let repScale = 1.0;
+  if (activeFilters.rep === 'Hunter') repScale = 196/856;
+  else if (activeFilters.rep === 'Farmer') repScale = 660/856;
+
+  const is2026 = activeFilters.year === '2026';
+  const yearMult = is2026 ? 1.09 : 1.0;
+  const yearOppsMult = is2026 ? 1.15 : 1.0;
+
+  // Dynamic calculations for panel
+  const rev = (reg.baseRev * industryScale * repScale * yearMult).toFixed(1);
+  const winRate = (reg.winRate * (activeFilters.rep === 'Farmer' ? 1.4 : (activeFilters.rep === 'Hunter' ? 0.5 : 1.0))).toFixed(1);
+  const opps = Math.round(reg.opps * industryScale * repScale * yearOppsMult);
+  const repsCount = Math.round(reg.reps * repScale);
+
+  // Update DOM elements on the right panel
+  $('geo-panel-title').textContent = `${reg.name} (${regionId === 'West' ? 'Pacific' : (regionId === 'Northeast' ? 'Atlantic' : 'Central')} Division)`;
+  $('geo-panel-desc').textContent = reg.desc;
+  $('geo-m-rev').textContent = `$${rev}M`;
+  $('geo-m-win').textContent = `${winRate}%`;
+  $('geo-m-opps').textContent = `${opps.toLocaleString()} opps`;
+  $('geo-m-reps').textContent = `${repsCount} Reps`;
+  $('geo-m-split').textContent = reg.split;
+  $('geo-m-hub').textContent = reg.hub;
+  $('geo-panel-alert').innerHTML = reg.alert;
+}
+
+// Hub tooltips helper
+function showHubTooltip(e, hubName, volume) {
+  const tooltip = $('heatmap-tooltip');
+  if (!tooltip) return;
+
+  // Dynamic scaling for hub metrics
+  let repScale = 1.0;
+  if (activeFilters.rep === 'Hunter') repScale = 196/856;
+  else if (activeFilters.rep === 'Farmer') repScale = 660/856;
+  const scaledVolume = Math.round(volume * repScale * (activeFilters.year === '2026' ? 1.25 : 1.0));
+
+  tooltip.innerHTML = `
+    <div style="font-weight:700; color:var(--pbi-yellow); font-size:0.7rem; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.5px;">ODP Operations Hub</div>
+    <div style="font-weight:700; margin-bottom:6px; color:#FFF; font-size:0.76rem;">${hubName}</div>
+    <div style="display:flex; justify-content:space-between; margin-bottom:6px; border-bottom:1px dashed rgba(255,255,255,0.15); padding-bottom:5px; font-size:0.72rem;">
+      <span style="color:#aaa;">Concentric Pulse:</span>
+      <strong style="color:#FFF;">High Density Cluster</strong>
+    </div>
+    <div style="font-size:0.7rem; color:#dfdfdf; line-height:1.35; margin-top:2px;">
+      Active center managing approximately <strong>${scaledVolume.toLocaleString()} regional accounts</strong>. concentric pulsing circles represent localized lead density.
+    </div>
+  `;
+
+  tooltip.style.left = (e.pageX + 15) + 'px';
+  tooltip.style.top = (e.pageY + 15) + 'px';
+  tooltip.style.display = 'block';
+}
+
+function renderGeoMap() {
+  const regions = ['West', 'Southwest', 'Midwest', 'Southeast', 'Northeast'];
+
+  // Calculate dynamic scales
+  let industryScale = 1.0;
+  if (activeFilters.industry !== 'all') {
+    const vertData = MASTER.verticals[activeFilters.industry];
+    const total = MASTER.verticals.all.data.reduce((a,b)=>a+b,0);
+    industryScale = vertData ? vertData.data.reduce((a,b)=>a+b,0) / total : 1.0;
+  }
+  let repScale = 1.0;
+  if (activeFilters.rep === 'Hunter') repScale = 196/856;
+  else if (activeFilters.rep === 'Farmer') repScale = 660/856;
+
+  const is2026 = activeFilters.year === '2026';
+  const yearMult = is2026 ? 1.09 : 1.0;
+
+  regions.forEach(regionId => {
+    const reg = GEO_REGIONS_DATA[regionId];
+    if (!reg) return;
+
+    const rev = reg.baseRev * industryScale * repScale * yearMult;
+    
+    // Map rev ($5M - $220M) to HSL Hue (0 = red to 135 = green)
+    const cappedRev = Math.min(220, Math.max(15, rev));
+    const percent = (cappedRev - 15) / (220 - 15); // 0 to 1
+    const hue = percent * 135; // 0 (red) to 135 (green)
+
+    // Set paths backgrounds and outlines dynamically!
+    const path = $('region-' + regionId);
+    if (path) {
+      path.setAttribute('fill', `hsl(${hue}, 80%, 88%)`);
+      path.style.stroke = `hsl(${hue}, 70%, 45%)`;
+    }
+  });
+
+  // Re-draw active classes and sidebar content
+  clickRegion(selectedGeoRegion);
+}
+
 /* ── APPLY FILTERS ──────────────────────────────────────── */
 function applyFilters() {
   activeFilters.industry = $('f-industry').value;
@@ -1263,6 +1674,7 @@ function applyFilters() {
   simulate();
   renderScorecard();
   renderHeatmap();
+  renderGeoMap();
 }
 
 /* ── CHART 1: TREND LINE ────────────────────────────────── */
