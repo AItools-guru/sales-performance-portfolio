@@ -197,6 +197,73 @@
       text-align: center;
       margin-top: 4px;
     }
+    
+    /* Funnel Stage Leakage Heatmap Styles */
+    .heatmap-tbl {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 4px;
+      font-size: 0.76rem;
+      text-align: center;
+      background: transparent;
+    }
+    .heatmap-tbl th {
+      background: var(--pbi-navy);
+      color: #FFFFFF;
+      padding: 9px 8px;
+      font-weight: 600;
+      border-radius: 4px;
+      font-size: 0.74rem;
+    }
+    .heatmap-tbl td {
+      padding: 11px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      transition: all 0.15s ease;
+    }
+    .heatmap-row {
+      transition: opacity 0.25s ease, transform 0.2s ease;
+    }
+    /* Dynamic active border coordination for focus highlighting */
+    .heatmap-row.active-focus td {
+      border-top: 2px solid var(--pbi-navy) !important;
+      border-bottom: 2px solid var(--pbi-navy) !important;
+    }
+    .heatmap-row.active-focus td:first-child {
+      border-left: 2.5px solid var(--pbi-navy) !important;
+      border-radius: 4px 0 0 4px;
+    }
+    .heatmap-row.active-focus td:last-child {
+      border-right: 2.5px solid var(--pbi-navy) !important;
+      border-radius: 0 4px 4px 0;
+    }
+    .heatmap-row.de-emphasize {
+      opacity: 0.35;
+    }
+    .heatmap-label-cell {
+      background: var(--sidebar-bg);
+      color: var(--text);
+      font-weight: 700 !important;
+      text-align: left;
+      padding-left: 14px !important;
+      border: 1px solid var(--border) !important;
+    }
+    /* Soft color-code badges for leakage Drop-off Severity */
+    .leak-low {
+      background: #e6f4ea !important;
+      color: #137333 !important;
+      border: 1.5px solid #c2e7c9 !important;
+    }
+    .leak-med {
+      background: #fef7e0 !important;
+      color: #b06000 !important;
+      border: 1.5px solid #fbe5b5 !important;
+    }
+    .leak-high {
+      background: #fce8e6 !important;
+      color: #c5221f !important;
+      border: 1.5px solid #f9ccc8 !important;
+    }
   </style>
 </head>
 <body>
@@ -335,6 +402,38 @@
         <div class="card">
           <div class="card-title">Win Rate % by Industry Vertical — Hunter vs. Farmer</div>
           <div class="chart-wrap"><canvas id="c-winrate-ind" height="210"></canvas></div>
+        </div>
+      </div>
+      <!-- Funnel Stage Leakage Heatmap Section -->
+      <div class="card" style="margin-top: 12px; display: flex; flex-direction: column; gap: 10px;">
+        <div class="card-title" style="margin-bottom:4px; border-bottom:none; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <span style="font-weight:700;">Dynamic Funnel Stage Leakage Heat Map (Vertical vs. Conversion Step)</span>
+          <span style="font-size:0.7rem; font-weight:600; color:var(--muted); background:var(--sidebar-bg); padding:3px 10px; border-radius:10px;">Relational Slicer Responsive</span>
+        </div>
+        <p style="font-size:0.74rem; color:var(--muted); margin:0;">
+          Operational drop-off diagnostic showing <strong>% leakage (deals lost or stalled)</strong> at each stage transition. Select a global industry vertical to isolate its bottleneck focus.
+        </p>
+        
+        <div style="overflow-x: auto; margin-top: 6px;">
+          <table class="heatmap-tbl">
+            <thead>
+              <tr>
+                <th style="text-align:left; padding-left:14px; width:180px;">Industry Vertical</th>
+                <th>Prospecting ➔ Qual<br><span style="font-size:0.65rem; font-weight:normal; opacity:0.8;">Stage 1 Drop-off</span></th>
+                <th>Qual ➔ Proposal<br><span style="font-size:0.65rem; font-weight:normal; opacity:0.8;">Stage 2 Drop-off</span></th>
+                <th>Proposal ➔ Negotiate<br><span style="font-size:0.65rem; font-weight:normal; opacity:0.8; font-weight:700; color:var(--pbi-yellow);">Critical Pricing Stall</span></th>
+                <th>Negotiate ➔ Won<br><span style="font-size:0.65rem; font-weight:normal; opacity:0.8;">Stage 4 Drop-off</span></th>
+              </tr>
+            </thead>
+            <tbody id="heatmap-tbody">
+              <!-- Rendered dynamically via renderHeatmap() -->
+            </tbody>
+          </table>
+        </div>
+        <div style="display:flex; justify-content:center; gap:20px; font-size:0.7rem; color:var(--muted); margin-top:6px; flex-wrap:wrap;">
+          <div style="display:flex; align-items:center; gap:6px;"><div style="width:12px; height:12px; border-radius:2px;" class="leak-low"></div> <strong>Low Leakage (&lt;15%)</strong> — Healthy Velocity</div>
+          <div style="display:flex; align-items:center; gap:6px;"><div style="width:12px; height:12px; border-radius:2px;" class="leak-med"></div> <strong>Mild Leakage (15% - 30%)</strong> — Warning Stage</div>
+          <div style="display:flex; align-items:center; gap:6px;"><div style="width:12px; height:12px; border-radius:2px;" class="leak-high"></div> <strong>Severe Leakage (&gt;30%)</strong> — High Pricing approval bottleneck</div>
         </div>
       </div>
     </div>
@@ -745,6 +844,80 @@ function renderScorecard() {
   }
 }
 
+/* ── FUNNEL STAGE LEAKAGE HEATMAP DATA & LOGIC ───────────── */
+const HEATMAP_ALL = {
+  Healthcare:    { pq: 18, qp: 21, pn: 33, nw: 36 },
+  Technology:    { pq: 19, qp: 22, pn: 36, nw: 36 },
+  Hospitality:   { pq: 26, qp: 28, pn: 39, nw: 41 },
+  Manufacturing: { pq: 21, qp: 23, pn: 33, nw: 35 },
+  Education:     { pq: 23, qp: 25, pn: 35, nw: 37 },
+  Government:    { pq: 24, qp: 27, pn: 37, nw: 39 }
+};
+
+const HEATMAP_HUNTERS = {
+  Healthcare:    { pq: 28, qp: 33, pn: 52, nw: 48 },
+  Technology:    { pq: 30, qp: 34, pn: 57, nw: 45 },
+  Hospitality:   { pq: 40, qp: 42, pn: 60, nw: 50 },
+  Manufacturing: { pq: 34, qp: 35, pn: 51, nw: 47 },
+  Education:     { pq: 36, qp: 38, pn: 53, nw: 49 },
+  Government:    { pq: 38, qp: 40, pn: 55, nw: 52 }
+};
+
+const HEATMAP_FARMERS = {
+  Healthcare:    { pq: 8,  qp: 10, pn: 14, nw: 25 },
+  Technology:    { pq: 7,  qp: 11, pn: 16, nw: 28 },
+  Hospitality:   { pq: 12, qp: 15, pn: 18, nw: 32 },
+  Manufacturing: { pq: 9,  qp: 12, pn: 15, nw: 24 },
+  Education:     { pq: 10, qp: 13, pn: 17, nw: 26 },
+  Government:    { pq: 11, qp: 14, pn: 19, nw: 27 }
+};
+
+function renderHeatmap() {
+  const tbody = $('heatmap-tbody');
+  if (!tbody) return;
+
+  const repProfile = activeFilters.rep;
+  let dataset = HEATMAP_ALL;
+  if (repProfile === 'Hunter') dataset = HEATMAP_HUNTERS;
+  else if (repProfile === 'Farmer') dataset = HEATMAP_FARMERS;
+
+  const verticals = ['Healthcare', 'Technology', 'Hospitality', 'Manufacturing', 'Education', 'Government'];
+  let html = '';
+
+  verticals.forEach(vert => {
+    const rowData = dataset[vert] || { pq: 0, qp: 0, pn: 0, nw: 0 };
+    
+    // Curated leakage drop-off severity soft badges thresholds
+    const getLeakClass = (val) => {
+      if (val < 15) return 'leak-low';
+      if (val <= 30) return 'leak-med';
+      return 'leak-high';
+    };
+
+    // Row coordination highlighting: Highlight selected vertical row, dim other rows
+    let rowClass = 'heatmap-row';
+    if (activeFilters.industry !== 'all') {
+      if (activeFilters.industry === vert) {
+        rowClass += ' active-focus';
+      } else {
+        rowClass += ' de-emphasize';
+      }
+    }
+
+    html += `
+      <tr class="${rowClass}">
+        <td class="heatmap-label-cell">${vert}</td>
+        <td class="${getLeakClass(rowData.pq)}">${rowData.pq}% Drop</td>
+        <td class="${getLeakClass(rowData.qp)}">${rowData.qp}% Drop</td>
+        <td class="${getLeakClass(rowData.pn)}">${rowData.pn}% Drop</td>
+        <td class="${getLeakClass(rowData.nw)}">${rowData.nw}% Drop</td>
+      </tr>
+    `;
+  });
+
+  tbody.innerHTML = html;
+}
+
 /* ── APPLY FILTERS ──────────────────────────────────────── */
 function applyFilters() {
   activeFilters.industry = $('f-industry').value;
@@ -991,6 +1164,7 @@ function applyFilters() {
   // 6. Recalibrate and run the Growth Simulator
   simulate();
   renderScorecard();
+  renderHeatmap();
 }
 
 /* ── CHART 1: TREND LINE ────────────────────────────────── */
