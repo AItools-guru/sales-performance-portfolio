@@ -683,7 +683,7 @@ function renderScorecard() {
     
     // Calculate display calls based on timeframe granularity
     let callsVal = rep.calls;
-    if (localTimeframe === 'day') callsVal = (rep.calls / 5).toFixed(1);
+    if (localTimeframe === 'day') callsVal = Math.round(rep.calls / 5);
     else if (localTimeframe === 'quarter') callsVal = Math.round(rep.calls * 12);
     else if (localTimeframe === 'year') callsVal = Math.round(rep.calls * 48);
 
@@ -704,7 +704,7 @@ function renderScorecard() {
 
   // DYNAMIC INSIGHT GENERATION
   const getCallsStr = (rep) => {
-    if (localTimeframe === 'day') return `${(rep.calls / 5).toFixed(1)} calls/day`;
+    if (localTimeframe === 'day') return `${Math.round(rep.calls / 5)} calls/day`;
     if (localTimeframe === 'quarter') return `${Math.round(rep.calls * 12)} calls/qtr`;
     if (localTimeframe === 'year') return `${Math.round(rep.calls * 48)} calls/yr`;
     return `${rep.calls} calls/wk`;
