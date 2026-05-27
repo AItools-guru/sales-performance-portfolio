@@ -202,7 +202,7 @@ sales-performance-dashboard/
 | **Hunter Activity** | Drives top-of-funnel volume for net-new logo acquisition |
 | **Proposal Conversion** | Fixes the 52-day pricing approval stall — plugs $8M funnel leak |
 | **Adjacency Upsell** | Cross-sell Cleaning/Furniture/Tech within existing accounts (44% → 50%) |
-| **New Verticals** | Hospitality (OS&E) + Healthcare expansion per ODP "Optimize for Growth" plan |
+| **New Verticals** | Hospitality (OS&E) + Healthcare expansion per Apex "Optimize for Growth" plan |
 
 ### 🗺️ Page 5: Geographic Heat Map
 | Visual | What It Shows |
@@ -220,12 +220,12 @@ sales-performance-dashboard/
 |:---|:---|
 | **Hunters (Inside Sales)** | Reps tasked with acquiring **new customers** (new logo acquisition). Low win rates (10-15%) but drive net-new revenue |
 | **Farmers (Account Managers)** | Reps managing **existing accounts** — retention + upsell. High win rates (55-60%) but limited growth ceiling |
-| **Adjacency Categories** | ODP's non-core product lines (Cleaning, Furniture, Technology, Print) — currently 44% of ISO revenue |
+| **Adjacency Categories** | Apex's non-core product lines (Cleaning, Furniture, Technology, Print) — currently 44% of ISO revenue |
 | **Pipeline Velocity** | How fast deals move through stages. Measured in days. Bottlenecks = revenue delay |
 | **Funnel Leakage** | The drop-off rate at each pipeline stage. Hunter Proposal stage = 33% leakage |
 | **YoY (Year-over-Year)** | Revenue in current period vs same period prior year, expressed as % change |
 | **Win Rate** | Closed Won ÷ (Closed Won + Closed Lost). Hunters: 12% · Farmers: 56% |
-| **OS&E (Operating, Supplies & Equipment)** | ODP's Hospitality vertical offering — a key new growth market |
+| **OS&E (Operating, Supplies & Equipment)** | Apex's Hospitality vertical offering — a key new growth market |
 
 ### Technical & BI Tools
 | Tool | Role in This Project |
@@ -243,8 +243,8 @@ sales-performance-dashboard/
 
 ```bash
 # Clone the repo
-git clone https://github.com/AItools-guru/sales-performance-dashboard.git
-cd sales-performance-dashboard
+git clone https://github.com/Aitools-guru/sales-performance-portfolio.git
+cd sales-performance-portfolio
 
 # Open the live dashboard (no server needed)
 open prototype/index.html
@@ -261,7 +261,7 @@ python data/generate_salesforce_data.py
 1. Go to your repository → **Settings → Pages**
 2. Source: **Deploy from branch** → **main** → **/ (root)** → **Save**
 3. Wait ~2 minutes → your dashboard is live at:
-   `https://<your-username>.github.io/sales-performance-dashboard/prototype/`
+   `https://<your-username>.github.io/sales-performance-portfolio/prototype/`
 
 ---
 

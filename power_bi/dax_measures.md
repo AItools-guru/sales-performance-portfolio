@@ -1,6 +1,6 @@
 # Power BI DAX Measures Documentation
 
-This file documents the core **DAX (Data Analysis Expressions)** formulas modeled for the ODP Sales Performance dashboard in Power BI. These formulas translate business questions regarding pipeline health and sales productivity into measurable insights.
+This file documents the core **DAX (Data Analysis Expressions)** formulas modeled for the Apex Sales Performance dashboard in Power BI. These formulas translate business questions regarding pipeline health and sales productivity into measurable insights.
 
 ---
 

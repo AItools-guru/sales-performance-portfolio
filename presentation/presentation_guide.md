@@ -1,4 +1,4 @@
-# ODP Sales Performance Presentation Guide
+# Apex Sales Performance Presentation Guide
 **Internal Sales Organization (ISO) Business Intelligence Analyst Candidate Presentation**
 
 This document serves as your slide-by-slide strategy and transcript notes for the 20-minute presentation to Sales and Leadership stakeholders. It addresses all requirements outlined in the case study.
@@ -21,10 +21,10 @@ This document serves as your slide-by-slide strategy and transcript notes for th
 *   **Slide Header:** *Driving Growth Through Insight: Turning Sales Data into Revenue Levers*
 *   **Visuals:** Current Gap Gauge Chart showing current growth (1.5% YoY) vs. the 2026 Target (7.0%).
 *   **Key Points:**
-    *   **The Diagnosis:** ODP's growth is stagnant due to a heavy reliance on existing account expansion (Farmers) and low visibility into net-new business acquisition (Hunters).
+    *   **The Diagnosis:** Apex's growth is stagnant due to a heavy reliance on existing account expansion (Farmers) and low visibility into net-new business acquisition (Hunters).
     *   **The Mandate:** Shift from reactive, inconsistent reporting to a proactive, data-driven sales organization.
 *   **Speaker Notes:** 
-    > *"Good morning everyone. Today, we aren't just looking at charts—we are establishing a roadmap to drive 7% revenue growth. Currently, ODP is experiencing stagnant 1.5% growth. Our biggest vulnerability is that we are coasting on existing customer accounts (Farmers), while our pipeline for net-new business (Hunters) is leaking. Today I will show you how we will use Power BI and Salesforce data to find where we are dropping the ball and how we can close the gap."*
+    > *"Good morning everyone. Today, we aren't just looking at charts—we are establishing a roadmap to drive 7% revenue growth. Currently, Apex is experiencing stagnant 1.5% growth. Our biggest vulnerability is that we are coasting on existing customer accounts (Farmers), while our pipeline for net-new business (Hunters) is leaking. Today I will show you how we will use Power BI and Salesforce data to find where we are dropping the ball and how we can close the gap."*
 
 ---
 
