@@ -159,11 +159,15 @@ sales-performance-portfolio/
 │   ├── banner.png              ← Project header image
 │   ├── dashboard_exec_summary.png
 │   ├── dashboard_funnel_leakage.png
-│   └── dashboard_simulator.png
+│   ├── dashboard_rep_productivity.png
+│   ├── dashboard_simulator.png
+│   └── dashboard_geographic_map.png
 │
 ├── data/
 │   ├── salesforce_opportunities.csv   ← 800 simulated Salesforce opportunity records
-│   └── generate_salesforce_data.py    ← Python script to regenerate the dataset
+│   ├── generate_salesforce_data.py    ← Python script to regenerate raw opportunity logs
+│   ├── etl_pipeline.py                ← ⚡ Automated ETL pipeline normalising CSV to SQLite Star Schema
+│   └── crm_analytics.py               ← 📈 Command-Line Diagnostics & What-If Growth Simulator
 │
 ├── database/
 │   ├── schema.sql              ← Star schema DDL (Fact + Dimension tables)
@@ -248,17 +252,31 @@ sales-performance-portfolio/
 
 ## ⚙️ Running Locally
 
+### 🌐 Launch the Web Dashboard Prototype
+Open the core interactive prototype directly in any web browser:
 ```bash
-# Clone the repo
-git clone https://github.com/Aitools-guru/sales-performance-portfolio.git
-cd sales-performance-portfolio
-
-# Open the live dashboard (no server needed)
 open prototype/index.html
+```
 
-# Regenerate the Salesforce dataset (optional)
-pip install pandas faker numpy
-python data/generate_salesforce_data.py
+### ⚡ Run the Automated Data Warehouse ETL Pipeline (Python)
+Extract raw Salesforce CRM opportunities, normalize them into a relational Star Schema warehouse structure, and load them into a SQLite database:
+```bash
+# Run data pipeline
+python3 data/etl_pipeline.py
+```
+
+### 📈 Launch the CRM Diagnostics & Simulator Console (Python CLI)
+Analyze opportunity stages, identify funnel leakage percentages, review rep call productivity metrics, and run a **terminal-based interactive What-If Growth Simulator**:
+```bash
+# Open Python Diagnostics Panel
+python3 data/crm_analytics.py
+```
+
+### 🧪 Regenerate Raw Opportunity Logs (Optional)
+If you want to synthesize a fresh dataset of opportunity entries:
+```bash
+pip install pandas numpy
+python3 data/generate_salesforce_data.py
 ```
 
 ---
