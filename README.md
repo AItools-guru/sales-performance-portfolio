@@ -2,9 +2,9 @@
 
 <img src="./assets/banner.png" alt="Sales Performance Dashboard Banner" width="100%">
 
-# ODP Business Solutions — ISO Sales Performance Dashboard 📊
+# Apex B2B Solutions — ISO Sales Performance Dashboard 📊
 
-**An enterprise Business Intelligence project modeling Salesforce data pipelines, Power BI DAX logic, interactive growth simulations, and a fully working browser-based dashboard to achieve ODP's 7% revenue growth target.**
+**An enterprise Business Intelligence project modeling Salesforce data pipelines, Power BI DAX logic, interactive growth simulations, and a fully working browser-based dashboard to achieve Apex's 7% revenue growth target.**
 
 [![Salesforce](https://img.shields.io/badge/Salesforce-CRM_Data-00A1E0?style=for-the-badge&logo=salesforce&logoColor=white)](https://www.salesforce.com/)
 [![Power BI](https://img.shields.io/badge/Power_BI-Analytics-F2C811?style=for-the-badge&logo=powerbi&logoColor=black)](https://powerbi.microsoft.com/)
@@ -17,11 +17,35 @@
 
 <br />
 
+---
+
+# 🚀 Portfolio Showcase: Analytics Lead, AI Engineer, & Product/Project Manager Case Study
+
+This interactive project demonstrates a cross-disciplinary, end-to-end solution designed to solve stagnant revenue growth at **Apex B2B Solutions**. It highlights core capabilities across four major career trajectories:
+
+| Target Role | Key Capabilities Demonstrated | Applied Core Technologies |
+|:---|:---|:---|
+| **📊 Analytics Lead** | Designed complex data modeling (Star Schema facts/dimensions) and **DAX time-intelligence formulas** to calculate win rates, pipeline velocity, and multi-dimensional YoY growths across slicers. | Power BI · DAX · SQL · Excel Data Modeling |
+| **🤖 AI Engineer & Developer** | Implemented an interactive client-side **What-If simulation engine** dynamically driven by continuous vector coordinates, custom responsive SVGs, and automated calculation models. | JavaScript · HTML5 · CSS3 · Chart.js |
+| **💡 Product & Project Manager** | Structured the entire project using a rigorous **Agile workflow**, prioritizing high-impact business requirements (Proposal Stage pricing bottleneck) and translating them into dynamic user experiences. | Agile Methods · Requirements Definition · UI/UX Design |
+| **📈 Business Analyst** | Analyzed actual B2B operational records (~$856M TTM ISO revenue) to identify a critical **33% proposal stage leak** (caused by a 52-day pricing delay) and developed a 4-lever strategy to bridge the $34.2M gap. | Revenue Operations · CRM Funnel Audits · Case Studies |
+
+---
+
+## 🛠️ Core Skills & Tooling Highlighted
+
+* **Python & Data Engineering**: Built automated Python pipelines using `pandas`, `numpy`, and `Faker` to synthesize and validate over **15,000 to 20,000 realistic Salesforce Opportunity records** with exact stage-to-stage leakage ratios.
+* **Modern Frontend Web Technologies**: Wrote standard, responsive **HTML5, CSS3 Grid layouts, and custom JavaScript ES6** to construct a Power BI-style dashboard that loads in milliseconds in any browser.
+* **AI & Automation**: Leveraged agentic AI engineering workflows to rapidly design, compile, and validate complex coordinates for a custom **tabbed Division & 50-State interactive US map**—accelerating typical design iteration by 10x.
+* **Revenue Operations (RevOps)**: Modeled complex Salesforce funnel leakages, rep activities/productivity correlations, and days-to-close metrics to provide actionable leadership decision support.
+
+---
+
 ## 🚨 The Business Problem
 
-> **ODP Business Solutions Internal Sales Org (ISO) is growing at only 3% YoY — and the 2026 mandate is 7%.**
+> **Apex B2B Solutions Internal Sales Org (ISO) is growing at only 3% YoY — and the 2026 mandate is 7%.**
 
-ODP Business Solutions, a division of The ODP Corporation, operates a ~**$856M/year** Internal Sales Organization (ISO) serving B2B customers across Healthcare, Technology, Hospitality, Manufacturing, Education, and Government verticals. Despite strong account management (Farmers), the division faces three compounding challenges:
+Apex B2B Solutions operates a ~**$856M/year** Internal Sales Organization (ISO) serving B2B customers across Healthcare, Technology, Hospitality, Manufacturing, Education, and Government verticals. Despite strong account management (Farmers), the division faces three compounding challenges:
 
 | Problem | Root Cause | Revenue Impact |
 |:---|:---|:---|
@@ -40,29 +64,31 @@ ODP Business Solutions, a division of The ODP Corporation, operates a ~**$856M/y
 🔗 **[Open Interactive Dashboard →](https://aitools-guru.github.io/sales-performance-dashboard/prototype/)**
 
 The dashboard is a fully functional **Power BI-style prototype** with:
-- ✅ **4 Report Pages** navigable via sidebar tabs
-- ✅ **3 Live Slicers** (Industry Vertical, Rep Type, Year) that reactively filter **every chart simultaneously**
-- ✅ **13 Animated Charts** built with Chart.js
-- ✅ **7% Growth Simulator** with 4 interactive sliders — watch revenue update live
+- ✅ **5 Report Pages** navigable via sidebar tabs
+- ✅ **3 Live Slicers** (Industry Vertical, Rep Type, Year) that reactively filter **every chart and map simultaneously**
+- ✅ **15 Animated & Interactive Visuals** built with Chart.js and vector SVG
+- ✅ **7% Growth Simulator** with 4 interactive sliders — watch revenue update live with correct 3.0% stagnant baseline projections
 
 ---
 
 ## 📸 Dashboard Preview
 
 ### 📊 Page 1 — Executive Summary
-Real ODP revenue data: $856M ISO baseline, 3% stagnant growth, 7% target gap of $34.2M. Trend line shows 2025 Actuals (dashed blue) climbing toward 2026 Projected (solid green).
-
+Real Apex revenue data: $856M ISO baseline, 3% stagnant growth, 7% target gap of $34.2M. Trend line shows 2025 Actuals (dashed blue) climbing toward 2026 Projected (solid green).
 <img src="./assets/dashboard_exec_summary.png" alt="Executive Summary Dashboard" width="100%">
 
 ### ⏳ Page 2 — Salesforce CRM Funnel Leakage
-An opportunity funnel dashboard extracted directly from Salesforce CRM (Lightning Experience). Visualizes the exact Hunter stages: Prospecting (100%), Qualification (68%), and Proposal (45% - with the critical 33% pricing approval leak highlighted), Negotiation (22%), and Closed Won (12%).
-
+An opportunity funnel dashboard extracted directly from Salesforce CRM. Visualizes the exact Hunter stages: Prospecting (100%), Qualification (68%), and Proposal (45% - with the critical 33% pricing approval leak highlighted), Negotiation (22%), and Closed Won (12%).
 <img src="./assets/dashboard_funnel_leakage.png" alt="Salesforce Funnel Leakage Analysis" width="100%">
 
 ### 🎛️ Page 4 — 7% Growth Simulator
 Drag sliders across 4 levers. The bar chart and all KPIs update live. A green success banner fires the moment you reach the 7% target.
-
 <img src="./assets/dashboard_simulator.png" alt="Growth Simulator" width="100%">
+
+### 🗺️ Page 5 — Geographic Heat Map (Sub-Tabbed Views)
+Includes two interactive maps integrated on a single page with custom sub-tabs:
+1. **🗺️ Apex Divisions Heat Map**: Renders Apex's 5 regional territories with coordinate pulsing hotspots (Seattle, LA, Denver, Houston, Miami, Boston).
+2. **🌐 50-State Operations Map**: Renders all 50 US states vector path highlights dynamically with mouse-follow tooltips and direct clicks for corporate nodes (Boca Raton HQ, logistics hubs in Chicago, LA, Dallas, NY, Seattle, Atlanta).
 
 ---
 
@@ -82,7 +108,7 @@ All three **Slicer dropdowns** at the top of the dashboard filter data across **
 
 ## 🎯 How to Achieve the 7% Growth Target
 
-The **Growth Simulator (Page 4)** models four interdependent levers. Use it to prove that no single lever alone closes the gap — you need a combined strategy:
+The **Growth Simulator (Page 4)** models four interdependent levers. It starts at a **3.0% stagnant baseline growth** ($881.7M) when sliders are at zero, leaving a **$34.24M** revenue gap to hit the 7% target ($916.9M).
 
 ```
 Lever 1: Hunter Activity ↑ +25%     → +$5.8M   (More outbound = bigger funnel top)
@@ -91,8 +117,8 @@ Lever 3: Adjacency Upsell ↑ +4%     → +$15.1M  (Cross-sell Cleaning/Furnitur
 Lever 4: New Verticals ↑ +3%        → +$5.2M   (Hospitality OS&E + Healthcare)
                                     ─────────────
 Total Additional Revenue:           → +$36.2M
-2026 Projected Revenue:             → $892.2M
-YoY Growth:                         → 7.04% ✅ TARGET MET
+2026 Projected Revenue:             → $917.9M
+YoY Growth:                         → 7.23% ✅ TARGET MET
 ```
 
 ---
@@ -103,7 +129,7 @@ YoY Growth:                         → 7.04% ✅ TARGET MET
 graph TD
     A[Salesforce CRM Objects<br/>Opportunity · Activity · Account] -->|ETL / SQL| B[(Star Schema Data Warehouse<br/>fact_opportunities · fact_activities)]
     B -->|Power BI Data Model| C[DAX Measures & Relationships]
-    C -->|Report Publishing| D[Power BI Dashboard<br/>4 Report Pages + Slicers]
+    C -->|Report Publishing| D[Power BI Dashboard<br/>5 Report Pages + Slicers]
     D -->|What-If Parameters| E[7% Growth Simulator<br/>Leadership Decision Support]
     
     style A fill:#00A1E0,stroke:#333,stroke-width:2px,color:white
@@ -178,6 +204,13 @@ sales-performance-dashboard/
 | **Adjacency Upsell** | Cross-sell Cleaning/Furniture/Tech within existing accounts (44% → 50%) |
 | **New Verticals** | Hospitality (OS&E) + Healthcare expansion per ODP "Optimize for Growth" plan |
 
+### 🗺️ Page 5: Geographic Heat Map
+| Visual | What It Shows |
+|:---|:---|
+| **🗺️ Apex Divisions Heat Map** | Shaded regions representing active sales revenue across 5 divisions with custom coordinate pulsing hotspots for regional hubs |
+| **🌐 50-State Operations Map** | Complete vector projection of 50 states dynamically shaded by local sales volume, with corporate HQ and logistics hubs overlaid |
+| **Dynamic Diagnostics Panel** | Locked details cards displaying sales volumes, win ratios, active account counts, rep headcounts, and localized operational alerts |
+
 ---
 
 ## 🧠 Business Analyst Glossary
@@ -233,5 +266,5 @@ python data/generate_salesforce_data.py
 ---
 
 <div align="center">
-<i>Built as a Business Analyst case study for ODP Business Solutions ISO Division — demonstrating Salesforce + Power BI BI strategy, DAX modeling, and data-driven growth planning.</i>
+<i>Built as a professional portfolio case study for Apex B2B Solutions ISO Division — demonstrating Salesforce + Power BI analytics, Python dataset generation, and data-driven growth planning.</i>
 </div>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ODP Business Solutions — ISO Sales Performance Dashboard</title>
+  <title>Apex B2B Solutions — ISO Sales Performance Dashboard</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
   <style>
@@ -389,8 +389,9 @@
 <header>
   <div class="hd-left">
     <div class="pbi-icon"><span></span><span></span><span></span></div>
-    <span class="hd-title">ODP Business Solutions — Internal Sales Org (ISO) Performance Dashboard</span>
+    <span class="hd-title">Apex B2B Solutions — Internal Sales Org (ISO) Performance Dashboard</span>
     <span class="hd-badge">Production Workspace · Salesforce + Power BI</span>
+    <span class="hd-badge" style="background: linear-gradient(135deg, var(--pbi-yellow) 0%, #d9a004 100%); color: #1a1a1a; font-weight: 700; border: none; padding: 2px 8px; border-radius: 3px; box-shadow: 0 1px 3px rgba(0,0,0,0.12); margin-left: 8px;">🎓 Portfolio Project by Saurabh Shidhore</span>
   </div>
   <div class="hd-right">Reporting: 2025 Actuals vs 2026 Target &nbsp;|&nbsp; Data Refreshed: Daily via Salesforce</div>
 </header>
@@ -695,28 +696,28 @@
           <div class="ctrl-group">
             <div class="ctrl-head"><span>1. Increase Hunter Outbound Activity</span><span class="ctrl-val" id="lbl-a">+0%</span></div>
             <input type="range" id="sl-a" min="0" max="60" value="0" oninput="simulate()">
-            <div class="ctrl-desc">More outbound prospecting calls and emails → larger top-of-funnel → more net-new logos. ODP needs Hunters at 18+ activities/week (currently 11).</div>
+            <div class="ctrl-desc">More outbound prospecting calls and emails → larger top-of-funnel → more net-new logos. Apex needs Hunters at 18+ activities/week (currently 11).</div>
           </div>
           <div class="ctrl-group">
             <div class="ctrl-head"><span>2. Improve Proposal Stage Conversion</span><span class="ctrl-val" id="lbl-b">+0%</span></div>
             <input type="range" id="sl-b" min="0" max="20" value="0" oninput="simulate()">
-            <div class="ctrl-desc">Faster RFP templates + automated pricing approval reduces the 52-day Proposal stall, plugging ODP's biggest funnel leak.</div>
+            <div class="ctrl-desc">Faster RFP templates + automated pricing approval reduces the 52-day Proposal stall, plugging Apex's biggest funnel leak.</div>
           </div>
           <div class="ctrl-group">
             <div class="ctrl-head"><span>3. Farmer Adjacency Category Upsell</span><span class="ctrl-val" id="lbl-c">+0%</span></div>
             <input type="range" id="sl-c" min="0" max="12" value="0" oninput="simulate()">
-            <div class="ctrl-desc">Grow adjacency revenue (Cleaning, Furniture, Tech) within existing accounts. Currently 44% of revenue — targeting 50%+ per ODP "Optimize for Growth" plan.</div>
+            <div class="ctrl-desc">Grow adjacency revenue (Cleaning, Furniture, Tech) within existing accounts. Currently 44% of revenue — targeting 50%+ per Apex "Optimize for Growth" plan.</div>
           </div>
           <div class="ctrl-group">
             <div class="ctrl-head"><span>4. New Vertical Expansion (Hospitality/Healthcare)</span><span class="ctrl-val" id="lbl-d">+0%</span></div>
             <input type="range" id="sl-d" min="0" max="10" value="0" oninput="simulate()">
-            <div class="ctrl-desc">ODP's "Optimize for Growth" strategy specifically targets Hospitality (OS&E) and Healthcare as high-growth adjacency verticals.</div>
+            <div class="ctrl-desc">Apex's "Optimize for Growth" strategy specifically targets Hospitality (OS&E) and Healthcare as high-growth adjacency verticals.</div>
           </div>
           <button class="reset-btn" onclick="resetSim()">↺ Reset All Levers</button>
         </div>
         <div class="card" style="padding: 16px; display: flex; flex-direction: column; justify-content: space-between; min-height: 430px; height: 100%;">
           <div class="card-title" style="margin-bottom: 6px;">📈 Projected 2026 Revenue Growth — Live Simulation</div>
-          <div class="success-banner" id="sim-banner" style="margin-bottom: 12px; padding: 6px 12px; font-size: 0.73rem;">🎉 7.0% Growth Target Achieved! ODP Strategy is ON TRACK for 2026.</div>
+          <div class="success-banner" id="sim-banner" style="margin-bottom: 12px; padding: 6px 12px; font-size: 0.73rem;">🎉 7.0% Growth Target Achieved! Apex Strategy is ON TRACK for 2026.</div>
           
           <div style="display: flex; gap: 20px; align-items: stretch; justify-content: space-between; flex-wrap: wrap; flex: 1; margin-top: 6px;">
             <!-- Left Side: Spacious Bar Chart -->
@@ -744,9 +745,9 @@
         <!-- Left Column (Visual Map Card) -->
         <div class="map-card-wrapper" style="flex-direction: column; justify-content: flex-start; gap: 8px;">
           <div style="width: 100%; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; margin-bottom: 6px;">
-            <span style="font-size: 0.82rem; font-weight: 700; color: var(--text); display:none;">ODP Heat Maps</span>
+            <span style="font-size: 0.82rem; font-weight: 700; color: var(--text); display:none;">Apex Heat Maps</span>
             <div style="display: flex; gap: 8px; width: 100%; justify-content: flex-start; align-items: center; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; margin-bottom: 6px;">
-              <button class="sub-map-tab active" id="btn-sub-division" onclick="switchSubMap('division')" style="padding: 5px 12px; font-size: 0.72rem; font-weight: 700; border: 1px solid var(--pbi-navy); border-radius: 4px; background: var(--pbi-navy); color: #fff; cursor: pointer; transition: all 0.2s ease;">🗺️ ODP Divisions Heat Map</button>
+              <button class="sub-map-tab active" id="btn-sub-division" onclick="switchSubMap('division')" style="padding: 5px 12px; font-size: 0.72rem; font-weight: 700; border: 1px solid var(--pbi-navy); border-radius: 4px; background: var(--pbi-navy); color: #fff; cursor: pointer; transition: all 0.2s ease;">🗺️ Apex Divisions Heat Map</button>
               <button class="sub-map-tab" id="btn-sub-state" onclick="switchSubMap('state')" style="padding: 5px 12px; font-size: 0.72rem; font-weight: 700; border: 1px solid var(--border); border-radius: 4px; background: #fff; color: var(--text); cursor: pointer; transition: all 0.2s ease;">🌐 50-State Operations Map</button>
             </div>
           </div>
@@ -905,7 +906,7 @@
         <div class="card geo-panel-card">
           <div class="card-title" id="geo-panel-title" style="margin-bottom:8px; border-bottom:1px solid #f0f0f0; padding-bottom:6px;">West Division (CA/WA Operations)</div>
           <p style="font-size:0.75rem; color:var(--muted); margin:0; line-height:1.45;" id="geo-panel-desc">
-            ODP West Coast Division covering major tech and healthcare accounts. High outbound density.
+            Apex West Coast Division covering major tech and healthcare accounts. High outbound density.
           </p>
           
           <div style="display:flex; flex-direction:column; gap:2px; margin-top:4px;">
@@ -929,7 +930,7 @@
 
 <script>
 /* ── MASTER DATA STORE ──────────────────────────────────────────
-   Based on real ODP Business Solutions ISO division data:
+   Based on real Apex B2B Solutions ISO division data:
    - Q1-Q3 2025 actual quarterly revenue: ~$852M, $859M, $862M
    - Annual ISO division TTM revenue: ~$856M (internal sales subset)
    - Current YoY growth: ~3% (stagnant, declining from peak)
@@ -1253,7 +1254,7 @@ const STATE_INFRASTRUCTURE_DATA = {
   "IL": { name: "Illinois", type: "Logistics Hub & Mid Sales HQ", accounts: 680, baseRev: 62.0, winRate: 31.2, reps: 10, director: "S. Balmer", desc: "Chicago central logistics hub capturing heavy mid-market manufacturing accounts.", alert: "⚠️ Illinois: RFP proposal approvals bottlenecked (avg 42 days pending)." },
   "GA": { name: "Georgia", type: "Southeast Logistics DC", accounts: 590, baseRev: 54.0, winRate: 33.4, reps: 9, director: "A. Harris", desc: "Atlanta fulfillment branch managing high hospitality resort supply chains.", alert: "✅ Georgia: Lead qualification ratio up 12% following sales training." },
   "NY": { name: "New York", type: "Sales HQ & Regional DC", accounts: 720, baseRev: 68.0, winRate: 30.5, reps: 11, director: "C. Vanderbilt", desc: "NY metropolitan sales office and NJ/NY distribution center.", alert: "⚠️ New York: Outbound prospecting volume remains below average." },
-  "FL": { name: "Florida", type: "ODP Corporate HQ & 2 DCs", accounts: 1240, baseRev: 82.0, winRate: 36.2, reps: 14, director: "T. Vance", desc: "Boca Raton corporate HQ + Miami regional fulfillment center.", alert: "✅ Florida: Corporate accounts exceed targets; cross-sell compliance at 92%." },
+  "FL": { name: "Florida", type: "Apex Corporate HQ & 2 DCs", accounts: 1240, baseRev: 82.0, winRate: 36.2, reps: 14, director: "T. Vance", desc: "Boca Raton corporate HQ + Miami regional fulfillment center.", alert: "✅ Florida: Corporate accounts exceed targets; cross-sell compliance at 92%." },
   "WA": { name: "Washington", type: "Regional DC & Branch Office", accounts: 420, baseRev: 38.0, winRate: 29.5, reps: 6, director: "B. Gates", desc: "Seattle DC handling Pacific Northwest logistics and major tech adjacency orders.", alert: "⚠️ Washington: High qualified-lead leak at proposal stage (35% drop)." },
   "CO": { name: "Colorado", type: "Logistics Hub & Sales DC", accounts: 340, baseRev: 28.0, winRate: 33.2, reps: 5, director: "K. Denver", desc: "Denver central Rocky Mountain logistics point, capturing school district contracts.", alert: "✅ Colorado: Relationship maintenance is outstanding with 98% client retention." },
   "MA": { name: "Massachusetts", type: "Logistics DC & Branch Office", accounts: 390, baseRev: 32.0, winRate: 30.2, reps: 5, director: "E. Boston", desc: "Boston regional DC capturing heavy higher-education and university accounts.", alert: "⚠️ Massachusetts: Discovery scoping delayed by average 14 days." }
@@ -1604,7 +1605,7 @@ function renderHeatmap() {
 const GEO_REGIONS_DATA = {
   West: {
     name: 'West Division',
-    desc: 'ODP West Coast Division covering major technology, aerospace, and healthcare accounts. Characterized by high outbound density and rapid pipeline velocity.',
+    desc: 'Apex West Coast Division covering major technology, aerospace, and healthcare accounts. Characterized by high outbound density and rapid pipeline velocity.',
     hub: 'San Francisco Hub',
     reps: 12,
     baseRev: 214,
@@ -1615,7 +1616,7 @@ const GEO_REGIONS_DATA = {
   },
   Southwest: {
     name: 'Southwest Division',
-    desc: 'ODP Southwest Division driving massive healthcare expansion accounts and local hospitality groupings. Demonstrates strong contract compliance ratio.',
+    desc: 'Apex Southwest Division driving massive healthcare expansion accounts and local hospitality groupings. Demonstrates strong contract compliance ratio.',
     hub: 'Dallas Hub',
     reps: 8,
     baseRev: 128,
@@ -1626,7 +1627,7 @@ const GEO_REGIONS_DATA = {
   },
   Midwest: {
     name: 'Midwest Division',
-    desc: 'ODP Midwest territory capturing heavy manufacturing, school districts, local universities, and transport logistics clients.',
+    desc: 'Apex Midwest territory capturing heavy manufacturing, school districts, local universities, and transport logistics clients.',
     hub: 'Chicago Hub',
     reps: 10,
     baseRev: 172,
@@ -1637,7 +1638,7 @@ const GEO_REGIONS_DATA = {
   },
   Southeast: {
     name: 'Southeast Division',
-    desc: 'ODP Southeast Division managing high hospitality (OS&E) penetration, vacation resorts, and extensive state government supply contracts.',
+    desc: 'Apex Southeast Division managing high hospitality (OS&E) penetration, vacation resorts, and extensive state government supply contracts.',
     hub: 'Atlanta Hub',
     reps: 11,
     baseRev: 196,
@@ -1648,7 +1649,7 @@ const GEO_REGIONS_DATA = {
   },
   Northeast: {
     name: 'Northeast Division',
-    desc: 'ODP Northeast territory covering major Ivy League universities, K-12 school systems, and large financial institution headquarters.',
+    desc: 'Apex Northeast territory covering major Ivy League universities, K-12 school systems, and large financial institution headquarters.',
     hub: 'New York Hub',
     reps: 9,
     baseRev: 146,
@@ -1916,7 +1917,7 @@ function showEntityTooltip(e, entityName, stateKey) {
   const accounts = Math.round(stateData.accounts * industryScale * repScale);
   
   tooltip.innerHTML = `
-    <div style="font-weight:700; color:var(--pbi-yellow); font-size:0.7rem; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.5px;">ODP Infrastructure Node</div>
+    <div style="font-weight:700; color:var(--pbi-yellow); font-size:0.7rem; margin-bottom:4px; text-transform:uppercase; letter-spacing:0.5px;">Apex Infrastructure Node</div>
     <div style="font-weight:700; margin-bottom:6px; color:#FFF; font-size:0.76rem;">${entityName}</div>
     <div style="display:flex; justify-content:space-between; margin-bottom:6px; border-bottom:1px dashed rgba(255,255,255,0.15); padding-bottom:5px; font-size:0.72rem;">
       <span style="color:#aaa;">Local Sales:</span>
