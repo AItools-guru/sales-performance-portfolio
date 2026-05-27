@@ -27,11 +27,20 @@
 
     .layout{display:flex;flex:1;overflow:hidden;}
 
-    .sidebar{width:205px;background:var(--sidebar-bg);border-right:1px solid var(--border);padding:14px 0;flex-shrink:0;}
+    .sidebar{width:205px;background:var(--sidebar-bg);border-right:1px solid var(--border);padding:14px 0;flex-shrink:0;display:flex;flex-direction:column;}
     .sb-heading{padding:0 14px 10px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:var(--muted);}
     .tab{display:flex;align-items:center;gap:8px;padding:11px 14px;cursor:pointer;font-size:.83rem;font-weight:500;border-left:3px solid transparent;transition:background .15s;}
     .tab:hover{background:#edebe9;}
     .tab.active{background:#fff;border-left-color:var(--pbi-yellow);color:var(--pbi-navy);font-weight:700;}
+
+    /* Beautiful author section */
+    .sb-author{margin-top:auto;margin-left:14px;margin-right:14px;margin-bottom:4px;padding:12px;background:#f3f2f1;border:1px solid var(--border);border-radius:6px;box-shadow:0 1px 3px rgba(0,0,0,.04);font-family:'Inter',sans-serif;}
+    .author-title{font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);margin-bottom:4px;}
+    .author-name{font-size:.85rem;font-weight:700;color:var(--pbi-navy);margin-bottom:2px;}
+    .author-role{font-size:.7rem;font-weight:600;color:var(--text);line-height:1.25;margin-bottom:8px;border-bottom:1px solid #e1dfdd;padding-bottom:6px;}
+    .author-links{display:flex;flex-direction:column;gap:5px;}
+    .author-links a{font-size:.72rem;color:var(--pbi-blue);text-decoration:none;font-weight:600;display:flex;align-items:center;gap:4px;transition:color .15s;}
+    .author-links a:hover{color:var(--pbi-navy);text-decoration:underline;}
 
     .canvas{flex:1;padding:14px;overflow-y:auto;display:flex;flex-direction:column;gap:12px;}
 
@@ -404,6 +413,17 @@
     <div class="tab" onclick="go('productivity',this)"><span>⚡</span> Rep Productivity</div>
     <div class="tab" onclick="go('simulator',this)"><span>🎛️</span> 7% Growth Simulator</div>
     <div class="tab" onclick="go('map',this)"><span>🌐</span> Geographic Heat Map</div>
+    
+    <!-- Beautiful Author Card -->
+    <div class="sb-author">
+      <div class="author-title">Author</div>
+      <div class="author-name">Saurabh Shidhore</div>
+      <div class="author-role">Project Manager | BA<br>AI Practitioner</div>
+      <div class="author-links">
+        <a href="https://www.linkedin.com/in/saurabhshidhore/" target="_blank">🔗 LinkedIn</a>
+        <a href="https://github.com/Aitools-guru" target="_blank">💻 GitHub</a>
+      </div>
+    </div>
   </nav>
 
   <main class="canvas">

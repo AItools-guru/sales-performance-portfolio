@@ -292,4 +292,16 @@ python3 data/generate_salesforce_data.py
 
 <div align="center">
 <i>Built as a professional portfolio case study for Apex B2B Solutions ISO Division — demonstrating Salesforce + Power BI analytics, Python dataset generation, and data-driven growth planning.</i>
+
+<br />
+
+---
+
+### 👨‍💻 Author
+
+**Saurabh Shidhore**  
+*Project Manager | Business Analyst | AI Practitioner*
+
+👉 **[Connect on LinkedIn](https://www.linkedin.com/in/saurabhshidhore/)** &nbsp;|&nbsp; 💻 **[Follow on GitHub](https://github.com/Aitools-guru)**
+
 </div>
