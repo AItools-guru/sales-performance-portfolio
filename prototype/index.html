@@ -2668,6 +2668,19 @@ function resetSim(){
 
 simulate();
 applyFilters();
+
+// Hash-based routing for tab navigation
+const routeHash = window.location.hash.substring(1);
+if (routeHash) {
+  const tabIdxMap = { exec: 0, funnel: 1, productivity: 2, simulator: 3, map: 4 };
+  const idx = tabIdxMap[routeHash];
+  if (idx !== undefined) {
+    const tabs = document.querySelectorAll('.sidebar .tab');
+    if (tabs[idx]) {
+      go(routeHash, tabs[idx]);
+    }
+  }
+}
 </script>
   <!-- Floating Heatmap Tooltip -->
   <div id="heatmap-tooltip" style="position: absolute; display: none; background: rgba(25, 25, 25, 0.96); color: #FFF; padding: 12px; border-radius: 6px; font-size: 0.74rem; z-index: 1000; pointer-events: none; box-shadow: 0 5px 18px rgba(0,0,0,0.35); border-left: 4px solid var(--pbi-yellow); min-width: 240px; line-height: 1.4; transition: opacity 0.1s ease;">

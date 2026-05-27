@@ -11,7 +11,7 @@
 [![SQL](https://img.shields.io/badge/SQL-Data_Modeling-4479A1?style=for-the-badge&logo=postgresql&logoColor=white)](https://en.wikipedia.org/wiki/SQL)
 [![DAX](https://img.shields.io/badge/DAX-Time_Intelligence-orange?style=for-the-badge)](https://learn.microsoft.com/en-us/dax/)
 [![Python](https://img.shields.io/badge/Python-Data_Generation-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
-[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-107C41?style=for-the-badge&logo=github&logoColor=white)](https://aitools-guru.github.io/sales-performance-dashboard/prototype/)
+[![Live Demo](https://img.shields.io/badge/Live_Demo-GitHub_Pages-107C41?style=for-the-badge&logo=github&logoColor=white)](https://aitools-guru.github.io/sales-performance-portfolio/prototype/)
 
 </div>
 
@@ -61,7 +61,7 @@ Apex B2B Solutions operates a ~**$856M/year** Internal Sales Organization (ISO) 
 
 > **Try the live dashboard directly in your browser — no installation needed.**
 
-🔗 **[Open Interactive Dashboard →](https://aitools-guru.github.io/sales-performance-dashboard/prototype/)**
+🔗 **[Open Interactive Dashboard →](https://aitools-guru.github.io/sales-performance-portfolio/prototype/)**
 
 The dashboard is a fully functional **Power BI-style prototype** with:
 - ✅ **5 Report Pages** navigable via sidebar tabs
@@ -81,6 +81,10 @@ Real Apex revenue data: $856M ISO baseline, 3% stagnant growth, 7% target gap of
 An opportunity funnel dashboard extracted directly from Salesforce CRM. Visualizes the exact Hunter stages: Prospecting (100%), Qualification (68%), and Proposal (45% - with the critical 33% pricing approval leak highlighted), Negotiation (22%), and Closed Won (12%).
 <img src="./assets/dashboard_funnel_leakage.png" alt="Salesforce Funnel Leakage Analysis" width="100%">
 
+### ⚡ Page 3 — Rep Productivity & Pipeline Velocity
+A productivity scorecard and velocity audit page. Tracks weekly outbound call metrics, logged meetings, opportunity pipelines, and Days-to-Close stages for Hunters vs. Farmers to highlight performance and coaching gaps.
+<img src="./assets/dashboard_rep_productivity.png" alt="Rep Productivity Dashboard" width="100%">
+
 ### 🎛️ Page 4 — 7% Growth Simulator
 Drag sliders across 4 levers. The bar chart and all KPIs update live. A green success banner fires the moment you reach the 7% target.
 <img src="./assets/dashboard_simulator.png" alt="Growth Simulator" width="100%">
@@ -89,6 +93,7 @@ Drag sliders across 4 levers. The bar chart and all KPIs update live. A green su
 Includes two interactive maps integrated on a single page with custom sub-tabs:
 1. **🗺️ Apex Divisions Heat Map**: Renders Apex's 5 regional territories with coordinate pulsing hotspots (Seattle, LA, Denver, Houston, Miami, Boston).
 2. **🌐 50-State Operations Map**: Renders all 50 US states vector path highlights dynamically with mouse-follow tooltips and direct clicks for corporate nodes (Boca Raton HQ, logistics hubs in Chicago, LA, Dallas, NY, Seattle, Atlanta).
+<img src="./assets/dashboard_geographic_map.png" alt="Geographic Heat Map Dashboard" width="100%">
 
 ---
 
@@ -143,7 +148,7 @@ graph TD
 ## 📁 Repository Structure
 
 ```
-sales-performance-dashboard/
+sales-performance-portfolio/
 │
 ├── prototype/
 │   └── index.html              ← 🔴 LIVE INTERACTIVE DASHBOARD (open this!)
