@@ -19,16 +19,18 @@
 
 ---
 
-# 🚀 Portfolio Showcase: Analytics Lead, AI Engineer, & Product/Project Manager Case Study
+# 🚀 Portfolio Showcase: B2B Enterprise Cross-Functional Case Study
 
-This interactive project demonstrates a cross-disciplinary, end-to-end solution designed to solve stagnant revenue growth at **Apex B2B Solutions**. It highlights core capabilities across four major career trajectories:
+This interactive project demonstrates a cross-disciplinary, end-to-end solution designed to solve stagnant B2B revenue growth. It is structured specifically to showcase modern, data-driven leadership capabilities across major career trajectories:
 
-| Target Role | Key Capabilities Demonstrated | Applied Core Technologies |
+| Target Role | Key Capabilities Demonstrated | Applied Methodology & Tooling |
 |:---|:---|:---|
-| **📊 Analytics Lead** | Designed complex data modeling (Star Schema facts/dimensions) and **DAX time-intelligence formulas** to calculate win rates, pipeline velocity, and multi-dimensional YoY growths across slicers. | Power BI · DAX · SQL · Excel Data Modeling |
-| **🤖 AI Engineer & Developer** | Implemented an interactive client-side **What-If simulation engine** dynamically driven by continuous vector coordinates, custom responsive SVGs, and automated calculation models. | JavaScript · HTML5 · CSS3 · Chart.js |
-| **💡 Product & Project Manager** | Structured the entire project using a rigorous **Agile workflow**, prioritizing high-impact business requirements (Proposal Stage pricing bottleneck) and translating them into dynamic user experiences. | Agile Methods · Requirements Definition · UI/UX Design |
-| **📈 Business Analyst** | Analyzed actual B2B operational records (~$856M TTM ISO revenue) to identify a critical **33% proposal stage leak** (caused by a 52-day pricing delay) and developed a 4-lever strategy to bridge the $34.2M gap. | Revenue Operations · CRM Funnel Audits · Case Studies |
+| **💡 Project & Product Manager** | Authored the project roadmap and led the development lifecycle. Managed timeline, scope, and cross-functional team alignment to deliver a high-impact dashboard answering strategic executive priorities. | Project Roadmaps · Scope Definition · Stakeholder Alignment |
+| **📈 Business Analyst** | Audited Salesforce CRM records (~$856M baseline) to identify a **33% Proposal Stage leak** caused by a 52-day approval bottleneck. Formulated a 4-lever strategic model to bridge the $34.2M revenue gap. | RevOps · Opportunity Funnel Analysis · Case Studies |
+| **📋 Product Owner** | Defined the product vision, created user stories, and prioritized the backlog. Translated executive business requirements into functional slicers, dynamic KPIs, and the interactive simulator engine. | Backlog Grooming · User Stories · Requirements Engineering |
+| **🌐 Supply Chain & Operations Manager** | Modeled geographic distribution networks, regional director alignments, account density, and logistics hubs (Florida HQ, major logistics nodes in Chicago, LA, Dallas). Audited cross-sell operations for non-core adjacency categories (Cleaning, Furniture, Tech). | Distribution Logistics · Operational Metrics · Network Mapping |
+| **⏱️ Scrum Master** | Facilitated Agile rituals (Sprint Planning, Daily Scrums, Retrospectives). Removed structural operational blockers (the 52-day proposal approval bottleneck) to accelerate pipeline velocity. | Scrum Framework · Agile Metrics · Process Optimization · SDLC |
+| **📊 Analytics Lead** | Designed the Star Schema database models and authored robust **DAX time-intelligence metrics** to calculate multi-dimensional YoY growths, win rates, and pipeline velocity. | Power BI · DAX · SQL · Star Schema Data Modeling |
 
 ---
 
