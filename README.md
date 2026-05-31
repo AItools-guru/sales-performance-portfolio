@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="./assets/banner.png" alt="Sales Performance Dashboard Banner" width="100%">
+<img src="./assets/social_preview.png" alt="Sales Performance Dashboard Banner" width="100%">
 
 # Apex B2B Solutions — ISO Sales Performance Dashboard 📊
 
